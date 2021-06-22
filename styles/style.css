@@ -1,0 +1,339 @@
+/*define CSS Variables to be modified by JavaScript*/
+:root {
+    --currentBgCodeColor: #283142;
+    --currentFontCodeColor: #0d904f;
+    --oppositeBgCodeColor: #f1f3f4;
+    --oppositeFontCodeColor: #5888AD;
+    --currentFontColor: #5888AD;
+    --currentFontDescColor: #4dd0e1;
+    --oppositeFontDescColor: #3b78e7;
+    --currentCommentColor: #d81b60;
+    --currentBgSdColor: rgb(0,0,0,.3);
+    --currentBgSdGradColor: linear-gradient(90deg, rgb(0,0,0,.3) 0%, rgb(0,0,0,.3) 40%, rgba(0,0,0,0) 100%);
+    --oppositeBgSdColor: rgb(40,49,66,1);
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+body{
+    background: var(--currentBgCodeColor);
+    font-family: Monolisa;
+    color: var(--currentFontCodeColor);
+    user-select: none;
+    transition: .3s;
+    overflow-x: hidden;
+    overflow-y:unset;
+}
+
+img {
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+    user-drag: none;
+}
+
+.themeBtn{
+    position: fixed;
+    z-index: 100;
+    bottom: 1%;
+    left: .5%;
+    background: var(--oppositeBgCodeColor);
+    border-radius: 100px;
+    box-shadow: 5px 5px 5px rgb(0,0,0,.3);
+    justify-content: center;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    padding: 7px;
+    margin: .1em;
+    transition: .3s;
+}
+
+#scrollTopBtn{
+    position: fixed;
+    z-index: 100;
+    bottom: 1%;
+    right: .5%;
+    background: var(--oppositeBgCodeColor);
+    border-radius: 100px;
+    box-shadow: 5px 5px 5px rgb(0,0,0,.3);
+    justify-content: center;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 25px;
+    margin: .1em;
+    transition: .3s;
+}
+
+.btn{
+    outline: none;
+    border: none;
+    background: none;
+    border-radius: 100px;
+    font-size: 25px;
+    margin: .1em;
+    cursor: pointer;
+    color: var(--oppositeFontCodeColor);
+    transition: .3s;
+}
+
+.btn:hover{
+    color: var(--currentFontCodeColor);
+}
+
+#title{
+    background: var(--currentBgSdColor);
+    padding: 10px 7px;
+    border-radius: 10px;
+    font-size: 30px;
+    width: 300px;
+    margin-top: 1em;
+}
+
+#desc{
+    text-align: center;
+    font-size: 70px;
+    font-weight: bold;
+    margin-top: .1em;
+    color: var(--currentFontColor);
+    font-family: Montserrat;
+}
+
+#descCaret {
+    border-right: .05em solid;
+    animation: caret 1s steps(1) infinite;
+  }
+  
+@keyframes caret {
+    50% {
+        border-color: transparent;
+    }
+}
+
+#socialDiv{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+#socialDiv div{
+    margin: 1em;
+}
+
+#socialDiv div span{
+    font-size: 30px;
+}
+
+#socialDiv div span a{
+    font-size: 40px;
+    text-decoration: none;
+    color: var(--currentFontCodeColor); 
+    transition: .3s;
+}
+
+.test{
+    height:1000px;
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+}
+    
+::-webkit-scrollbar-track {
+    border: none;
+    background: none;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--currentFontColor);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #488AC7;  
+}
+
+.progressBar{
+    background-color: var(--currentFontCodeColor);
+    color: var(--currentBgCodeColor);
+    font-size: 15px;
+}
+
+.progress-bar{
+    font-size: 15px;
+}
+
+.section{
+    position: relative;
+    width: 100vw;
+    left: 0;
+    right: 0;
+}
+
+.sectionHeader{
+    background: var(--currentBgSdGradColor);
+    font-size: 50px;
+    color: var(--currentFontCodeColor);
+    width: 100vw;
+}
+
+.subsectionHeader{
+    background: var(--currentBgSdGradColor);
+    font-size: 35px;
+    color: var(--currentCommentColor);
+    width: 100vw;
+}
+
+#programmingDiv{
+    margin: 1em;
+}
+
+.progressBarDiv{
+    margin: .2em;
+}
+
+.progressBarDivBot{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    opacity: .9;
+}
+
+.wrapper {
+    height: 100%;
+    line-height: 1.5;
+    word-spacing: 4px;
+    letter-spacing: 1px;
+}
+  
+.fixed-bg {
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    height: 600px; 
+    color: white;
+    text-align: center;
+    display: table;
+    border-radius: 5px;
+    position: sticky;
+    z-index: 99;
+    width: 100vw;
+}
+
+.fixed-bg h1 {
+    display: table-cell;
+    vertical-align: middle;
+    color: #fff;
+    font-family: Montserrat;
+    font-weight: bold;
+}
+
+.scroll-bg {
+    padding: 10px 70px;
+    color: var(--currentFontCodeColor);
+}
+
+.scroll-bg p{
+    color: var(--currentFontDescColor);
+}
+
+.bg-1 {
+    background-image: url("/././images/chemistlab.png");
+}
+
+.bg-2 {
+    background-image: url("/././images/myonlinestore.png");
+}
+
+.bg-3 {
+    background-image: url("https://static.borngroup.com/uploads/2020/09/run-730x0-c-default.jpg");
+}
+
+.projectImg{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--oppositeBgCodeColor);
+    border-radius: 30px;
+    padding: 10px 5px;
+    box-shadow: 5px 5px 5px rgb(0,0,0,.3);
+    margin: .2em;
+    width: 200px;
+}
+
+.projectImg img{
+    width: 100px;
+}
+
+.projectImg span{
+    color: var(--oppositeFontCodeColor);
+}
+
+.projectType{
+    color: var(--currentCommentColor);
+}
+
+.link{
+    text-decoration: none;
+    color: var(--currentFontCodeColor);
+}
+
+.link:hover{
+    text-decoration: underline;
+    color: var(--currentFontCodeColor);
+}
+
+.projectDiv{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--oppositeBgCodeColor);
+    padding: 20px;
+    box-shadow: 5px 5px 5px rgb(0,0,0,.3);
+    margin: .6em;
+}
+
+.projectDiv span{
+    color: var(--oppositeFontCodeColor);
+}
+
+.projectDiv img{
+    width: 50px;
+}
+
+.stickyHeader{
+    background: var(--oppositeBgCodeColor);
+    position: fixed;
+    z-index: 100;
+    top: -10px;
+    width: 100%;
+    padding: 10px;
+    opacity: 0;
+    transition: .3s;
+}
+
+.stickyHeader:hover{
+    top: 0px;
+    opacity: 1;
+}
+
+.stickyHeader a{
+    padding: 10px;
+    text-decoration: none;
+    color: var(--oppositeFontCodeColor);
+    background: transparent;
+}
+
+.stickyHeader a:hover{
+    text-decoration: underline;
+}
+
+

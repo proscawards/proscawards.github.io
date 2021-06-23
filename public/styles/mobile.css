@@ -1,0 +1,37 @@
+@media screen and (max-width: 768px) {
+    .fixed-bg{
+        display: none;
+    }
+
+    #title{
+        font-size: 25px;    
+        width: 35vh;
+        margin-top: 10em;
+        margin-bottom: 10em;
+        transform: scale(1);
+        transition: .3s;
+    }
+
+    #desc{
+        transition: .3s;
+        font-size: 30px;
+    }
+
+    #lightThemeBtn, #darkThemeBtn{
+        position: fixed;
+        z-index: 100;
+        bottom: 1%;
+        left: .5%;
+        background: var(--oppositeBgCodeColor);
+        border-radius: 100px;
+        box-shadow: 5px 5px 5px rgb(0,0,0,.3);
+        justify-content: center;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+        margin: .1em;
+        transition: .3s;
+        opacity: .5;
+    }
+}

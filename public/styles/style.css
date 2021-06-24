@@ -329,20 +329,45 @@ img {
     border: 1px dotted var(--oppositeFontCodeColor);
     transition: .3s;
     transform: scale(1.0);
+    cursor: pointer;
 }
 
-
 .projectDiv:hover, .projectDiv:focus{
-    transform: scale(1.01);
-    background: var(--oppositeBgCodeColor);
     border: 1px dotted var(--currentFontCodeColor);
 }
 
 .projectDiv span{
     color: var(--oppositeFontCodeColor);
+    transition: .3s;
+}
+
+.projectDiv:hover span, .projectDiv:focus span{
+    color: var(--currentCommentColor);
 }
 
 .projectDiv img{
+    width: 50px;
+}
+
+.projectDiv-disabled{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--currentBgCodeColor);
+    padding: 20px;
+    box-shadow: 5px 5px 5px rgb(0,0,0,.3);
+    margin: 0;
+    border: 1px dotted var(--oppositeFontCodeColor);
+    transition: .3s;
+    transform: scale(1.0);
+}
+
+.projectDiv-disabled span{
+    color: var(--oppositeFontCodeColor);
+    transition: .3s;
+}
+
+.projectDiv-disabled img{
     width: 50px;
 }
 
@@ -413,4 +438,82 @@ img {
     padding: 10px;
     opacity: 1;
     transition: .3s;
+}
+
+/* common */
+.ribbon {
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    position: absolute;
+    transform: scale(.7);
+  }
+  .ribbon::before,
+  .ribbon::after {
+    position: absolute;
+    z-index: -1;
+    content: '';
+    display: block;
+    border: 5px solid var(--oppositeBgCodeColor);
+  }
+  .ribbon span {
+    position: absolute;
+    display: block;
+    width: 225px;
+    padding: 5px 0;
+    background-color: var(--oppositeBgCodeColor);
+    color: var(--oppositeFontCodeColor);
+    box-shadow: 0 5px 10px rgba(0,0,0,.3);
+    font: 700 'Lato', sans-serif;
+    text-shadow: 0 1px 1px rgba(0,0,0,.2);
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 25px;
+  }
+  
+  /* top right*/
+  .ribbon-top-right {
+    top: -30px;
+    right: -30px;
+  }
+  .ribbon-top-right::before,
+  .ribbon-top-right::after {
+    border-top-color: transparent;
+    border-right-color: transparent;
+  }
+  .ribbon-top-right::before {
+    top: 0;
+    left: 0;
+  }
+  .ribbon-top-right::after {
+    bottom: 0;
+    right: 0;
+  }
+  .ribbon-top-right span {
+    left: -25px;
+    top: 30px;
+    transform: rotate(45deg);
+  }
+
+#showcaseModal{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0;
+    padding: 0;
+    z-index: 101;
+}
+
+#mobileFooter{
+    margin-top: 5em;
+}
+
+.mobileSectionHeader{
+    background: var(--currentBgSdGradColor);
+    font-size: 20px;
+    color: var(--currentFontCodeColor);
+    width: 100vw;
+    padding: 20px;
 }

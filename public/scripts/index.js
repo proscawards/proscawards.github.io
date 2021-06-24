@@ -116,7 +116,7 @@ $(window).scroll(function() {
     else {
       if (window.matchMedia('(max-width: 768px)').matches){
         $("#title").css("transform", "scale(1)");
-        $("#title").css("margin-top", "13em");
+        $("#title").css("margin-top", "10em");
         $("#title").css("margin-bottom", "12em");
         $("#title").css("font-size", "25px");
         $("#title").css("width", "35vh");
@@ -184,6 +184,27 @@ $("#changeFontBtn").click(function(e){
       $(this).data('id', 0);
       break;   
   }
+});
+
+//Display modal when projectDiv is clicked
+$(".projectDiv").click(function(e){
+  e.preventDefault();
+  var buttonId = $(this).attr('id');
+  $('#modal-container').removeAttr('class').addClass(buttonId);
+  $('body').addClass('modal-active');
+
+});
+
+//When window is resized
+$(document).ready(function(){
+  if (window.matchMedia('(max-width: 768px)').matches){ 
+    $('[data-aos]').parent().addClass('hideOverflowOnMobile');
+    $(document.documentElement).css("--screen-width", screen.width);
+  }
+});
+
+$(window).resize(function() {
+    $(document.documentElement).css("--screen-width", screen.width);
 });
 
 

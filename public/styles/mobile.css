@@ -1,4 +1,19 @@
 @media screen and (max-width: 768px) {
+    :root{
+        --screen-width: 768px;
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        overflow-x: hidden;
+    }
+
+    .hideOverflowOnMobile {
+        overflow: hidden;
+    }
+
     .fixed-bg{
         display: none;
     }
@@ -7,7 +22,7 @@
         font-size: 25px;    
         width: 35vh;
         margin-top: 10em;
-        margin-bottom: 10em;
+        margin-bottom: 12em;
         transform: scale(1);
         transition: .3s;
     }
@@ -33,5 +48,22 @@
         margin: .1em;
         transition: .3s;
         opacity: .5;
+    }
+
+    .section{
+        position: relative;
+        left: 0;
+        right: 0;
+        padding: 0;
+        margin: 0;
+        width: var(--screen-width);
+    }
+    
+    .sectionHeader{
+        font-size: 25px;
+    }
+    
+    .subsectionHeader{
+        font-size: 20px;
     }
 }

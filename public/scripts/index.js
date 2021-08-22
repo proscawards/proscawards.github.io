@@ -207,4 +207,23 @@ $(window).resize(function() {
     $(document.documentElement).css("--screen-width", screen.width);
 });
 
+//Download Resume
+$("#resumeBtn").click(function (e){
+  e.preventDefault();
+  Swal.fire({
+    text: `Do you want to download resume?`,
+    confirmButtonText: "Download",
+    showCancelButton: true
+  }).then(result => {
+    if (result.isConfirmed) {
+      var hiddenElement = document.createElement('a');
+      hiddenElement.href = "public/files/proscawards_resume.pdf";
+      hiddenElement.target = '_blank';
+      hiddenElement.download = "proscawards_resume.pdf";
+      hiddenElement.click();
+      hiddenElement.remove();
+    }
+  });
+})
+
 

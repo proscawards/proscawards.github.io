@@ -158,6 +158,7 @@ img {
     text-decoration: none;
     color: var(--currentFontCodeColor); 
     transition: .3s;
+    cursor: pointer;
 }
 
 .test{
@@ -541,3 +542,4 @@ to {
 #aboutMeDiv div{
     margin: .5em;
 }
+

@@ -66,4 +66,40 @@
     .subsectionHeader{
         font-size: 20px;
     }
+
+    #mobileFooter{
+        display: block;
+    }
+
+    #potrait{
+        width: 200px;
+        height: 200px;
+    }
+
+    #biography{
+        left: 0;
+        right: 0;
+        padding: 0;
+        margin: 0;
+    }
+
+    #bioReadMore, #proj1ReadMore, #proj2ReadMore{
+        display: inline-block;
+    }
+
+    #bioPt1, #bioPt2, #bioPt3, #proj1Txt, #proj2Txt{
+        display: none;
+    }
+
+    .projectImg{
+        width: 70px;
+    }
+
+    .projectImg img{
+        width: 50px;
+    }
+
+    .projectImg span{
+        display: none;
+    }
 }

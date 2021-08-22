@@ -6,7 +6,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous"/>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.1.4/sweetalert2.min.js" integrity="sha512-Lbwer45RtGISU+efaUoil1EFYFliqkKOaZhUMXG8RoZZ5fdjpK4S/2khwZynw8vyItDeaRZ+IE6XdKA6XCsyxQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.1.4/sweetalert2.min.css" integrity="sha512-Ls19wNglxCDcP78k23k5MygHFHAamARZWDggNovFF3XM4nFTgJz28wBM3m76/bqxvaGWvLKwsv/toFoLqhF8Gg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="@sweetalert2/theme-dark/dark.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <link rel="stylesheet" href="public/styles/style.css">
@@ -49,16 +48,18 @@
     <!--About Me-->
     <div class="row col-md-12 section" id="aboutme">
         <div class="col-md-12 sectionHeader" data-aos="fade-right">//About Me</div>
-        <div class="col-md-12" data-aos="zoom-in-right"><span id="aboutMeSpan"></span></div>
-        <div class="row col-md-12" id="aboutMeDiv" data-aos="zoom-in-right">
-            <div class="col-md-5" data-aos="slide-up">
-                <img id="potrait" src="public/images/me.png" />
+        <div class="col-md-12 wrapper">
+            <div class="col-md-12" data-aos="zoom-in-right"><span id="aboutMeSpan"></span></div>
+            <div class="row col-md-12" id="aboutMeDiv" data-aos="zoom-in-right">
+                <div class="col-md-5" data-aos="slide-up">
+                    <img id="potrait" src="public/images/me.png" />
+                </div>
+                <div class="col-md-6" style="text-align: justify" data-aos="fade-left" id="biography">
+                    <span>&emsp;&emsp;Ong Shuoh Chwen is a software engineer who was passionate about graphic design. He has done doodles and sketches artwork since he was young. <a id="bioReadMore">Read more...</a></span><span id="bioPt1">During university life, Ong took on the role of designing the UI of the projects and assignments. Eventually, he got an opportunity to work on web design during one of the subjects. Other than that, he also embarked on the journey of game development during his Final Year Project, where graphic design and various other aspects come in handy.</span><br/><br/>
+                    <span id="bioPt2">&emsp;&emsp;Ong pursues his tertiary study in Bachelor of Computer Science specialized in Software Engineering at Multimedia University, Cyberjaya, Malaysia. He is a hobbyist linguist who found interesting interrelationships between Sino-sphere languages, which are Mandarin, Japanese and Korean. He also spent his free time studying foreign languages, which are Japanese and Korean, in addition to Spanish as well.</span><br/><br/>
+                    <span id="bioPt3">&emsp;&emsp;Ong is currently having his last semester in the university, whilst he is also working on personal projects. Feel free to get in touch with Ong on any of the social media above! </span><a id="bioReadLess">Read less...</a>
+                </div>            
             </div>
-            <div class="col-md-6" style="text-align: justify" data-aos="fade-left">
-                <span>&emsp;&emsp;Ong Shuoh Chwen is a software engineer who was passionate about graphic design. He has done doodles and sketches artwork since he was young. During university life, Ong took on the role of designing the UI of the projects and assignments. Eventually, he got an opportunity to work on web design during one of the subjects. Other than that, he also embarked on the journey of game development during his Final Year Project, where graphic design and various other aspects come in handy.</span><br/><br/>
-                <span>&emsp;&emsp;Ong pursues his tertiary study in Bachelor of Computer Science specialized in Software Engineering at Multimedia University, Cyberjaya, Malaysia. He is a hobbyist linguist who found interesting interrelationships between Sino-sphere languages, which are Mandarin, Japanese and Korean. He also spent his free time studying foreign languages, which are Japanese and Korean, in addition to Spanish as well.</span><br/><br/>
-                <span>&emsp;&emsp;Ong is currently having his last semester in the university, whilst he is also working on personal projects. Feel free to get in touch with Ong on any of the social media above!</span>
-            </div>            
         </div>
     </div>
     <!--Skills-->
@@ -249,10 +250,10 @@
                     </div>
                 </div>
                 </center>
-                <p data-aos="fade-up">A chemistry-themed top-down educational game with a learning analytics dashboard that aimed to teach the user the knowledge of chemistry at the end of the educational gameplay.
-                    Within the game, the user can immerse through different worlds, where each world stands for a single chapter. For each stage, there'll be three ministages for the user to answer in order to complete the stage.
+                <p data-aos="fade-up">A chemistry-themed top-down educational game with a learning analytics dashboard that aimed to teach the user the knowledge of chemistry at the end of the educational gameplay. <a id="proj1ReadMore">Read more...</a>
+                    <span id="proj1Txt">Within the game, the user can immerse through different worlds, where each world stands for a single chapter. For each stage, there'll be three ministages for the user to answer in order to complete the stage.
                     The user would need to collect tips, ask for help or answer directly. As for the dashboard, the dashboard is aimed to improve the user gameplay experience by showing the statistics of the user's individual educational gameplay. 
-                    Based on the statistics of all users, learning effectiveness of the assisting tools of the ministages is calculated based on the data collected from the users.
+                    Based on the statistics of all users, learning effectiveness of the assisting tools of the ministages is calculated based on the data collected from the users. </span><a id="proj1ReadLess">Read less...</a>
                 </p>
             </div>
             <div class="col-md-12 fixed-bg bg-2" data-aos="zoom-out-down">
@@ -300,8 +301,8 @@
                     </div>
                 </div>
                 </center>
-                <p data-aos="fade-up">A fully working responsive e-commerce website built using MVC (Model View Controller) structure, alongside with an admin panel. The website included typical features of an e-commerce website, such as 
-                    product wishlist, product comparison, rating & reviews, coupon, cart, checkout and etc. Source code of the project is available in Github.
+                <p data-aos="fade-up">A fully working responsive e-commerce website built using MVC (Model View Controller) structure, alongside with an admin panel. <a id="proj2ReadMore">Read more...</a><span id="proj2Txt">The website included typical features of an e-commerce website, such as 
+                    product wishlist, product comparison, rating & reviews, coupon, cart, checkout and etc. Source code of the project is available in Github. </span><a id="proj2ReadLess">Read less...</a>
                 </p>
             </div>
         </div>
@@ -438,7 +439,7 @@
     </div>
     <!--Mobile Footer-->
     <div class="row col-md-12 section" id="mobileFooter">
-        <div class="col-md-12 mobileSectionHeader" data-aos="fade-right">//end of file<button type="button" id="scrollTopMobile"><i class="fas fa-angle-double-up"></i></button></div> 
+        <div class="col-md-12 mobileSectionHeader">//end of file<button type="button" id="scrollTopMobile"><i class="fas fa-angle-double-up"></i></button></div> 
     </div>
 </body>
 </html>

@@ -226,4 +226,54 @@ $("#resumeBtn").click(function (e){
   });
 })
 
+//Biography Read More in Mobile
+$("#bioReadMore").click(function (e){
+  e.preventDefault();
+  $(this).hide();
+  $("#bioPt1").show();
+  $("#bioPt2").show();
+  $("#bioPt3").show();
+  $("#bioReadLess").show();
+});
 
+//Project 1 Read More in Mobile
+$("#proj1ReadMore").click(function (e){
+  e.preventDefault();
+  $(this).hide();
+  $("#proj1Txt").show();
+  $("#proj1ReadLess").show();
+});
+
+//Project 2 Read More in Mobile
+$("#proj2ReadMore").click(function (e){
+  e.preventDefault();
+  $(this).hide();
+  $("#proj2Txt").show();
+  $("#proj2ReadLess").show();
+});
+
+//Biography Read Less in Mobile
+$("#bioReadLess").click(function (e){
+  e.preventDefault();
+  $(this).hide();
+  $("#bioPt1").hide();
+  $("#bioPt2").hide();
+  $("#bioPt3").hide();
+  $("#bioReadMore").show();
+});
+
+//Project 1 Read Less in Mobile
+$("#proj1ReadLess").click(function (e){
+  e.preventDefault();
+  $(this).hide();
+  $("#proj1Txt").hide();
+  $("#proj1ReadMore").show();
+});
+
+//Project 2 Read Less in Mobile
+$("#proj2ReadLess").click(function (e){
+  e.preventDefault();
+  $(this).hide();
+  $("#proj2Txt").hide();
+  $("#proj2ReadMore").show();
+});

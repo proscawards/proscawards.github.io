@@ -277,3 +277,14 @@ $("#proj2ReadLess").click(function (e){
   $("#proj2Txt").hide();
   $("#proj2ReadMore").show();
 });
+
+//Show Modal when ProjectDiv is clicked
+$(".projectDiv").click(function (e){
+  e.preventDefault();
+  Swal.fire({
+    showCloseButton: true,
+    showConfirmButton:false,
+    imageUrl: $(this).data('img'),
+    text: $(this).data('name')
+  });
+});

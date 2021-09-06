@@ -99,6 +99,7 @@ img {
 .btn:hover{
     color: var(--currentFontCodeColor);
 }
+
 #changeFontBtn{
     outline: none;
     background: none;
@@ -550,3 +551,118 @@ to {
     display: none;
 }
 
+#countryTable{
+    text-align: center;
+    font-size: 25px;
+}
+
+#socialFooterDiv{
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: left;
+}
+
+#socialFooterDiv div{
+    margin: 0.5em;
+}
+
+#socialFooterDiv div span{
+    font-size: 30px;
+}
+
+#socialFooterDiv div span a{
+    font-size: 40px;
+    text-decoration: none;
+    color: var(--currentFontCodeColor); 
+    transition: .3s;
+    cursor: pointer;
+}
+
+#quickNavDiv{
+    text-align: left;
+    font-size: 20px;
+    margin: 0em .5em;
+}
+
+#quickNavDiv a{
+    text-decoration: none;
+    color: var(--currentFontCodeColor);
+}
+
+#quickNavDiv a:hover{
+    text-decoration: underline;
+}
+
+#logoFooter{
+    margin: 0em .3em;
+    font-size: 30px;
+}
+
+#footerNavDiv{
+    padding: 20px;
+}
+
+#totalVisitorDiv{
+    text-align: center;
+    font-size: 50px;
+}
+
+#logoFooterBtn{
+    outline: none;
+    background: none;
+    border: none;
+    color: var(--currentFontCodeColor);
+    font-size: 40px;
+    text-decoration: underline;
+    text-align: left;
+}
+
+.contactInput{
+    background: none;
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid rgba(0,0,0,.3);
+    border-radius: 0px;
+    padding: 10px;
+    font-size: 20px;
+    outline: none;
+    transition: .3s;
+}
+
+.contactInput:hover, .contactInput:focus{
+    background: rgba(1,1,1,.1);
+    border: none;
+    border-bottom: 1px dotted var(--currentFontCodeColor);
+    border-radius: 10px;
+}
+
+#contactTitle{
+    font-size: 40px;
+}
+
+.contactLbl{
+    font-size: 20px;
+}
+
+#visitorDiv{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--currentBgCodeColor);
+    border-radius: 30px;
+    padding: 10px 5px;
+    box-shadow: 5px 5px 5px rgb(0,0,0,.3);
+    margin: .2em;
+    width: 100%;
+}
+
+#contactDiv{
+    padding: 30px;
+    border-left: 1px dotted var(--currentFontCodeColor);
+}
+
+#footer{
+    background: var(--currentBgSdColor);
+    padding: 50px;
+}

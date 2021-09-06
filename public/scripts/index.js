@@ -156,32 +156,44 @@ $("#scrollTopBtn, #scrollTopMobile").click(function() {
 AOS.init();
 
 //Change content when the button is pressed
-$("#changeFontBtn").click(function(e){
+$("#changeFontBtn, #logoFooterBtn").click(function(e){
   e.preventDefault();
   switch ($(this).data('id')){
     case 0:
-      $(this).text("SC ONG");
-      $(this).data('id', 1);
+      $("#changeFontBtn").text("SC ONG");
+      $("#logoFooterBtn").text("SC ONG");
+      $("#changeFontBtn").data('id', 1);
+      $("#logoFooterBtn").data('id', 1);
       break;
     case 1:
-      $(this).text("Ong Shuoh Chwen");
-      $(this).data('id', 2);
+      $("#changeFontBtn").text("Ong Shuoh Chwen");
+      $("#logoFooterBtn").text("Ong Shuoh Chwen");
+      $("#changeFontBtn").data('id', 2);
+      $("#logoFooterBtn").data('id', 2);
       break;
     case 2:
-      $(this).text("王烁錞");
-      $(this).data('id', 3);
+      $("#changeFontBtn").text("王烁錞");
+      $("#logoFooterBtn").text("王烁錞");
+      $("#changeFontBtn").data('id', 3);
+      $("#logoFooterBtn").data('id', 3);
       break; 
     case 3:
-      $(this).text("왕삭순");
-      $(this).data('id', 4);
+      $("#changeFontBtn").text("왕삭순");
+      $("#logoFooterBtn").text("왕삭순");
+      $("#changeFontBtn").data('id', 4);
+      $("#logoFooterBtn").data('id', 4);
       break;    
     case 4:
-      $(this).text("proscawards");
-      $(this).data('id', 0);
+      $("#changeFontBtn").text("proscawards");
+      $("#logoFooterBtn").text("proscawards");
+      $("#changeFontBtn").data('id', 0);
+      $("#logoFooterBtn").data('id', 0);
       break; 
     default:
-      $(this).text("proscawards");
-      $(this).data('id', 0);
+      $("#changeFontBtn").text("proscawards");
+      $("#logoFooterBtn").text("proscawards");
+      $("#changeFontBtn").data('id', 0);
+      $("#logoFooterBtn").data('id', 0);
       break;   
   }
 });
@@ -197,6 +209,14 @@ $(".projectDiv").click(function(e){
 
 //When window is resized
 $(document).ready(function(){
+  fetch('https://proscawards-portfolio-backend.herokuapp.com/', {
+    method: 'get',
+    headers: {
+        'Content-Type': 'application/json'
+    }
+  });
+  totalVisitor();
+  topCountries();
   if (window.matchMedia('(max-width: 768px)').matches){ 
     $('[data-aos]').parent().addClass('hideOverflowOnMobile');
     $(document.documentElement).css("--screen-width", screen.width);
@@ -208,7 +228,7 @@ $(window).resize(function() {
 });
 
 //Download Resume
-$("#resumeBtn").click(function (e){
+$("#resumeBtn, #resumeBtn1").click(function (e){
   e.preventDefault();
   Swal.fire({
     text: `Do you want to download resume?`,
@@ -288,3 +308,34 @@ $(".projectDiv").click(function (e){
     text: $(this).data('name')
   });
 });
+
+//Show total visitor
+function totalVisitor(){
+  fetch('https://proscawards-portfolio-backend.herokuapp.com/count', {
+    method: 'get',
+    headers: {
+        'Content-Type': 'application/json'
+    }
+  }).then((res) => res.json()
+  ).then((data) => {
+    $("#totalVisitor").text(data.count);
+  });
+}
+
+//Show top 3 countries' visitor
+function topCountries(){
+  fetch('https://proscawards-portfolio-backend.herokuapp.com/country', {
+    method: 'get',
+    headers: {
+        'Content-Type': 'application/json'
+    }
+  }).then((res) => res.json()
+  ).then((data) => {
+    $("#top1CountryImg").attr("src", "https://www.countryflags.io/"+data[0][0]+"/flat/32.png");
+    $("#top1CountryCount").text(data[0][1].count);
+    $("#top2CountryImg").attr("src", "https://www.countryflags.io/"+data[1][0]+"/flat/32.png");
+    $("#top2CountryCount").text(data[1][1].count);
+    $("#top3CountryImg").attr("src", "https://www.countryflags.io/"+data[2][0]+"/flat/32.png");
+    $("#top3CountryCount").text(data[2][1].count);
+  });
+}

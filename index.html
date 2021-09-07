@@ -9,11 +9,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat+Subrayada:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <link rel="stylesheet" href="public/styles/style.css">
     <link rel="stylesheet" href="public/styles/mobile.css">
     <script defer src="public/scripts/index.js"></script>
+    <script defer src="public/scripts/contact.js"></script>
     <meta NAME="viewport" CONTENT="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=3, viewport-fit=cover">
 </head>
 <body>
@@ -386,7 +388,7 @@
                         <img src="https://raw.githubusercontent.com/github/explore/ccc16358ac4530c6a69b1b80c7223cd2744dea83/topics/firebase/firebase.png" title="Firebase" alt="Firebase"/>
                     </div>
                 </div>
-                <div class="col-md-4 projectDiv" data-id="8" data-img="public/images/pdftodocx.png" data-name="Personal Project">
+                <div class="col-md-4 projectDiv" data-id="8" data-img="public/images/portfolio.png" data-name="Personal Project">
                     <div class="col-md-12">
                     <span>Portfolio</span></div>
                     <div class="col-md-12">
@@ -396,6 +398,7 @@
                         <img src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/bootstrap/bootstrap.png" title="Bootstrap" alt="Bootstrap"/>
                         <img src="https://raw.githubusercontent.com/github/explore/ccc16358ac4530c6a69b1b80c7223cd2744dea83/topics/nodejs/nodejs.png" title="Node.js" alt="Node.js"/>
                         <img class="needFilterUEOp" src="public/images/expressjs.png" title="Express.js" alt="Express.js"/>
+                        <img src="public/images/nodemailer.png" title="Nodemailer" alt="Nodemailer"/>
                         <img src="https://raw.githubusercontent.com/github/explore/ccc16358ac4530c6a69b1b80c7223cd2744dea83/topics/firebase/firebase.png" title="Firebase" alt="Firebase"/>
                     </div>
                 </div>
@@ -436,7 +439,7 @@
                         <img src="https://raw.githubusercontent.com/github/explore/ccc16358ac4530c6a69b1b80c7223cd2744dea83/topics/javascript/javascript.png" title="Javascript" alt="Javascript"/>
                     </div>
                 </div>
-                <div class="col-md-3 projectDiv" data-id="13" data-img="public/images/oes.png" data-name="YME Hackathon 2021">
+                <div class="col-md-4 projectDiv" data-id="13" data-img="public/images/oes.png" data-name="Malaysian Students' Technology Week (MSTW) 2021's Hackathon">
                     <div class="col-md-12">
                     <span>Online Election System</span></div>
                     <div class="col-md-12">
@@ -467,10 +470,6 @@
                 <span class="projectType" data-aos="fade-up">PHP Web Developer - Internship</span><br/>
             </div>
         </div>
-    </div>
-    <!--Mobile Footer-->
-    <div class="row col-md-12 section" id="mobileFooter">
-        <div class="col-md-12 mobileSectionHeader">//end of file<button type="button" id="scrollTopMobile"><i class="fas fa-angle-double-up"></i></button></div> 
     </div>
     <!--Footer-->
     <div class="row col-md-12 section" id="footer">
@@ -515,15 +514,21 @@
                 <div class="col-md-8" id="contactDiv">
                     <span id="contactTitle"><i class="fas fa-paper-plane"></i> Contact Me</span><br/>
                     <span class="contactLbl">Full Name</span><br/>
-                    <input type="text" class="contactInput"/><br/><br/>
+                    <input type="text" class="contactInput letterOnly" id="contactName"/><br/><br/>
                     <span class="contactLbl">E-mail</span><br/>
-                    <input type="email" class="contactInput"/><br/><br/>
+                    <input type="email" class="contactInput" id="contactEmail"/><br/><br/>
                     <span class="contactLbl">Message</span><br/>
-                    <textarea type="text" class="contactInput"></textarea><br/>
-                    <button type="submit" class="btn">Submit</button>
+                    <textarea type="text" class="contactInput" id="contactMsg"></textarea><br/>
+                    <button type="submit" class="btn" id="contactSubmit"><span id="contactSubmitLbl">Submit</span>
+                        <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" id="contactThrobber" style="display:none;"></span>
+                    </button>
                 </div>
             </div>
         </div>
+    </div>
+    <!--Mobile Footer-->
+    <div class="row col-md-12 section" id="mobileFooter">
+        <div class="col-md-12 mobileSectionHeader"><button type="button" id="scrollTopMobile">//end of file <i class="fas fa-angle-double-up"></i></button></div> 
     </div>
 </body>
 </html>

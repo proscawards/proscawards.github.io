@@ -102,4 +102,8 @@
     .projectImg span{
         display: none;
     }
+
+    #contactDiv{
+        border-left: 0px dotted var(--currentFontCodeColor);
+    }
 }

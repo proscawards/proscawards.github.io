@@ -680,3 +680,7 @@ to {
 #contactSubmit:hover, #contactSubmit:focus{
     box-shadow: 5px 5px 5px rgb(0,0,0,.3);
 }
+
+#copyright{
+    background: var(--currentBgSdColor);
+}

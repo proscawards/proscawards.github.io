@@ -50,7 +50,7 @@ const cf = new ContactForm(0, false);
 //Contact name on change
 $("#contactName").on('keyup', function (e){
     e.preventDefault();
-    var regex = /^[a-zA-Z\s]+$/;
+    var regex = /^[a-zA-Z]+$/;
     if (regex.test($(this).val())) {
       $(this).css("border-bottom", "1px dotted var(--currentFontCodeColor)");
       cf.resetError();
@@ -95,7 +95,7 @@ $("#contactSubmit").click(function (e){
     var email = $("#contactEmail").val();
     var msg = $("#contactMsg").val();
 
-    if ((/^[a-zA-Z]+$/.test(name) || !name) && (cf.getError() == 0)){
+    if ((cf.getError() == 0)){
       if (!name && !email && !msg){
         Swal.fire({
           icon: "warning",
@@ -192,13 +192,6 @@ $("#contactSubmit").click(function (e){
         xhr.send(JSON.stringify(data));
 
       }
-    }
-    else{
-      Swal.fire({
-        icon: "warning",
-        title: "Full name is invalid! Please verify again.",
-        text: "Should not contain numeric value(s)"
-      })
     }
 });
 

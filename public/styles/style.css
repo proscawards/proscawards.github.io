@@ -105,17 +105,19 @@ img {
     background: none;
     border: none;
     color: var(--currentFontCodeColor);
+    width: 100%;
 }
 
 #title{
     background: var(--currentBgSdColor);
-    padding: 10px;
     border-radius: 10px;
     font-size: 65px;    
     width: 100vh;
-    margin-top: 4em;
-    margin-bottom: 3em;
     transition: .3s;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
 }
 
 #desc{
@@ -382,33 +384,6 @@ img {
     margin: 0;
 }
 
-.stickyHeader{
-    background: var(--oppositeBgCodeColor);
-    position: fixed;
-    z-index: 100;
-    top: -10px;
-    width: 100%;
-    padding: 10px;
-    opacity: 0;
-    transition: .3s;
-}
-
-.stickyHeader:hover{
-    top: 0px;
-    opacity: 1;
-}
-
-.stickyHeader a{
-    padding: 10px;
-    text-decoration: none;
-    color: var(--oppositeFontCodeColor);
-    background: transparent;
-}
-
-.stickyHeader a:hover{
-    text-decoration: underline;
-}
-
 .needFilterUE{
     filter: var(--currentUEFilter);
 }
@@ -636,6 +611,7 @@ to {
 
 #contactTitle{
     font-size: 40px;
+    transition: .3s;
 }
 
 .contactLbl{
@@ -683,4 +659,20 @@ to {
 
 #copyright{
     background: var(--currentBgSdColor);
+    text-align: center;
+    justify-content: center;
+    font-size: 15px;
+    width: 100vw;
+    transition: .3s;
+}
+
+#owl{
+    width: 70px;
+}
+
+#titleWrapper{
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    transition: .3s;
 }

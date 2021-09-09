@@ -1,3 +1,6 @@
+//Declare storage class
+const storage = new Storage();
+
 //Manipulating the theme and font color
 $("#lightThemeBtn").click(function(e){
     e.preventDefault();
@@ -96,41 +99,26 @@ $(window).scroll(function() {
     // if user scrolls down - show scroll to top button
     if (topPos > 50) {
       if (window.matchMedia('(max-width: 768px)').matches){
-        $("#title").css("transform", "scale(.6)");
-        $("#title").css("margin-top", "10em");
-        $("#title").css("margin-bottom", "1em");
-        $("#title").css("font-size", "25px");
-        $("#title").css("width", "35vh");
-        $("#desc").css("margin-top", ".1em");
+        $("#title").css("width", "35vw");
+        $("#title").css("top", "90%");
       }
       else{
-        $("#title").css("margin-top", "10em");
-        $("#title").css("margin-bottom", "3em");
-        $("#title").css("font-size", "30px");
-        $("#title").css("width", "35vh");
-        $("#scrollTopBtn").fadeIn("slow");
+        $("#title").css("width", "100vh");
+        $("#title").css("top", "90%");
       }
       $(".themeBtn").fadeIn("slow");
-      $(".stickyHeader").fadeIn("slow");
     } 
     else {
       if (window.matchMedia('(max-width: 768px)').matches){
-        $("#title").css("transform", "scale(1)");
-        $("#title").css("margin-top", "10em");
-        $("#title").css("margin-bottom", "12em");
-        $("#title").css("font-size", "25px");
-        $("#title").css("width", "35vh");
+        $("#title").css("width", "35vw");
+        $("#title").css("top", "50%");
       }
       else{
-        $("#title").css("transform", "scale(1)");
-        $("#title").css("margin-top", "4em");
-        $("#title").css("margin-bottom", "3em");
-        $("#title").css("font-size", "70px");
         $("#title").css("width", "100vh");
+        $("#title").css("top", "50%");
         $("#scrollTopBtn").fadeOut("slow");
       }
       $(".themeBtn").fadeOut("slow");
-      $(".stickyHeader").fadeOut("slow");
     }
 
     if (window.matchMedia('(max-width: 768px)').matches){
@@ -158,6 +146,7 @@ AOS.init();
 //Change content when the button is pressed
 $("#changeFontBtn, #logoFooterBtn").click(function(e){
   e.preventDefault();
+  const owl = '<svg id="owl" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><defs><style>.cls-1{fill:#a06530;}.cls-2{fill:#d8db97;}.cls-3{fill:#fff;}</style></defs><path class="cls-1" d="M117.48,191c-1.59,0-33.65,0-34.44,0-36.48,0-65.3-44-49.1-92.17C45.26,65.16,45.26,47.49,45.26,47.49l-4-38.67C50.72,29.87,66,43.73,85.06,47.49c6.16.81,11.9,0,14.94,0,7,0,13.73,0,20,.41.71,0,1.44-.12,2.17-.22C141.28,43.92,156.56,30.06,166.06,9l-4,38.67S163,65.05,173.34,99C188.27,147.83,153.17,191.31,117.48,191Z"/><path class="cls-2" d="M151.2,178.18c-16.8,19.94-83.4,19.58-99.36.8L70.52,80.79H131.8Z"/><circle class="cls-3" cx="72.99" cy="80.79" r="19.95"/><circle class="cls-3" cx="129.38" cy="80.79" r="19.95"/><circle cx="80.67" cy="74.91" r="7.2"/><circle cx="122.18" cy="74.91" r="7.2"/></svg>';
   switch ($(this).data('id')){
     case 0:
       $("#changeFontBtn").text("SC ONG");
@@ -182,8 +171,14 @@ $("#changeFontBtn, #logoFooterBtn").click(function(e){
       $("#logoFooterBtn").text("왕삭순");
       $("#changeFontBtn").data('id', 4);
       $("#logoFooterBtn").data('id', 4);
-      break;    
+      break;  
     case 4:
+        $("#changeFontBtn").html(owl+owl+owl);
+        $("#logoFooterBtn").html(owl+owl+owl);
+        $("#changeFontBtn").data('id', 5);
+        $("#logoFooterBtn").data('id', 5);
+        break; 
+    case 5:
       $("#changeFontBtn").text("proscawards");
       $("#logoFooterBtn").text("proscawards");
       $("#changeFontBtn").data('id', 0);
@@ -209,14 +204,19 @@ $(".projectDiv").click(function(e){
 
 //When window is resized
 $(document).ready(function(){
-  fetch('https://proscawards-portfolio-backend.herokuapp.com/', {
-    method: 'get',
-    headers: {
-        'Content-Type': 'application/json'
-    }
-  });
-  totalVisitor();
-  topCountries();
+  if (storage.length == 0){
+    fetch('https://proscawards-portfolio-backend.herokuapp.com/', {
+      method: 'get',
+      headers: {
+          'Content-Type': 'application/json'
+      }
+    });
+    topCountries();
+    totalVisitor();
+  }
+  else{
+    storageUnpacker();
+  }
   if (window.matchMedia('(max-width: 768px)').matches){ 
     $('[data-aos]').parent().addClass('hideOverflowOnMobile');
     $(document.documentElement).css("--screen-width", screen.width);
@@ -318,7 +318,12 @@ function totalVisitor(){
     }
   }).then((res) => res.json()
   ).then((data) => {
-    $("#totalVisitor").text(data.count);
+    var count = data.count;
+    if (storage.getVisitorCount() != null){
+      count = storage.getVisitorCount();
+    }
+    storage.setVisitorCount(count);
+    $("#totalVisitor").text(count);
   });
 }
 
@@ -330,7 +335,12 @@ function topCountries(){
         'Content-Type': 'application/json'
     }
   }).then((res) => res.json()
-  ).then((data) => {
+  ).then((dt) => {
+    var data = dt;
+    if (storage.getVisitorCountry() != null){
+      data = storage.getVisitorCountry();
+    }
+    storage.setVisitorCountry(data);
     $("#top1CountryImg").attr("src", "https://www.countryflags.io/"+data[0][0]+"/flat/32.png");
     $("#top1CountryCount").text(data[0][1].count);
     $("#top2CountryImg").attr("src", "https://www.countryflags.io/"+data[1][0]+"/flat/32.png");
@@ -338,4 +348,18 @@ function topCountries(){
     $("#top3CountryImg").attr("src", "https://www.countryflags.io/"+data[2][0]+"/flat/32.png");
     $("#top3CountryCount").text(data[2][1].count);
   });
+}
+
+//Load From Storage
+function storageUnpacker(){
+  var data = data = storage.getVisitorCountry();
+  $("#top1CountryImg").attr("src", "https://www.countryflags.io/"+data[0][0]+"/flat/32.png");
+  $("#top1CountryCount").text(data[0][1].count);
+  $("#top2CountryImg").attr("src", "https://www.countryflags.io/"+data[1][0]+"/flat/32.png");
+  $("#top2CountryCount").text(data[1][1].count);
+  $("#top3CountryImg").attr("src", "https://www.countryflags.io/"+data[2][0]+"/flat/32.png");
+  $("#top3CountryCount").text(data[2][1].count);
+
+  var count = storage.getVisitorCount();
+  $("#totalVisitor").text(count);
 }

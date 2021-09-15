@@ -190,6 +190,12 @@ img {
     background-color: var(--currentFontCodeColor);
     color: var(--currentBgCodeColor);
     font-size: 15px;
+    align-content: center;
+    justify-content: center;
+}
+
+.progressBar .progressBarDivIcon{
+    margin-top : .15em;
 }
 
 .progress-bar{
@@ -225,6 +231,9 @@ img {
 
 .progressBarDiv{
     margin: .2em;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
 }
 
 .progressBarDivBot{
@@ -327,6 +336,7 @@ img {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     background: var(--currentBgCodeColor);
     padding: 20px;
     box-shadow: 5px 5px 5px rgb(0,0,0,.3);
@@ -358,6 +368,7 @@ img {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     background: var(--currentBgCodeColor);
     padding: 20px;
     box-shadow: 5px 5px 5px rgb(0,0,0,.3);
@@ -500,6 +511,12 @@ img {
     box-shadow: 0px 0px 1px 1px var(--oppositeFontCodeColor);
     animation: glow 1.5s linear infinite alternate;
     z-index: 50;
+}
+
+#potraitDiv{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 @keyframes glow{
@@ -674,5 +691,15 @@ to {
     width: 100vw;
     height: 100vh;
     position: relative;
+    transition: .3s;
+}
+
+.progressBarDivIcon{
+    display: none;
+    transition: .3s;
+}
+
+.progressBarDivText{
+    display: block;
     transition: .3s;
 }

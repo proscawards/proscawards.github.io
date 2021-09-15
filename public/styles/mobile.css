@@ -30,7 +30,7 @@
     #title{
         background: var(--currentBgSdColor);
         border-radius: 10px;
-        font-size: 20px;    
+        font-size: 13px;    
         width: 35vw;
         transition: .3s;
         position: absolute;
@@ -132,5 +132,13 @@
 
     #owl{
         width: 30px;
+    }
+
+    .progressBarDivIcon{
+        display: block;
+    }
+
+    .progressBarDivText{
+        display: none;
     }
 }

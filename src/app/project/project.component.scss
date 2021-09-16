@@ -1,0 +1,77 @@
+@mixin center-component {
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+}
+
+#proj1ReadMore, #proj2ReadMore, #proj1ReadLess, #proj2ReadLess{
+    text-decoration: underline;
+    display: none;
+    @media screen and (max-width: 768px) {
+        display: inline-block;
+    }
+}
+
+#proj1Txt, #proj2Txt{
+    @media screen and (max-width: 768px) {
+        display: none;       
+    }
+}
+
+.projectImg{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--oppositeBgCodeColor);
+    border-radius: 30px;
+    padding: 10px 5px;
+    box-shadow: var(--defaultBoxShadow);
+    margin: .2em;
+    width: 200px;
+    text-align: center;
+    @include center-component();
+    @media screen and (max-width: 768px) {
+        width: 70px;
+    }
+
+    & img{
+        width: 100px;
+        @media screen and (max-width: 768px) {
+            width: 50px;
+        }
+    }
+    
+    & span{
+        color: var(--oppositeFontCodeColor);
+        display: inline-block;
+        @media screen and (max-width: 768px) {
+            display: none;
+        }
+    }
+}
+
+.projectType{
+    color: var(--currentCommentColor);
+}
+
+.link{
+    text-decoration: none;
+    color: var(--currentFontCodeColor);
+
+    &:hover{
+        text-decoration: underline;
+        color: var(--currentFontCodeColor);
+    }
+}
+
+.progressBarDivBot{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    opacity: .9;
+}
+
+.progress-bar{
+    font-size: 15px;
+}
+

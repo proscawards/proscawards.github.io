@@ -1,0 +1,102 @@
+:root {
+    --currentBgCodeColor: #283142;
+    --currentFontCodeColor: #0d904f;
+    --oppositeBgCodeColor: #f1f3f4;
+    --oppositeFontCodeColor: #5888AD;
+    --currentFontColor: #5888AD;
+    --currentFontDescColor: #4dd0e1;
+    --oppositeFontDescColor: #3b78e7;
+    --currentCommentColor: #d81b60;
+    --currentBgSdColor: rgb(0,0,0,.3);
+    --currentBgSdGradColor: linear-gradient(90deg, rgb(0,0,0,.3) 0%, rgb(0,0,0,.3) 40%, rgba(0,0,0,0) 100%);
+    --oppositeBgSdColor: rgb(40,49,66,1);
+    --currentUEFilter: invert(0%);
+    --oppositeUEFilter: invert(100%);
+    @media screen and (max-width: 768px) {
+        --screen-width: 768px;
+    }
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
+
+body{
+    background: var(--currentBgCodeColor);
+    font-family: 'Monolisa';
+    color: var(--currentFontCodeColor);
+    user-select: none;
+    transition: .3s;
+    overflow-x: hidden;
+}
+
+img {
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+}
+
+#lightThemeBtn, #darkThemeBtn{
+    position: fixed;
+    z-index: 100;
+    bottom: 1%;
+    left: .5%;
+    background: var(--oppositeBgCodeColor);
+    border-radius: 100px;
+    box-shadow: var(--defaultBoxShadow);
+    justify-content: center;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    margin: .1em;
+    transition: .3s;
+    @media screen and (max-width: 768px) {
+        padding: 10px;
+    }
+}
+
+#scrollTopBtn{
+    position: fixed;
+    z-index: 100;
+    bottom: 1%;
+    right: .5%;
+    background: var(--oppositeBgCodeColor);
+    border-radius: 100px;
+    box-shadow: var(--defaultBoxShadow);
+    justify-content: center;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 25px;
+    margin: .1em;
+    transition: .3s;
+}
+
+#scrollTopMobile{
+    outline:none;
+    border: none;
+    background: none;
+    color: var(--currentFontCodeColor);
+}
+
+.btn{
+    outline: none;
+    border: none;
+    background: none;
+    border-radius: 100px;
+    font-size: 25px;
+    margin: .1em;
+    cursor: pointer;
+    color: var(--oppositeFontCodeColor);
+    transition: .3s;
+    z-index: 100;
+}
+
+.btn:hover{
+    color: var(--currentFontCodeColor);
+}

@@ -1,0 +1,29 @@
+#programmingDiv{
+    margin: 1em;
+}
+
+.progressBarDiv{
+    margin: .2em;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.progressBar{
+    background-color: var(--currentFontCodeColor);
+    color: var(--currentBgCodeColor);
+    font-size: 15px;
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+    font-weight: bold;
+
+    & .progressBarDivIcon{
+        margin-top : .15em;
+        display: none;
+        transition: .3s;
+        @media screen and (max-width: 768px) {
+            display: block;
+        }
+    }
+}

@@ -1,0 +1,55 @@
+#potrait{
+    width: 450px;
+    height: 450px;
+    object-fit:cover;
+    border-radius:50%;
+    box-shadow: 0px 0px 1px 1px var(--oppositeFontCodeColor);
+    animation: glow 1.5s linear infinite alternate;
+    z-index: 50;
+    @media screen and (max-width: 768px) {
+        width: 200px;
+        height: 200px;
+    }
+}
+
+#biography{
+    left: 0;
+    right: 0;
+    padding: 0;
+    margin: 0;
+}
+
+#potraitDiv{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@keyframes glow{
+to {
+  box-shadow: 0px 0px 20px 10px var(--oppositeFontCodeColor);
+}
+}
+
+#aboutMeDiv{
+    margin: 2em;
+    padding: 0px 30px;
+}
+
+#aboutMeDiv div{
+    margin: .5em;
+}
+
+#bioReadMore{
+    text-decoration: underline;
+    display: none;
+    @media screen and (max-width: 768px) {
+        display: inline-block;
+    }
+}
+
+#bioPt1, #bioPt2, #bioPt3{
+    @media screen and (max-width: 768px) {
+        display: none;       
+    }
+}

@@ -1,0 +1,59 @@
+<!--Footer-->
+<div class="row col-md-12 section" id="footer">
+    <div class="col-md-12 sectionHeader"></div>
+    <div class="col-md-12 wrapper">
+        <div class="row col-md-12">
+            <div class="col-md-6" id="footerNavDiv">
+                <div class="col-md-12"><button id="logoFooterBtn" (click)="logoBtnOnClick()"><span>proscawards</span></button></div>
+                <div class="col-md-12" id="socialFooterDiv">
+                    <div class="col-xs-2"><span><a href="https://github.com/proscawards/" target="_blank"><i class="fab fa-github"></i></a></span></div>
+                    <div class="col-xs-2"><span><a href="https://www.linkedin.com/in/proscawards/" target="_blank"><i class="fab fa-linkedin"></i></a></span></div>
+                    <div class="col-xs-2"><span><a href="https://discord.com/users/346129656157831169/" target="_blank"><i class="fab fa-discord"></i></a></span></div>
+                    <div class="col-xs-2"><span><a href="https://instagram.com/proscawards" target="_blank"><i class="fab fa-instagram"></i></a></span></div>
+                    <div class="col-xs-2"><span><a id="resumeBtn1" (click)="downloadResume($event)"><i class="fas fa-file-signature"></i></a></span></div>
+                </div>
+                <div class="col-md-12" id="quickNavDiv">
+                    <a href="#aboutme">About Me</a><br/>    
+                    <a href="#skills">Skills</a><br/>
+                    <a href="#projects">Projects</a><br/>
+                    <a href="#experiences">Experiences</a><br/>
+                </div>
+                <div class="col-md-12" id="visitorDiv">
+                    <div class="col-md-12" id="totalVisitorDiv"><i class="fas fa-eye"></i><span id="totalVisitor"></span></div>
+                    <table id="countryTable">
+                        <tr>
+                            <td><img id="top1CountryImg"></td>
+                            <td><span id="top1CountryCount"></span></td>
+                        </tr>
+                        <tr>
+                            <td><img id="top2CountryImg"></td>
+                            <td><span id="top2CountryCount"></span></td>
+                        </tr>                            
+                        <tr>
+                            <td><img id="top3CountryImg"></td>
+                            <td><span id="top3CountryCount"></span></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="col-md-6" id="contactDiv">
+                <span id="contactTitle"> Contact Me</span><br/>
+                <span class="contactLbl">Full Name</span><br/>
+                <input type="text" class="contactInput letterOnly" id="contactName" (input)="nameOnChange($event)" (focus)="onFocusClick($event)"/><br/><br/>
+                <span class="contactLbl">E-mail</span><br/>
+                <input type="email" class="contactInput" id="contactEmail" (input)="emailOnChange($event)" (focus)="onFocusClick($event)"/><br/><br/>
+                <span class="contactLbl">Message</span><br/>
+                <textarea type="text" class="contactInput" id="contactMsg" (input)="messageOnChange($event)" (focus)="onFocusClick($event)"></textarea><br/>
+                <button type="submit" class="btn" id="contactSubmit" (click)="onFocusClick($event); submitBtnOnClick($event);"><span id="contactSubmitLbl">Submit</span>
+                    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" id="contactThrobber" style="display:none;"></span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Mobile Footer-->
+<div class="row col-md-12 section" id="mobileFooter">
+    <div class="col-md-12 mobileSectionHeader"><button type="button" id="scrollTopMobile" (click)="scrollTopOnClick()">//end of file <i class="fas fa-angle-double-up"></i></button></div> 
+</div>
+<!--Copyright-->
+<div class="row col-md-12 section" id="copyright">Copyright © 2021 proscawards. All right reserved. Made with ☕ and ❤️.</div>

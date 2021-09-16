@@ -1,0 +1,165 @@
+/* You can add global styles to this file, and also import other style files */
+@import 'aos/dist/aos.css';
+@import '../node_modules/bootstrap/scss/bootstrap'; 
+@import "app/header/header.component.scss";
+@import "app/intro/intro.component.scss";
+@import "app/about/about.component.scss";
+@import "assets/styles/icon";
+
+@font-face {
+    font-family: Monolisa;
+    src: url("assets/fonts/Monolisa.ttf") format("truetype");
+}
+
+@mixin center-component {
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+}
+
+* {
+    font-family: 'Monolisa';
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+}
+    
+::-webkit-scrollbar-track {
+    border: none;
+    background: none;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--currentFontColor);
+
+    &:hover {
+        background: #488AC7;  
+    }
+}
+
+input:-webkit-autofill{
+    -webkit-text-fill-color: #fff;
+    &:hover, &:focus, &:active {
+        transition: background-color 5000s ease-in-out 0s;
+    }
+}
+
+.section{
+    position: relative;
+    width: 100vw;
+    left: 0;
+    right: 0;
+    padding: 0;
+    margin: 0;
+    @include center-component();
+    @media screen and (max-width: 768px) {
+        width: var(--screen-width);
+    }
+}
+
+.sectionHeader{
+    background: var(--currentBgSdGradColor);
+    font-size: 40px;
+    color: var(--currentFontCodeColor);
+    width: 100vw;
+    @media screen and (max-width: 768px) {
+        font-size: 25px;
+    }
+}
+
+.subsectionHeader{
+    background: var(--currentBgSdGradColor);
+    font-size: 30px;
+    color: var(--currentCommentColor);
+    width: 100vw;
+    @media screen and (max-width: 768px) {
+        font-size: 20px;
+    }
+}
+
+.wrapper {
+    height: 100%;
+    line-height: 1.5;
+    word-spacing: 4px;
+    letter-spacing: 1px;
+    position: relative;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    left: 0;
+    justify-content: center;
+}
+  
+.fixed-bg {
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    height: 600px; 
+    color: white;
+    text-align: center;
+    display: table;
+    border-radius: 5px;
+    position: sticky;
+
+    & h1 {
+        display: table-cell;
+        vertical-align: middle;
+        color: #fff;
+        font-family: Montserrat;
+        font-weight: bold;
+    }
+    
+    & img {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    @media screen and (max-width: 768px) {
+        display: none;
+    }
+}
+
+.scroll-bg {
+    padding: 10px 70px;
+    color: var(--currentFontCodeColor);
+
+    & p{
+        color: var(--currentFontDescColor);
+    }
+}
+
+.bg-1 {
+    background-image: url("assets/images/chemistlab.png");
+}
+
+.bg-2 {
+    background-image: url("assets/images/myonlinestore.png");
+}
+
+.bg-3 {
+    background-image: url("assets/images/blackwhite.gif");
+}
+
+.needFilterUE{
+    filter: var(--currentUEFilter);
+}
+
+.needFilterUEOp{
+    filter: var(--oppositeUEFilter);
+}
+
+#errorEnd{
+    color: var(--currentCommentColor);
+}
+
+  
+

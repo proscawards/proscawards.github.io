@@ -4,6 +4,7 @@ import Swal from 'sweetalert2';
 import Storage from '../model/Storage';
 const storage = new Storage();
 import { ContactForm } from '../model/ContactForm';
+import { HttpClient } from '@angular/common/http';
 const cf = new ContactForm(0, false);
 
 @Component({

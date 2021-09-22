@@ -1,9 +1,10 @@
-import { Component, HostListener, AfterViewInit, Inject } from '@angular/core';
+import { Component, HostListener, AfterViewInit, Inject, OnInit } from '@angular/core';
 import * as $ from "jquery";
 import * as AOS from 'aos';
 import { DOCUMENT } from '@angular/common';
 import { WINDOW } from "./services/window.service";
 import Storage from "./model/Storage";
+import { HttpClient } from '@angular/common/http';
 const storage = new Storage();
 
 @Component({
@@ -12,14 +13,15 @@ const storage = new Storage();
   styleUrls: ['./app.component.scss']
 })
 
-export class AppComponent implements AfterViewInit{
+export class AppComponent implements AfterViewInit, OnInit{
 
   windowWidth: any;
 
   constructor(
     @Inject(DOCUMENT) private document: Document,
-    @Inject(WINDOW) private window: Window
-  ) { this.onDOMLoaded(); }
+    @Inject(WINDOW) private window: Window,
+    private httpClient: HttpClient
+  ) {}
 
   @HostListener("window:scroll", [])
   onWindowScroll() {
@@ -59,6 +61,10 @@ export class AppComponent implements AfterViewInit{
     }
   }
 
+  ngOnInit(){
+    this.onDOMLoaded();
+  }
+
   ngAfterViewInit() {
     AOS.init();
   }
@@ -66,12 +72,7 @@ export class AppComponent implements AfterViewInit{
   //On document load
   onDOMLoaded(){
     if (storage.length == 0){
-      fetch('https://proscawards-portfolio-backend.herokuapp.com/', {
-        method: 'get',
-        headers: {
-            'Content-Type': 'application/json'
-        }
-      });
+      this.httpClient.get<any>('https://proscawards-portfolio-backend.herokuapp.com/').subscribe();
       this.topCountries();
       this.totalVisitor();
     }
@@ -102,14 +103,9 @@ export class AppComponent implements AfterViewInit{
 
   //Show top 3 countries' visitor
   topCountries(){
-    fetch('https://proscawards-portfolio-backend.herokuapp.com/country', {
-      method: 'get',
-      headers: {
-          'Content-Type': 'application/json'
-      }
-    }).then((res) => res.json()
-    ).then((dt) => {
-      var data = dt;
+    this.httpClient.get<any>('https://proscawards-portfolio-backend.herokuapp.com/country')
+    .subscribe(res => {
+      var data = res;
       if (storage.getVisitorCountry() != null){
         data = storage.getVisitorCountry();
       }
@@ -125,14 +121,9 @@ export class AppComponent implements AfterViewInit{
 
   //Show total visitor
   totalVisitor(){
-    fetch('https://proscawards-portfolio-backend.herokuapp.com/count', {
-      method: 'get',
-      headers: {
-          'Content-Type': 'application/json'
-      }
-    }).then((res) => res.json()
-    ).then((data) => {
-      var count = data.count;
+    this.httpClient.get<any>('https://proscawards-portfolio-backend.herokuapp.com/count')
+    .subscribe(res => {
+      var count = res.count;
       if (storage.getVisitorCount() != null){
         count = storage.getVisitorCount();
       }

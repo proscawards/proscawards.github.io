@@ -1,6 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import Swal from 'sweetalert2';
 import * as $ from 'jquery';
+import info from "./project-other-info.json";
+
+interface Info{
+  title: String,
+  lang: String,
+  desc: String,
+  date: String
+}
 
 @Component({
   selector: 'project-other',
@@ -9,9 +17,13 @@ import * as $ from 'jquery';
 })
 export class ProjectOtherComponent implements OnInit {
 
-  constructor() { }
+  Info: Info[] = info;
 
-  ngOnInit(): void {
+  constructor(){
+    console.log(this.Info)
+  }
+
+  ngOnInit(){
   }
 
   //Show Modal when ProjectDiv is clicked
@@ -26,6 +38,24 @@ export class ProjectOtherComponent implements OnInit {
         text: $("#projectDiv"+id).data('name')
       });
     }
+  }
+
+  //Show Modal when ProjectDivInfoBtn is clicked
+  infoBtnOnClicked(e: any, id: any){
+    e.preventDefault();
+    Swal.fire({
+      showCloseButton: true,
+      showConfirmButton:false,
+      title: ""+this.Info[id].title,
+      html: 
+        "<span style='font-size: 15px;'>("+this.Info[id].date+")</span>"+
+        "<div style='text-align: left;'><span style='font-size: 15px;'>"+
+        "<br/><span style='font-weight: bold; text-decoration: underline;'>Written in</span><br/>"+
+        this.Info[id].lang+
+        "<br/><span style='font-weight: bold; text-decoration: underline;'>Functionality</span><br/>"+
+        this.Info[id].desc+
+        "</span></div>"
+    });
   }
 
 }

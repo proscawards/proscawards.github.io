@@ -4,6 +4,7 @@
     border: none;
     color: var(--currentFontCodeColor);
     width: 100%;
+    word-wrap: break-word;
 }
 
 #title{
@@ -16,22 +17,22 @@
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    @media screen and (max-width: 768px) {
-        font-size: 13px;    
-        width: 35vw;
+    @media screen and (max-width: 515px) {
+        font-size: 30px;    
+        width: 50vw;
     }
 }
 
 #owl{
     width: 70px;
-    @media screen and (max-width: 768px) {
-        width: 30px;
+    @media screen and (max-width: 515px) {
+        width: 40px;
     }
 }
 
 #desc{
     text-align: center;
-    font-size: 150px;
+    font-size: 130px;
     font-weight: bold;
     margin-top: .1em;
     color: var(--currentFontColor);
@@ -58,6 +59,7 @@
     justify-content: center;
     align-items: center;
     margin-bottom: 1em;
+    transition: .3s;
 
     & div{
         margin: 1em;
@@ -65,6 +67,9 @@
     
     & div span{
         font-size: 30px;
+        @media screen and (max-width: 340px) {
+            font-size: 15px;
+        } 
     }
     
     & div span a{
@@ -73,6 +78,9 @@
         color: var(--currentFontCodeColor); 
         transition: .3s;
         cursor: pointer;
+        @media screen and (max-width: 340px) {
+            font-size: 25px;
+        }  
     }
 }
 

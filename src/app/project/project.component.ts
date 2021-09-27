@@ -42,4 +42,19 @@ export class ProjectComponent {
     $("#proj2ReadMore").show();
   }
 
+  //Download zip for windows version
+  downloadPC(e: any){
+    var hiddenElement = document.createElement('a');
+    hiddenElement.href = "https://drive.google.com/u/0/uc?export=download&confirm=cAHr&id=1Y4L4pfdXhG0GHVAwBlHGy5jYBtivDIcw";
+    hiddenElement.target = '_blank';
+    hiddenElement.download = "ChemistLab3D.zip";
+    hiddenElement.click();
+    hiddenElement.remove();
+  }
+
+  //Redirect to GitHub
+  redirectGit(e: any){
+    window.open('https://github.com/proscawards/born-ecommerce', '_blank');
+  }
+
 }

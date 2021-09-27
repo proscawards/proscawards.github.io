@@ -14,15 +14,20 @@
 #socialFooterDiv{
     display: flex;
     flex-direction: row;
-    justify-content: left;
+    justify-content: start;
     align-items: left;
+    margin-bottom: 1em;
+    transition: .3s;
 
     & div{
-        margin: 0.5em;
+        margin: 1em;
     }
     
     & div span{
         font-size: 30px;
+        @media screen and (max-width: 400px) {
+            font-size: 15px;
+        } 
     }
     
     & div span a{
@@ -31,9 +36,11 @@
         color: var(--currentFontCodeColor); 
         transition: .3s;
         cursor: pointer;
+        @media screen and (max-width: 400px) {
+            font-size: 25px;
+        }  
     }
 }
-
 #quickNavDiv{
     text-align: left;
     font-size: 20px;
@@ -72,6 +79,10 @@
     font-size: 40px;
     text-decoration: underline;
     text-align: left;
+    transition: .3s;
+    @media screen and (max-width: 400px) {
+        font-size: 25px;
+    }  
 }
 
 .contactInput{

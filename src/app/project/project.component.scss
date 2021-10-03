@@ -62,7 +62,6 @@
     width: 15%;
     text-align: center;
     cursor: pointer;
-    transform: scale(.98);
     @include center-component();
     @media screen and (max-width: 768px) {
         width: 70px;
@@ -85,7 +84,6 @@
 
     &:hover{
         box-shadow: 0px 0px 10px 10px var(--oppositeFontCodeColor);
-        transform: scale(1.0);
     }
 }
 

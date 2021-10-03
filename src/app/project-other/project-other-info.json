@@ -49,7 +49,7 @@
     },
     {
         "title": "PDF-to-DOCX Converter",
-        "lang": "• Frontend: Javascript<br/>• Backend: Electron.js<br/>• Framework: Node.js",
+        "lang": "• Frontend: Javascript<br/>• Backend: Node.js<br/>• Framework: Electron.js",
         "desc": "- Convert desire PDF to DOCX format using API<br/>- Save converted file locally",
         "date": "June 2021"
     },
@@ -61,14 +61,20 @@
     },
     {
         "title": "Korean Notepad",
-        "lang": "• Frontend: Flutter<br/>• Backend: Flutter, PHP<br/>• Database: MySQL<br/>• Engine: Android Studio",
+        "lang": "• Frontend: Flutter<br/>• Backend: Flutter, Dart, PHP<br/>• Database: MySQL<br/>• Engine: Android Studio",
         "desc": "- CRUD Word/Sentence<br/>- Search for Word/Sentence<br/>- Filter Word/Sentence",
         "date": "September 2021"
     },
     {
-        "title": "To-Do-List",
-        "lang": "• Frontend & Backend: React Native<br/>• Database: Firebase Cloud Firestore<br/>• Framework: Node.js",
-        "desc": "- CRUD Tasks<br/>- Set push notification for tasks",
+        "title": "To-Dos",
+        "lang": "• Frontend & Backend: React Native<br/>• Database: Firebase Cloud Firestore",
+        "desc": "- CRUD tasks and/or subtasks<br/>- Set expiry date for tasks<br/>- Set scheduled notification for tasks",
+        "date": "September 2021"
+    },
+    {
+        "title": "Bakery E-Commerce Mobile App",
+        "lang": "• Frontend: Java<br/>• Backend: Java, PHP<br/>• Database: MySQL, Firebase<br/>• Engine: Android Studio",
+        "desc": "-",
         "date": "September 2021 - PRESENT"
     }
 ]

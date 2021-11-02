@@ -1,80 +1,100 @@
 [
     {
         "title": "Portfolio",
-        "lang": "• Frontend: HTML5, CSS3, SASS, Bootstrap<br/>• Backend: Javascript, TypeScript, Express.js<br/>• Framework: Angular, Node.js<br/>• Database: Firebase Realtime Database<br/>• Mail Server: Nodemailer",
+        "lang": "• Frontend: HTML5, CSS3, SASS, Bootstrap<br/>• Backend: Javascript, TypeScript, Express.js<br/>• Framework: Angular, Node.js<br/>• Database: Firebase Realtime Database",
         "desc": "- Send email through contact form <br/>- Count visitor based on IP address<br/>",
-        "date": "June 2021 - PRESENT"
+        "date": "June 2021 - PRESENT",
+        "icon": "<span class='icon-html5 progressBarDivIcon'><span class='icon-css3 progressBarDivIcon'><span class='icon-sass progressBarDivIcon'><span class='icon-bootstrap progressBarDivIcon'><span class='icon-javascript progressBarDivIcon'><span class='icon-typescript progressBarDivIcon'><span class='icon-express progressBarDivIcon'><span class='icon-angular progressBarDivIcon'><span class='icon-nodedotjs progressBarDivIcon'><span class='icon-firebase progressBarDivIcon'>"
     },
     {
         "title": "Bus Ticket Booking System",
         "lang": "• Frontend & Backend: Python",
         "desc": "- User Management (Login/Register)<br/>- Ticket Management (CRUD)<br/>- Booking Management (Date/Time/Location)<br/>- Seat Management (Select/Remove)<br/>- Payment",
-        "date": "March 2018 – May 2018"
+        "date": "March 2018 – May 2018",
+        "icon": "<span class='icon-python progressBarDivIcon'>"
     },
     {
         "title": "Mars Rover Mapper",
         "lang": "• Backend: C++",
         "desc": "- WASD to move around the map",
-        "date": "November 2018 – February 2019"
+        "date": "November 2018 – February 2019",
+        "icon": "<span class='icon-cplusplus progressBarDivIcon'>"
     },
     {
         "title": "University Facilities Management System",
         "lang": "• Engine: QTCreator <br/>• Backend: C++<br/>• Database: MySQL",
         "desc": "- User Management (Login/Register)<br/>User:<br/> - Manage Booking (View/Return/Cancel)<br/>- Make New Booking<br/>Admin: <br/>- View all available facilities/venues<br/>- Manage booking request<br/>",
-        "date": "July 2019 – November 2019"
+        "date": "July 2019 – November 2019",
+        "icon": "<span class='icon-qtcreator progressBarDivIcon'><span class='icon-cplusplus progressBarDivIcon'><span class='icon-mysql progressBarDivIcon'>"
     },
     {
         "title": "Flight Ticket Booking System",
         "lang": "• Engine: QTCreator <br/>• Backend: C++<br/>• Database: MySQL",
         "desc": "- Overview available flights within the hour<br/>- User Management (Login/Register)<br/>- Booking Management (Location/Datetime/Seat)<br/>- Ticket Management (View/Cancel)<br/>- Payment",
-        "date": "July 2019 – November 2019"
+        "date": "July 2019 – November 2019",
+        "icon": "<span class='icon-qtcreator progressBarDivIcon'><span class='icon-cplusplus progressBarDivIcon'><span class='icon-mysql progressBarDivIcon'>"
     },
     {
         "title": "Ants vs. Bugs",
         "lang": "• Frontend & Backend: Java",
         "desc": "- Click next to simulate the outcome",
-        "date": "November 2019 – February 2020"
+        "date": "November 2019 – February 2020",
+        "icon": "<span class='icon-java progressBarDivIcon'>"
     },
     {
         "title": "Online Store",
         "lang": "• Frontend: HTML5, CSS3<br/>• Backend: JavaScript, PHP<br/>• Database: MySQL",
         "desc": "- User Management (Login/Register)<br/>- Password Management (Update/Forgot Password)<br/>- View PLP & PDP<br/>- Search product<br/>- Filter product<br/>- Add to Cart/Buy Now<br/>- Dummy payment gateway (FPX/Paypal)<br/>- Track order",
-        "date": "July 2020 – October 2020"
+        "date": "July 2020 – October 2020",
+        "icon": "<span class='icon-html5 progressBarDivIcon'><span class='icon-css3 progressBarDivIcon'><span class='icon-javascript progressBarDivIcon'><span class='icon-php progressBarDivIcon'><span class='icon-mysql progressBarDivIcon'>"
     },
     {
         "title": "Bank Loan Predictor",
         "lang": "• Frontend & Backend: Python",
         "desc": "- Generate rules using Association Rule Mining<br/>- Overview results using classification models<br/>- Predict if the loaner is eligible based on selected criteria",
-        "date": "November 2020 – February 2021"
+        "date": "November 2020 – February 2021",
+        "icon": "<span class='icon-python progressBarDivIcon'><span class='icon-jupyter progressBarDivIcon'>"
     },
     {
         "title": "PDF-to-DOCX Converter",
         "lang": "• Frontend: Javascript<br/>• Backend: Node.js<br/>• Framework: Electron.js",
         "desc": "- Convert desire PDF to DOCX format using API<br/>- Save converted file locally",
-        "date": "June 2021"
+        "date": "June 2021",
+        "icon": "<span class='icon-electron progressBarDivIcon'><span class='icon-javascript progressBarDivIcon'><span class='icon-nodedotjs progressBarDivIcon'>"
     },
     {
         "title": "Bao Corporation",
         "lang": "• Game Engine: Unreal Engine 4<br/>• Backend: C++<br/>• Database: Firebase Realtime Database",
         "desc": "-",
-        "date": "June 2021 – PRESENT"
+        "date": "June 2021 – PRESENT",
+        "icon": "<span class='icon-unrealengine progressBarDivIcon'><span class='icon-cplusplus progressBarDivIcon'><span class='icon-firebase progressBarDivIcon'>"
     },
     {
         "title": "Korean Notepad",
         "lang": "• Frontend: Flutter<br/>• Backend: Flutter, Dart, PHP<br/>• Database: MySQL<br/>• Engine: Android Studio",
         "desc": "- CRUD Word/Sentence<br/>- Search for Word/Sentence<br/>- Filter Word/Sentence",
-        "date": "September 2021"
+        "date": "September 2021",
+        "icon": "<span class='icon-flutter progressBarDivIcon'><span class='icon-dart progressBarDivIcon'><span class='icon-php progressBarDivIcon'><span class='icon-mysql progressBarDivIcon'><span class='icon-androidstudio progressBarDivIcon'>"
     },
     {
         "title": "To-Dos",
-        "lang": "• Frontend & Backend: React Native<br/>• Database: Firebase Cloud Firestore",
+        "lang": "Mobile (Version 1):<br/>• Frontend & Backend: React Native<br/>• Database: Firebase Cloud Firestore<br/>Web (Version 2):<br/>• Frontend: React, Tailwind, SASS<br/>• Backend: Next.js <br/>• Database: Firebase Cloud Firestore<br/>",
         "desc": "- CRUD tasks and/or subtasks<br/>- Set expiry date for tasks<br/>- Set scheduled notification for tasks",
-        "date": "September 2021"
+        "date": "September 2021",
+        "icon": "<span class='icon-react progressBarDivIcon'><span class='icon-firebase progressBarDivIcon'><span class='icon-nextdotjs progressBarDivIcon'><span class='icon-tailwindcss progressBarDivIcon'><span class='icon-sass progressBarDivIcon'>"
     },
     {
-        "title": "Bakery E-Commerce Mobile App",
-        "lang": "• Frontend: Java<br/>• Backend: Java, PHP<br/>• Database: MySQL, Firebase<br/>• Engine: Android Studio",
+        "title": "Aldeberan Emporium: E-Commerce Bakery Mobile App",
+        "lang": "• Frontend: Java<br/>• Backend: Java, PHP, Node.js<br/>• Database: MySQL, Firebase<br/>• Engine: Android Studio",
+        "desc": "- Live delivery tracking with Google Maps<br/>- Payment Gateway with Stripe<br/>- Wishlist Management<br/>- Cart Management<br/>- User Management<br/>- Address Management<br/>- Admin Panel<br/>- Submit Bug Report<br/>- View Order History & Details<br/>- Search for Product<br/>",
+        "date": "September 2021 - October 2021",
+        "icon": "<span class='icon-java progressBarDivIcon'><span class='icon-php progressBarDivIcon'><span class='icon-nodedotjs progressBarDivIcon'><span class='icon-mysql progressBarDivIcon'><span class='icon-firebase progressBarDivIcon'><span class='icon-androidstudio progressBarDivIcon'>"
+    },
+    {
+        "title": "Dodge MrBao",
+        "lang": "• Game Engine: Unreal Engine 4<br/>• Backend: C++, Java<br/>• Database: Firebase Realtime Database",
         "desc": "-",
-        "date": "September 2021 - PRESENT"
+        "date": "October 2021 - PRESENT",
+        "icon": "<span class='icon-unrealengine progressBarDivIcon'><span class='icon-cplusplus progressBarDivIcon'><span class='icon-java progressBarDivIcon'><span class='icon-firebase progressBarDivIcon'>"
     }
 ]

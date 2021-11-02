@@ -20,6 +20,8 @@
 
     & .progressBarDivIcon{
         margin-top : .15em;
+        margin-left: .1em;
+        margin-right: .1em;
         display: none;
         transition: .3s;
         @media screen and (max-width: 768px) {

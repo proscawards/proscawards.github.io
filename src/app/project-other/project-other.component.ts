@@ -7,7 +7,8 @@ interface Info{
   title: String,
   lang: String,
   desc: String,
-  date: String
+  date: String,
+  icon: String
 }
 
 @Component({
@@ -24,6 +25,8 @@ export class ProjectOtherComponent implements OnInit {
   }
 
   ngOnInit(){
+    $(".otherProjDiv").show();
+    $(".compProjDiv").hide();
   }
 
   //Show Modal when ProjectDiv is clicked
@@ -48,7 +51,8 @@ export class ProjectOtherComponent implements OnInit {
       showConfirmButton:false,
       title: ""+this.Info[id].title,
       html: 
-        "<span style='font-size: 15px;'>("+this.Info[id].date+")</span>"+
+        "<span>"+this.Info[id].icon+"</span><br/>"+
+        "<span style='font-size: 15px;'>("+this.Info[id].date+")</span><br/>"+
         "<div style='text-align: left;'><span style='font-size: 15px;'>"+
         "<br/><span style='font-weight: bold; text-decoration: underline;'>Written in</span><br/>"+
         this.Info[id].lang+

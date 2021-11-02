@@ -10,6 +10,7 @@
   font-display: block;
 }
 
+
 [class^="icon-"], [class*=" icon-"] {
   /* use !important to prevent issues with browser extensions that change fonts */
   font-family: 'icomoon' !important;
@@ -79,69 +80,81 @@
 .icon-javascript:before {
   content: "\e911";
 }
-.icon-kotlin:before {
+.icon-jupyter:before {
   content: "\e912";
 }
-.icon-language_en:before {
+.icon-kotlin:before {
   content: "\e913";
 }
-.icon-language_es:before {
+.icon-language_en:before {
   content: "\e914";
 }
-.icon-language_jp:before {
+.icon-language_es:before {
   content: "\e915";
 }
-.icon-language_kr:before {
+.icon-language_jp:before {
   content: "\e916";
 }
-.icon-language_my:before {
+.icon-language_kr:before {
   content: "\e917";
 }
-.icon-language_zh:before {
+.icon-language_my:before {
   content: "\e918";
 }
-.icon-language_zhteochew:before {
+.icon-language_zh:before {
   content: "\e919";
 }
-.icon-magento:before {
+.icon-language_zhteochew:before {
   content: "\e91a";
 }
-.icon-mongodb:before {
+.icon-magento:before {
   content: "\e91b";
 }
-.icon-mysql:before {
+.icon-mongodb:before {
   content: "\e91c";
 }
-.icon-nodedotjs:before {
+.icon-mysql:before {
   content: "\e91d";
 }
-.icon-php:before {
+.icon-nextdotjs:before {
   content: "\e91e";
 }
-.icon-python:before {
+.icon-nodedotjs:before {
   content: "\e91f";
 }
-.icon-react:before {
+.icon-php:before {
   content: "\e920";
 }
-.icon-sass:before {
+.icon-python:before {
   content: "\e921";
 }
-.icon-typescript:before {
+.icon-qt:before {
   content: "\e922";
 }
-.icon-unity:before {
+.icon-react:before {
   content: "\e923";
 }
-.icon-unrealengine:before {
+.icon-sass:before {
   content: "\e924";
 }
-.icon-vuedotjs:before {
+.icon-tailwindcss:before {
   content: "\e925";
 }
-.icon-xamarin:before {
+.icon-typescript:before {
   content: "\e926";
 }
-.icon-heart:before {
-  content: "\e9da";
+.icon-unity:before {
+  content: "\e927";
+}
+.icon-unrealengine:before {
+  content: "\e928";
+}
+.icon-visualstudio:before {
+  content: "\e929";
+}
+.icon-vuedotjs:before {
+  content: "\e92a";
+}
+.icon-xamarin:before {
+  content: "\e92b";
 }

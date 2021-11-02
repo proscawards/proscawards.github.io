@@ -4,12 +4,28 @@
     align-items: center;
 }
 
-.otherProjDiv{
+@mixin marginHori {
+    margin-left: .1em;
+    margin-right: .1em;
+}
+
+.otherProjDiv, .compProjDiv{
     position: sticky;
     z-index: 99;
     background: var(--currentFontColor);
     padding: 0;
     margin: 0;
+}
+
+.switchProjDiv{
+    text-align: center;
+    padding: 10px;
+    background: none;
+    cursor: pointer;
+
+    &>.switchProjBtn:hover{
+        color: var(--oppositeFontCodeColor);
+    }
 }
 
 .ribbon {
@@ -142,4 +158,10 @@
     &:hover{
         opacity: 1;
     }
+}
+
+.iconClass{
+    font-size: 50px;
+    @include marginHori();
+    opacity: .8;
 }

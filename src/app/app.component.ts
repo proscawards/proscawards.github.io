@@ -91,11 +91,11 @@ export class AppComponent implements AfterViewInit, OnInit{
   //Load From Storage
   storageUnpacker(){
     let data = storage.getVisitorCountry();
-    $("#top1CountryImg").attr("src", "https://www.countryflags.io/"+data[0][0]+"/flat/32.png");
+    $("#top1CountryImg").attr("src", "https://flagpedia.net/data/flags/normal/"+data[0][0]+".png");
     $("#top1CountryCount").text(data[0][1].count);
-    $("#top2CountryImg").attr("src", "https://www.countryflags.io/"+data[1][0]+"/flat/32.png");
+    $("#top2CountryImg").attr("src", "https://flagpedia.net/data/flags/normal/"+data[1][0]+".png");
     $("#top2CountryCount").text(data[1][1].count);
-    $("#top3CountryImg").attr("src", "https://www.countryflags.io/"+data[2][0]+"/flat/32.png");
+    $("#top3CountryImg").attr("src", "https://flagpedia.net/data/flags/normal/"+data[2][0]+".png");
     $("#top3CountryCount").text(data[2][1].count);
 
     $("#totalVisitor").text(storage.getVisitorCount() || 0);
@@ -110,11 +110,11 @@ export class AppComponent implements AfterViewInit, OnInit{
         data = storage.getVisitorCountry();
       }
       storage.setVisitorCountry(data);
-      $("#top1CountryImg").attr("src", "https://www.countryflags.io/"+data[0][0]+"/flat/32.png");
+      $("#top1CountryImg").attr("src", "https://flagpedia.net/data/flags/normal/"+data[0][0]+".png");
       $("#top1CountryCount").text(data[0][1].count);
-      $("#top2CountryImg").attr("src", "https://www.countryflags.io/"+data[1][0]+"/flat/32.png");
+      $("#top2CountryImg").attr("src", "https://flagpedia.net/data/flags/normal/"+data[1][0]+".png");
       $("#top2CountryCount").text(data[1][1].count);
-      $("#top3CountryImg").attr("src", "https://www.countryflags.io/"+data[2][0]+"/flat/32.png");
+      $("#top3CountryImg").attr("src", "https://flagpedia.net/data/flags/normal/"+data[2][0]+".png");
       $("#top3CountryCount").text(data[2][1].count);
     });
   }

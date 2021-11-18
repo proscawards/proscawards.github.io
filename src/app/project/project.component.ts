@@ -51,10 +51,4 @@ export class ProjectComponent {
     hiddenElement.click();
     hiddenElement.remove();
   }
-
-  //Redirect to GitHub
-  redirectGit(e: any){
-    window.open('https://github.com/proscawards/born-ecommerce', '_blank');
-  }
-
 }

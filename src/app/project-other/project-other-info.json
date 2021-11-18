@@ -96,5 +96,12 @@
         "desc": "-",
         "date": "October 2021 - PRESENT",
         "icon": "<span class='icon-unrealengine progressBarDivIcon'><span class='icon-cplusplus progressBarDivIcon'><span class='icon-java progressBarDivIcon'><span class='icon-firebase progressBarDivIcon'>"
+    },
+    {
+        "title": "Owl's Language Compiler",
+        "lang": "• Backend: TypeScript, Node.js",
+        "desc": "- Perform lexical analysis<br/>- Perform syntax analysis",
+        "date": "November 2021",
+        "icon": "<span class='icon-typescript progressBarDivIcon'><span class='icon-nodedotjs progressBarDivIcon'>"
     }
 ]

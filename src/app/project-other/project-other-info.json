@@ -1,12 +1,5 @@
 [
     {
-        "title": "Portfolio",
-        "lang": "• Frontend: HTML5, CSS3, SASS, Bootstrap<br/>• Backend: Javascript, TypeScript, Express.js<br/>• Framework: Angular, Node.js<br/>• Database: Firebase Realtime Database",
-        "desc": "- Send email through contact form <br/>- Count visitor based on IP address<br/>",
-        "date": "June 2021 - PRESENT",
-        "icon": "<span class='icon-html5 progressBarDivIcon'><span class='icon-css3 progressBarDivIcon'><span class='icon-sass progressBarDivIcon'><span class='icon-bootstrap progressBarDivIcon'><span class='icon-javascript progressBarDivIcon'><span class='icon-typescript progressBarDivIcon'><span class='icon-express progressBarDivIcon'><span class='icon-angular progressBarDivIcon'><span class='icon-nodedotjs progressBarDivIcon'><span class='icon-firebase progressBarDivIcon'>"
-    },
-    {
         "title": "Bus Ticket Booking System",
         "lang": "• Frontend & Backend: Python",
         "desc": "- User Management (Login/Register)<br/>- Ticket Management (CRUD)<br/>- Booking Management (Date/Time/Location)<br/>- Seat Management (Select/Remove)<br/>- Payment",
@@ -63,6 +56,13 @@
         "icon": "<span class='icon-electron progressBarDivIcon'><span class='icon-javascript progressBarDivIcon'><span class='icon-nodedotjs progressBarDivIcon'>"
     },
     {
+        "title": "Portfolio",
+        "lang": "• Frontend: HTML5, CSS3, SASS, Bootstrap<br/>• Backend: Javascript, TypeScript, Express.js<br/>• Framework: Angular, Node.js<br/>• Database: Firebase Realtime Database",
+        "desc": "- Send email through contact form <br/>- Count visitor based on IP address<br/>",
+        "date": "June 2021 - PRESENT",
+        "icon": "<span class='icon-html5 progressBarDivIcon'><span class='icon-sass progressBarDivIcon'><span class='icon-bootstrap progressBarDivIcon'><span class='icon-javascript progressBarDivIcon'><span class='icon-typescript progressBarDivIcon'><span class='icon-express progressBarDivIcon'><span class='icon-angular progressBarDivIcon'><span class='icon-nodedotjs progressBarDivIcon'><span class='icon-firebase progressBarDivIcon'>"
+    },
+    {
         "title": "Bao Corporation",
         "lang": "• Game Engine: Unreal Engine 4<br/>• Backend: C++<br/>• Database: Firebase Realtime Database",
         "desc": "-",
@@ -103,5 +103,12 @@
         "desc": "- Perform lexical analysis<br/>- Perform syntax analysis",
         "date": "November 2021",
         "icon": "<span class='icon-typescript progressBarDivIcon'><span class='icon-nodedotjs progressBarDivIcon'>"
+    },
+    {
+        "title": "Innov Retail",
+        "lang": "• Frontend: Tailwind, SASS, TypeScript<br/>• Backend: Java, Java Spring, Python<br/>• Framework: Angular<br/>• Database: PostgreSQL",
+        "desc": "-",
+        "date": "November 2021 - PRESENT",
+        "icon": "<span class='icon-angular progressBarDivIcon'><span class='icon-html5 progressBarDivIcon'><span class='icon-sass progressBarDivIcon'><span class='icon-typescript progressBarDivIcon'><span class='icon-tailwindcss progressBarDivIcon'><span class='icon-java progressBarDivIcon'><span class='icon-python progressBarDivIcon'>"
     }
 ]

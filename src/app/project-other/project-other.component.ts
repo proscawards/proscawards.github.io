@@ -21,7 +21,6 @@ export class ProjectOtherComponent implements OnInit {
   Info: Info[] = info;
 
   constructor(){
-    console.log(this.Info)
   }
 
   ngOnInit(){

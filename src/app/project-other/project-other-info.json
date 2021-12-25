@@ -49,6 +49,13 @@
         "icon": "<span class='icon-python progressBarDivIcon'><span class='icon-jupyter progressBarDivIcon'>"
     },
     {
+        "title": "Qiqi Discord Bot",
+        "lang": "• Backend: Node.js, Discord.js, Express.js<br/>• Database: Firebase Realtime Database",
+        "desc": "- Role Management<br/>- User Statistics(Message Sent/Rank Level)<br/>- Level up notification<br/>- Game Mode Randomizer<br/>- Greeting(Reply w/o Randomness)<br/>- Pole Voting(Static/Dynamic)<br/>",
+        "date": "May 2021 - PRESENT",
+        "icon": "<span class='icon-nodedotjs progressBarDivIcon'><span class='icon-express progressBarDivIcon'><span class='icon-firebase progressBarDivIcon'>"
+    },
+    {
         "title": "PDF-to-DOCX Converter",
         "lang": "• Frontend: Javascript<br/>• Backend: Node.js<br/>• Framework: Electron.js",
         "desc": "- Convert desire PDF to DOCX format using API<br/>- Save converted file locally",
@@ -96,6 +103,13 @@
         "desc": "-",
         "date": "October 2021 - PRESENT",
         "icon": "<span class='icon-unrealengine progressBarDivIcon'><span class='icon-cplusplus progressBarDivIcon'><span class='icon-java progressBarDivIcon'><span class='icon-firebase progressBarDivIcon'>"
+    },
+    {
+        "title": "****** Autobump",
+        "lang": "• Frontend: Java<br/>• Backend: Python, Node.js<br/>• Database: Firebase Realtime Database<br/>• Engine: Android Studio",
+        "desc": "- Read SMS, force screen wake and receiving verification with Android Java.<br/>- Web automation with Python selenium.<br/>- Execute CURL commands with Node.js.",
+        "date": "November 2021",
+        "icon": "<span class='icon-androidstudio progressBarDivIcon'><span class='icon-java progressBarDivIcon'><span class='icon-python progressBarDivIcon'><span class='icon-nodedotjs progressBarDivIcon'><span class='icon-firebase progressBarDivIcon'>"
     },
     {
         "title": "Owl's Language Compiler",

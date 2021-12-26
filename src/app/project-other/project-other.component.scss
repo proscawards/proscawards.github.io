@@ -160,6 +160,24 @@
     }
 }
 
+.projectDivSourceBtn{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    color: var(--oppositeFontCodeColor);
+    outline: none;
+    border: none;
+    background: none;
+    font-size: 20px;
+    opacity: .5;
+    z-index: 10;
+    transition: .3s;
+
+    &:hover{
+        opacity: 1;
+    }
+}
+
 .iconClass{
     font-size: 50px;
     @include marginHori();

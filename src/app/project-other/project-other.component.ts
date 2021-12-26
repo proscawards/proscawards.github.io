@@ -8,7 +8,8 @@ interface Info{
   lang: String,
   desc: String,
   date: String,
-  icon: String
+  icon: String,
+  source: String
 }
 
 @Component({
@@ -26,6 +27,12 @@ export class ProjectOtherComponent implements OnInit {
   ngOnInit(){
     $(".otherProjDiv").show();
     $(".compProjDiv").hide();
+    let temp = this.Info;
+    $('.projectDivSourceBtn').each(function(index) {
+      if (temp[index].source == "#"){
+        $(this).hide();
+      }
+    });
   }
 
   //Show Modal when ProjectDiv is clicked
@@ -59,6 +66,13 @@ export class ProjectOtherComponent implements OnInit {
         this.Info[id].desc+
         "</span></div>"
     });
+  }
+
+  //Open github source codes
+  sourceBtnOnClicked(e: any, id: any){
+    e.preventDefault();
+    let source: string = String(this.Info[id].source);
+    window.open(source, '_blank');
   }
 
 }

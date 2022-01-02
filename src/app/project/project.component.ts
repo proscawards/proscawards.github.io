@@ -51,4 +51,13 @@ export class ProjectComponent {
     hiddenElement.click();
     hiddenElement.remove();
   }
+
+    //Download source codes
+    downloadSC(e: any){
+      var hiddenElement = document.createElement('a');
+      hiddenElement.href = "https://cloud.degoo.com/share/C79qbbGfZg26CJPhpZBLmw";
+      hiddenElement.target = '_blank';
+      hiddenElement.click();
+      hiddenElement.remove();
+    }
 }

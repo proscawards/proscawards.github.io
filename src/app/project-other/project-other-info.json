@@ -58,7 +58,7 @@
     {
         "title": "Qiqi Discord Bot",
         "lang": "• Backend: Node.js, Discord.js, Express.js<br/>• Database: Firebase Realtime Database",
-        "desc": "- Role Management<br/>- User Statistics(Message Sent/Rank Level)<br/>- Level up notification<br/>- Game Mode Randomizer<br/>- Greeting(Reply w/o Randomness)<br/>- Pole Voting(Static/Dynamic)<br/>",
+        "desc": "- Role Management<br/>- User Statistics(Message Sent/Rank Level)<br/>- Spam Filter Management<br/>- 24/7 Music Bot Configuration<br/>- Level up notification<br/>- Game Mode Randomizer<br/>- Greeting(Reply w/o Randomness)<br/>- Pole Voting(Static/Dynamic)<br/>",
         "date": "May 2021 - PRESENT",
         "icon": "<span class='icon-nodedotjs progressBarDivIcon'><span class='icon-express progressBarDivIcon'><span class='icon-firebase progressBarDivIcon'>",
         "source": "#"

@@ -12,7 +12,7 @@
 .otherProjDiv, .compProjDiv{
     position: sticky;
     z-index: 99;
-    background: var(--currentFontColor);
+    background: var(--currentBgSdColor);
     padding: 0;
     margin: 0;
 }
@@ -33,14 +33,14 @@
     height: 150px;
     overflow: hidden;
     position: absolute;
-    transform: scale(.7);
+    transform: scale(.7);   
 
     &::before, &::after {
       position: absolute;
       z-index: -1;
       content: '';
       display: block;
-      border: 5px solid var(--oppositeBgCodeColor);
+      border: 5px solid var(--currentBgCodeColor);
     }
 
     & span {
@@ -48,7 +48,7 @@
       display: block;
       width: 225px;
       padding: 5px 0;
-      background-color: var(--oppositeBgCodeColor);
+      background-color: var(--currentBgSdColor);
       color: var(--oppositeFontCodeColor);
       box-shadow: 0 5px 10px rgba(0,0,0,.3);
       font: 700 'Lato', sans-serif;
@@ -89,26 +89,20 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background: var(--currentBgCodeColor);
+    background: var(--currentBgCommentColor);
     padding: 20px;
     box-shadow: var(--defaultBoxShadow);
     margin: 0;
     border: 1px dotted var(--oppositeFontCodeColor);
     transition: .3s;
     transform: scale(1.0);
+    font-weight: normal;
     cursor: pointer;
 
     &:hover, &:focus{
         border: 1px dotted var(--currentFontCodeColor);
-    }
-    
-    &span{
-        color: var(--oppositeFontCodeColor);
-        transition: .3s;
-    }
-    
-    &:hover span, &:focus span{
-        color: var(--currentCommentColor);
+        background: var(--currentBgSdColor);
+        font-weight: bold;
     }
     
     & img{
@@ -123,7 +117,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background: var(--currentBgCodeColor);
+    background: var(--currentBgCommentColor);
     padding: 20px;
     box-shadow: var(--defaultBoxShadow);
     margin: 0;

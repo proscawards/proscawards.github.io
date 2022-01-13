@@ -1,17 +1,20 @@
 :root {
-    --currentBgCodeColor: #283142;
-    --currentFontCodeColor: #0d904f;
-    --oppositeBgCodeColor: #f1f3f4;
+    --currentBgCodeColor: #242C3C;
+    --currentFontCodeColor: #5888AD;
+    --oppositeBgCodeColor: #F7F7F7;
     --oppositeFontCodeColor: #5888AD;
     --currentFontColor: #5888AD;
+    --currentTitleSaturatedColor: #8AA6BD;
     --currentFontDescColor: #4dd0e1;
     --oppositeFontDescColor: #3b78e7;
     --currentCommentColor: #d81b60;
-    --currentBgSdColor: rgb(0,0,0,.3);
+    --currentBgSdColor: rgba(40,49,66,.8);
+    --currentBgCommentColor: rgba(59,72,97,1);
     --currentBgSdGradColor: linear-gradient(90deg, rgb(0,0,0,.3) 0%, rgb(0,0,0,.3) 40%, rgba(0,0,0,0) 100%);
-    --oppositeBgSdColor: rgb(40,49,66,1);
-    --currentUEFilter: invert(0%);
-    --oppositeUEFilter: invert(100%);
+    --oppositeBgSdColor: rgb(255,255,255,.8);
+    --currentUEFilter: invert(100%);
+    --oppositeUEFilter: invert(0%);
+    --defaultBoxShadow: 0px 5px 5px rgba(0,0,0,.3);
     @media screen and (max-width: 768px) {
         --screen-width: 768px;
     }

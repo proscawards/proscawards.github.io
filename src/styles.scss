@@ -153,10 +153,6 @@ input:-webkit-autofill{
     filter: var(--currentUEFilter);
 }
 
-.needFilterUEOp{
-    filter: var(--oppositeUEFilter);
-}
-
 #errorEnd{
     color: var(--currentCommentColor);
 }

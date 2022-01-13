@@ -8,12 +8,15 @@
     }
 }
 
+.jobType{
+    color: var(--currentCommentColor);
+}
+
 .expCont{
-    background: var(--currentBgSdColor);
+    background: var(--currentBgCommentColor);
     border-radius: 5px;
     padding: 20px;
-    color: var(--currentFontColor);
-
+    color: var(--currentFontDescColor);
     &>a{
         color: inherit;
     }
@@ -28,4 +31,13 @@
 .activeExp{
     transform: rotate(-180deg);
     transition: transform .3s linear;
+}
+
+.ssm_code{
+    background: var(--currentBgCommentColor);
+    margin-left: .1em;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 20px;
+    font-family: 'Montserrat';
 }

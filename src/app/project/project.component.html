@@ -28,11 +28,14 @@
                     <img src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/python/python.png" />
                     <span>Learning Effectiveness</span>
                 </div>
-                <div class="col-md-4 projectRdImg" data-aos="flip-left" (click)="downloadSC($event)">
-                    <img src="assets/images/logo/degoo.png" />
-                    <span>Download Source Codes (.zip)</span>
+                <div class="col-md-4 projectRdImg" data-aos="flip-left" (click)="divOnClick($event,1)">
+                    <img src="assets/images/logo/ieee.png" />
+                    <span>
+                        <div class="spinner-border spinner-border-sm" role="status"></div>
+                        Review in progress
+                    </span>
                 </div>
-                <div class="col-md-4 projectRdImg" data-aos="flip-left" (click)="downloadPC($event)">
+                <div class="col-md-4 projectRdImg" data-aos="flip-left" (click)="divOnClick($event,0)">
                     <img src="assets/images/logo/windows.png" />
                     <span>Download for Windows (.zip)</span>
                     <span style="font-size: small">Version 1.0.2</span>

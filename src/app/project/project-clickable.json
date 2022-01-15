@@ -1,0 +1,16 @@
+[
+    {
+        "id": 0,
+        "type": "executable",
+        "url": "https://drive.google.com/u/0/uc?export=download&confirm=cAHr&id=1Y4L4pfdXhG0GHVAwBlHGy5jYBtivDIcw",
+        "hasDownload": true,
+        "download": "ChemistLab3D.zip"
+    },
+    {
+        "id": 1,
+        "type": "conference",
+        "url": "https://tc.computer.org/tclt/icalt-2022/",
+        "hasDownload": false,
+        "download": ""
+    }
+]

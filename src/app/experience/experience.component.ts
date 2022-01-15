@@ -24,7 +24,6 @@ export class ExperienceComponent implements OnInit {
       $(`#expCont${id}`).fadeOut();
       $(`#expBtn${id}`).removeClass("activeExp");
     }
-    
   }
 
 }

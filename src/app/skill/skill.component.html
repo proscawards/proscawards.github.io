@@ -1,215 +1,28 @@
 <div class="row col-md-12 section" id="skills" (resize)="onResize($event)">
     <div class="col-md-12 sectionHeader" data-aos="fade-right">//Skills</div>
-    <div class="col-md-12" data-aos="zoom-in-right"><span id="programmingSpan"></span></div>
-    <div class="row col-md-8" id="programmingDiv" data-aos="zoom-in-right">
-        <div class="col-md-12 progressBarDiv">
-            <div class="progress" style="height: 20px;" (click)="mobileSkillOnClick('JavaScript', 'https://raw.githubusercontent.com/github/explore/ccc16358ac4530c6a69b1b80c7223cd2744dea83/topics/javascript/javascript.png')">
-                <div class="progress-bar-animated progressBar" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100" style="width: 95%" data-aos="zoom-in-right"><span class="icon-javascript progressBarDivIcon"></span><span class="progressBarDivText">JavaScript</span></div>
+    <div class="col-md-12 wrapper">
+        <div class="col-md-12 scroll-bg" data-aos="zoom-in-right">
+            <div class="row col-md-12">
+                <div class="col-md-4 skillCard"><span><i class="fas fa-code"></i> Programming Languages<i class="skillBtn activeSkill fas fa-angle-down" id="skillBtn0" (click)="skillBtnOnClick($event,0)"></i></span>
+                    <div class="skillChart" id="skillCont0"><canvas id="programmingChart"></canvas></div>
+                </div>
+                <div class="col-md-4 skillCard"><span><i class="far fa-window-restore"></i> Frameworks<i class="skillBtn activeSkill fas fa-angle-down" id="skillBtn1" (click)="skillBtnOnClick($event,1)"></i></span>
+                    <div class="skillChart" id="skillCont1"><canvas id="frameworkChart"></canvas></div>
+                </div>
+                <div class="col-md-4 skillCard"><span><i class="fas fa-cogs"></i> Engine<i class="skillBtn activeSkill fas fa-angle-down" id="skillBtn2" (click)="skillBtnOnClick($event,2)"></i></span>
+                    <div class="skillChart" id="skillCont2"><canvas id="engineChart"></canvas></div>
+                </div>
             </div>
-        </div>
-        <div class="col-md-12 progressBarDiv">
-            <div class="progress" style="height: 20px;" (click)="mobileSkillOnClick('PHP', 'https://raw.githubusercontent.com/github/explore/ccc16358ac4530c6a69b1b80c7223cd2744dea83/topics/php/php.png')">
-                <div class="progress-bar-animated progressBar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width: 90%" data-aos="zoom-in-right"><span class="icon-php progressBarDivIcon"></span><span class="progressBarDivText">PHP</span></div>
-            </div>
-        </div>
-        <div class="col-md-12 progressBarDiv">
-            <div class="progress" style="height: 20px;" (click)="mobileSkillOnClick('Java', 'https://seeklogo.com/images/J/java-logo-7F8B35BAB3-seeklogo.com.png')">
-                <div class="progress-bar-animated progressBar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width: 85%" data-aos="zoom-in-right"><span class="icon-java progressBarDivIcon"></span><span class="progressBarDivText">Java</span></div>
-            </div>  
-        </div>
-        <div class="col-md-12 progressBarDiv">
-            <div class="progress" style="height: 20px;" (click)="mobileSkillOnClick('C++', 'https://raw.githubusercontent.com/github/explore/ccc16358ac4530c6a69b1b80c7223cd2744dea83/topics/cpp/cpp.png')">
-                <div class="progress-bar-animated progressBar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%" data-aos="zoom-in-right"><span class="icon-cplusplus progressBarDivIcon"></span><span class="progressBarDivText">C++</span></div>
-            </div>
-        </div>
-        <div class="col-md-12 progressBarDiv">
-            <div class="progress" style="height: 20px;" (click)="mobileSkillOnClick('TypeScript', 'https://raw.githubusercontent.com/github/explore/ccc16358ac4530c6a69b1b80c7223cd2744dea83/topics/typescript/typescript.png')">
-                <div class="progress-bar-animated progressBar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 70%" data-aos="zoom-in-right"><span class="icon-typescript progressBarDivIcon"></span><span class="progressBarDivText">TypeScript</span></div>
-            </div>
-        </div>
-        <div class="col-md-12 progressBarDiv">
-            <div class="progress" style="height: 20px;" (click)="mobileSkillOnClick('Python', 'https://raw.githubusercontent.com/github/explore/ccc16358ac4530c6a69b1b80c7223cd2744dea83/topics/python/python.png')">
-                <div class="progress-bar-animated progressBar" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100" style="width: 65%" data-aos="zoom-in-right"><span class="icon-python progressBarDivIcon"></span><span class="progressBarDivText">Python</span></div>
-            </div>
-        </div>
-        <div class="col-md-12 progressBarDiv">
-            <div class="progress" style="height: 20px;" (click)="mobileSkillOnClick('SASS', 'https://raw.githubusercontent.com/github/explore/ccc16358ac4530c6a69b1b80c7223cd2744dea83/topics/sass/sass.png')">
-                <div class="progress-bar-animated progressBar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%" data-aos="zoom-in-right"><span class="icon-sass progressBarDivIcon"></span><span class="progressBarDivText">SASS</span></div>
-            </div>
-        </div>
-        <div class="col-md-12 progressBarDiv">
-            <div class="progress" style="height: 20px;" (click)="mobileSkillOnClick('Dart', 'assets/images/logo/dart.png')">
-                <div class="progress-bar-animated progressBar" role="progressbar" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100" style="width: 35%" data-aos="zoom-in-right"><span class="icon-dart progressBarDivIcon"></span><span class="progressBarDivText">Dart</span></div>
-            </div>
-        </div>
-        <div class="col-md-12 progressBarDiv">
-            <div class="progress" style="height: 20px;" (click)="mobileSkillOnClick('Kotlin', 'https://raw.githubusercontent.com/github/explore/ccc16358ac4530c6a69b1b80c7223cd2744dea83/topics/kotlin/kotlin.png')">
-                <div class="progress-bar-animated progressBar" role="progressbar" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100" style="width: 15%" data-aos="zoom-in-right"><span class="icon-kotlin progressBarDivIcon"></span><span class="progressBarDivText">Kotlin</span></div>
-            </div>
-        </div>
-        <div class="col-md-12 progressBarDiv">
-            <div class="progress" style="height: 20px;" (click)="mobileSkillOnClick('C#', 'assets/images/logo/csharp.png')">
-                <div class="progress-bar-animated progressBar" role="progressbar" aria-valuenow="5" aria-valuemin="0" aria-valuemax="100" style="width: 5%" data-aos="zoom-in-right"><span class="icon-csharp progressBarDivIcon"></span><span class="progressBarDivText">C#</span></div>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-12" data-aos="zoom-in-right"><span><i class="far fa-window-restore"></i> Frameworks</span></div>
-    <div class="row col-md-8" id="programmingDiv" data-aos="zoom-in-right">
-        <div class="col-md-12 progressBarDiv">
-            <div class="progress" style="height: 20px;" (click)="mobileSkillOnClick('Node.js', 'https://raw.githubusercontent.com/github/explore/ccc16358ac4530c6a69b1b80c7223cd2744dea83/topics/nodejs/nodejs.png')">
-                <div class="progress-bar-animated progressBar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width: 85%" data-aos="zoom-in-right"><span class="icon-nodedotjs progressBarDivIcon"></span><span class="progressBarDivText">Node.js</span></div>
-            </div>
-        </div>
-        <div class="col-md-12 progressBarDiv">
-            <div class="progress" style="height: 20px;" (click)="mobileSkillOnClick('Bootstrap', 'https://raw.githubusercontent.com/github/explore/ccc16358ac4530c6a69b1b80c7223cd2744dea83/topics/bootstrap/bootstrap.png')">
-                <div class="progress-bar-animated progressBar" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100" style="width: 65%" data-aos="zoom-in-right"><span class="icon-bootstrap progressBarDivIcon"></span><span class="progressBarDivText">Bootstrap</span></div>
-            </div>
-        </div>
-        <div class="col-md-12 progressBarDiv">
-            <div class="progress" style="height: 20px;" (click)="mobileSkillOnClick('Tailwind', 'assets/images/logo/tailwind.png')">
-                <div class="progress-bar-animated progressBar" role="progressbar" aria-valuenow="56" aria-valuemin="0" aria-valuemax="100" style="width: 65%" data-aos="zoom-in-right"><span class="icon-tailwindcss progressBarDivIcon"></span><span class="progressBarDivText">Tailwind</span></div>
-            </div>
-        </div>
-        <div class="col-md-12 progressBarDiv">
-            <div class="progress" style="height: 20px;" (click)="mobileSkillOnClick('Express.js', 'assets/images/logo/expressjs.png')">
-                <div class="progress-bar-animated progressBar" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100" style="width: 65%" data-aos="zoom-in-right"><span class="icon-express progressBarDivIcon"></span><span class="progressBarDivText">Express.js</span></div>
-            </div>
-        </div>
-        <div class="col-md-12 progressBarDiv">
-            <div class="progress" style="height: 20px;" (click)="mobileSkillOnClick('Magento', 'assets/images/logo/magento.png')">
-                <div class="progress-bar-animated progressBar" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 50%" data-aos="zoom-in-right"><span class="icon-magento progressBarDivIcon"></span><span class="progressBarDivText">Magento</span></div>
-            </div>
-        </div>
-        <div class="col-md-12 progressBarDiv">
-            <div class="progress" style="height: 20px;" (click)="mobileSkillOnClick('React', 'https://raw.githubusercontent.com/github/explore/ccc16358ac4530c6a69b1b80c7223cd2744dea83/topics/react/react.png')">
-                <div class="progress-bar-animated progressBar" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 50%" data-aos="zoom-in-right"><span class="icon-react progressBarDivIcon"></span><span class="progressBarDivText">React</span></div>
-            </div>
-        </div>
-        <div class="col-md-12 progressBarDiv">
-            <div class="progress" style="height: 20px;" (click)="mobileSkillOnClick('React Native', 'https://raw.githubusercontent.com/github/explore/ccc16358ac4530c6a69b1b80c7223cd2744dea83/topics/react/react.png')">
-                <div class="progress-bar-animated progressBar" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 50%" data-aos="zoom-in-right"><span class="icon-react progressBarDivIcon"></span><span class="progressBarDivText">React Native</span></div>
-            </div>
-        </div>
-        <div class="col-md-12 progressBarDiv">
-            <div class="progress" style="height: 20px;" (click)="mobileSkillOnClick('Angular', 'https://raw.githubusercontent.com/github/explore/ccc16358ac4530c6a69b1b80c7223cd2744dea83/topics/angular/angular.png')">
-                <div class="progress-bar-animated progressBar" role="progressbar" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100" style="width: 35%" data-aos="zoom-in-right"><span class="icon-angular progressBarDivIcon"></span><span class="progressBarDivText">Angular</span></div>
-            </div>
-        </div>
-        <div class="col-md-12 progressBarDiv">
-            <div class="progress" style="height: 20px;" (click)="mobileSkillOnClick('Flutter', 'assets/images/logo/flutter.png')">
-                <div class="progress-bar-animated progressBar" role="progressbar" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100" style="width: 35%" data-aos="zoom-in-right"><span class="icon-flutter progressBarDivIcon"></span><span class="progressBarDivText">Flutter</span></div>
-            </div>
-        </div>
-        <div class="col-md-12 progressBarDiv">
-            <div class="progress" style="height: 20px;" (click)="mobileSkillOnClick('Next.js', 'assets/images/logo/nextjs.png')">
-                <div class="progress-bar-animated progressBar" role="progressbar" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100" style="width: 35%" data-aos="zoom-in-right"><span class="icon-nextdotjs progressBarDivIcon"></span><span class="progressBarDivText">Next.js</span></div>
-            </div>
-        </div>
-        <div class="col-md-12 progressBarDiv">
-            <div class="progress" style="height: 20px;" (click)="mobileSkillOnClick('Electron.js', 'https://raw.githubusercontent.com/github/explore/ccc16358ac4530c6a69b1b80c7223cd2744dea83/topics/electron/electron.png')">
-                <div class="progress-bar-animated progressBar" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: 25%" data-aos="zoom-in-right"><span class="icon-electron progressBarDivIcon"></span><span class="progressBarDivText">Electron.js</span></div>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-12" data-aos="zoom-in-right"><span><i class="fas fa-cogs"></i> Engine</span></div>
-    <div class="row col-md-8" id="programmingDiv" data-aos="zoom-in-right">
-        <div class="col-md-12 progressBarDiv">
-            <div class="progress" style="height: 20px;" (click)="mobileSkillOnClick('Unreal Engine 4', 'https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/unreal-engine/unreal-engine.png')">
-                <div class="progress-bar-animated progressBar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width: 90%" data-aos="zoom-in-right"><span class="icon-unrealengine progressBarDivIcon"></span><span class="progressBarDivText">Unreal Engine 4</span></div>
-            </div>
-        </div>
-        <div class="col-md-12 progressBarDiv">
-            <div class="progress" style="height: 20px;" (click)="mobileSkillOnClick('Android Studio', 'assets/images/logo/androidstudio.png')">
-                <div class="progress-bar-animated progressBar" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 50%" data-aos="zoom-in-right"><span class="icon-androidstudio progressBarDivIcon"></span><span class="progressBarDivText">Android Studio</span></div>
-            </div>
-        </div>
-        <div class="col-md-12 progressBarDiv">
-            <div class="progress" style="height: 20px;" (click)="mobileSkillOnClick('Unity', 'assets/images/logo/unity.png')">
-                <div class="progress-bar-animated progressBar" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" style="width: 10%" data-aos="zoom-in-right"><span class="icon-unity progressBarDivIcon"></span><span class="progressBarDivText">Unity</span></div>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-12" data-aos="zoom-in-right"><span><i class="fas fa-database"></i> Databases</span></div>
-    <div class="row col-md-8" id="programmingDiv" data-aos="zoom-in-right">
-        <div class="col-md-12 progressBarDiv">
-            <div class="progress" style="height: 20px;" (click)="mobileSkillOnClick('MySQL', 'https://cdn.freebiesupply.com/logos/large/2x/mysql-logo-png-transparent.png')">
-                <div class="progress-bar-animated progressBar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width: 90%" data-aos="zoom-in-right"><span class="icon-mysql progressBarDivIcon"></span><span class="progressBarDivText">MySQL</span></div>
-            </div>
-        </div>
-        <div class="col-md-12 progressBarDiv">
-            <div class="progress" style="height: 20px;" (click)="mobileSkillOnClick('Realtime Database', 'assets/images/logo/rtdb.png')">
-                <div class="progress-bar-animated progressBar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%" data-aos="zoom-in-right"><span class="icon-firebase progressBarDivIcon"></span><span class="progressBarDivText">Google Firebase Realtime Database</span></div>
-            </div>
-        </div>
-        <div class="col-md-12 progressBarDiv">
-            <div class="progress" style="height: 20px;" (click)="mobileSkillOnClick('Cloud Firestore', 'assets/images/logo/firestore.png')">
-                <div class="progress-bar-animated progressBar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 70%" data-aos="zoom-in-right"><span class="icon-firebase progressBarDivIcon"></span><span class="progressBarDivText">Google Firebase Cloud Firestore</span></div>
-            </div>
-        </div>
-        <div class="col-md-12 progressBarDiv">
-            <div class="progress" style="height: 20px;" (click)="mobileSkillOnClick('MongoDB', 'assets/images/logo/mongoDB.png')">
-                <div class="progress-bar-animated progressBar" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 50%" data-aos="zoom-in-right"><span class="icon-mongodb progressBarDivIcon"></span><span class="progressBarDivText">MongoDB</span></div>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-12" data-aos="zoom-in-right"><span><i class="fas fa-photo-video"></i> Editing Suites</span></div>
-    <div class="row col-md-8" id="programmingDiv" data-aos="zoom-in-right">
-        <div class="col-md-12 progressBarDiv">
-            <div class="progress" style="height: 20px;" (click)="mobileSkillOnClick('Illustrator', 'assets/images/logo/ai.png')">
-                <div class="progress-bar-animated progressBar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width: 85%" data-aos="zoom-in-right"><span class="icon-adobeillustrator progressBarDivIcon"></span><span class="progressBarDivText">Adobe Illustrator</span></div>
-            </div>
-        </div>
-        <div class="col-md-12 progressBarDiv">
-            <div class="progress" style="height: 20px;" (click)="mobileSkillOnClick('After Effects', 'assets/images/logo/ae.png')">
-                <div class="progress-bar-animated progressBar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%" data-aos="zoom-in-right"><span class="icon-adobeaftereffects progressBarDivIcon"></span><span class="progressBarDivText">Adobe After Effects</span></div>
-            </div>
-        </div>
-        <div class="col-md-12 progressBarDiv">
-            <div class="progress" style="height: 20px;" (click)="mobileSkillOnClick('Photoshop', 'assets/images/logo/ps.png')">
-                <div class="progress-bar-animated progressBar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%" data-aos="zoom-in-right"><span class="icon-adobephotoshop progressBarDivIcon"></span><span class="progressBarDivText">Adobe Photoshop</span></div>
-            </div>
-        </div>
-        <div class="col-md-12 progressBarDiv">
-            <div class="progress" style="height: 20px;" (click)="mobileSkillOnClick('Premiere Pro', 'assets/images/logo/pr.png')">
-                <div class="progress-bar-animated progressBar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%" data-aos="zoom-in-right"><span class="icon-adobepremierepro progressBarDivIcon"></span><span class="progressBarDivText">Adobe Premiere Pro</span></div>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-12" data-aos="zoom-in-right"><span><i class="fas fa-language"></i> Spoken Languages</span></div>
-    <div class="row col-md-8" id="programmingDiv" data-aos="zoom-in-right">
-        <div class="col-md-12 progressBarDiv">
-            <div class="progress" style="height: 20px;" (click)="mobileSkillOnClick('Chinese (Mandarin)', 'https://www.countryflags.io/cn/flat/64.png')">
-                <div class="progress-bar-animated progressBar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%" data-aos="zoom-in-right"><span class="icon-language_zh progressBarDivIcon"></span><span class="progressBarDivText">Chinese (Mandarin)</span></div>
-            </div>
-        </div>
-        <div class="col-md-12 progressBarDiv">
-            <div class="progress" style="height: 20px;" (click)="mobileSkillOnClick('English', 'https://www.countryflags.io/us/flat/64.png')">
-                <div class="progress-bar-animated progressBar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width: 90%" data-aos="zoom-in-right"><span class="icon-language_en progressBarDivIcon"></span><span class="progressBarDivText">English</span></div>
-            </div>
-        </div>
-        <div class="col-md-12 progressBarDiv">
-            <div class="progress" style="height: 20px;" (click)="mobileSkillOnClick('Malay', 'https://www.countryflags.io/my/flat/64.png')">
-                <div class="progress-bar-animated progressBar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%" data-aos="zoom-in-right"><span class="icon-language_my progressBarDivIcon"></span><span class="progressBarDivText">Malay</span></div>
-            </div>
-        </div>
-        <div class="col-md-12 progressBarDiv">
-            <div class="progress" style="height: 20px;" (click)="mobileSkillOnClick('Chinese (Teochew/Hokkien)', 'https://www.countryflags.io/cn/flat/64.png')">
-                <div class="progress-bar-animated progressBar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%" data-aos="zoom-in-right"><span class="icon-language_zhteochew progressBarDivIcon"></span><span class="progressBarDivText">Chinese (Teochew/Hokkien)</span></div>
-            </div>
-        </div>
-        <div class="col-md-12 progressBarDiv">
-            <div class="progress" style="height: 20px;" (click)="mobileSkillOnClick('Japanese', 'https://www.countryflags.io/jp/flat/64.png')">
-                <div class="progress-bar-animated progressBar" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: 25%" data-aos="zoom-in-right"><span class="icon-language_jp progressBarDivIcon"></span><span class="progressBarDivText">Japanese</span></div>
-            </div>
-        </div>
-        <div class="col-md-12 progressBarDiv">
-            <div class="progress" style="height: 20px;" (click)="mobileSkillOnClick('Korean', 'https://www.countryflags.io/kr/flat/64.png')">
-                <div class="progress-bar-animated progressBar" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: 25%" data-aos="zoom-in-right"><span class="icon-language_kr progressBarDivIcon"></span><span class="progressBarDivText">Korean</span></div>
-            </div>
-        </div>
-        <div class="col-md-12 progressBarDiv">
-            <div class="progress" style="height: 20px;" (click)="mobileSkillOnClick('Spanish', 'https://www.countryflags.io/es/flat/64.png')">
-                <div class="progress-bar-animated progressBar" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" style="width: 10%" data-aos="zoom-in-right"><span class="icon-language_es progressBarDivIcon"></span><span class="progressBarDivText">Spanish</span></div>
+            <div class="row col-md-12">
+                <div class="col-md-4 skillCard"><span><i class="fas fa-database"></i> Databases<i class="skillBtn fas fa-angle-down" id="skillBtn3" (click)="skillBtnOnClick($event,3)"></i></span>
+                    <div class="skillChart" id="skillCont3" style="display:none;"><canvas id="databaseChart"></canvas></div>
+                </div>
+                <div class="col-md-4 skillCard"><span><i class="fas fa-photo-video"></i> Editing Suites<i class="skillBtn fas fa-angle-down" id="skillBtn4" (click)="skillBtnOnClick($event,4)"></i></span>
+                    <div class="skillChart" id="skillCont4" style="display:none;"><canvas id="editingChart"></canvas></div>
+                </div>
+                <div class="col-md-4 skillCard"><span><i class="fas fa-language"></i> Spoken Languages<i class="skillBtn fas fa-angle-down" id="skillBtn5" (click)="skillBtnOnClick($event,5)"></i></span>
+                    <div class="skillChart" id="skillCont5" style="display:none;"><canvas id="languageChart"></canvas></div>
+                </div>
             </div>
         </div>
     </div>

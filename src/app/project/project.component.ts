@@ -1,5 +1,14 @@
 import { Component } from '@angular/core';
 import * as $ from 'jquery';
+import info from "./project-clickable.json";
+
+interface Info{
+  id: number,
+  type: string,
+  url: string,
+  hasDownload: boolean,
+  download: string
+}
 
 @Component({
   selector: 'project',
@@ -7,6 +16,8 @@ import * as $ from 'jquery';
   styleUrls: ['./project.component.scss']
 })
 export class ProjectComponent {
+
+  Info: Info[] = info;
 
   constructor() { }
 
@@ -42,22 +53,14 @@ export class ProjectComponent {
     $("#proj2ReadMore").show();
   }
 
-  //Download zip for windows version
-  downloadPC(e: any){
+  divOnClick(e: any, id: any){
     var hiddenElement = document.createElement('a');
-    hiddenElement.href = "https://drive.google.com/u/0/uc?export=download&confirm=cAHr&id=1Y4L4pfdXhG0GHVAwBlHGy5jYBtivDIcw";
+    hiddenElement.href = this.Info[id].url;
     hiddenElement.target = '_blank';
-    hiddenElement.download = "ChemistLab3D.zip";
+    if (this.Info[id].hasDownload){
+      hiddenElement.download = this.Info[id].download;
+    } 
     hiddenElement.click();
     hiddenElement.remove();
   }
-
-    //Download source codes
-    downloadSC(e: any){
-      var hiddenElement = document.createElement('a');
-      hiddenElement.href = "https://cloud.degoo.com/share/C79qbbGfZg26CJPhpZBLmw";
-      hiddenElement.target = '_blank';
-      hiddenElement.click();
-      hiddenElement.remove();
-    }
 }

@@ -1,0 +1,132 @@
+[
+    {
+        "prefix": "programming",
+        "labels": [
+            "JavaScript", 
+            "PHP", 
+            "Java", 
+            "C++",
+            "TypeScript",
+            "Python",
+            "SASS",
+            "Dart",
+            "Kotlin",
+            "C#"
+        ],
+        "data": [95,90,85,80,70,65,35,15,5],
+        "color": [
+            "#F0DB4F", 
+            "#787CB5", 
+            "#f89820",
+            "#00549D",
+            "#007BCD",
+            "#3472A2",
+            "#CD679A",
+            "#00D2B8",
+            "#736CD8",
+            "#671473"
+        ],
+        "type": "doughnut"
+    },
+    {
+        "prefix": "framework",
+        "labels": [
+            "Node.js", 
+            "Bootstrap", 
+            "Tailwind", 
+            "Express.js",
+            "Magento",
+            "React",
+            "React Native",
+            "Angular",
+            "Flutter",
+            "Next.js",
+            "Electron.js"
+        ],
+        "data": [85,65,56,65,90,50,35,35,35,25,25],
+        "color": [
+            "#78B163", 
+            "#553A7D", 
+            "#07B6D5",
+            "#9DA0A6",
+            "#E56435",
+            "#61DAFB",
+            "#61DAFB",
+            "#DE002D",
+            "#54C5F8",
+            "#7D828D",
+            "#9EDFEB"
+        ],
+        "type": "doughnut"
+    },
+    {
+        "prefix": "engine",
+        "labels": [
+            "Unreal Engine 4", 
+            "Android Studio", 
+            "Unity"
+        ],
+        "data": [90,50,10],
+        "color": [
+            "#1F2429", 
+            "#82B74B", 
+            "#100B09"
+        ],
+        "type": "doughnut"
+    },
+    {
+        "prefix": "database",
+        "labels": [
+            "MySQL", 
+            "Realtime-Database", 
+            "Cloud Firestore"
+        ],
+        "data": [90,80,70],
+        "color": [
+            "#4E7088", 
+            "#F68511", 
+            "#F68511"
+        ],
+        "type": "doughnut"
+    },
+    {
+        "prefix": "editing",
+        "labels": [
+            "Illustrator", 
+            "After Effects", 
+            "Photoshop",
+            "Premiere Pro"
+        ],
+        "data": [85,80,80,70],
+        "color": [
+            "#F8BE58", 
+            "#C68CF9", 
+            "#8FB7F6",
+            "#DB85F8"
+        ],
+        "type": "doughnut"
+    },
+    {
+        "prefix": "language",
+        "labels": [
+            "Chinese (Mandarin)", 
+            "English", 
+            "Malay",
+            "Chinese (Teochew/Hokkien)",
+            "Japanese",
+            "Korean",
+            "Spanish"
+        ],
+        "data": [100,90,75,75,25,25,10],
+        "color": [
+            "#E21B23", 
+            "#393868", 
+            "#F2C200",
+            "#E21B23",
+            "#F2F2F2",
+            "#004398",
+            "#A41418"
+        ],
+        "type": "doughnut"
+    }
+]

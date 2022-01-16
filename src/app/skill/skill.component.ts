@@ -5,6 +5,7 @@ import * as $ from "jquery";
 import data from "./skill-chart.json";
 import Swal from 'sweetalert2';
 import Chart from 'chart.js/auto';
+import { newArray } from '@angular/compiler/src/util';
 
 interface Data{
   prefix: string,
@@ -47,18 +48,35 @@ export class SkillComponent implements OnInit {
       const data: any = {
         labels: this.Data[i].labels,
         datasets: [{
-          showInLegend: true,
           data: this.Data[i].data,
-          backgroundColor: this.Data[i].color,
+          backgroundColor: this.colorArrBuilder(this.Data[i].color, .8),
+          borderColor: this.colorArrBuilder(this.Data[i].color, 1),
         }]
       };
       const config: any = {
         type: 'doughnut',
         data: data,
+        options: {
+          plugins: {
+              legend: {
+                  display: true,
+                  position: 'bottom',
+                  align: 'start'
+              }
+          }
+        }
       };
       let elem: any = document.getElementById(`${id}Chart`);
       new Chart(elem, config);
     }
+  }
+
+  colorArrBuilder(arr: string[], alpha: any){
+    let newArr: string[] = [];
+    for (let i=0;i<arr.length;i++){
+      newArr.push(`${arr[i]},${alpha})`)
+    }
+    return newArr;
   }
 
   //Caret on click

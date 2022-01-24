@@ -142,5 +142,13 @@
         "date": "November 2021 - PRESENT",
         "icon": "<span class='icon-angular progressBarDivIcon'><span class='icon-html5 progressBarDivIcon'><span class='icon-sass progressBarDivIcon'><span class='icon-typescript progressBarDivIcon'><span class='icon-tailwindcss progressBarDivIcon'><span class='icon-java progressBarDivIcon'><span class='icon-python progressBarDivIcon'>",
         "source": "#"
+    },
+    {
+        "title": "Craftiviti Zone",
+        "lang": "• Frontend: React, Tailwind, SASS<br/>• Backend: TypeScript",
+        "desc": "- Create branded content showcase for Craftiviti Zone.",
+        "date": "January 2022 - PRESENT",
+        "icon": "<span class='icon-react progressBarDivIcon'><span class='icon-tailwindcss progressBarDivIcon'><span class='icon-sass progressBarDivIcon'><span class='icon-typescript progressBarDivIcon'>",
+        "source": "#"
     }
 ]

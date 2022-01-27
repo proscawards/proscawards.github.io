@@ -1,18 +1,18 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import * as $ from 'jquery';
 import Swal from 'sweetalert2';
 import Storage from '../model/Storage';
 const storage = new Storage();
+const cf = new ContactForm(0, false);
 import { ContactForm } from '../model/ContactForm';
 import { HttpClient } from '@angular/common/http';
-const cf = new ContactForm(0, false);
 
 @Component({
   selector: 'footer',
   templateUrl: './footer.component.html',
   styleUrls: ['./footer.component.scss']
 })
-export class FooterComponent {
+export class FooterComponent{
 
   //Click event to scroll to top
   scrollTopOnClick(){

@@ -23,6 +23,7 @@
     "bootstrap": "^5.0.0-beta3",
     "chart.js": "^3.7.0",
     "country-flag-icons": "^1.4.14",
+    "jodit": "^3.12.5",
     "jquery": "^3.6.0",
     "ngx-bootstrap": "^7.1.0",
     "rxjs": "~6.6.0",

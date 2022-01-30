@@ -24,10 +24,17 @@
     }
 }
 
-#owl{
+.owls{
     width: 70px;
     @media screen and (max-width: 515px) {
         width: 40px;
+    }
+}
+
+#phoenix{
+    width: 110px;
+    @media screen and (max-width: 515px) {
+        width: 60px;
     }
 }
 

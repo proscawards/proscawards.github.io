@@ -14,6 +14,7 @@ import { ProjectOtherComponent } from './project-other/project-other.component';
 import { ExperienceComponent } from './experience/experience.component';
 import { FooterComponent } from './footer/footer.component';
 import { WINDOW_PROVIDERS } from "./services/window.service";
+import { WysiwygModule } from './wysiwyg/wysiwyg.module';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { WINDOW_PROVIDERS } from "./services/window.service";
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    WysiwygModule,
   ],
   providers: [WINDOW_PROVIDERS, {provide: APP_BASE_HREF, useValue : '/' }],
   bootstrap: [AppComponent]

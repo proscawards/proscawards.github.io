@@ -1,0 +1,38 @@
+<div class="row col-md-12 d-flex flex-column" (click)="domOnClick($event)">
+    <span>Highlighted:<span id="highlight"></span></span>
+    <div class="row col-md-12">
+        <button class="fsBtn col-md-3" id="boldBtn" (click)="boldOnClick($event)" title="Bold">B</button>
+        <button class="fsBtn col-md-3" id="italicBtn" (click)="italicOnClick($event)" title="Italic">I</button>
+        <button class="fsBtn col-md-3" id="underlineBtn" (click)="underlineOnClick($event)" title="Underline">U</button>
+        <div class="fsBtnDiv col-md-3 d-flex flex-column" id="textDecorationDiv" title="More line options">
+            <button class="fsBtn col-md-3" (click)="textDecorOnClick()"><i class="fas fa-caret-down"></i></button>
+            <button class="fsBtn col-md-3" id="linethroughBtn" (click)="linethroughOnClick($event)" title="Strike through">U</button>
+            <button class="fsBtn col-md-3" id="overlineBtn" (click)="overlineOnClick($event)" title="Overline">U</button>
+        </div>
+        <button class="fsBtn col-md-3" id="subBtn" (click)="subOnClick($event)" title="Subscript">A<sub>a</sub></button>
+        <button class="fsBtn col-md-3" id="supBtn" (click)="supOnClick($event)" title="Superscript">A<sup>a</sup></button>
+        <button class="fsBtn col-md-3" id="capitalizeBtn" (click)="capitalizeOnClick($event)" title="Sentence Case">Aa</button>
+        <div class="fsBtnDiv col-md-3 d-flex flex-column" id="textTransformDiv" title="More case options">
+            <button class="fsBtn col-md-3" (click)="textTransformOnClick()"><i class="fas fa-caret-down"></i></button>
+            <button class="fsBtn col-md-3" id="uppercaseBtn" (click)="uppercaseOnClick($event)" title="Uppercase">AA</button>
+            <button class="fsBtn col-md-3" id="lowercaseBtn" (click)="lowercaseOnClick($event)" title="Lowercase">aa</button>
+        </div>
+    </div>
+    <div class="row col-md-12">
+        <button class="fsBtn col-md-3" id="leftBtn" (click)="leftOnClick($event)" title="Align Left"><i class="fas fa-align-left"></i></button>
+        <button class="fsBtn col-md-3" id="centerBtn" (click)="centerOnClick($event)" title="Align Center"><i class="fas fa-align-center"></i></button>
+        <button class="fsBtn col-md-3" id="rightBtn" (click)="rightOnClick($event)" title="Align Right"><i class="fas fa-align-right"></i></button>
+        <button class="fsBtn col-md-3" id="justifyBtn" (click)="justifyOnClick($event)" title="Justify"><i class="fas fa-align-justify"></i></button>
+        <button class="fsBtn col-md-3" id="ulBtn" (click)="ulOnClick($event)" title="Bullet List"><i class="fas fa-list-ul"></i></button>
+        <button class="fsBtn col-md-3" id="olBtn" (click)="olOnClick($event)" title="Numeric List"><i class="fas fa-list-ol"></i></button>
+    </div>
+    <span class="contactInput col-md-12" id="wysiwyg" 
+        contenteditable="true"
+        (input)="textareaOnChange($event)" 
+        (window:mouseup)="onGetSelection($event)" 
+        (blur)="textareaOnChange($event)"
+        (click)="textareaOnClick($event)">
+    </span>
+    <span>Raw html:<span id="raw"></span></span>
+    <span>Formatted:<span id="formatted"></span></span>
+</div>

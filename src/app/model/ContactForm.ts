@@ -1,8 +1,8 @@
 import * as $ from "jquery";
 
 export class ContactForm{
-    error;
-    isFocused;
+    error: number;
+    isFocused: boolean;
 
     constructor(error: any, isFocused: any){
       this.error = error;

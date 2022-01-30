@@ -43,6 +43,7 @@
                 <span class="contactLbl">E-mail</span><br/>
                 <input type="email" class="contactInput" id="contactEmail" (input)="emailOnChange($event)" (focus)="onFocusClick($event)"/><br/><br/>
                 <span class="contactLbl">Message</span><br/>
+                <!--<wysiwyg></wysiwyg>-->
                 <textarea type="text" class="contactInput" id="contactMsg" (input)="messageOnChange($event)" (focus)="onFocusClick($event)"></textarea><br/>
                 <button type="submit" class="btn" id="contactSubmit" (click)="onFocusClick($event); submitBtnOnClick($event);"><span id="contactSubmitLbl">Submit</span>
                     <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" id="contactThrobber" style="display:none;"></span>

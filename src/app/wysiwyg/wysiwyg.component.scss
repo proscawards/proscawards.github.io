@@ -1,0 +1,88 @@
+.fsBtn{
+    outline: none;
+    padding: 10px 20px;
+    border: none;
+    width: fit-content;
+    height: fit-content;
+}
+
+.fsBtnDiv{
+    margin-left: -12px;
+    margin-right: -12px;
+    width: fit-content;
+    height: fit-content;
+}
+
+.active{
+    background: rgb(136, 136, 136);
+}
+
+#boldBtn{
+    font-weight: bold;
+}
+
+#italicBtn{
+    font-style: italic;
+}
+
+#underlineBtn{
+    text-decoration: underline;
+}
+
+#wysiwyg{
+    background: var(--oppositeBgSdColor);
+    width: 100%;
+    height: 200px;
+    padding: 10px;
+    resize: vertical;
+    overflow-y: scroll;
+}
+
+#raw{
+    padding: 10px;
+    height: 100px;
+}
+
+#textDecorationDiv{
+    position: relative;
+
+    &>#linethroughBtn{
+        display: none;
+        text-decoration: line-through;
+        position: absolute;
+        z-index: 20;
+        top: 44px;
+        box-shadow: 5px 5px 5px var(--defaultBoxShadow);
+    }
+
+    &>#overlineBtn{
+        display: none;
+        text-decoration: overline;
+        position: absolute;
+        z-index: 20;
+        top: 88px;
+        box-shadow: 5px 5px 5px var(--defaultBoxShadow);
+    }
+
+}
+
+#textTransformDiv{
+    position: relative;
+
+    &>#uppercaseBtn{
+        display: none;
+        position: absolute;
+        z-index: 20;
+        top: 44px;
+        box-shadow: 5px 5px 5px var(--defaultBoxShadow);
+    }
+
+    &>#lowercaseBtn{
+        display: none;
+        position: absolute;
+        z-index: 20;
+        top: 88px;
+        box-shadow: 5px 5px 5px var(--defaultBoxShadow);
+    }
+
+}

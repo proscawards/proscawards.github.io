@@ -71,7 +71,7 @@ export class AppComponent implements AfterViewInit, OnInit{
 
   //On document load
   onDOMLoaded(){
-    if (storage.length == 0){
+    if (storage.getLength() == 0){
       this.httpClient.get<any>('https://proscawards-portfolio-backend.herokuapp.com/').subscribe();
       this.topCountries();
       this.totalVisitor();

@@ -26,4 +26,18 @@ export class ExperienceComponent implements OnInit {
     }
   }
 
+  expContCloseBtnOnClick(e: any, id: any){
+    $(`#expCont${id}`).fadeOut();
+    $(`#expBtn${id}`).removeClass("activeExp");
+  }
+
+  expLinkOnClick(e: any, elem: any){
+    var pos: any = $(elem)?.parent()?.offset()?.top
+    $('html, body').animate({scrollTop: pos-350},'slow');
+    $(elem).parent().addClass('hovered');
+    setTimeout(() => {
+      $(elem).parent().removeClass('hovered');
+    }, 2000);
+  }
+
 }

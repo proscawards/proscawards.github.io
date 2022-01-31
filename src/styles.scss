@@ -131,9 +131,16 @@ input:-webkit-autofill{
 .scroll-bg {
     padding: 10px 70px;
     color: var(--currentFontCodeColor);
+    transition: .3s;
+    background: none;
 
     & p{
         color: var(--currentFontDescColor);
+    }
+
+    &.hovered {
+        background: var(--currentBgSdColor);
+        font-weight: bold;
     }
 }
 

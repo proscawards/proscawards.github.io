@@ -15,6 +15,7 @@ import { ExperienceComponent } from './experience/experience.component';
 import { FooterComponent } from './footer/footer.component';
 import { WINDOW_PROVIDERS } from "./services/window.service";
 import { WysiwygModule } from './wysiwyg/wysiwyg.module';
+import { EducationComponent } from './education/education.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { WysiwygModule } from './wysiwyg/wysiwyg.module';
     ProjectOtherComponent,
     ExperienceComponent,
     FooterComponent,
+    EducationComponent,
   ],
   imports: [
     BrowserModule,

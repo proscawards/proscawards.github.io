@@ -41,6 +41,8 @@ export class WysiwygComponent implements OnInit {
   private isAlignCenter: Style;
   private isAlignRight: Style;
   private isAlignJustify: Style;
+  private isOrderedList: Style;
+  private isUnorderedList: Style;
   private subString: SubString;
   private substrStart: number;
   private substrEnd: number;
@@ -66,6 +68,8 @@ export class WysiwygComponent implements OnInit {
     this.isAlignCenter = {isActive: false, tag: ["text-align:center;"], css: [{key: "text-align", value: "initial"},{key: "text-align", value: "center"}]};
     this.isAlignRight = {isActive: false, tag: ["text-align:right;"], css: [{key: "text-align", value: "initial"},{key: "text-align", value: "right"}]};
     this.isAlignJustify = {isActive: false, tag: ["text-align:justify;"], css: [{key: "text-align", value: "initial"},{key: "text-align", value: "justify"}]};
+    this.isOrderedList = {isActive: false, tag: ["list-style-type:upper-roman;"], css: [{key: "list-style-type", value: "none"},{key: "list-style-type", value: "upper-roman"}]};
+    this.isUnorderedList = {isActive: false, tag: ["list-style-type:circle;"], css: [{key: "list-style-type", value: "none"},{key: "list-style-type", value: "circle"}]};
     this.substrStart = 0; this.substrEnd = 0;
     this.istextDecorActive = false;
     this.istextTransformActive = false;
@@ -113,16 +117,28 @@ export class WysiwygComponent implements OnInit {
       let spanEndTag = $("#raw").text().indexOf("</span>"); //</span>
       let spanStartLen = spanStartTag + "'>".length;
       let spanEndLen = spanEndTag + "</span>".length;
-      $("#raw").text($("#raw").text().substring(0, spanStartLen)+$("#wysiwyg").text()+$("#raw").text().substring(spanEndLen)); 
-      $("#raw").text($("#raw").text().replace(/(\r\n|\n|\r)/gmi, "<br>"));
+      $("#raw").text($("#raw").text().substring(0, spanStartLen)+$("#wysiwyg").html()+$("#raw").text().substring(spanEndLen)); 
+      //Replace <div> with <br/> since trigger event for Shift+Enter is not working
+      if (!this.isOrderedList.isActive && !this.isUnorderedList.isActive){
+        $("#raw").text($("#raw").text().replace(/(\r\n|\n|\r|<br>)/gm, "<br/>").replace(/(\<div>)/gmi, "<br/>").replace(/(<\/div>)/gmi, ""));
+      }
+      else{
+        $("#raw").text($("#raw").text().replace(/(\r\n|\n|\r|<br>)/gm, "<br/>").replace(/(\<div>)/gmi, "<li>").replace(/(<\/div>)/gmi, "</li>"));
+      }
     }
     else{
-      $("#raw").text(""+$("#wysiwyg").text().replace(/(\r\n|\n|\r)/gmi, "<br>"));
+      if (!this.isOrderedList.isActive && !this.isUnorderedList.isActive){
+        $("#raw").text(""+$("#wysiwyg").html().replace(/(\r\n|\n|\r|<br>)/gm, "<br/>").replace(/(\<div>)/gmi, "<br/>").replace(/(<\/div>)/gmi, ""));
+      }
+      else{
+        $("#raw").text(""+$("#wysiwyg").html().replace(/(\r\n|\n|\r|<br>)/gm, "<br/>").replace(/(\<div>)/gmi, "<li>").replace(/(<\/div>)/gmi, "</li>"));
+      }
+
     }
     
     $("#formatted").html(""+$("#raw").text());
     this.btnOnClick()
-      }
+  }
 
   textareaOnBlur(e: any){
     $("#raw").text($("#raw").text().replace(/(\<s_>|\<_s>)+/gmi, ''))
@@ -132,16 +148,66 @@ export class WysiwygComponent implements OnInit {
 
   }
 
+  textareaOnKeyPress(e: KeyboardEvent){
+    
+  }
+
+  textareaOnKeydown(e: KeyboardEvent){
+    //this.fireOnEnter(e);
+    //console.log('Caret at: ', this.getCaretCharOffset(this.document.querySelector("#wysiwyg")))
+    console.log($("#raw").text())
+  }
+
+  fireOnEnter(e: any){
+    if (e.key == "Enter" && !e.shiftKey) {
+      let elem: any = document.querySelector("#wysiwyg")
+      elem.dispatchEvent(new KeyboardEvent('keydown', {'key': 'Enter', shiftKey: true}));
+      elem.dispatchEvent(new KeyboardEvent('keydown', {'key': 'Enter', shiftKey: true}));
+      elem.onkeydown = function(e:any){console.log(e.key,e.shiftKey)}
+      //var event = $.Event("keydown", { 'key': "Enter", shiftKey: true})
+      //$("#wysiwyg").trigger(event);
+      //console.log('enter only')
+      //this.addElementAtPos("<br/>", this.getCaretCharOffset(elem))
+    } else if (e.key == "Enter" && e.shiftKey) {
+      console.log('shift + enter');
+    }
+  }
+
   outOfFocus(){
     if (this.istextDecorActive){this.textDecorOnClick()}
     if (this.istextTransformActive){this.textTransformOnClick()}
   }
 
-  substrOnAddFs(tag: any){
-    let startTagPos = $("#raw").text().indexOf(this.subString.tag[0]);
-    let endTagPos = $("#raw").text().indexOf(this.subString.tag[1]);
-    let str = $("#raw").text();
-    $("#raw").text(str.substring(0, startTagPos)+tag[0]+this.subString.value+tag[1]+str.substring(endTagPos));
+  getCaretCharOffset(element: any) {
+    var caretOffset = 0;
+    var document: any = this.document;
+    var window: any = this.window;
+  
+    if (window.getSelection) {
+      var range: any = window.getSelection().getRangeAt(0);
+      var preCaretRange = range.cloneRange();
+      preCaretRange.selectNodeContents(element);
+      preCaretRange.setEnd(range.endContainer, range.endOffset);
+      caretOffset = preCaretRange.toString().length;
+    } 
+  
+    else if (document.getSelection() && document.getSelection().type != "Control") {
+      var textRange: any = document.getSelection().createRange();
+      var preCaretTextRange: any = document.body.createTextRange();
+      preCaretTextRange.moveToElementText(element);
+      preCaretTextRange.setEndPoint("EndToEnd", textRange);
+      caretOffset = preCaretTextRange.text.length;
+    }
+  
+    return caretOffset;
+  }
+
+  addElementAtPos(element: any, pos: any){
+    let start = pos;
+    console.log(start)
+    var text = $("#raw").text().substring(0, start)+element+$("#raw").text().substring(start);
+    console.log(text)
+    $("#raw").text($("#wysiwyg").html().substring(0, start)+element+$("#wysiwyg").html().substring(start)); 
   }
 
   setActiveClass(){
@@ -160,6 +226,8 @@ export class WysiwygComponent implements OnInit {
     this.isAlignCenter.isActive ? $("#centerBtn").addClass("active") : $("#centerBtn").removeClass("active");
     this.isAlignRight.isActive ? $("#rightBtn").addClass("active") : $("#rightBtn").removeClass("active");
     this.isAlignJustify.isActive ? $("#justifyBtn").addClass("active") : $("#justifyBtn").removeClass("active");
+    this.isOrderedList.isActive ? $("#olBtn").addClass("active") : $("#olBtn").removeClass("active");
+    this.isUnorderedList.isActive ? $("#ulBtn").addClass("active") : $("#ulBtn").removeClass("active");
   }
 
   setBtnTag(){
@@ -198,6 +266,8 @@ export class WysiwygComponent implements OnInit {
       this.isAlignRight.isActive ? str = `<span style='${this.isAlignRight.tag[0]}'>${str}</span>` : ''; 
       this.isAlignJustify.isActive ? str = `<span style='${this.isAlignJustify.tag[0]}'>${str}</span>` : ''; 
     }
+    this.isOrderedList.isActive ? str = `<ol type='1'>`+str+"</ol>" : ''; 
+    this.isUnorderedList.isActive ? str = `<ul style='${this.isUnorderedList.tag[0]}'>`+str+"</ul>" : ''; 
     $("#raw").text(str);
   }
 
@@ -247,6 +317,9 @@ export class WysiwygComponent implements OnInit {
     $("#raw").text($("#raw").text().replace(/(text\-align\:right\;)+/gmi, ''))
     $("#raw").text($("#raw").text().replace(/(text\-align\:justify\;)+/gmi, ''))
     $("#raw").text($("#raw").text().replace(/(<span style=''>|<\/span>)+/gmi, ''))
+    $("#raw").text($("#raw").text().replace(/(<ul style\='list\-style\-type\:circle\;'>|<\/ul>)+/gmi, ''))
+    $("#raw").text($("#raw").text().replace(/(<ol type='1'>|<\/ol>)+/gmi, ''))
+    //$("#raw").text($("#raw").text().replace(/(<li>|<\/li>)+/gmi, ''))
   }
 
   btnOnClick(){
@@ -255,6 +328,29 @@ export class WysiwygComponent implements OnInit {
     this.setBtnTag();
     this.setBtnStyle();
     $("#formatted").html(""+$("#raw").text());
+  }
+
+  orderedListOnInit(){
+    const sourceStr: any = $("#raw").text();
+    const searchStr: any = '<br\/>';
+    const indexes = [...sourceStr.matchAll(new RegExp(searchStr, 'gmi'))].map(a => a.index);
+    console.log("ol", indexes)
+    for (let i = 0; i < indexes.length; i++){
+      $("#raw").text($("#raw").text().substring(0, indexes[i])+`${i}. `+$("#raw").text().substring(indexes[i]));
+      $("#wysiwyg").html($("#raw").text())
+      $("#raw").text($("#wysiwyg").html()) 
+    }
+  }
+
+  unorderedListOnInit(){
+    const sourceStr: any = $("#raw").text();
+    const searchStr: any = '<br\/>';
+    const indexes = [...sourceStr.matchAll(new RegExp(searchStr, 'gmi'))].map(a => a.index);
+    for (let i = 0; i < indexes.length; i++){
+      $("#raw").text($("#raw").text().substring(0, indexes[i])+"● "+$("#raw").text().substring(indexes[i]));
+      $("#wysiwyg").html($("#raw").text()) 
+      $("#raw").text($("#wysiwyg").html())
+    }
   }
 
   boldOnClick(e: any){
@@ -335,14 +431,14 @@ export class WysiwygComponent implements OnInit {
   }
 
   ulOnClick(e: any){
-    this.isAlignJustify.isActive ? this.isAlignJustify.isActive = false : this.isAlignJustify.isActive = true;
-    this.isAlignLeft.isActive = false; this.isAlignCenter.isActive = false; this.isAlignRight.isActive = false;
+    this.isUnorderedList.isActive ? this.isUnorderedList.isActive = false : this.isUnorderedList.isActive = true;
+    this.isOrderedList.isActive = false;
     this.btnOnClick();
   }
 
   olOnClick(e: any){
-    this.isAlignJustify.isActive ? this.isAlignJustify.isActive = false : this.isAlignJustify.isActive = true;
-    this.isAlignLeft.isActive = false; this.isAlignCenter.isActive = false; this.isAlignRight.isActive = false;
+    this.isOrderedList.isActive ? this.isOrderedList.isActive = false : this.isOrderedList.isActive = true;
+    this.isUnorderedList.isActive = false;
     this.btnOnClick();
   }
 

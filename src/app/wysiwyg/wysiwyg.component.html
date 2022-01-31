@@ -31,7 +31,9 @@
         (input)="textareaOnChange($event)" 
         (window:mouseup)="onGetSelection($event)" 
         (blur)="textareaOnChange($event)"
-        (click)="textareaOnClick($event)">
+        (click)="textareaOnClick($event)"
+        (keypress)="textareaOnKeyPress($event)"
+        (keydown)="textareaOnKeydown($event)">
     </span>
     <span>Raw html:<span id="raw"></span></span>
     <span>Formatted:<span id="formatted"></span></span>

@@ -13,7 +13,7 @@
     cursor: pointer;
 }
 
-.expCont{
+.eduCont{
     background: var(--currentBgCommentColor);
     border-radius: 5px;
     padding: 20px;
@@ -23,43 +23,34 @@
     }
 }
 
-.expBtn{
+.eduBtn{
     cursor: pointer;
     transform: rotate(0deg);
     transition: transform .3s linear;
 }
 
-.activeExp{
+.activeEdu{
     transform: rotate(-180deg);
     transition: transform .3s linear;
 }
 
-.ssm_code{
-    background: var(--currentBgCommentColor);
-    margin-left: .1em;
-    border-radius: 5px;
-    padding: 5px 10px;
-    font-size: 20px;
-    font-family: 'Montserrat';
-}
-
-.expTableDate{
+.eduTableDate{
     font-weight: 300;
     opacity: .8;
     font-size: 15px;
 }
 
-.expTableTitle{
+.eduTableTitle{
     font-weight: bold;
     font-size: 18px;
     text-transform: uppercase;
 }
 
-.expTableBullet{
+.eduTableBullet{
     text-align: center;
 }
 
-.expTableLink span, .expTableLink a{
+.eduTableLink span, .eduTableLink a{
     text-decoration: none;
     color: inherit;
     cursor: pointer;
@@ -69,7 +60,7 @@
     }
 }
 
-.expContCloseBtn{
+.eduContCloseBtn{
     position: absolute;
     right: 0;
     top: 0;

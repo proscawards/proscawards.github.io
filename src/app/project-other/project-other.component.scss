@@ -97,9 +97,10 @@
     transition: .3s;
     transform: scale(1.0);
     font-weight: normal;
+    border-collapse: collapse;
     cursor: pointer;
 
-    &:hover, &:focus{
+    &:hover, &:focus, &.hovered{
         border: 1px dotted var(--currentFontCodeColor);
         background: var(--currentBgSdColor);
         font-weight: bold;

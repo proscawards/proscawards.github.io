@@ -45,13 +45,14 @@
     text-align: left;
     font-size: 20px;
     margin: 0em .5em;
-
-    & a{
+    
+    & span{
+        cursor: pointer;
         text-decoration: none;
         color: var(--currentFontCodeColor);
     }
     
-    & a:hover{
+    & span:hover{
         text-decoration: underline;
     }
 }

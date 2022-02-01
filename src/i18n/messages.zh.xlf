@@ -1,0 +1,540 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en-US" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="7730882642570711662" datatype="html">
+        <source>//About Me</source>
+        <target>//关于我</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/about/about.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5163456353815970514" datatype="html">
+        <source><x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span&gt;"/>  I&apos;m a software engineer who was passionate about graphic design. I had done doodles and sketches artwork since I was young. <x id="START_LINK" ctype="x-a" equiv-text="&lt;a id=&quot;bioReadMore&quot; (click)=&quot;bioReadMore($event)&quot;&gt;"/>Read more...<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/><x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/><x id="START_TAG_SPAN_1" ctype="x-span_1" equiv-text="&lt;span id=&quot;bioPt1&quot;&gt;"/>During university life, I took on the role of designing the UI of the projects and assignments. Eventually, I got the opportunity to work on web and mobile design during some of my subjects. Other than that, I also embarked on the journey of game development during my Final Year Project.<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/><x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/&gt;"/><x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/&gt;"/><x id="START_TAG_SPAN_2" ctype="x-span_2" equiv-text="&lt;span id=&quot;bioPt2&quot;&gt;"/>  I pursue my tertiary study in Bachelor of Computer Science specialized in Software Engineering at Multimedia University, Cyberjaya, Malaysia. Furthermore, I&apos;m a hobbyist linguist who found interesting interrelationships between Sino-sphere languages, which are Mandarin, Japanese and Korean. I also spent my free time studying Korean and Japanese.<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/><x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/&gt;"/><x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/&gt;"/><x id="START_TAG_SPAN_3" ctype="x-span_3" equiv-text="&lt;span id=&quot;bioPt3&quot;&gt;"/>  I&apos;m currently working at BORN Group as Junior Software Engineer, whilst I&apos;m working on personal projects in the mean time. Feel free to get in touch with me on any of the social media above! <x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/><x id="START_LINK_1" equiv-text="&lt;a id=&quot;bioReadLess&quot; (click)=&quot;bioReadLess($event)&quot; style=&quot;display: none;&quot;&gt;"/>Read less...<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/></source>
+        <target><x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span&gt;"/>  我是一名对平面设计充满热情的软件工程师。 我从小就开始胡乱涂鸦，绘画素描等等。 <x id="START_LINK" ctype="x-a" equiv-text="&lt;a id=&quot;bioReadMore&quot; (click)=&quot;bioReadMore($event)&quot;&gt;"/>阅读更多...<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/><x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/><x id="START_TAG_SPAN_1" ctype="x-span_1" equiv-text="&lt;span id=&quot;bioPt1&quot;&gt;"/>在大学时代里的科目，我主要都会负责设计用户界面。皇天不负有心人，最终我有机会在我的一些科目中从事网络和手机的用户界面设计。 除此之外，我也在我大学的年终项目中踏上了游戏开发的旅程，让我受益匪浅。<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/><x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/&gt;"/><x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/&gt;"/><x id="START_TAG_SPAN_2" ctype="x-span_2" equiv-text="&lt;span id=&quot;bioPt2&quot;&gt;"/>我位于马来西亚赛城的多媒体大学就读计算机科学学士学位，专攻软件工程。 此外，我也是一名语言爱好者，发现其实中日韩语等汉语领域语言之间有趣的相互关系。 闲暇之余，我会花一点时间学习日韩语。<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/><x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/&gt;"/><x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/&gt;"/><x id="START_TAG_SPAN_3" ctype="x-span_3" equiv-text="&lt;span id=&quot;bioPt3&quot;&gt;"/>目前我位于BORN Group就任初级软件工程师，同时我也在空闲时做做我其余的个人项目。请随时在以上任何一个社交媒体与我联系！<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/><x id="START_LINK_1" equiv-text="&lt;a id=&quot;bioReadLess&quot; (click)=&quot;bioReadLess($event)&quot; style=&quot;display: none;&quot;&gt;"/>少读...<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/></target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/about/about.component.html</context>
+          <context context-type="linenumber">10,12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="101464619013194107" datatype="html">
+        <source>SJK(C) Jit Sin &apos;B&apos;</source>
+        <target>日新小学'B'校</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/education/education.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2927897768986663855" datatype="html">
+        <source>(January 2006 - December 2011)</source>
+        <target>（2016年1月至2011年12月）</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/education/education.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6727906520496252329" datatype="html">
+        <source>Primary Education <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i class=&quot;eduBtn fas fa-angle-down&quot; id=&quot;eduBtn0&quot;&gt;"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/></source>
+        <target>初等教育 <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i class=&quot;eduBtn fas fa-angle-down&quot; id=&quot;eduBtn0&quot;&gt;"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/></target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/education/education.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="529261375582544700" datatype="html">
+        <source>Positions</source>
+        <target>职位</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/education/education.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/education/education.component.html</context>
+          <context context-type="linenumber">49</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5027221928447122016" datatype="html">
+        <source>School Prefect</source>
+        <target>巡查员</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/education/education.component.html</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1972450340464414060" datatype="html">
+        <source>Young Doctor Club (Kelab Doktor Muda)</source>
+        <target>青少年医生团</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/education/education.component.html</context>
+          <context context-type="linenumber">20</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1893044470088849694" datatype="html">
+        <source>Librarian</source>
+        <target>图书管理员</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/education/education.component.html</context>
+          <context context-type="linenumber">25</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/education/education.component.html</context>
+          <context context-type="linenumber">54</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3529600867563503626" datatype="html">
+        <source>Achievements &amp; Awards</source>
+        <target>成就与奖项</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/education/education.component.html</context>
+          <context context-type="linenumber">29</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/education/education.component.html</context>
+          <context context-type="linenumber">63</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/education/education.component.html</context>
+          <context context-type="linenumber">103</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/education/education.component.html</context>
+          <context context-type="linenumber">130</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8280359128446315079" datatype="html">
+        <source>Cambridge Young Learners English Tests - Movers</source>
+        <target>剑桥少儿英语考试 - Movers</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/education/education.component.html</context>
+          <context context-type="linenumber">34</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8860414720978495741" datatype="html">
+        <source>The 17th Annual World Children&apos;s Picture Contest - Certificate of Merit (Bronze Prize)</source>
+        <target>第十七届世界儿童绘画比赛 - 铜奖</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/education/education.component.html</context>
+          <context context-type="linenumber">39</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7383779418427773046" datatype="html">
+        <source>SMJK Jit Sin SKK</source>
+        <target>日新国民型中学卓越学校</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/education/education.component.html</context>
+          <context context-type="linenumber">44</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="799366154551998414" datatype="html">
+        <source>(January 2012 - December 2016)</source>
+        <target>（2012年1月至2016年12月）</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/education/education.component.html</context>
+          <context context-type="linenumber">45</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7887300415099714840" datatype="html">
+        <source>Secondary Education - Information Technology stream <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i class=&quot;eduBtn fas fa-angle-down&quot; id=&quot;eduBtn1&quot;&gt;"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/></source>
+        <target>中等教育 - 电脑与科技工艺源流 <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i class=&quot;eduBtn fas fa-angle-down&quot; id=&quot;eduBtn1&quot;&gt;"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/></target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/education/education.component.html</context>
+          <context context-type="linenumber">46</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7863183831704719704" datatype="html">
+        <source>Arts&apos; Society Committee</source>
+        <target>美术学会委员</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/education/education.component.html</context>
+          <context context-type="linenumber">59</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1436992197495571139" datatype="html">
+        <source>Certificate of Wushu Proficiency - 5th Grade</source>
+        <target>武术5级证书</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/education/education.component.html</context>
+          <context context-type="linenumber">68</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3672657813726324591" datatype="html">
+        <source><x id="START_LINK" ctype="x-a" equiv-text="&lt;a class=&quot;link&quot; href=&quot;https://www.mmu.edu.my/&quot; target=&quot;_blank&quot;&gt;"/>Multimedia University<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/></source>
+        <target><x id="START_LINK" ctype="x-a" equiv-text="&lt;a class=&quot;link&quot; href=&quot;https://www.mmu.edu.my/&quot; target=&quot;_blank&quot;&gt;"/>多媒体大学<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/></target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/education/education.component.html</context>
+          <context context-type="linenumber">98</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6343193710367610255" datatype="html">
+        <source>(July 2017 - November 2018)</source>
+        <target>（2017年7月至2018年11月）</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/education/education.component.html</context>
+          <context context-type="linenumber">99</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7715756576201987577" datatype="html">
+        <source>Foundation in Information and Technology <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i class=&quot;eduBtn fas fa-angle-down&quot; id=&quot;eduBtn2&quot;&gt;"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/></source>
+        <target>电脑与科技工艺基础学位 <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i class=&quot;eduBtn fas fa-angle-down&quot; id=&quot;eduBtn2&quot;&gt;"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/></target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/education/education.component.html</context>
+          <context context-type="linenumber">100</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6104622570494513598" datatype="html">
+        <source>Related Project</source>
+        <target>相关项目</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/education/education.component.html</context>
+          <context context-type="linenumber">117</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/education/education.component.html</context>
+          <context context-type="linenumber">144</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/experience/experience.component.html</context>
+          <context context-type="linenumber">48</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/experience/experience.component.html</context>
+          <context context-type="linenumber">79</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4397655625543572060" datatype="html">
+        <source>(November 2018 - November 2021)</source>
+        <target>（2018年11月至2021年11月）</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/education/education.component.html</context>
+          <context context-type="linenumber">126</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2519034087360945262" datatype="html">
+        <source>Bachelor in Computer Science (Hons.) Specialized in Software Engineering <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i class=&quot;eduBtn fas fa-angle-down&quot; id=&quot;eduBtn3&quot;&gt;"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/></source>
+        <target>计算机科学学士（荣誉）软件工程专业 <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i class=&quot;eduBtn fas fa-angle-down&quot; id=&quot;eduBtn3&quot;&gt;"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/></target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/education/education.component.html</context>
+          <context context-type="linenumber">127</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3275569637858301181" datatype="html">
+        <source>//Experiences</source>
+        <target>//工作经验</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/experience/experience.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1129855985886753210" datatype="html">
+        <source>(March 2019 - June 2020)</source>
+        <target>（2019年3月至2020年6月）</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/experience/experience.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2085012108223489760" datatype="html">
+        <source>Part-Time Service/Kitchen Crew <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i class=&quot;expBtn fas fa-angle-down&quot; id=&quot;expBtn0&quot;&gt;"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/></source>
+        <target>兼职服务/厨房工作人员 <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i class=&quot;expBtn fas fa-angle-down&quot; id=&quot;expBtn0&quot;&gt;"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/></target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/experience/experience.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3193154808143086032" datatype="html">
+        <source>工作范围</source>
+        <target></target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/experience/experience.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/experience/experience.component.html</context>
+          <context context-type="linenumber">32</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/experience/experience.component.html</context>
+          <context context-type="linenumber">67</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/experience/experience.component.html</context>
+          <context context-type="linenumber">92</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7592892896597651528" datatype="html">
+        <source>Serve/greet/lead customers. (Service)</source>
+        <target>服务/迎接/引领顾客。</target>
+        <target></target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/experience/experience.component.html</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="438248889537390578" datatype="html">
+        <source>Prepare beverages and desserts. (Pantry)</source>
+        <target>准备饮料与甜点。</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/experience/experience.component.html</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="9081269035129279109" datatype="html">
+        <source>Prepare sushi and sashimi orders. (Kaiten)</source>
+        <target>准备寿司与生鱼片订单。</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/experience/experience.component.html</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6329634286237158558" datatype="html">
+        <source>(November 2020 - PRESENT)</source>
+        <target>（2020年11月至今）</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/experience/experience.component.html</context>
+          <context context-type="linenumber">28</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="627837557064318523" datatype="html">
+        <source>Co-Founder <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i class=&quot;expBtn fas fa-angle-down&quot; id=&quot;expBtn1&quot;&gt;"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/></source>
+        <target>联合创办人 <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i class=&quot;expBtn fas fa-angle-down&quot; id=&quot;expBtn1&quot;&gt;"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/></target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/experience/experience.component.html</context>
+          <context context-type="linenumber">29</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="159019889673821861" datatype="html">
+        <source>Sell products at <x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;https://shopee.com.my/craftivitizone&quot; target=&quot;_blank&quot;&gt;"/>Shopee<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>.</source>
+        <target>於<x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;https://shopee.com.my/craftivitizone&quot; target=&quot;_blank&quot;&gt;"/>虾皮<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>上卖商品.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/experience/experience.component.html</context>
+          <context context-type="linenumber">36</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2111477461874127691" datatype="html">
+        <source>Perform content management services (CMS) in <x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;https://shopee.com.my/craftivitizone&quot; target=&quot;_blank&quot;&gt;"/>Shopee<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/> and <x id="START_LINK_1" equiv-text="&lt;a href=&quot;https://instagram.com/craftivitizone&quot;&gt;"/>Instagram<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>.</source>
+        <target>在<x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;https://shopee.com.my/craftivitizone&quot; target=&quot;_blank&quot;&gt;"/>虾皮<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>和<x id="START_LINK_1" equiv-text="&lt;a href=&quot;https://instagram.com/craftivitizone&quot;&gt;"/>Instagram<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>中执行内容管理服务 (CMS).</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/experience/experience.component.html</context>
+          <context context-type="linenumber">40</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6072904555909422760" datatype="html">
+        <source>Create <x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;https://craftivitizone.github.io&quot; target=&quot;_blank&quot;&gt;"/>branded content website<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/> for showcasing purpose.</source>
+        <target>创建<x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;https://craftivitizone.github.io&quot; target=&quot;_blank&quot;&gt;"/>品牌内容网站<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>以进行展示。</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/experience/experience.component.html</context>
+          <context context-type="linenumber">44</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4452393960433034141" datatype="html">
+        <source>(March 2021 - June 2021)</source>
+        <target>（2021年3月至2021年6月）</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/experience/experience.component.html</context>
+          <context context-type="linenumber">63</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6055550381315164199" datatype="html">
+        <source>PHP Web Developer - Internship <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i class=&quot;expBtn fas fa-angle-down&quot; id=&quot;expBtn2&quot;&gt;"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/></source>
+        <target>实习PHP网络开发人员 <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i class=&quot;expBtn fas fa-angle-down&quot; id=&quot;expBtn2&quot;&gt;"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/></target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/experience/experience.component.html</context>
+          <context context-type="linenumber">64</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5830439221575129373" datatype="html">
+        <source>(December 2021 - PRESENT)</source>
+        <target>（2021年12月至今）</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/experience/experience.component.html</context>
+          <context context-type="linenumber">88</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8716459180503050995" datatype="html">
+        <source>Junior Software Engineer <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i class=&quot;expBtn fas fa-angle-down&quot; id=&quot;expBtn3&quot;&gt;"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/></source>
+        <target>初级软件工程师 <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i class=&quot;expBtn fas fa-angle-down&quot; id=&quot;expBtn3&quot;&gt;"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/></target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/experience/experience.component.html</context>
+          <context context-type="linenumber">89</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6018686961415145811" datatype="html">
+        <source>About Me</source>
+        <target>我的自传</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/footer/footer.component.html</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4342625008558026850" datatype="html">
+        <source>Skills</source>
+        <target>技能</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/footer/footer.component.html</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7091571651222742304" datatype="html">
+        <source>Projects</source>
+        <target>项目</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/footer/footer.component.html</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="9099116314038933479" datatype="html">
+        <source>Educations</source>
+        <target>教育</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/footer/footer.component.html</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1824510134640326733" datatype="html">
+        <source>Experiences</source>
+        <target>工作经验</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/footer/footer.component.html</context>
+          <context context-type="linenumber">20</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1903126343312026001" datatype="html">
+        <source> Contact Me</source>
+        <target>联系我</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/footer/footer.component.html</context>
+          <context context-type="linenumber">41</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6959497441009812685" datatype="html">
+        <source>Full Name</source>
+        <target>全名</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/footer/footer.component.html</context>
+          <context context-type="linenumber">42</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1890300073702152532" datatype="html">
+        <source>E-mail</source>
+        <target>电子邮件</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/footer/footer.component.html</context>
+          <context context-type="linenumber">44</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8066608938393600549" datatype="html">
+        <source>Message</source>
+        <target>内容</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/footer/footer.component.html</context>
+          <context context-type="linenumber">46</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="935187492052582731" datatype="html">
+        <source>Submit</source>
+        <target>提交</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/footer/footer.component.html</context>
+          <context context-type="linenumber">49</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5940670550194380284" datatype="html">
+        <source>//Other Projects</source>
+        <target>//其他项目</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/project-other/project-other.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="422230776649612005" datatype="html">
+        <source>//Educations</source>
+        <target>//教育</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/education/education.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4355660372364927974" datatype="html">
+        <source>//Projects</source>
+        <target>//项目</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/project/project.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="864480018136921315" datatype="html">
+        <source>(November 2020 - March 2021)</source>
+        <target>(2020年11月至2021年3月）</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/project/project.component.html</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6535396878648266346" datatype="html">
+        <source>(April 2021 - June 2021)</source>
+        <target>(2021年4月至2021年6月）</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/project/project.component.html</context>
+          <context context-type="linenumber">65</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2073994983348623939" datatype="html">
+        <source>//Skills</source>
+        <target>//技能</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/skill/skill.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="880201724157267594" datatype="html">
+        <source><x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span&gt;"/><x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i class=&quot;fas fa-code&quot;&gt;"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> Programming Languages<x id="START_ITALIC_TEXT_1" equiv-text="&lt;i class=&quot;skillBtn activeSkill fas fa-angle-down&quot; id=&quot;skillBtn0&quot; (click)=&quot;skillBtnOnClick($event,0)&quot;&gt;"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/><x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/><x id="START_TAG_DIV" ctype="x-div" equiv-text="&lt;div class=&quot;skillChart&quot; id=&quot;skillCont0&quot;&gt;"/><x id="START_TAG_CANVAS" ctype="x-canvas" equiv-text="&lt;canvas id=&quot;programmingChart&quot;&gt;"/><x id="CLOSE_TAG_CANVAS" ctype="x-canvas" equiv-text="&lt;/canvas&gt;"/><x id="CLOSE_TAG_DIV" ctype="x-div" equiv-text="&lt;/div&gt;"/></source>
+        <target><x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span&gt;"/><x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i class=&quot;fas fa-code&quot;&gt;"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> 编程语言<x id="START_ITALIC_TEXT_1" equiv-text="&lt;i class=&quot;skillBtn activeSkill fas fa-angle-down&quot; id=&quot;skillBtn0&quot; (click)=&quot;skillBtnOnClick($event,0)&quot;&gt;"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/><x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/><x id="START_TAG_DIV" ctype="x-div" equiv-text="&lt;div class=&quot;skillChart&quot; id=&quot;skillCont0&quot;&gt;"/><x id="START_TAG_CANVAS" ctype="x-canvas" equiv-text="&lt;canvas id=&quot;programmingChart&quot;&gt;"/><x id="CLOSE_TAG_CANVAS" ctype="x-canvas" equiv-text="&lt;/canvas&gt;"/><x id="CLOSE_TAG_DIV" ctype="x-div" equiv-text="&lt;/div&gt;"/></target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/skill/skill.component.html</context>
+          <context context-type="linenumber">6,7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6440595372949048836" datatype="html">
+        <source><x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span&gt;"/><x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i class=&quot;far fa-window-restore&quot;&gt;"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> Frameworks<x id="START_ITALIC_TEXT_1" equiv-text="&lt;i class=&quot;skillBtn activeSkill fas fa-angle-down&quot; id=&quot;skillBtn1&quot; (click)=&quot;skillBtnOnClick($event,1)&quot;&gt;"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/><x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/><x id="START_TAG_DIV" ctype="x-div" equiv-text="&lt;div class=&quot;skillChart&quot; id=&quot;skillCont1&quot;&gt;"/><x id="START_TAG_CANVAS" ctype="x-canvas" equiv-text="&lt;canvas id=&quot;frameworkChart&quot;&gt;"/><x id="CLOSE_TAG_CANVAS" ctype="x-canvas" equiv-text="&lt;/canvas&gt;"/><x id="CLOSE_TAG_DIV" ctype="x-div" equiv-text="&lt;/div&gt;"/></source>
+        <target><x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span&gt;"/><x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i class=&quot;far fa-window-restore&quot;&gt;"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> 编程语言构架<x id="START_ITALIC_TEXT_1" equiv-text="&lt;i class=&quot;skillBtn activeSkill fas fa-angle-down&quot; id=&quot;skillBtn1&quot; (click)=&quot;skillBtnOnClick($event,1)&quot;&gt;"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/><x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/><x id="START_TAG_DIV" ctype="x-div" equiv-text="&lt;div class=&quot;skillChart&quot; id=&quot;skillCont1&quot;&gt;"/><x id="START_TAG_CANVAS" ctype="x-canvas" equiv-text="&lt;canvas id=&quot;frameworkChart&quot;&gt;"/><x id="CLOSE_TAG_CANVAS" ctype="x-canvas" equiv-text="&lt;/canvas&gt;"/><x id="CLOSE_TAG_DIV" ctype="x-div" equiv-text="&lt;/div&gt;"/></target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/skill/skill.component.html</context>
+          <context context-type="linenumber">9,10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="497046503124804459" datatype="html">
+        <source><x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span&gt;"/><x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i class=&quot;fas fa-cogs&quot;&gt;"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> Engine<x id="START_ITALIC_TEXT_1" equiv-text="&lt;i class=&quot;skillBtn activeSkill fas fa-angle-down&quot; id=&quot;skillBtn2&quot; (click)=&quot;skillBtnOnClick($event,2)&quot;&gt;"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/><x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/><x id="START_TAG_DIV" ctype="x-div" equiv-text="&lt;div class=&quot;skillChart&quot; id=&quot;skillCont2&quot;&gt;"/><x id="START_TAG_CANVAS" ctype="x-canvas" equiv-text="&lt;canvas id=&quot;engineChart&quot;&gt;"/><x id="CLOSE_TAG_CANVAS" ctype="x-canvas" equiv-text="&lt;/canvas&gt;"/><x id="CLOSE_TAG_DIV" ctype="x-div" equiv-text="&lt;/div&gt;"/></source>
+        <target><x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span&gt;"/><x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i class=&quot;fas fa-cogs&quot;&gt;"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> 编程语言引擎<x id="START_ITALIC_TEXT_1" equiv-text="&lt;i class=&quot;skillBtn activeSkill fas fa-angle-down&quot; id=&quot;skillBtn2&quot; (click)=&quot;skillBtnOnClick($event,2)&quot;&gt;"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/><x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/><x id="START_TAG_DIV" ctype="x-div" equiv-text="&lt;div class=&quot;skillChart&quot; id=&quot;skillCont2&quot;&gt;"/><x id="START_TAG_CANVAS" ctype="x-canvas" equiv-text="&lt;canvas id=&quot;engineChart&quot;&gt;"/><x id="CLOSE_TAG_CANVAS" ctype="x-canvas" equiv-text="&lt;/canvas&gt;"/><x id="CLOSE_TAG_DIV" ctype="x-div" equiv-text="&lt;/div&gt;"/></target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/skill/skill.component.html</context>
+          <context context-type="linenumber">12,13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8837173733038417203" datatype="html">
+        <source><x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span&gt;"/><x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i class=&quot;fas fa-database&quot;&gt;"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> Databases<x id="START_ITALIC_TEXT_1" equiv-text="&lt;i class=&quot;skillBtn fas fa-angle-down&quot; id=&quot;skillBtn3&quot; (click)=&quot;skillBtnOnClick($event,3)&quot;&gt;"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/><x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/><x id="START_TAG_DIV" ctype="x-div" equiv-text="&lt;div class=&quot;skillChart&quot; id=&quot;skillCont3&quot; style=&quot;display:none;&quot;&gt;"/><x id="START_TAG_CANVAS" ctype="x-canvas" equiv-text="&lt;canvas id=&quot;databaseChart&quot;&gt;"/><x id="CLOSE_TAG_CANVAS" ctype="x-canvas" equiv-text="&lt;/canvas&gt;"/><x id="CLOSE_TAG_DIV" ctype="x-div" equiv-text="&lt;/div&gt;"/></source>
+        <target><x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span&gt;"/><x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i class=&quot;fas fa-database&quot;&gt;"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> 数据库<x id="START_ITALIC_TEXT_1" equiv-text="&lt;i class=&quot;skillBtn fas fa-angle-down&quot; id=&quot;skillBtn3&quot; (click)=&quot;skillBtnOnClick($event,3)&quot;&gt;"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/><x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/><x id="START_TAG_DIV" ctype="x-div" equiv-text="&lt;div class=&quot;skillChart&quot; id=&quot;skillCont3&quot; style=&quot;display:none;&quot;&gt;"/><x id="START_TAG_CANVAS" ctype="x-canvas" equiv-text="&lt;canvas id=&quot;databaseChart&quot;&gt;"/><x id="CLOSE_TAG_CANVAS" ctype="x-canvas" equiv-text="&lt;/canvas&gt;"/><x id="CLOSE_TAG_DIV" ctype="x-div" equiv-text="&lt;/div&gt;"/></target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/skill/skill.component.html</context>
+          <context context-type="linenumber">17,18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1954550343799304947" datatype="html">
+        <source><x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span&gt;"/><x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i class=&quot;fas fa-photo-video&quot;&gt;"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> Editing Suites<x id="START_ITALIC_TEXT_1" equiv-text="&lt;i class=&quot;skillBtn fas fa-angle-down&quot; id=&quot;skillBtn4&quot; (click)=&quot;skillBtnOnClick($event,4)&quot;&gt;"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/><x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/><x id="START_TAG_DIV" ctype="x-div" equiv-text="&lt;div class=&quot;skillChart&quot; id=&quot;skillCont4&quot; style=&quot;display:none;&quot;&gt;"/><x id="START_TAG_CANVAS" ctype="x-canvas" equiv-text="&lt;canvas id=&quot;editingChart&quot;&gt;"/><x id="CLOSE_TAG_CANVAS" ctype="x-canvas" equiv-text="&lt;/canvas&gt;"/><x id="CLOSE_TAG_DIV" ctype="x-div" equiv-text="&lt;/div&gt;"/></source>
+        <target><x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span&gt;"/><x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i class=&quot;fas fa-photo-video&quot;&gt;"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> 编辑套件<x id="START_ITALIC_TEXT_1" equiv-text="&lt;i class=&quot;skillBtn fas fa-angle-down&quot; id=&quot;skillBtn4&quot; (click)=&quot;skillBtnOnClick($event,4)&quot;&gt;"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/><x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/><x id="START_TAG_DIV" ctype="x-div" equiv-text="&lt;div class=&quot;skillChart&quot; id=&quot;skillCont4&quot; style=&quot;display:none;&quot;&gt;"/><x id="START_TAG_CANVAS" ctype="x-canvas" equiv-text="&lt;canvas id=&quot;editingChart&quot;&gt;"/><x id="CLOSE_TAG_CANVAS" ctype="x-canvas" equiv-text="&lt;/canvas&gt;"/><x id="CLOSE_TAG_DIV" ctype="x-div" equiv-text="&lt;/div&gt;"/></target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/skill/skill.component.html</context>
+          <context context-type="linenumber">20,21</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3424354882599109774" datatype="html">
+        <source><x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span&gt;"/><x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i class=&quot;fas fa-language&quot;&gt;"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> Spoken Languages<x id="START_ITALIC_TEXT_1" equiv-text="&lt;i class=&quot;skillBtn fas fa-angle-down&quot; id=&quot;skillBtn5&quot; (click)=&quot;skillBtnOnClick($event,5)&quot;&gt;"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/><x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/><x id="START_TAG_DIV" ctype="x-div" equiv-text="&lt;div class=&quot;skillChart&quot; id=&quot;skillCont5&quot; style=&quot;display:none;&quot;&gt;"/><x id="START_TAG_CANVAS" ctype="x-canvas" equiv-text="&lt;canvas id=&quot;languageChart&quot;&gt;"/><x id="CLOSE_TAG_CANVAS" ctype="x-canvas" equiv-text="&lt;/canvas&gt;"/><x id="CLOSE_TAG_DIV" ctype="x-div" equiv-text="&lt;/div&gt;"/></source>
+        <target><x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span&gt;"/><x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i class=&quot;fas fa-language&quot;&gt;"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> 语言<x id="START_ITALIC_TEXT_1" equiv-text="&lt;i class=&quot;skillBtn fas fa-angle-down&quot; id=&quot;skillBtn5&quot; (click)=&quot;skillBtnOnClick($event,5)&quot;&gt;"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/><x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/><x id="START_TAG_DIV" ctype="x-div" equiv-text="&lt;div class=&quot;skillChart&quot; id=&quot;skillCont5&quot; style=&quot;display:none;&quot;&gt;"/><x id="START_TAG_CANVAS" ctype="x-canvas" equiv-text="&lt;canvas id=&quot;languageChart&quot;&gt;"/><x id="CLOSE_TAG_CANVAS" ctype="x-canvas" equiv-text="&lt;/canvas&gt;"/><x id="CLOSE_TAG_DIV" ctype="x-div" equiv-text="&lt;/div&gt;"/></target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/skill/skill.component.html</context>
+          <context context-type="linenumber">23,24</context>
+        </context-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

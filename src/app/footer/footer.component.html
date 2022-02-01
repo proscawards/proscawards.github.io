@@ -13,10 +13,11 @@
                     <div class="col-xs-2"><span><a id="resumeBtn1" (click)="downloadResume($event)"><i class="fas fa-file-signature"></i></a></span></div>
                 </div>
                 <div class="col-md-12" id="quickNavDiv">
-                    <a href="#aboutme">About Me</a><br/>    
-                    <a href="#skills">Skills</a><br/>
-                    <a href="#projects">Projects</a><br/>
-                    <a href="#experiences">Experiences</a><br/>
+                    <span i18n (click)="footerDivlinkOnClick($event,'#aboutme')">About Me</span><br/>    
+                    <span i18n (click)="footerDivlinkOnClick($event,'#skills')">Skills</span><br/>
+                    <span i18n (click)="footerDivlinkOnClick($event,'#projects')">Projects</span><br/>
+                    <span i18n (click)="footerDivlinkOnClick($event,'#education')">Educations</span><br/>
+                    <span i18n (click)="footerDivlinkOnClick($event,'#experiences')">Experiences</span><br/>
                 </div>
                 <div class="col-md-12" id="visitorDiv">
                     <div class="col-md-12" id="totalVisitorDiv"><i class="fas fa-eye"></i><span id="totalVisitor"></span></div>
@@ -37,15 +38,15 @@
                 </div>
             </div>
             <div class="col-md-6" id="contactDiv">
-                <span id="contactTitle"> Contact Me</span><br/>
-                <span class="contactLbl">Full Name</span><br/>
+                <span i18n id="contactTitle"> Contact Me</span><br/>
+                <span i18n class="contactLbl">Full Name</span><br/>
                 <input type="text" class="contactInput letterOnly" id="contactName" (input)="nameOnChange($event)" (focus)="onFocusClick($event)"/><br/><br/>
-                <span class="contactLbl">E-mail</span><br/>
+                <span i18n class="contactLbl">E-mail</span><br/>
                 <input type="email" class="contactInput" id="contactEmail" (input)="emailOnChange($event)" (focus)="onFocusClick($event)"/><br/><br/>
-                <span class="contactLbl">Message</span><br/>
+                <span i18n class="contactLbl">Message</span><br/>
                 <!--<wysiwyg></wysiwyg>-->
                 <textarea type="text" class="contactInput" id="contactMsg" (input)="messageOnChange($event)" (focus)="onFocusClick($event)"></textarea><br/>
-                <button type="submit" class="btn" id="contactSubmit" (click)="onFocusClick($event); submitBtnOnClick($event);"><span id="contactSubmitLbl">Submit</span>
+                <button type="submit" class="btn" id="contactSubmit" (click)="onFocusClick($event); submitBtnOnClick($event);"><span i18n id="contactSubmitLbl">Submit</span>
                     <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" id="contactThrobber" style="display:none;"></span>
                 </button>
             </div>

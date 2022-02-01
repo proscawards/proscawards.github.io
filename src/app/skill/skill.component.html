@@ -1,26 +1,26 @@
 <div class="row col-md-12 section" id="skills" (resize)="onResize($event)">
-    <div class="col-md-12 sectionHeader" data-aos="fade-right">//Skills</div>
+    <div i18n class="col-md-12 sectionHeader" data-aos="fade-right">//Skills</div>
     <div class="col-md-12 wrapper">
         <div class="col-md-12 scroll-bg" data-aos="zoom-in-right">
             <div class="row col-md-12">
-                <div class="col-md-4 skillCard"><span><i class="fas fa-code"></i> Programming Languages<i class="skillBtn activeSkill fas fa-angle-down" id="skillBtn0" (click)="skillBtnOnClick($event,0)"></i></span>
+                <div i18n class="col-md-4 skillCard"><span (click)="skillBtnOnClick($event,0)"><i class="fas fa-code"></i> Programming Languages<i class="skillBtn activeSkill fas fa-angle-down" id="skillBtn0"></i></span>
                     <div class="skillChart" id="skillCont0"><canvas id="programmingChart"></canvas></div>
                 </div>
-                <div class="col-md-4 skillCard"><span><i class="far fa-window-restore"></i> Frameworks<i class="skillBtn activeSkill fas fa-angle-down" id="skillBtn1" (click)="skillBtnOnClick($event,1)"></i></span>
+                <div i18n class="col-md-4 skillCard"><span (click)="skillBtnOnClick($event,1)"><i class="far fa-window-restore"></i> Frameworks<i class="skillBtn activeSkill fas fa-angle-down" id="skillBtn1"></i></span>
                     <div class="skillChart" id="skillCont1"><canvas id="frameworkChart"></canvas></div>
                 </div>
-                <div class="col-md-4 skillCard"><span><i class="fas fa-cogs"></i> Engine<i class="skillBtn activeSkill fas fa-angle-down" id="skillBtn2" (click)="skillBtnOnClick($event,2)"></i></span>
+                <div i18n class="col-md-4 skillCard"><span (click)="skillBtnOnClick($event,2)"><i class="fas fa-cogs"></i> Engine<i class="skillBtn activeSkill fas fa-angle-down" id="skillBtn2"></i></span>
                     <div class="skillChart" id="skillCont2"><canvas id="engineChart"></canvas></div>
                 </div>
             </div>
             <div class="row col-md-12">
-                <div class="col-md-4 skillCard"><span><i class="fas fa-database"></i> Databases<i class="skillBtn fas fa-angle-down" id="skillBtn3" (click)="skillBtnOnClick($event,3)"></i></span>
+                <div i18n class="col-md-4 skillCard"><span (click)="skillBtnOnClick($event,3)"><i class="fas fa-database"></i> Databases<i class="skillBtn fas fa-angle-down" id="skillBtn3"></i></span>
                     <div class="skillChart" id="skillCont3" style="display:none;"><canvas id="databaseChart"></canvas></div>
                 </div>
-                <div class="col-md-4 skillCard"><span><i class="fas fa-photo-video"></i> Editing Suites<i class="skillBtn fas fa-angle-down" id="skillBtn4" (click)="skillBtnOnClick($event,4)"></i></span>
+                <div i18n class="col-md-4 skillCard"><span (click)="skillBtnOnClick($event,4)"><i class="fas fa-photo-video"></i> Editing Suites<i class="skillBtn fas fa-angle-down" id="skillBtn4"></i></span>
                     <div class="skillChart" id="skillCont4" style="display:none;"><canvas id="editingChart"></canvas></div>
                 </div>
-                <div class="col-md-4 skillCard"><span><i class="fas fa-language"></i> Spoken Languages<i class="skillBtn fas fa-angle-down" id="skillBtn5" (click)="skillBtnOnClick($event,5)"></i></span>
+                <div i18n class="col-md-4 skillCard"><span (click)="skillBtnOnClick($event,5)"><i class="fas fa-language"></i> Spoken Languages<i class="skillBtn fas fa-angle-down" id="skillBtn5"></i></span>
                     <div class="skillChart" id="skillCont5" style="display:none;"><canvas id="languageChart"></canvas></div>
                 </div>
             </div>

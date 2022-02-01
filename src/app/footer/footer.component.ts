@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import * as $ from 'jquery';
 import Swal from 'sweetalert2';
 import Storage from '../model/Storage';
@@ -8,6 +8,7 @@ const cf = new ContactForm(0, false);
 import { ContactForm } from '../model/ContactForm';
 import { HttpClient } from '@angular/common/http';
 import { WysiwygComponent } from '../wysiwyg/wysiwyg.component';
+import { WINDOW } from "../services/window.service";
 
 @Component({
   selector: 'footer',
@@ -18,6 +19,11 @@ import { WysiwygComponent } from '../wysiwyg/wysiwyg.component';
 export class FooterComponent implements OnInit{
 
   private owlStr = "<img class='owls' src='assets/images/owls/owls_owl.svg'/><img class='owls' src='assets/images/owls/owls_lufie.svg'/><img class='owls' src='assets/images/owls/owls_guin.svg'/><img class='owls' id='phoenix' src='assets/images/owls/owls_owlhuang.svg'/><img class='owls' src='assets/images/owls/owls_flowl.svg'/>";
+  
+  constructor(
+    @Inject(WINDOW) private window: Window,
+  ){}
+  
   ngOnInit(): void {
   }
 
@@ -67,6 +73,11 @@ export class FooterComponent implements OnInit{
         storage.setState(0);
         break;   
     }
+  }
+
+  footerDivlinkOnClick(e: any, elem: any){
+    var pos: any = $(elem)?.parent()?.offset()?.top
+    $('html, body').animate({scrollTop: pos},'slow');
   }
 
   //Download Resume

@@ -150,5 +150,13 @@
         "date": "January 2022 - PRESENT",
         "icon": "<span class='icon-react progressBarDivIcon'><span class='icon-tailwindcss progressBarDivIcon'><span class='icon-sass progressBarDivIcon'><span class='icon-typescript progressBarDivIcon'>",
         "source": "#"
+    },
+    {
+        "title": "Force Awaken",
+        "lang": "• Engine: QTCreator <br/>• Backend: C++",
+        "desc": "- Prevent system (Windows) from going into sleep/lock mode.",
+        "date": "February 2022",
+        "icon": "<span class='icon-qtcreator progressBarDivIcon'><span class='icon-cplusplus progressBarDivIcon'>",
+        "source": "https://github.com/proscawards/force-awaken"
     }
 ]

@@ -77,7 +77,7 @@ export class FooterComponent implements OnInit{
 
   footerDivlinkOnClick(e: any, elem: any){
     var pos: any = $(elem)?.parent()?.offset()?.top
-    $('html, body').animate({scrollTop: pos},'slow');
+    $('html, body').animate({scrollTop: pos},800);
   }
 
   //Download Resume

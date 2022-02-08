@@ -34,7 +34,7 @@ export class EducationComponent implements OnInit {
 
   eduLinkOnClick(e: any, elem: any){
     var pos: any = $(elem)?.parent()?.offset()?.top
-    $('html, body').animate({scrollTop: pos-350},'slow');
+    $('html, body').animate({scrollTop: pos-350},800);
     $(elem).parent().addClass('hovered');
     setTimeout(() => {
       $(elem).parent().removeClass('hovered');

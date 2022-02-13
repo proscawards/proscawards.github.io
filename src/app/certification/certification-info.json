@@ -1,0 +1,282 @@
+[
+    {
+        "cert": {
+            "name": "Information Systems Auditing, Controls and Assurance",
+            "date": "July 2020"
+        },
+        "org": {
+            "name": "Coursera",
+            "thumbnail": "https://media-exp1.licdn.com/dms/image/C4D0BAQGexnfBxeEG-g/company-logo_200_200/0/1608039227697?e=1652918400&v=beta&t=FZSZJQokl53PPkPmiIHyYptWYUELtkke6dUB9Lb91ew"
+        },
+        "uni": {
+            "name": "The Hong Kong University of Science and Technology",
+            "thumbnail": "https://media-exp1.licdn.com/dms/image/C4E0BAQH4YoQ1L_piMg/company-logo_200_200/0/1624249048793?e=1652918400&v=beta&t=N3KuZMt75qG0ZeXkgU3UBWhkGezL7YEewjqDgAHbcHQ"
+        },
+        "cred": {
+            "id": "J37WA92Q6PCJ",
+            "url": "https://www.coursera.org/account/accomplishments/certificate/J37WA92Q6PCJ"
+        },
+        "hasUni": true,
+        "tag": [
+            "software engineering",
+            "software verification",
+            "software validation",
+            "auditing"
+        ]
+    },
+    {
+        "cert": {
+            "name": "First Step Korean",
+            "date": "July 2020"
+        },
+        "org": {
+            "name": "Coursera",
+            "thumbnail": "https://media-exp1.licdn.com/dms/image/C4D0BAQGexnfBxeEG-g/company-logo_200_200/0/1608039227697?e=1652918400&v=beta&t=FZSZJQokl53PPkPmiIHyYptWYUELtkke6dUB9Lb91ew"
+        },
+        "uni": {
+            "name": "Yonsei University",
+            "thumbnail": "https://media-exp1.licdn.com/dms/image/C560BAQFETCFzsdANRg/company-logo_200_200/0/1519862402482?e=1652918400&v=beta&t=jSPH25Y7kDpr1xUR3GLxvFtkjBQwUERVX3MZyMfiGz4"
+        },
+        "cred": {
+            "id": "WMCAPYNAK6HS",
+            "url": "https://www.coursera.org/account/accomplishments/certificate/WMCAPYNAK6HS"
+        },
+        "hasUni": true,
+        "tag": [
+            "language",
+            "korean"
+        ]
+    },
+    {
+        "cert": {
+            "name": "Introduction to Web Development",
+            "date": "September 2020"
+        },
+        "org": {
+            "name": "Coursera",
+            "thumbnail": "https://media-exp1.licdn.com/dms/image/C4D0BAQGexnfBxeEG-g/company-logo_200_200/0/1608039227697?e=1652918400&v=beta&t=FZSZJQokl53PPkPmiIHyYptWYUELtkke6dUB9Lb91ew"
+        },
+        "uni": {
+            "name": "University of California, Davis",
+            "thumbnail": "https://media-exp1.licdn.com/dms/image/C4E0BAQEBG25KNBwuCQ/company-logo_200_200/0/1616103040374?e=1652918400&v=beta&t=m43D2y8GaP_It4saMrQLDeY_nJwHOm6KKZxxzPvop84"
+        },
+        "cred": {
+            "id": "MNZ9FWGMW45P",
+            "url": "https://www.coursera.org/account/accomplishments/certificate/MNZ9FWGMW45P"
+        },
+        "hasUni": true,
+        "tag": [
+            "software engineering",
+            "programming",
+            "javascript",
+            "php",
+            "html5",
+            "css3",
+            "mysql",
+            "web application development"
+        ]
+    },
+    {
+        "cert": {
+            "name": "Introduction to C# Programming and Unity",
+            "date": "September 2020"
+        },
+        "org": {
+            "name": "Coursera",
+            "thumbnail": "https://media-exp1.licdn.com/dms/image/C4D0BAQGexnfBxeEG-g/company-logo_200_200/0/1608039227697?e=1652918400&v=beta&t=FZSZJQokl53PPkPmiIHyYptWYUELtkke6dUB9Lb91ew"
+        },
+        "uni": {
+            "name": "University of Colorado System",
+            "thumbnail": "https://media-exp1.licdn.com/dms/image/C560BAQGHPqfi9uGhtg/company-logo_200_200/0/1519855979168?e=1652918400&v=beta&t=Eano8VnXbhSw6lreN3u8wa9nF2OJn6cKffUUQMMnW28"
+        },
+        "cred": {
+            "id": "YNDF6Q9VTBDU",
+            "url": "https://www.coursera.org/account/accomplishments/certificate/YNDF6Q9VTBDU"
+        },
+        "hasUni": true,
+        "tag": [
+            "game development",
+            "programming",
+            "unity",
+            "c#"
+        ]
+    },
+    {
+        "cert": {
+            "name": "Introduction to HTML5",
+            "date": "October 2020"
+        },
+        "org": {
+            "name": "Coursera",
+            "thumbnail": "https://media-exp1.licdn.com/dms/image/C4D0BAQGexnfBxeEG-g/company-logo_200_200/0/1608039227697?e=1652918400&v=beta&t=FZSZJQokl53PPkPmiIHyYptWYUELtkke6dUB9Lb91ew"
+        },
+        "uni": {
+            "name": "University of Michigan",
+            "thumbnail": "https://media-exp1.licdn.com/dms/image/C4E0BAQFGfERBPGurCg/company-logo_200_200/0/1519856309184?e=1652918400&v=beta&t=ky2c1-fQnVAOpun-2qn8P5kt8hbg8EL2cdboRceec0w"
+        },
+        "cred": {
+            "id": "RTCDDRXU7QA2",
+            "url": "https://www.coursera.org/account/accomplishments/certificate/RTCDDRXU7QA2"
+        },
+        "hasUni": true,
+        "tag": [
+            "software engineering",
+            "programming",
+            "html5",
+            "web application development"
+        ]
+    },
+    {
+        "cert": {
+            "name": "Introduction to CSS3",
+            "date": "October 2020"
+        },
+        "org": {
+            "name": "Coursera",
+            "thumbnail": "https://media-exp1.licdn.com/dms/image/C4D0BAQGexnfBxeEG-g/company-logo_200_200/0/1608039227697?e=1652918400&v=beta&t=FZSZJQokl53PPkPmiIHyYptWYUELtkke6dUB9Lb91ew"
+        },
+        "uni": {
+            "name": "University of Michigan",
+            "thumbnail": "https://media-exp1.licdn.com/dms/image/C4E0BAQFGfERBPGurCg/company-logo_200_200/0/1519856309184?e=1652918400&v=beta&t=ky2c1-fQnVAOpun-2qn8P5kt8hbg8EL2cdboRceec0w"
+        },
+        "cred": {
+            "id": "B3QSMM7V6KU8",
+            "url": "https://www.coursera.org/account/accomplishments/certificate/B3QSMM7V6KU8"
+        },
+        "hasUni": true,
+        "tag": [
+            "software engineering",
+            "programming",
+            "css3",
+            "web application development"
+        ]
+    },
+    {
+        "cert": {
+            "name": "Interactivity with JavaScript",
+            "date": "October 2020"
+        },
+        "org": {
+            "name": "Coursera",
+            "thumbnail": "https://media-exp1.licdn.com/dms/image/C4D0BAQGexnfBxeEG-g/company-logo_200_200/0/1608039227697?e=1652918400&v=beta&t=FZSZJQokl53PPkPmiIHyYptWYUELtkke6dUB9Lb91ew"
+        },
+        "uni": {
+            "name": "University of Michigan",
+            "thumbnail": "https://media-exp1.licdn.com/dms/image/C4E0BAQFGfERBPGurCg/company-logo_200_200/0/1519856309184?e=1652918400&v=beta&t=ky2c1-fQnVAOpun-2qn8P5kt8hbg8EL2cdboRceec0w"
+        },
+        "cred": {
+            "id": "GXF3TVALASN4",
+            "url": "https://www.coursera.org/account/accomplishments/certificate/GXF3TVALASN4"
+        },
+        "hasUni": true,
+        "tag": [
+            "software engineering",
+            "programming",
+            "javascript",
+            "web application development"
+        ]
+    },
+    {
+        "cert": {
+            "name": "Building Database Applications in PHP",
+            "date": "September 2021"
+        },
+        "org": {
+            "name": "Coursera",
+            "thumbnail": "https://media-exp1.licdn.com/dms/image/C4D0BAQGexnfBxeEG-g/company-logo_200_200/0/1608039227697?e=1652918400&v=beta&t=FZSZJQokl53PPkPmiIHyYptWYUELtkke6dUB9Lb91ew"
+        },
+        "uni": {
+            "name": "University of Michigan",
+            "thumbnail": "https://media-exp1.licdn.com/dms/image/C4E0BAQFGfERBPGurCg/company-logo_200_200/0/1519856309184?e=1652918400&v=beta&t=ky2c1-fQnVAOpun-2qn8P5kt8hbg8EL2cdboRceec0w"
+        },
+        "cred": {
+            "id": "KY9ZGWDHD4AR",
+            "url": "https://www.coursera.org/account/accomplishments/certificate/KY9ZGWDHD4AR"
+        },
+        "hasUni": true,
+        "tag": [
+            "software engineering",
+            "programming",
+            "php",
+            "mysql",
+            "web application development"
+        ]
+    },
+    {
+        "cert": {
+            "name": "Spring MVC, Spring Boot and Rest Controllers",
+            "date": "December 2021"
+        },
+        "org": {
+            "name": "Coursera",
+            "thumbnail": "https://media-exp1.licdn.com/dms/image/C4D0BAQGexnfBxeEG-g/company-logo_200_200/0/1608039227697?e=1652918400&v=beta&t=FZSZJQokl53PPkPmiIHyYptWYUELtkke6dUB9Lb91ew"
+        },
+        "uni": {
+            "name": "LearnQuest",
+            "thumbnail": "https://media-exp1.licdn.com/dms/image/C4D0BAQH-w_me4PElig/company-logo_200_200/0/1519857001387?e=1652918400&v=beta&t=_1YPq01NS7IF3XMrVbu5IlndV5sWKx-rf7AiHpumUr0"
+        },
+        "cred": {
+            "id": "4NB4LBT9GACZ",
+            "url": "https://www.coursera.org/account/accomplishments/certificate/4NB4LBT9GACZ"
+        },
+        "hasUni": true,
+        "tag": [
+            "software engineering",
+            "programming",
+            "java",
+            "java spring",
+            "web application development"
+        ]
+    },
+    {
+        "cert": {
+            "name": "More C++ Programming and Unreal",
+            "date": "December 2021"
+        },
+        "org": {
+            "name": "Coursera",
+            "thumbnail": "https://media-exp1.licdn.com/dms/image/C4D0BAQGexnfBxeEG-g/company-logo_200_200/0/1608039227697?e=1652918400&v=beta&t=FZSZJQokl53PPkPmiIHyYptWYUELtkke6dUB9Lb91ew"
+        },
+        "uni": {
+            "name": "University of Colorado System",
+            "thumbnail": "https://media-exp1.licdn.com/dms/image/C560BAQGHPqfi9uGhtg/company-logo_200_200/0/1519855979168?e=1652918400&v=beta&t=Eano8VnXbhSw6lreN3u8wa9nF2OJn6cKffUUQMMnW28"
+        },
+        "cred": {
+            "id": "29E8RJVN7K83",
+            "url": "https://www.coursera.org/account/accomplishments/certificate/29E8RJVN7K83"
+        },
+        "hasUni": true,
+        "tag": [
+            "game development",
+            "programming",
+            "ue4",
+            "c++"
+        ]
+    },
+    {
+        "cert": {
+            "name": "Mastering Magento 2",
+            "date": "December 2021"
+        },
+        "org": {
+            "name": "Udemy",
+            "thumbnail": "https://media-exp1.licdn.com/dms/image/C4D0BAQFQr9e68bBOPQ/company-logo_200_200/0/1626275253364?e=1652918400&v=beta&t=SeZZ2P8qgic7m83ln1QxtN4-OI0sPa_octDRSVQe05A"
+        },
+        "uni": {
+            "name": "",
+            "thumbnail": ""
+        },
+        "cred": {
+            "id": "UC-42f13a23-a1e8-42c9-8937-259c9cc6047c",
+            "url": "https://www.udemy.com/certificate/UC-42f13a23-a1e8-42c9-8937-259c9cc6047c/"
+        },
+        "hasUni": false,
+        "tag": [
+            "software engineering",
+            "programming",
+            "magento2",
+            "php",
+            "web application development"
+        ]
+    }  
+]

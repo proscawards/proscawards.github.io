@@ -1,0 +1,47 @@
+<header></header>
+<div (click)="domOnClick($event)" >
+    <div>
+        <button class="searchCertBtn" title="Search" (click)="searchOnClick($event)"><i class="fas fa-search" id="searchIcon"></i></button>
+        <input type="text" id="searchInput" title="Filter search"
+            (focus)="searchOnFocus($event)"
+            (focusout)="searchOnFocusOut($event)"
+            (input)="searchOnChange($event)"
+        />
+    </div>
+    <div class="row col-md-12 section">
+        <div i18n class="col-md-12 sectionHeader"><span id="certTitle">//Certifications</span></div> 
+        <div class="col-md-12 wrapper">
+            <div class="row col-md-12 scroll-bg">
+                <div class="col-md-12 noResultDiv">
+                    <img class='owls' src='assets/images/owls/owls_owl.svg'/>
+                    <span>No result(s) found! Here's an owl for you >:D!</span>
+                    <span>Search term: <span class="prevQuery">{{prevQuery}}</span></span>
+                </div>
+                <div class="col-md-6 certDiv" *ngFor="let info of infoArr">
+                    <div class="col-md-12 certMainDiv">
+                        <div class="col-md-3 certThumbnailDiv" *ngIf="info.hasUni; else default">
+                            <img class="uni_thumbnail" src={{info.uni.thumbnail}} title={{info.uni.name}} alt={{info.uni.name}}/>
+                            <img class="org_thumbnail" src={{info.org.thumbnail}} title={{info.org.name}} alt={{info.org.name}}/>
+                        </div>
+                        <ng-template #default>
+                            <div class="col-md-3 certThumbnailDiv">
+                                <img class="uni_thumbnail" src={{info.org.thumbnail}} title={{info.org.name}} alt={{info.org.name}}/>
+                            </div>
+                        </ng-template>
+                        <div class="col-md-9 certInfoDiv">
+                            <span class="cert_name">{{info.cert.name}}</span>
+                            <span class="org_name">{{info.org.name}}</span>
+                            <span class="cert_date">Issued on {{info.cert.date}}</span>
+                            <span class="cred_id">{{info.cred.id}}</span>
+                        </div>
+                    </div>
+                    <div class="col-md-12 certTagDiv">
+                        <span class="certTagCode" *ngFor="let tag of info.tag; let i as index" data-id={{info.cred.id}} id={{info.cred.id}}_{{i}} (click)="copyTag($event,tag)">{{tag}}</span>
+                    </div>
+                    <a class="credUrlBtn" href={{info.cred.url}} target="_blank"><i class="fas fa-external-link-alt"></i></a>
+                </div>
+            </div>
+        </div>
+    </div> 
+</div>
+<footer></footer>

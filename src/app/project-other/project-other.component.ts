@@ -1,15 +1,28 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import Swal from 'sweetalert2';
 import * as $ from 'jquery';
 import info from "./project-other-info.json";
+import { ActivatedRoute } from '@angular/router';
+import { WINDOW } from "../services/window.service";
+
+
+interface progImg{
+  name: string,
+  img: string
+}
 
 interface Info{
-  title: String,
-  lang: String,
-  desc: String,
-  date: String,
-  icon: String,
-  source: String
+  id: number,
+  title: string,
+  type: string,
+  lang: string,
+  desc: string,
+  date: string,
+  icon: string,
+  source: string,
+  img: string,
+  isWIP: boolean,
+  progImg: progImg[]
 }
 
 @Component({
@@ -20,31 +33,44 @@ interface Info{
 export class ProjectOtherComponent implements OnInit {
 
   Info: Info[] = info;
+  public infoArr = this.Info;
 
-  constructor(){
+  constructor(
+    private route: ActivatedRoute,
+    @Inject(WINDOW) private window: Window,
+  ){
   }
 
   ngOnInit(){
     $(".otherProjDiv").show();
     $(".compProjDiv").hide();
-    let temp = this.Info;
-    $('.projectDivSourceBtn').each(function(index) {
-      if (temp[index].source == "#"){
-        $(this).hide();
-      }
-    });
+    setTimeout(() => {
+      this.validateParams();
+    }, 100);
+  }
+
+  //Redirect from education or experience
+  validateParams(){
+    let elem: any = this.route.snapshot.paramMap.get('elem');
+    var pos: any = $(`#${elem}`)?.parent()?.offset()?.top;
+    $('html, body').animate({scrollTop: pos-350},800);
+    $(`#${elem}`).parent().addClass('hovered');
+    setTimeout(() => {
+      $(`#${elem}`).parent().removeClass('hovered');
+      this.window.history.replaceState('', '', '/projects');
+    }, 2000);
   }
 
   //Show Modal when ProjectDiv is clicked
-  projectDivOnClick(e: any, id: any, isDisabled: any){
+  projectDivOnClick(e: any, img: any, name: any, isDisabled: any){
     e.preventDefault();
     if (!isDisabled){
       Swal.fire({
         heightAuto: false,
         showCloseButton: true,
         showConfirmButton:false,
-        imageUrl: $("#projectDiv"+id).data('img'),
-        text: $("#projectDiv"+id).data('name')
+        imageUrl: img,
+        text: name
       });
     }
   }
@@ -71,7 +97,7 @@ export class ProjectOtherComponent implements OnInit {
   //Open github source codes
   sourceBtnOnClicked(e: any, id: any){
     e.preventDefault();
-    let source: string = String(this.Info[id].source);
+    let source: string = this.Info[id].source;
     window.open(source, '_blank');
   }
 

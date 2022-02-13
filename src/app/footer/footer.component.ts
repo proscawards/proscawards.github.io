@@ -9,6 +9,8 @@ import { ContactForm } from '../model/ContactForm';
 import { HttpClient } from '@angular/common/http';
 import { WysiwygComponent } from '../wysiwyg/wysiwyg.component';
 import { WINDOW } from "../services/window.service";
+import { Router } from '@angular/router';
+import { CertificationComponent } from '../certification/certification.component';
 
 @Component({
   selector: 'footer',
@@ -19,9 +21,11 @@ import { WINDOW } from "../services/window.service";
 export class FooterComponent implements OnInit{
 
   private owlStr = "<img class='owls' src='assets/images/owls/owls_owl.svg'/><img class='owls' src='assets/images/owls/owls_lufie.svg'/><img class='owls' src='assets/images/owls/owls_guin.svg'/><img class='owls' id='phoenix' src='assets/images/owls/owls_owlhuang.svg'/><img class='owls' src='assets/images/owls/owls_flowl.svg'/>";
-  
+  public url: string = this.router.url;
+
   constructor(
     @Inject(WINDOW) private window: Window,
+    private router: Router
   ){}
   
   ngOnInit(): void {
@@ -73,6 +77,10 @@ export class FooterComponent implements OnInit{
         storage.setState(0);
         break;   
     }
+  }
+
+  route(e: any, url: any){
+    this.router.navigate([url], { replaceUrl: true });
   }
 
   footerDivlinkOnClick(e: any, elem: any){

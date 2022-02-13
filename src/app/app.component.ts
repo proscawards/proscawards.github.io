@@ -6,6 +6,7 @@ import { WINDOW } from "./services/window.service";
 import Storage from "./model/Storage";
 import { HttpClient } from '@angular/common/http';
 const storage = new Storage();
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'root',
@@ -20,8 +21,10 @@ export class AppComponent implements AfterViewInit, OnInit{
   constructor(
     @Inject(DOCUMENT) private document: Document,
     @Inject(WINDOW) private window: Window,
-    private httpClient: HttpClient
-  ) {}
+    private httpClient: HttpClient,
+    private router: Router
+  ) {
+  }
 
   @HostListener("window:scroll", [])
   onWindowScroll() {
@@ -36,7 +39,8 @@ export class AppComponent implements AfterViewInit, OnInit{
         $("#title").css("width", "100vh");
         $("#title").css("top", "90%");
       }
-      $(".themeBtn").fadeIn("slow");
+      if (this.router.url == "/"){$(".themeBtn").fadeIn("slow");}
+      else{$(".themeBtn").show();}
     } 
     else {
       if (window.matchMedia('(max-width: 768px)').matches){
@@ -48,7 +52,8 @@ export class AppComponent implements AfterViewInit, OnInit{
         $("#title").css("top", "50%");
         $("#scrollTopBtn").fadeOut("slow");
       }
-      $(".themeBtn").fadeOut("slow");
+      if (this.router.url == "/"){$(".themeBtn").fadeOut("slow");}
+      else{$(".themeBtn").show();}
     }
 
     if (window.matchMedia('(max-width: 768px)').matches){

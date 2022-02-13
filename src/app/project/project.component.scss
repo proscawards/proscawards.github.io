@@ -111,3 +111,31 @@
 .progress-bar{
     font-size: 15px;
 }
+
+.routeToAllProj{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2em;
+    &>span{
+        font-weight: bold;
+        text-align: center;
+        cursor: pointer;
+        padding: 20px;
+        color: var(--currentCommentColor);
+        background: var(--currentBgSdColor);
+        box-shadow: none;
+        transition: .3s;
+        border-radius: 20px;
+        transform: scale(1.0);
+
+        &:hover{
+            font-weight: 300;
+            transform: scale(1.05);
+            color: var(--currentFontColor);
+            background: var(--currentBgCommentColor);
+            box-shadow: var(--defaultBoxShadow);
+        }
+    }
+
+}

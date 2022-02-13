@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as $ from "jquery";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'experience',
@@ -8,7 +9,9 @@ import * as $ from "jquery";
 })
 export class ExperienceComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
   }
@@ -32,7 +35,11 @@ export class ExperienceComponent implements OnInit {
   }
 
   expLinkOnClick(e: any, elem: any){
-    var pos: any = $(elem)?.parent()?.offset()?.top
+    this.router.navigate([`/projects/${elem}`], {replaceUrl: true});
+  }
+
+  expSamePageOnClick(e: any, elem: any){
+    var pos: any = $(elem)?.parent()?.offset()?.top;
     $('html, body').animate({scrollTop: pos-350},800);
     $(elem).parent().addClass('hovered');
     setTimeout(() => {

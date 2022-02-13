@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as $ from "jquery";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'education',
@@ -8,7 +9,9 @@ import * as $ from "jquery";
 })
 export class EducationComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
   }
@@ -33,11 +36,6 @@ export class EducationComponent implements OnInit {
   }
 
   eduLinkOnClick(e: any, elem: any){
-    var pos: any = $(elem)?.parent()?.offset()?.top
-    $('html, body').animate({scrollTop: pos-350},800);
-    $(elem).parent().addClass('hovered');
-    setTimeout(() => {
-      $(elem).parent().removeClass('hovered');
-    }, 2000);
+    this.router.navigate([`/projects/${elem}`], {replaceUrl: true});
   }
 }

@@ -1,162 +1,390 @@
 [
     {
+        "id": 0,
         "title": "Bus Ticket Booking System",
+        "type": "PSP0201 - Mini IT Project",
         "lang": "• Frontend & Backend: Python",
         "desc": "- User Management (Login/Register)<br/>- Ticket Management (CRUD)<br/>- Booking Management (Date/Time/Location)<br/>- Seat Management (Select/Remove)<br/>- Payment",
         "date": "March 2018 – May 2018",
         "icon": "<span class='icon-python progressBarDivIcon'>",
-        "source": "https://github.com/proscawards/Mini-IT-Project"
+        "source": "https://github.com/proscawards/Mini-IT-Project",
+        "img": "assets/images/miniItProject.png",
+        "isWIP": false,
+        "progImg": [
+            {"name": "Python", "img": "assets/images/logo/python.svg"}
+        ]
     },
     {
+        "id": 1,
         "title": "Mars Rover Mapper",
+        "type": "TCP1101 - Programming Fundamentals",
         "lang": "• Backend: C++",
         "desc": "- WASD to move around the map",
         "date": "November 2018 – February 2019",
         "icon": "<span class='icon-cplusplus progressBarDivIcon'>",
-        "source": "#"
+        "source": "#",
+        "img": "assets/images/marsRoverMapper.png",
+        "isWIP": false,
+        "progImg": [
+            {"name": "C++", "img": "assets/images/logo/cplusplus.svg"}
+        ]
     },
     {
+        "id": 2,
         "title": "University Facilities Management System",
+        "type": "TSE2101 - Software Engineering Fundamentals",
         "lang": "• Engine: QTCreator <br/>• Backend: C++<br/>• Database: MySQL",
         "desc": "- User Management (Login/Register)<br/>User:<br/> - Manage Booking (View/Return/Cancel)<br/>- Make New Booking<br/>Admin: <br/>- View all available facilities/venues<br/>- Manage booking request<br/>",
         "date": "July 2019 – November 2019",
         "icon": "<span class='icon-qtcreator progressBarDivIcon'><span class='icon-cplusplus progressBarDivIcon'><span class='icon-mysql progressBarDivIcon'>",
-        "source": "https://github.com/proscawards/UFMS"
+        "source": "https://github.com/proscawards/UFMS",
+        "img": "assets/images/ufms.png",
+        "isWIP": false,
+        "progImg": [
+            {"name": "QTCreator", "img": "assets/images/logo/qt.svg"},
+            {"name": "C++", "img": "assets/images/logo/cplusplus.svg"},
+            {"name": "MySQL", "img": "assets/images/logo/mysql.svg"}
+        ]
     },
     {
+        "id": 3,
         "title": "Flight Ticket Booking System",
+        "type": "TCP1201 - Object-Oriented Programming and Data Structures",
         "lang": "• Engine: QTCreator <br/>• Backend: C++<br/>• Database: MySQL",
         "desc": "- Overview available flights within the hour<br/>- User Management (Login/Register)<br/>- Booking Management (Location/Datetime/Seat)<br/>- Ticket Management (View/Cancel)<br/>- Payment",
         "date": "July 2019 – November 2019",
         "icon": "<span class='icon-qtcreator progressBarDivIcon'><span class='icon-cplusplus progressBarDivIcon'><span class='icon-mysql progressBarDivIcon'>",
-        "source": "https://github.com/proscawards/flight-booking-system"
+        "source": "https://github.com/proscawards/flight-booking-system",
+        "img": "assets/images/fbms.png",
+        "isWIP": false,
+        "progImg": [
+            {"name": "QTCreator", "img": "assets/images/logo/qt.svg"},
+            {"name": "C++", "img": "assets/images/logo/cplusplus.svg"},
+            {"name": "MySQL", "img": "assets/images/logo/mysql.svg"}
+        ]
     },
     {
+        "id": 4,
         "title": "Ants vs. Bugs",
+        "type": "TCP2201 - Object-Oriented Analysis and Design",
         "lang": "• Frontend & Backend: Java",
         "desc": "- Click next to simulate the outcome",
         "date": "November 2019 – February 2020",
         "icon": "<span class='icon-java progressBarDivIcon'>",
-        "source": "https://github.com/proscawards/Ant-Bugs"
+        "source": "https://github.com/proscawards/Ant-Bugs",
+        "img": "assets/images/antvsbug.png",
+        "isWIP": false,
+        "progImg": [
+            {"name": "Java", "img": "assets/images/logo/java.svg"}
+        ]
     },
     {
+        "id": 5,
         "title": "Online Store",
+        "type": "TIS2151 - Web Application Development",
         "lang": "• Frontend: HTML5, CSS3<br/>• Backend: JavaScript, PHP<br/>• Database: MySQL",
         "desc": "- User Management (Login/Register)<br/>- Password Management (Update/Forgot Password)<br/>- View PLP & PDP<br/>- Search product<br/>- Filter product<br/>- Add to Cart/Buy Now<br/>- Dummy payment gateway (FPX/Paypal)<br/>- Track order",
         "date": "July 2020 – October 2020",
         "icon": "<span class='icon-html5 progressBarDivIcon'><span class='icon-css3 progressBarDivIcon'><span class='icon-javascript progressBarDivIcon'><span class='icon-php progressBarDivIcon'><span class='icon-mysql progressBarDivIcon'>",
-        "source": "https://github.com/proscawards/myonlinestore"
+        "source": "https://github.com/proscawards/myonlinestore",
+        "img": "assets/images/mos.png",
+        "isWIP": false,
+        "progImg": [
+            {"name": "HTML5", "img": "assets/images/logo/html5.svg"},
+            {"name": "CSS3", "img": "assets/images/logo/css3.svg"},
+            {"name": "JavaScript", "img": "assets/images/logo/javascript.svg"},
+            {"name": "PHP", "img": "assets/images/logo/php.svg"},
+            {"name": "MySQL", "img": "assets/images/logo/mysql.svg"}
+        ]
     },
     {
+        "id": 6,
+        "title": "ChemistLab: An Educational Game with Learning Analytics Dashboard",
+        "type": "TPT3101 - Final Year Project",
+        "lang": "• Game Engine: Unreal Engine 4<br/>• Backend: C++, Python<br/>• Database: Firebase Realtime Database",
+        "desc": "Game:<br/>- Able to learn chemistry through educational gameplay<br/>- Able to compare overall user stats against current user in game<br/>- Able to customize character skins<br/>- Able to customize in-game settings.<br/>- Able to<br/>Dashboard:<br/>- Able to overview gameplay data in dashboard<br/>- Able to overview data in real-time or offline<br/>- Able to filter/compare data in dashboard<br/>- Able to overview achievements in dashboard",
+        "date": "November 2020 – March 2021",
+        "icon": "<span class='icon-unrealengine progressBarDivIcon'><span class='icon-cplusplus progressBarDivIcon'><span class='icon-firebase progressBarDivIcon'>",
+        "source": "#",
+        "img": "assets/images/chemistlab.png",
+        "isWIP": false,
+        "progImg": [
+            {"name": "Unreal Engine 4", "img": "assets/images/logo/ue4.svg"},
+            {"name": "Python", "img": "assets/images/logo/python.svg"},
+            {"name": "Firebase", "img": "assets/images/logo/firebase.svg"}
+        ]
+    },
+    {
+        "id": 7,
         "title": "Bank Loan Predictor",
+        "type": "TDS3301 - Data Mining",
         "lang": "• Frontend & Backend: Python",
         "desc": "- Generate rules using Association Rule Mining<br/>- Overview results using classification models<br/>- Predict if the loaner is eligible based on selected criteria",
         "date": "November 2020 – February 2021",
         "icon": "<span class='icon-python progressBarDivIcon'><span class='icon-jupyter progressBarDivIcon'>",
-        "source": "https://github.com/proscawards/DataMining"
+        "source": "https://github.com/proscawards/DataMining",
+        "img": "assets/images/loanpredictor.png",
+        "isWIP": false,
+        "progImg": [
+            {"name": "Python", "img": "assets/images/logo/python.svg"},
+            {"name": "Jupyter Notebook", "img": "assets/images/logo/jupyter.svg"}
+        ]
     },
     {
+        "id": 8,
+        "title": "E-Commerce Website",
+        "type": "TPT2201 - Industrial Training Program",
+        "lang": "• Frontend: HTML5, CSS3, Bootstrap<br/>• Backend: JavaScript, PHP<br/>• Database: MySQL",
+        "desc": "- User Management (Login/Register)<br/>- Password Management (Update/Forgot Password)<br/>- View PLP & PDP<br/>- Search product<br/>- Filter product<br/>- Add to Cart/Buy Now<br/>- Dummy payment gateway (FPX/Paypal)<br/>- Track order",
+        "date": "March 2021 – June 2021",
+        "icon": "<span class='icon-html5 progressBarDivIcon'><span class='icon-css3 progressBarDivIcon'><span class='icon-javascript progressBarDivIcon'><span class='icon-php progressBarDivIcon'><span class='icon-mysql progressBarDivIcon'>",
+        "source": "#",
+        "img": "assets/images/myonlinestore.png",
+        "isWIP": false,
+        "progImg": [
+            {"name": "HTML5", "img": "assets/images/logo/html5.svg"},
+            {"name": "CSS3", "img": "assets/images/logo/css3.svg"},
+            {"name": "Bootstrap", "img": "assets/images/logo/bootstrap.svg"},
+            {"name": "JavaScript", "img": "assets/images/logo/javascript.svg"},
+            {"name": "PHP", "img": "assets/images/logo/php.svg"},
+            {"name": "MySQL", "img": "assets/images/logo/mysql.svg"}
+        ]
+    },
+    {
+        "id": 9,
         "title": "Qiqi Discord Bot",
+        "type": "Personal Project",
         "lang": "• Backend: Node.js, Discord.js, Express.js<br/>• Database: Firebase Realtime Database",
         "desc": "- Role Management<br/>- User Statistics(Message Sent/Rank Level)<br/>- Spam Filter Management<br/>- 24/7 Music Bot Configuration<br/>- Level up notification<br/>- Game Mode Randomizer<br/>- Greeting(Reply w/o Randomness)<br/>- Pole Voting(Static/Dynamic)<br/>",
         "date": "May 2021 - PRESENT",
         "icon": "<span class='icon-nodedotjs progressBarDivIcon'><span class='icon-express progressBarDivIcon'><span class='icon-firebase progressBarDivIcon'>",
-        "source": "#"
+        "source": "#",
+        "img": "assets/images/qiqibot.png",
+        "isWIP": false,
+        "progImg": [
+            {"name": "Node.js", "img": "assets/images/logo/nodejs.svg"},
+            {"name": "Discord.js", "img": "assets/images/logo/djs.svg"},
+            {"name": "Firebase", "img": "assets/images/logo/firebase.svg"}
+        ]
     },
     {
+        "id": 10,
         "title": "PDF-to-DOCX Converter",
+        "type": "Personal Project",
         "lang": "• Frontend: Javascript<br/>• Backend: Node.js<br/>• Framework: Electron.js",
         "desc": "- Convert desire PDF to DOCX format using API<br/>- Save converted file locally",
         "date": "June 2021",
         "icon": "<span class='icon-electron progressBarDivIcon'><span class='icon-javascript progressBarDivIcon'><span class='icon-nodedotjs progressBarDivIcon'>",
-        "source": "https://github.com/proscawards/pdf-converter"
+        "source": "https://github.com/proscawards/pdf-converter",
+        "img": "assets/images/pdftodocx.png",
+        "isWIP": false,
+        "progImg": [
+            {"name": "Node.js", "img": "assets/images/logo/nodejs.svg"},
+            {"name": "Electron.js", "img": "assets/images/logo/electronjs.svg"}
+        ]
     },
     {
+        "id": 11,
         "title": "Portfolio",
+        "type": "Personal Project",
         "lang": "• Frontend: HTML5, CSS3, SASS, Bootstrap<br/>• Backend: Javascript, TypeScript, Express.js, Python<br/>• Framework: Angular, Node.js<br/>• Database: Firebase Realtime Database",
         "desc": "- Send email through contact form <br/>- Count visitor based on IP address<br/>- Retrieve IP address using Python shell in Node.js.",
         "date": "June 2021 - PRESENT",
         "icon": "<span class='icon-html5 progressBarDivIcon'><span class='icon-sass progressBarDivIcon'><span class='icon-bootstrap progressBarDivIcon'><span class='icon-javascript progressBarDivIcon'><span class='icon-typescript progressBarDivIcon'><span class='icon-express progressBarDivIcon'><span class='icon-angular progressBarDivIcon'><span class='icon-nodedotjs progressBarDivIcon'><span class='icon-python progressBarDivIcon'><span class='icon-firebase progressBarDivIcon'>",
-        "source": "https://github.com/proscawards/proscawards.github.io"
+        "source": "https://github.com/proscawards/proscawards.github.io",
+        "img": "assets/images/portfolio.png",
+        "isWIP": false,
+        "progImg": [
+            {"name": "Angular", "img": "assets/images/logo/angularjs.svg"},
+            {"name": "Bootstrap", "img": "assets/images/logo/bootstrap.svg"},
+            {"name": "HTML5", "img": "assets/images/logo/html5.svg"},
+            {"name": "SASS", "img": "assets/images/logo/sass.svg"},
+            {"name": "TypeScript", "img": "assets/images/logo/typescript.svg"},
+            {"name": "Python", "img": "assets/images/logo/python.svg"},
+            {"name": "Node.js", "img": "assets/images/logo/nodejs.svg"},
+            {"name": "Express.js", "img": "assets/images/logo/expressjs.svg"},
+            {"name": "Firebase", "img": "assets/images/logo/firebase.svg"}
+        ]
     },
     {
+        "id": 12,
         "title": "Bao Corporation",
+        "type": "Personal Project",
         "lang": "• Game Engine: Unreal Engine 4<br/>• Backend: C++<br/>• Database: Firebase Realtime Database",
         "desc": "-",
         "date": "June 2021 – PRESENT",
         "icon": "<span class='icon-unrealengine progressBarDivIcon'><span class='icon-cplusplus progressBarDivIcon'><span class='icon-firebase progressBarDivIcon'>",
-        "source": "#"
+        "source": "#",
+        "img": "",
+        "isWIP": true,
+        "progImg": [
+            {"name": "Unreal Engine 4", "img": "assets/images/logo/ue4.svg"},
+            {"name": "C++", "img": "assets/images/logo/cplusplus.svg"},
+            {"name": "Firebase", "img": "assets/images/logo/firebase.svg"}
+        ]
     },
     {
+        "id": 13,
         "title": "Korean Notepad",
+        "type": "Personal Project",
         "lang": "• Frontend: Flutter<br/>• Backend: Flutter, Dart, PHP<br/>• Database: MySQL<br/>• Engine: Android Studio",
         "desc": "- CRUD Word/Sentence<br/>- Search for Word/Sentence<br/>- Filter Word/Sentence",
         "date": "September 2021",
         "icon": "<span class='icon-flutter progressBarDivIcon'><span class='icon-dart progressBarDivIcon'><span class='icon-php progressBarDivIcon'><span class='icon-mysql progressBarDivIcon'><span class='icon-androidstudio progressBarDivIcon'>",
-        "source": "#"
+        "source": "#",
+        "img": "assets/images/krnote.png",
+        "isWIP": false,
+        "progImg": [
+            {"name": "Flutter", "img": "assets/images/logo/flutter.svg"},
+            {"name": "Dart", "img": "assets/images/logo/dart.svg"},
+            {"name": "PHP", "img": "assets/images/logo/php.svg"},
+            {"name": "MySQL", "img": "assets/images/logo/mysql.svg"}
+        ]
     },
     {
+        "id": 14,
         "title": "To-Dos",
+        "type": "Personal Project",
         "lang": "Mobile (Version 1):<br/>• Frontend & Backend: React Native<br/>• Database: Firebase Cloud Firestore<br/>Web (Version 2):<br/>• Frontend: React, Tailwind, SASS<br/>• Backend: Next.js <br/>• Database: Firebase Cloud Firestore<br/>",
         "desc": "- CRUD tasks and/or subtasks<br/>- Set expiry date for tasks<br/>- Set scheduled notification for tasks",
         "date": "September 2021",
         "icon": "<span class='icon-react progressBarDivIcon'><span class='icon-firebase progressBarDivIcon'><span class='icon-nextdotjs progressBarDivIcon'><span class='icon-tailwindcss progressBarDivIcon'><span class='icon-sass progressBarDivIcon'>",
-        "source": "#"
+        "source": "#",
+        "img": "assets/images/todo.png",
+        "isWIP": false,
+        "progImg": [
+            {"name": "React/React Native", "img": "assets/images/logo/react.svg"},
+            {"name": "Next.js", "img": "assets/images/logo/nextjs.svg"},
+            {"name": "Tailwind", "img": "assets/images/logo/tailwind.svg"},
+            {"name": "SASS", "img": "assets/images/logo/sass.svg"},
+            {"name": "Firebase", "img": "assets/images/logo/firebase.svg"}
+        ]
     },
     {
+        "id": 15,
         "title": "Aldeberan Emporium: E-Commerce Bakery Mobile App",
+        "type": "TIS3551 - Mobile Application Development",
         "lang": "• Frontend: Java<br/>• Backend: Java, PHP, Node.js<br/>• Database: MySQL, Firebase<br/>• Engine: Android Studio",
         "desc": "- Live delivery tracking with Google Maps<br/>- Payment Gateway with Stripe<br/>- Wishlist Management<br/>- Cart Management<br/>- User Management<br/>- Address Management<br/>- Admin Panel<br/>- Submit Bug Report<br/>- View Order History & Details<br/>- Search for Product<br/>",
         "date": "September 2021 - October 2021",
         "icon": "<span class='icon-java progressBarDivIcon'><span class='icon-php progressBarDivIcon'><span class='icon-nodedotjs progressBarDivIcon'><span class='icon-mysql progressBarDivIcon'><span class='icon-firebase progressBarDivIcon'><span class='icon-androidstudio progressBarDivIcon'>",
-        "source": "https://github.com/Aldeberan-Emporium/aldeberan-emporium"
+        "source": "https://github.com/Aldeberan-Emporium/aldeberan-emporium",
+        "img": "assets/images/aldeberan.png",
+        "isWIP": false,
+        "progImg": [
+            {"name": "Android Studio", "img": "assets/images/logo/androidstudio.svg"},
+            {"name": "Java", "img": "assets/images/logo/java.svg"},
+            {"name": "Node.js", "img": "assets/images/logo/nodejs.svg"},
+            {"name": "PHP", "img": "assets/images/logo/php.svg"},
+            {"name": "MySQL", "img": "assets/images/logo/mysql.svg"},
+            {"name": "Firebase", "img": "assets/images/logo/firebase.svg"}
+        ]
     },
     {
+        "id": 16,
         "title": "Dodge MrBao",
+        "type": "Personal Project",
         "lang": "• Game Engine: Unreal Engine 4<br/>• Backend: C++, Java<br/>• Database: Firebase Realtime Database",
         "desc": "-",
         "date": "October 2021 - PRESENT",
         "icon": "<span class='icon-unrealengine progressBarDivIcon'><span class='icon-cplusplus progressBarDivIcon'><span class='icon-java progressBarDivIcon'><span class='icon-firebase progressBarDivIcon'>",
-        "source": "#"
+        "source": "#",
+        "img": "",
+        "isWIP": true,
+        "progImg": [
+            {"name": "Unreal Engine 4", "img": "assets/images/logo/ue4.svg"},
+            {"name": "C++", "img": "assets/images/logo/cplusplus.svg"},
+            {"name": "Java", "img": "assets/images/logo/java.svg"},
+            {"name": "Firebase", "img": "assets/images/logo/firebase.svg"}
+        ]
     },
     {
+        "id": 17,
         "title": "****** Autobump",
+        "type": "Personal Project",
         "lang": "• Frontend: Java<br/>• Backend: Python, Node.js<br/>• Database: Firebase Realtime Database<br/>• Engine: Android Studio",
         "desc": "- Read SMS, force screen wake and receiving verification with Android Java.<br/>- Web automation with Python selenium.<br/>- Execute CURL commands with Node.js.",
         "date": "November 2021",
         "icon": "<span class='icon-androidstudio progressBarDivIcon'><span class='icon-java progressBarDivIcon'><span class='icon-python progressBarDivIcon'><span class='icon-nodedotjs progressBarDivIcon'><span class='icon-firebase progressBarDivIcon'>",
-        "source": "#"
+        "source": "#",
+        "img": "assets/images/sa.jpg",
+        "isWIP": false,
+        "progImg": [
+            {"name": "Android Studio", "img": "assets/images/logo/androidstudio.svg"},
+            {"name": "Java", "img": "assets/images/logo/java.svg"},
+            {"name": "Python", "img": "assets/images/logo/python.svg"},
+            {"name": "Node.js", "img": "assets/images/logo/nodejs.svg"},
+            {"name": "JavaScript", "img": "assets/images/logo/javascript.svg"},
+            {"name": "CURL", "img": "assets/images/logo/curl.svg"},
+            {"name": "Firebase", "img": "assets/images/logo/firebase.svg"}
+        ]
     },
     {
+        "id": 18,
         "title": "Owl's Language Compiler",
+        "type": "TCP2451 - Programming Language Translation",
         "lang": "• Backend: TypeScript, Node.js",
         "desc": "- Perform lexical analysis<br/>- Perform syntax analysis",
         "date": "November 2021",
         "icon": "<span class='icon-typescript progressBarDivIcon'><span class='icon-nodedotjs progressBarDivIcon'>",
-        "source": "https://github.com/proscawards/plt-project"
+        "source": "https://github.com/proscawards/plt-project",
+        "img": "assets/images/plt.png",
+        "isWIP": false,
+        "progImg": [
+            {"name": "Owl", "img": "assets/images/owls/owls_owl.svg"},
+            {"name": "TypeScript", "img": "assets/images/logo/typescript.svg"},
+            {"name": "Node.js", "img": "assets/images/logo/nodejs.svg"}
+        ]
     },
     {
+        "id": 19,
         "title": "Innov Retail",
+        "type": "Personal Project",
         "lang": "• Frontend: Tailwind, SASS, TypeScript<br/>• Backend: Java, Java Spring, Python<br/>• Framework: Angular<br/>• Database: PostgreSQL",
         "desc": "-",
         "date": "November 2021 - PRESENT",
         "icon": "<span class='icon-angular progressBarDivIcon'><span class='icon-html5 progressBarDivIcon'><span class='icon-sass progressBarDivIcon'><span class='icon-typescript progressBarDivIcon'><span class='icon-tailwindcss progressBarDivIcon'><span class='icon-java progressBarDivIcon'><span class='icon-python progressBarDivIcon'>",
-        "source": "#"
+        "source": "#",
+        "img": "",
+        "isWIP": true,
+        "progImg": [
+            {"name": "Angular", "img": "assets/images/logo/angularjs.svg"},
+            {"name": "Java", "img": "assets/images/logo/java.svg"},
+            {"name": "Java Spring", "img": "assets/images/logo/spring.svg"},
+            {"name": "Python", "img": "assets/images/logo/python.svg"},
+            {"name": "PostgreSQL", "img": "assets/images/logo/postgresql.svg"}
+        ]
     },
     {
+        "id": 20,
         "title": "Craftiviti Zone",
+        "type": "Personal Project",
         "lang": "• Frontend: React, Tailwind, SASS<br/>• Backend: TypeScript",
         "desc": "- Create branded content showcase for Craftiviti Zone.",
         "date": "January 2022 - PRESENT",
         "icon": "<span class='icon-react progressBarDivIcon'><span class='icon-tailwindcss progressBarDivIcon'><span class='icon-sass progressBarDivIcon'><span class='icon-typescript progressBarDivIcon'>",
-        "source": "#"
+        "source": "#",
+        "img": "assets/images/cz.png",
+        "isWIP": false,
+        "progImg": [
+            {"name": "React", "img": "assets/images/logo/react.svg"},
+            {"name": "Tailwind", "img": "assets/images/logo/tailwind.svg"}
+        ]
     },
     {
+        "id": 21,
         "title": "Force Awaken",
+        "type": "Personal Project",
         "lang": "• Engine: QTCreator <br/>• Backend: C++",
         "desc": "- Prevent system (Windows) from going into sleep/lock mode.",
         "date": "February 2022",
         "icon": "<span class='icon-qtcreator progressBarDivIcon'><span class='icon-cplusplus progressBarDivIcon'>",
-        "source": "https://github.com/proscawards/force-awaken"
+        "source": "https://github.com/proscawards/force-awaken",
+        "img": "assets/images/fa.png",
+        "isWIP": false,
+        "progImg": [
+            {"name": "QTCreator", "img": "assets/images/logo/qt.svg"},
+            {"name": "C++", "img": "assets/images/logo/cplusplus.svg"}
+        ]
     }
 ]

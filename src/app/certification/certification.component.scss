@@ -1,0 +1,206 @@
+.certDiv{
+    background: var(--currentBgSdColor);
+    box-shadow: var(--defaultBoxShadow);
+    border-radius: 20px;
+    padding: 20px;
+    position: relative;
+    margin-bottom: .5em;
+
+    &>.certMainDiv{
+        display: flex;
+        flex-direction: row;
+        @media screen and (max-width: 768px) {
+            flex-direction: column;
+        }
+        
+        &>.certThumbnailDiv{
+            position: relative;
+            height: fit-content;
+
+            &>.org_thumbnail{
+                position: absolute;
+                width: 25%;
+                bottom: 0;
+                right: 0;
+                border-bottom-right-radius: 20px;
+            }
+
+            &>.uni_thumbnail{
+                width: 100%;
+                border-radius: 20px;
+                box-shadow: var(--defaultBoxShadow);
+            }
+        }
+
+        &>.certInfoDiv{
+            display: flex;
+            flex-direction: column;
+            margin-left: .5em;
+            width: 100%;
+            flex-wrap: wrap;
+            word-break: break-word;
+
+            &>.cert_name{
+                width: 70%;
+                font-size: 20px;
+                font-weight: bold;
+                word-break: break-word;
+                transition: .3s;
+                @media screen and (max-width: 768px) {
+                    font-size: 15px;
+                    width: 100%;
+                }
+            }
+
+            &>.org_name{
+                font-size: 15px;
+                transition: .3s;
+                @media screen and (max-width: 768px) {
+                    width: 100%;
+                    font-size: 13px;
+                }
+            }
+
+            &>.cert_date{
+                color: var(--currentFontDescColor);
+                font-size: 15px;
+                transition: .3s;
+                @media screen and (max-width: 768px) {
+                    font-size: 13px;
+                }
+            }
+
+            &>.cred_id{
+                color: var(--currentCommentColor);
+                width: 70%;
+                word-break: break-all;
+                font-size: 15px;
+                transition: .3s;
+                @media screen and (max-width: 768px) {
+                    width: 100%;
+                    font-size: 13px;
+                }
+            }
+        }
+    }
+
+    &>.certTagDiv{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin-top: .5em;
+        transition: .3s;
+
+        @media screen and (max-width: 768px) {
+            display: none;
+        }
+
+        &>.certTagCode{
+            background: var(--currentBgCommentColor);
+            border-radius: 20px;
+            padding: 5px 10px;
+            font-size: 13px;
+            margin-right: .5em;
+            margin-bottom: .5em;
+            text-align: center;
+            opacity: 1;
+            transition: .3s;
+            cursor: pointer;
+
+            &:hover{
+                color: var(--currentFontDescColor);
+            }
+        }
+    }
+
+    &>.credUrlBtn{
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        padding: 5px 10px;
+        font-size: 20px;
+        color: var(--oppositeBgCodeColor);
+        border: none;
+        background: none;
+        outline: none;
+        opacity: .3;
+        transition: .3s;
+
+        &:hover{
+            opacity: .8;
+        }
+    }
+}
+
+.searchCertBtn{
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 40px;
+    border: none;
+    outline: none;
+    background: none;
+    color: var(--oppositeBgCodeColor);
+    opacity: .5;
+    cursor: pointer;
+    transition: .3s;
+    z-index: 21;
+
+    @media screen and (max-width: 768px) {
+        font-size: 25px;
+    }
+
+    &:hover{
+        opacity: 1;
+    }
+}
+
+#searchInput{
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: none;
+    border: var(--currentBgCommentColor);
+    z-index: 20;
+    font-size: 35px;
+    outline: none;
+    color: #f1f3f4;
+    padding-left: 10px;
+    transition: .3s;
+    width: 100%;
+
+    @media screen and (max-width: 768px) {
+        font-size: 23px;
+    }
+
+    &:hover, &:focus{
+        background: rgba(1,1,1,.1);
+        border: none;
+        border-bottom: 1px dotted var(--currentFontCodeColor);
+        border-radius: 10px;
+    }
+}
+
+.noResultDiv{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    margin: 2em;
+    height: 100vh;
+}
+
+.prevQuery{
+    color: var(--currentCommentColor);
+    font-style: italic;
+    text-decoration: underline;
+}
+
+.hideTitle{
+    color: rgba(1,1,1,0);
+}
+
+.activeTag{
+    color: var(--currentFontDescColor);
+}

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import * as $ from 'jquery';
 import info from "./project-clickable.json";
+import { Router } from '@angular/router';
 
 interface Info{
   id: number,
@@ -19,7 +20,9 @@ export class ProjectComponent {
 
   Info: Info[] = info;
 
-  constructor() { }
+  constructor(
+    private router: Router
+  ) { }
 
   //Project 1 Read More in Mobile
   proj1ReadMore(e: any){
@@ -62,5 +65,9 @@ export class ProjectComponent {
     } 
     hiddenElement.click();
     hiddenElement.remove();
+  }
+
+  route(e: any, url: any){
+    this.router.navigate([url], {replaceUrl: true});
   }
 }

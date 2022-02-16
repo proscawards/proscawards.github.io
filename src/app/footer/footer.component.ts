@@ -7,10 +7,9 @@ const storage = new Storage();
 const cf = new ContactForm(0, false);
 import { ContactForm } from '../model/ContactForm';
 import { HttpClient } from '@angular/common/http';
-import { WysiwygComponent } from '../wysiwyg/wysiwyg.component';
+import { DOCUMENT } from '@angular/common';
 import { WINDOW } from "../services/window.service";
 import { Router } from '@angular/router';
-import { CertificationComponent } from '../certification/certification.component';
 
 @Component({
   selector: 'footer',
@@ -24,11 +23,14 @@ export class FooterComponent implements OnInit{
   public url: string = this.router.url;
 
   constructor(
+    @Inject(DOCUMENT) private document: Document,
     @Inject(WINDOW) private window: Window,
+    private httpClient: HttpClient,
     private router: Router
   ){}
   
-  ngOnInit(): void {
+  ngOnInit(){
+    this.onDOMLoaded();
   }
 
   //Click event to scroll to top
@@ -267,5 +269,61 @@ export class FooterComponent implements OnInit{
         $("#contactName, #contactEmail, #contactMsg").css("border-bottom", "1px dotted var(--currentCommentColor)");
         $("#contactSubmit").addClass("disabled");
       }
+  }
+
+  //On document load
+  onDOMLoaded(){
+    if (storage.getLength() == 0){
+      this.httpClient.get<any>('https://proscawards-portfolio-backend.herokuapp.com/').subscribe();
+      this.topCountries();
+      this.totalVisitor();
+    }
+    else{
+      this.storageUnpacker();
+    }
+  }
+
+  //Load From Storage
+  storageUnpacker(){
+    let data = storage.getVisitorCountry();
+    $("#top1CountryImg").attr("src", "https://flagpedia.net/data/flags/normal/"+data[0][0]+".png");
+    $("#top1CountryCount").text(data[0][1].count);
+    $("#top2CountryImg").attr("src", "https://flagpedia.net/data/flags/normal/"+data[1][0]+".png");
+    $("#top2CountryCount").text(data[1][1].count);
+    $("#top3CountryImg").attr("src", "https://flagpedia.net/data/flags/normal/"+data[2][0]+".png");
+    $("#top3CountryCount").text(data[2][1].count);
+
+    $("#totalVisitor").text(storage.getVisitorCount() || 0);
+  }
+
+  //Show top 3 countries' visitor
+  topCountries(){
+    this.httpClient.get<any>('https://proscawards-portfolio-backend.herokuapp.com/country')
+    .subscribe(res => {
+      var data = res;
+      if (storage.getVisitorCountry() != null){
+        data = storage.getVisitorCountry();
+      }
+      storage.setVisitorCountry(data);
+      $("#top1CountryImg").attr("src", "https://flagpedia.net/data/flags/normal/"+data[0][0]+".png");
+      $("#top1CountryCount").text(data[0][1].count);
+      $("#top2CountryImg").attr("src", "https://flagpedia.net/data/flags/normal/"+data[1][0]+".png");
+      $("#top2CountryCount").text(data[1][1].count);
+      $("#top3CountryImg").attr("src", "https://flagpedia.net/data/flags/normal/"+data[2][0]+".png");
+      $("#top3CountryCount").text(data[2][1].count);
+    });
+  }
+
+  //Show total visitor
+  totalVisitor(){
+    this.httpClient.get<any>('https://proscawards-portfolio-backend.herokuapp.com/count')
+    .subscribe(res => {
+      var count = res.count;
+      if (storage.getVisitorCount() != null){
+        count = storage.getVisitorCount();
+      }
+      storage.setVisitorCount(count);
+      $("#totalVisitor").text(count);
+    });
   }
 }

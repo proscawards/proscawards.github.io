@@ -20,6 +20,7 @@ import { CertificationComponent } from './certification/certification.component'
 import { RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { NotfoundComponent } from './notfound/notfound.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { NotfoundComponent } from './notfound/notfound.component';
       { path: '404', component: NotfoundComponent},
       { path: '**', redirectTo: '404'}
     ],
-    {scrollPositionRestoration: 'enabled'})
+    {scrollPositionRestoration: 'enabled'}),
+    NgbModule
   ],
   providers: [WINDOW_PROVIDERS, {provide: APP_BASE_HREF, useValue : '/' }],
   bootstrap: [AppComponent]

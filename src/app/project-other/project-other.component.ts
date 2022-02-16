@@ -44,9 +44,7 @@ export class ProjectOtherComponent implements OnInit {
   ngOnInit(){
     $(".otherProjDiv").show();
     $(".compProjDiv").hide();
-    setTimeout(() => {
-      this.validateParams();
-    }, 100);
+    this.validateParams();
   }
 
   //Redirect from education or experience

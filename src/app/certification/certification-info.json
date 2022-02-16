@@ -278,5 +278,31 @@
             "php",
             "web application development"
         ]
-    }  
+    },
+    {
+        "cert": {
+            "name": "Magento - Magento 2 Certified Developer Exam : Full course",
+            "date": "February 2022"
+        },
+        "org": {
+            "name": "Udemy",
+            "thumbnail": "https://media-exp1.licdn.com/dms/image/C4D0BAQFQr9e68bBOPQ/company-logo_200_200/0/1626275253364?e=1652918400&v=beta&t=SeZZ2P8qgic7m83ln1QxtN4-OI0sPa_octDRSVQe05A"
+        },
+        "uni": {
+            "name": "",
+            "thumbnail": ""
+        },
+        "cred": {
+            "id": "UC-3fd564ce-495a-4320-8b6a-b507b1fa69ff",
+            "url": "https://www.udemy.com/certificate/UC-3fd564ce-495a-4320-8b6a-b507b1fa69ff/"
+        },
+        "hasUni": false,
+        "tag": [
+            "software engineering",
+            "programming",
+            "magento2",
+            "php",
+            "web application development"
+        ]
+    }    
 ]

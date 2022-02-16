@@ -17,7 +17,7 @@
                     <span>No result(s) found! Here's an owl for you >:D!</span>
                     <span>Search term: <span class="prevQuery">{{prevQuery}}</span></span>
                 </div>
-                <div class="col-md-6 certDiv" *ngFor="let info of infoArr">
+                <div class="col-md-6 certDiv" *ngFor="let info of infoArr | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">
                     <div class="col-md-12 certMainDiv">
                         <div class="col-md-3 certThumbnailDiv" *ngIf="info.hasUni; else default">
                             <img class="uni_thumbnail" src={{info.uni.thumbnail}} title={{info.uni.name}} alt={{info.uni.name}}/>
@@ -39,6 +39,19 @@
                         <span class="certTagCode" *ngFor="let tag of info.tag; let i as index" data-id={{info.cred.id}} id={{info.cred.id}}_{{i}} (click)="copyTag($event,tag)">{{tag}}</span>
                     </div>
                     <a class="credUrlBtn" href={{info.cred.url}} target="_blank"><i class="fas fa-external-link-alt"></i></a>
+                </div>
+            </div>
+            <div class="col-md-12 ngPaginationDiv">
+                <ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [maxSize]="10" [rotate]="true" [ellipses]="false" [boundaryLinks]="true"></ngb-pagination>
+                <div ngbDropdown class="d-inline-block ngPaginationDropdownDiv">
+                    <button id="ngPaginationDropdown" ngbDropdownToggle>{{pageSize}} <i class="fas fa-pager"></i></button>
+                    <div ngbDropdownMenu aria-labelledby="ngPaginationDropdown">
+                        <button ngbDropdownItem (click)="pageSizeOnChange(2)">2 per page</button>
+                        <button ngbDropdownItem (click)="pageSizeOnChange(4)">4 per page</button>
+                        <button ngbDropdownItem (click)="pageSizeOnChange(6)">6 per page</button>
+                        <button ngbDropdownItem (click)="pageSizeOnChange(8)">8 per page</button>
+                        <button ngbDropdownItem (click)="pageSizeOnChange(10)">10 per page</button>
+                    </div>
                 </div>
             </div>
         </div>

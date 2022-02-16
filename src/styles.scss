@@ -1,6 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 @import 'aos/dist/aos.css';
 @import '../node_modules/bootstrap/scss/bootstrap'; 
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';
 @import "app/header/header.component.scss";
 @import "app/intro/intro.component.scss";
 @import "app/about/about.component.scss";
@@ -163,6 +165,3 @@ input:-webkit-autofill{
 #errorEnd{
     color: var(--currentCommentColor);
 }
-
-  
-

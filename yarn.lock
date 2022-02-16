@@ -213,7 +213,7 @@
   dependencies:
     tslib "^2.2.0"
 
-"@angular/localize@12.2.16":
+"@angular/localize@~12.2.0":
   version "12.2.16"
   resolved "https://registry.yarnpkg.com/@angular/localize/-/localize-12.2.16.tgz#664f8867d4b305735a13ce4c6e2b540388be6bf1"
   integrity sha512-peWauKtqy7XG5OiG9L4uLg/yIMw0b/ipKOiovzpuj+DCghmeuYzle5kjCLvWydFeQqBoIdf2kcJYeskrYCAHfQ==
@@ -1265,6 +1265,13 @@
     loader-utils "^2.0.0"
     merge-source-map "^1.1.0"
     schema-utils "^2.7.0"
+
+"@ng-bootstrap/ng-bootstrap@10.0.0":
+  version "10.0.0"
+  resolved "https://registry.yarnpkg.com/@ng-bootstrap/ng-bootstrap/-/ng-bootstrap-10.0.0.tgz#6022927bac7029bdd12d7f1e10b5b20074db06dc"
+  integrity sha512-Sz+QaxjuyJYJ+zyUbf0TevgcgVesCPQiiFiggEzxKjzY5R+Hvq3YgryLdXf2r/ryePL+C3FXCcmmKpTM5bfczQ==
+  dependencies:
+    tslib "^2.1.0"
 
 "@ngtools/webpack@12.2.15":
   version "12.2.15"

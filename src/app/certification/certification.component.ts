@@ -41,11 +41,16 @@ export class CertificationComponent implements OnInit {
   public prevQuery: string = "";
   private isError: boolean = false;
   private hasActiveTag: boolean = false;
+  public page: number = 1;
+  public pageSize: number = 6;
+  public collectionSize: number = 0;
 
   constructor(
     @Inject(WINDOW) private window: Window,
     @Inject(DOCUMENT) private document: Document,
-  ) {}
+  ) {
+    this.pageSizeOnChange(this.pageSize);
+  }
 
   ngOnInit(): void {
     $(".noResultDiv").hide();
@@ -155,5 +160,13 @@ export class CertificationComponent implements OnInit {
       })
       if (!this.hasActiveTag){$(".certTagCode").removeClass("activeTag");}
     }, 100);
+  }
+
+  //Set display item per page
+  pageSizeOnChange(size: number){
+    this.pageSize = size;
+    let remainder = this.infoArr.length % size;
+    let colSize = this.infoArr.length / size;
+    this.collectionSize = Math.ceil(Math.round(remainder > 2 || remainder == 0 ? colSize : colSize + 1)*10);
   }
 }

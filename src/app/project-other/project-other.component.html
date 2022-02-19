@@ -3,8 +3,13 @@
     <div i18n class="col-md-12 sectionHeader" data-aos="fade-right">//All Projects</div>
     <div class="col-md-12 wrapper">
         <div class="col-md-12 scroll-bg">
-            <div class="col-md-12 otherProjDiv" data-aos="fade-up">
-                <div class="col-md-auto projectDiv" *ngFor="let info of infoArr;let i as index">
+            <div class="col-md-12 loadingDiv" id="projLoading">
+                <div class="spinner-border" role="status">
+                    <span class="sr-only"></span>
+                </div>
+            </div>
+            <div class="col-md-12 otherProjDiv">
+                <div class="col-md-auto projectDiv" *ngFor="let info of infoArr">
                     <div class="col-md-12" id="projectDiv{{info.id}}" (click)="projectDivOnClick($event,info.img,info.type,info.isWIP)">
                         <div *ngIf="info.isWIP" class="ribbon ribbon-top-right"><span><i class="fas fa-code-branch"></i>WIP</span></div>
                         <span class="projectTitleSpan">{{info.title}}</span>

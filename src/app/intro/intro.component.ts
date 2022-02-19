@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import * as $ from "jquery";
 import Swal from 'sweetalert2';
 import Storage from '../model/Storage';
+import { TypeWriterComponent } from './intro.typewriter.component';
 const storage = new Storage();
 
 @Component({
@@ -9,9 +10,13 @@ const storage = new Storage();
   templateUrl: './intro.component.html',
   styleUrls: ['./intro.component.scss']
 })
-export class IntroComponent {
+export class IntroComponent extends TypeWriterComponent {
 
   private owlStr = "<img class='owls' src='assets/images/owls/owls_owl.svg'/><img class='owls' src='assets/images/owls/owls_lufie.svg'/><img class='owls' src='assets/images/owls/owls_guin.svg'/><img class='owls' id='phoenix' src='assets/images/owls/owls_owlhuang.svg'/><img class='owls' src='assets/images/owls/owls_flowl.svg'/>";
+
+  constructor(){
+    super();
+  }
 
   logoBtnOnClick(){
     switch (storage.getState() ? storage.getState() : 0){

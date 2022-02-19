@@ -1,10 +1,9 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import Swal from 'sweetalert2';
 import * as $ from 'jquery';
-import info from "./project-other-info.json";
 import { ActivatedRoute } from '@angular/router';
 import { WINDOW } from "../services/window.service";
-
+import { HttpClient } from '@angular/common/http';
 
 interface progImg{
   name: string,
@@ -32,12 +31,12 @@ interface Info{
 })
 export class ProjectOtherComponent implements OnInit {
 
-  Info: Info[] = info;
-  public infoArr = this.Info;
+  public infoArr: Info[] = [];
 
   constructor(
     private route: ActivatedRoute,
     @Inject(WINDOW) private window: Window,
+    private httpClient: HttpClient
   ){
   }
 
@@ -45,6 +44,17 @@ export class ProjectOtherComponent implements OnInit {
     $(".otherProjDiv").show();
     $(".compProjDiv").hide();
     this.validateParams();
+    this.getCollection();
+  }
+
+  //Retrieve data from backend
+  getCollection(){
+    this.httpClient.get<any>('https://proscawards-portfolio-backend.herokuapp.com/project')
+    .subscribe(res => {
+      this.infoArr = res;
+      $("#projLoading").fadeOut();
+      $(".otherProjDiv").fadeIn();
+    });
   }
 
   //Redirect from education or experience
@@ -79,15 +89,15 @@ export class ProjectOtherComponent implements OnInit {
     Swal.fire({
       showCloseButton: true,
       showConfirmButton:false,
-      title: ""+this.Info[id].title,
+      title: ""+this.infoArr[id].title,
       html: 
-        "<span>"+this.Info[id].icon+"</span><br/>"+
-        "<span style='font-size: 15px;'>("+this.Info[id].date+")</span><br/>"+
+        "<span>"+this.infoArr[id].icon+"</span><br/>"+
+        "<span style='font-size: 15px;'>("+this.infoArr[id].date+")</span><br/>"+
         "<div style='text-align: left;'><span style='font-size: 15px;'>"+
         "<br/><span style='font-weight: bold; text-decoration: underline;'>Written in</span><br/>"+
-        this.Info[id].lang+
+        this.infoArr[id].lang+
         "<br/><span style='font-weight: bold; text-decoration: underline;'>Functionality</span><br/>"+
-        this.Info[id].desc+
+        this.infoArr[id].desc+
         "</span></div>"
     });
   }
@@ -95,7 +105,7 @@ export class ProjectOtherComponent implements OnInit {
   //Open github source codes
   sourceBtnOnClicked(e: any, id: any){
     e.preventDefault();
-    let source: string = this.Info[id].source;
+    let source: string = this.infoArr[id].source;
     window.open(source, '_blank');
   }
 

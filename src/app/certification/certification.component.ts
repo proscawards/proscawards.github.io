@@ -1,8 +1,9 @@
 import { Component, OnInit, Inject, HostListener } from '@angular/core';
-import info from "./certification-info.json";
+//import info from "./certification-info.json";
 import * as $ from "jquery";
 import { DOCUMENT } from '@angular/common';
 import { WINDOW } from "../services/window.service";
+import { HttpClient } from '@angular/common/http';
 
 interface cert{
   name: string,
@@ -35,9 +36,8 @@ interface Info{
 })
 export class CertificationComponent implements OnInit {
 
-  Info: Info[] = info;
-  private original = this.Info;
-  public infoArr = this.Info;
+  private original: Info[] = [];
+  public infoArr: Info[] = [];
   public prevQuery: string = "";
   private isError: boolean = false;
   private hasActiveTag: boolean = false;
@@ -48,13 +48,28 @@ export class CertificationComponent implements OnInit {
   constructor(
     @Inject(WINDOW) private window: Window,
     @Inject(DOCUMENT) private document: Document,
+    private httpClient: HttpClient
   ) {
-    this.pageSizeOnChange(this.pageSize);
+    
   }
 
   ngOnInit(): void {
-    $(".noResultDiv").hide();
+    $(".noResultDiv, .ngPaginationDiv").hide();
     $(".searchCertBtn").attr('disabled', 'true');
+    this.getCollection();
+  }
+
+  //Retrieve data from backend
+  getCollection(){
+    this.httpClient.get<any>('https://proscawards-portfolio-backend.herokuapp.com/cert')
+    .subscribe(res => {
+      this.original = res;
+      this.infoArr = res;
+      $("#certLoading").fadeOut();
+      $(".certDiv").fadeIn();
+      $(".ngPaginationDiv").fadeIn();
+      this.pageSizeOnChange(this.pageSize);
+    });
   }
 
   @HostListener('document:click', ['$event'])
@@ -90,6 +105,7 @@ export class CertificationComponent implements OnInit {
       $(".searchCertBtn").html('<i class="fas fa-times-circle"></i>');
       if (this.prevQuery){$("#searchInput").val(this.prevQuery)}
     }
+    this.pageSizeOnChange(this.pageSize);
   }
 
   searchOnFocus(e: any){
@@ -105,6 +121,7 @@ export class CertificationComponent implements OnInit {
     this.infoArr.length == 0 ?
       $(".noResultDiv").show():
       $(".noResultDiv").hide();
+    this.pageSizeOnChange(this.pageSize);
   }
 
   filter(query: any){
@@ -160,6 +177,7 @@ export class CertificationComponent implements OnInit {
       })
       if (!this.hasActiveTag){$(".certTagCode").removeClass("activeTag");}
     }, 100);
+    this.pageSizeOnChange(this.pageSize);
   }
 
   //Set display item per page

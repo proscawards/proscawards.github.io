@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { TypeWriterComponent } from './header.typewriter.component';
 import * as $ from 'jquery';
 
 @Component({
@@ -7,10 +6,9 @@ import * as $ from 'jquery';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent extends TypeWriterComponent{
+export class HeaderComponent{
 
   constructor() { 
-    super();
   }
 
   //Manipulating the theme and font color

@@ -196,3 +196,13 @@
     @include marginHori();
     opacity: .8;
 }
+
+.loadingDiv{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    margin: 2em;
+    height: 100vh;
+}

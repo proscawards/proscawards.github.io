@@ -4,30 +4,10 @@ import * as $ from "jquery";
 import { DOCUMENT } from '@angular/common';
 import { WINDOW } from "../services/window.service";
 import { HttpClient } from '@angular/common/http';
-
-interface cert{
-  name: string,
-  date: string
-}
-
-interface org{
-  name: string,
-  thumbnail: string
-}
-
-interface cred{
-  id: string,
-  url: string
-}
-
-interface Info{
-  cert: cert,
-  org: org,
-  uni: org,
-  cred: cred,
-  hasUni: boolean,
-  tag: string[]
-}
+import { Certification } from '../model/data/Certification';
+import { CacheService } from '../services/cache.service';
+const cs = new CacheService();
+import { parse } from 'date-fns';
 
 @Component({
   selector: 'certification',
@@ -36,14 +16,15 @@ interface Info{
 })
 export class CertificationComponent implements OnInit {
 
-  private original: Info[] = [];
-  public infoArr: Info[] = [];
+  private original: Certification[] = [];
+  public infoArr: Certification[] = [];
   public prevQuery: string = "";
   private isError: boolean = false;
   private hasActiveTag: boolean = false;
   public page: number = 1;
   public pageSize: number = 6;
   public collectionSize: number = 0;
+  readonly KEY_CERT = 'cache_cert';
 
   constructor(
     @Inject(WINDOW) private window: Window,
@@ -61,15 +42,26 @@ export class CertificationComponent implements OnInit {
 
   //Retrieve data from backend
   getCollection(){
-    this.httpClient.get<any>('https://proscawards-portfolio-backend.herokuapp.com/cert')
-    .subscribe(res => {
-      this.original = res;
-      this.infoArr = res;
-      $("#certLoading").fadeOut();
-      $(".certDiv").fadeIn();
-      $(".ngPaginationDiv").fadeIn();
-      this.pageSizeOnChange(this.pageSize);
-    });
+    if (cs.exist(this.KEY_CERT)){
+      this.original = this.infoArr = cs.get(this.KEY_CERT);
+    }
+    else{
+      this.httpClient.get<any>('https://proscawards-portfolio-backend.herokuapp.com/cert')
+      .subscribe(res => {
+        var data = res.slice(0);
+        data.sort(function(a: any, b: any) {
+          let da: any = parse(a.cert.date, "MMMM yyyy", new Date());
+          let db: any = parse(b.cert.date, "MMMM yyyy", new Date());
+          return da - db;
+        });
+        this.original = this.infoArr = data;
+        cs.set(this.KEY_CERT, data)
+      });
+    }
+    $("#certLoading").fadeOut();
+    $(".certDiv").fadeIn();
+    $(".ngPaginationDiv").fadeIn();
+    this.pageSizeOnChange(this.pageSize);
   }
 
   @HostListener('document:click', ['$event'])

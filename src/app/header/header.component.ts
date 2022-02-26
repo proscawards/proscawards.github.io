@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import * as $ from 'jquery';
+import { CacheService } from '../services/cache.service';
+const cs = new CacheService();
 
 @Component({
   selector: 'header',
@@ -9,6 +11,7 @@ import * as $ from 'jquery';
 export class HeaderComponent{
 
   constructor() { 
+    cs.setExp();
   }
 
   //Manipulating the theme and font color

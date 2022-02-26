@@ -48,7 +48,7 @@
             </div>
             <div class="col-md-12 ngPaginationDiv">
                 <ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [maxSize]="10" [rotate]="true" [ellipses]="false" [boundaryLinks]="true"></ngb-pagination>
-                <div ngbDropdown class="d-inline-block ngPaginationDropdownDiv">
+                <div ngbDropdown class="d-inline-block ngPaginationDropdownMobileDiv">
                     <button id="ngPaginationDropdown" ngbDropdownToggle>{{pageSize}} <i class="fas fa-pager"></i></button>
                     <div ngbDropdownMenu aria-labelledby="ngPaginationDropdown">
                         <button ngbDropdownItem (click)="pageSizeOnChange(2)">2 per page</button>

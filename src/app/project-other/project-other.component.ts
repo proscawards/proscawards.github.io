@@ -4,25 +4,9 @@ import * as $ from 'jquery';
 import { ActivatedRoute } from '@angular/router';
 import { WINDOW } from "../services/window.service";
 import { HttpClient } from '@angular/common/http';
-
-interface progImg{
-  name: string,
-  img: string
-}
-
-interface Info{
-  id: number,
-  title: string,
-  type: string,
-  lang: string,
-  desc: string,
-  date: string,
-  icon: string,
-  source: string,
-  img: string,
-  isWIP: boolean,
-  progImg: progImg[]
-}
+import { Project } from '../model/data/Project';
+import { CacheService } from '../services/cache.service';
+const cs = new CacheService();
 
 @Component({
   selector: 'project-other',
@@ -31,12 +15,13 @@ interface Info{
 })
 export class ProjectOtherComponent implements OnInit {
 
-  public infoArr: Info[] = [];
+  public infoArr: Project[] = [];
+  readonly KEY_PROJECT = 'cache_project';
 
   constructor(
     private route: ActivatedRoute,
     @Inject(WINDOW) private window: Window,
-    private httpClient: HttpClient
+    private httpClient: HttpClient,
   ){
   }
 
@@ -49,12 +34,20 @@ export class ProjectOtherComponent implements OnInit {
 
   //Retrieve data from backend
   getCollection(){
-    this.httpClient.get<any>('https://proscawards-portfolio-backend.herokuapp.com/project')
-    .subscribe(res => {
-      this.infoArr = res;
-      $("#projLoading").fadeOut();
-      $(".otherProjDiv").fadeIn();
-    });
+    if (cs.exist(this.KEY_PROJECT)){
+      this.infoArr = cs.get(this.KEY_PROJECT);
+    }
+    else{
+      this.httpClient.get<any>('https://proscawards-portfolio-backend.herokuapp.com/project')
+      .subscribe(res => {
+        var data = res.slice(0);
+        data.sort(function(a: any, b: any) {return a.id - b.id});
+        this.infoArr = data;
+        cs.set(this.KEY_PROJECT, data);
+      });
+    }
+    $("#projLoading").fadeOut();
+    $(".otherProjDiv").fadeIn();
   }
 
   //Redirect from education or experience

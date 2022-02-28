@@ -2,68 +2,29 @@
     <div i18n class="col-md-12 sectionHeader" data-aos="fade-right">//Experiences</div> 
     <div class="col-md-12 wrapper">
         <div class="col-md-12 scroll-bg">
-            <h3 data-aos="fade-left"><a class="link" href="http://sushi-king.com/" target="_blank">Sushi King</a></h3>
-            <span i18n style="font-style: italic;" data-aos="fade-up">(March 2019 - June 2020)</span><br/>
-            <span i18n class="jobType" data-aos="fade-up" (click)="expBtnOnClick($event,0)">Part-Time Service/Kitchen Crew&nbsp;<i class="expBtn fas fa-angle-down" id="expBtn0"></i></span><br/>
-            <div class="expCont" id="expCont0" data-aos="slide-down" style="display:none;">
-                <button class="expContCloseBtn" id="expContCloseBtn0" (click)="expContCloseBtnOnClick($event,0)"><i class="fas fa-slash"></i><i class="fas fa-slash fa-rotate-90"></i></button>
-                <span i18n class="expTableTitle">Job Scope</span><br/>
-                <ul class="col-md-12">
-                    <li i18n>Serve/greet/lead customers. (Service)</li>
-                    <li i18n>Prepare beverages and desserts. (Pantry)</li>
-                    <li i18n>Prepare sushi and sashimi orders. (Kaiten)</li>
-                </ul>
-            </div>
-            <hr/>
-            <h3 data-aos="fade-left">YHM Craftiviti Enterprise</h3>
-            <span i18n style="font-style: italic;" data-aos="fade-up">(November 2020 - PRESENT)</span><br/>
-            <span i18n class="jobType" data-aos="fade-up" (click)="expBtnOnClick($event,1)">Co-Founder&nbsp;<i class="expBtn fas fa-angle-down" id="expBtn1"></i></span><br/>
-            <div class="expCont" id="expCont1" data-aos="slide-down" style="display:none;">
-                <button class="expContCloseBtn" id="expContCloseBtn1" (click)="expContCloseBtnOnClick($event,1)"><i class="fas fa-slash"></i><i class="fas fa-slash fa-rotate-90"></i></button>
-                <span i18n class="expTableTitle">Job Scope</span><br/>
-                <ul class="col-md-12">
-                    <li i18n class="expTableLink">Sell products at <a href="https://shopee.com.my/craftivitizone" target="_blank">Shopee</a>.</li>
-                    <li i18n class="expTableLink">Perform content management services (CMS) in <a href="https://shopee.com.my/craftivitizone" target="_blank">Shopee</a> and <a href="https://instagram.com/craftivitizone">Instagram</a>.</li>
-                    <li i18n class="expTableLink">Create <a href="https://craftivitizone.github.io" target="_blank">branded content website</a> for showcasing purpose.</li>
-                </ul>
-                <br/>
-                <span i18n class="expTableTitle">Related Project</span><br/>
-                <ol class="col-md-12" type="1">
-                    <li class="expTableLink"><span (click)="expLinkOnClick($event, 'projectDiv18')">Craftiviti Zone</span></li>
-                </ol>
-            </div>
-            <hr/>
-        </div>
-        <div class="col-md-12 fixed-bg bg-3" data-aos="zoom-out-down">
-        <img style="filter: invert(100%); width: 300px;" src="https://upload.wikimedia.org/wikipedia/commons/5/5c/BORN_GROUP_Inc_logo.svg" />
-        </div>
-        <div class="col-md-12 scroll-bg">
-            <h3 data-aos="fade-left"><a class="link" href="https://borngroup.com/" target="_blank">BORN Group</a></h3>
-            <span i18n style="font-style: italic;" data-aos="fade-up">(March 2021 - June 2021)</span><br/>
-            <span i18n class="jobType" data-aos="fade-up" (click)="expBtnOnClick($event,2)">PHP Web Developer - Internship&nbsp;<i class="expBtn fas fa-angle-down" id="expBtn2"></i></span><br/>
-            <div class="expCont" id="expCont2" data-aos="slide-down" style="display:none;">
-                <button class="expContCloseBtn" id="expContCloseBtn2" (click)="expContCloseBtnOnClick($event,2)"><i class="fas fa-slash"></i><i class="fas fa-slash fa-rotate-90"></i></button>
-                <span i18n class="expTableTitle">Job Scope</span><br/>
-                <ul class="col-md-12">
-                    <li>Create fully functioning e-commerce website with PHP, JavaScript, HTML and CSS on top of Model View Controller design pattern alongside with an admin panel.</li>
-                    <li>Manage e-commerce website using Magento 2.</li>
-                </ul>
-                <br/>
-                <span i18n class="expTableTitle">Related Project</span><br/>
-                <ol class="col-md-12" type="1">
-                    <li class="expTableLink"><span (click)="expSamePageOnClick($event, '#mosDiv')">E-Commerce Website</span></li>
-                </ol>
-            </div>
-            <hr/>
-            <span i18n style="font-style: italic;" data-aos="fade-up">(December 2021 - PRESENT)</span><br/>
-            <span i18n class="jobType" data-aos="fade-up" (click)="expBtnOnClick($event,3)">Junior Software Engineer&nbsp;<i class="expBtn fas fa-angle-down" id="expBtn3"></i></span><br/>
-            <div class="expCont" id="expCont3" data-aos="slide-down" style="display:none;">
-                <button class="expContCloseBtn" id="expContCloseBtn3" (click)="expContCloseBtnOnClick($event,3)"><i class="fas fa-slash"></i><i class="fas fa-slash fa-rotate-90"></i></button>
-                <span i18n class="expTableTitle">Job Scope</span><br/>
-                <ul class="col-md-12">
-                    <li>Create modules and perform various tasks in both frontend and backend of Magento 2.</li>
-                    <li>Manage e-commerce website using Magento 2.</li>
-                </ul>
+            <div *ngFor="let infos of infoArr">
+                <h3 data-aos="fade-left" *ngIf="infos.link != ''; else noLinkTitle"><a class="link" href="{{infos.link}}" target="_blank">{{infos.name}}</a></h3>
+                <ng-template #noLinkTitle>
+                    <h3 data-aos="fade-left">{{infos.name}}</h3>
+                </ng-template>
+                <span i18n style="font-style: italic;" data-aos="fade-up">{{infos.date}}</span><br/>
+                <span i18n class="jobType" data-aos="fade-up" (click)="expBtnOnClick($event,infos.id)">{{infos.type}}&nbsp;<i class="expBtn fas fa-angle-down" id="expBtn{{infos.id}}"></i></span><br/>
+                <div class="expCont" id="expCont{{infos.id}}" data-aos="slide-down" style="display:none;">
+                    <button class="expContCloseBtn" id="expContCloseBtn{{infos.id}}" (click)="expContCloseBtnOnClick($event,infos.id)"><i class="fas fa-slash"></i><i class="fas fa-slash fa-rotate-90"></i></button>
+                    <div *ngFor="let job of infos.info">
+                        <span i18n class="expTableTitle">{{job.title}}</span><br/>
+                        <ul class="col-md-12">
+                            <li *ngFor="let desc of job.desc" i18n [innerHTML]="desc"></li>
+                        </ul>
+                    </div>
+                    <div *ngIf="infos.hasRelatedProject">
+                        <span i18n class="expTableTitle">Related Projects</span><br/>
+                        <ol class="col-md-12" type="1">
+                            <li class="expTableLink" *ngFor="let rp of infos.relatedProject"><span (click)="expLinkOnClick($event, rp.div)">{{rp.title}}</span></li>
+                        </ol>
+                    </div>
+                </div>
+                <hr/>
             </div>
         </div>
     </div>

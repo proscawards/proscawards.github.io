@@ -5,20 +5,21 @@ const cs = new CryptoService();
 export class CacheService {
 
   readonly CACHE_EXPIRED_IN: number = 3600; //1 hour
-  readonly KEY_CACHE: string = 'cache_exp'; 
+  readonly KEY_EXPIRY: string = 'cache_expiry'; 
 
-  //set cache timeout
+  //set cache timeout and salt
   setExp(){
-    if (!this.exist(this.KEY_CACHE)){
+    if (!this.exist(this.KEY_EXPIRY)){
       let exp = format(addSeconds(new Date(), this.CACHE_EXPIRED_IN), 'yyyy,MM,dd,HH,mm,ss');
-      this.set(this.KEY_CACHE, exp);
+      this.set(this.KEY_EXPIRY, exp);
     }
     else{
-      let val = this.get(this.KEY_CACHE);
+      let val = this.get(this.KEY_EXPIRY);
       let dt = parse(val, 'yyyy,MM,dd,HH,mm,ss', new Date())
       let now = new Date();
       if (differenceInSeconds(dt, now) <= 0){
         this.reset();
+        this.setExp();
       }
     }
   }
@@ -32,7 +33,7 @@ export class CacheService {
   }
 
   //Get value from localstorage
-  get(key?: any) {
+  get(key?: any): any {
     return JSON.parse(cs.decrypt(localStorage.getItem(key) ?? ''));
   }
 

@@ -14,7 +14,7 @@
                         <div class="col-md-12">
                             <div class="row col-md-12" *ngFor="let desc of info.desc">
                                 <span class="eduTableDate col-md-2" [innerHTML]="desc.date"></span>
-                                <span i18n class="col-md-10">{{desc.title}}</span>
+                                <span i18n class="col-md-10" [innerHTML]="desc.title"></span>
                             </div>
                         </div>
                         <br/>

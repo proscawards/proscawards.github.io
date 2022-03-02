@@ -54,3 +54,21 @@
     margin-left: 50px;
     margin-right: 50px;
 }
+
+#bioReadMore{
+    text-decoration: underline;
+    display: none;
+    @media screen and (max-width: 768px) {
+        display: inline-block;
+    }
+}
+
+#bioReadLess{
+    text-decoration: underline;
+}
+
+#bioPt1, #bioPt2, #bioPt3{
+    @media screen and (max-width: 768px) {
+        display: none;       
+    }
+}

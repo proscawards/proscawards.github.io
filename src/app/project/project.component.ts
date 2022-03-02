@@ -68,6 +68,6 @@ export class ProjectComponent {
   }
 
   route(e: any, url: any){
-    this.router.navigate([url], {replaceUrl: true});
+    this.router.navigate([url]);
   }
 }

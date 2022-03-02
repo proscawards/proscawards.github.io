@@ -4,7 +4,6 @@ import { Router } from '@angular/router';
 import { Education } from '../model/data/Education';
 import { HttpClient } from '@angular/common/http';
 import { CacheService } from '../services/cache.service';
-const cs = new CacheService();
 
 @Component({
   selector: 'education',
@@ -15,11 +14,14 @@ export class EducationComponent implements OnInit {
 
   public infoArr: Education[] = [];
   readonly KEY_PROJECT = 'cache_edu';
+  private cacheService: CacheService;
 
   constructor(
     private router: Router,
     private httpClient: HttpClient
-  ) { }
+  ) {
+    this.cacheService = new CacheService(httpClient);
+  }
 
   ngOnInit(): void {
     this.getCollection();
@@ -27,8 +29,8 @@ export class EducationComponent implements OnInit {
 
   //Retrieve data from backend
   getCollection(){
-    if (cs.exist(this.KEY_PROJECT)){
-      this.infoArr = cs.get(this.KEY_PROJECT);
+    if (this.cacheService.exist(this.KEY_PROJECT)){
+      this.infoArr = this.cacheService.get(this.KEY_PROJECT);
     }
     else{
       this.httpClient.get<any>('https://proscawards-portfolio-backend.herokuapp.com/edu')
@@ -36,7 +38,7 @@ export class EducationComponent implements OnInit {
         var data = res.slice(0);
         data.sort(function(a: any, b: any) {return a.id - b.id});
         this.infoArr = data;
-        cs.set(this.KEY_PROJECT, data);
+        this.cacheService.set(this.KEY_PROJECT, data);
       });
     }
   }
@@ -61,6 +63,6 @@ export class EducationComponent implements OnInit {
   }
 
   eduLinkOnClick(e: any, elem: any){
-    this.router.navigate([`/projects/${elem}`], {replaceUrl: true});
+    this.router.navigate([`/project-all/${elem}`], {replaceUrl: true});
   }
 }

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import * as $ from 'jquery';
 import { CacheService } from '../services/cache.service';
-const cs = new CacheService();
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'header',
@@ -10,8 +10,13 @@ const cs = new CacheService();
 })
 export class HeaderComponent{
 
-  constructor() { 
-    cs.setExp();
+  private cacheService: CacheService;
+
+  constructor(
+    private httpClient: HttpClient
+  ) { 
+    this.cacheService = new CacheService(httpClient);
+    this.cacheService.setExp();
   }
 
   //Manipulating the theme and font color
@@ -22,7 +27,7 @@ export class HeaderComponent{
     $(document.documentElement).css("--currentFontCodeColor", "#5888AD");
     $(document.documentElement).css("--oppositeBgCodeColor", "#242C3C");
     $(document.documentElement).css("--oppositeFontCodeColor", "#5888AD");
-    $(document.documentElement).css("--currentFontDescColor", "#3b78e7");
+    $(document.documentElement).css("--currentFontDescColor", "#4dd0e1");
     $(document.documentElement).css("--currentBgSdColor", "rgb(255,255,255,.8)");
     $(document.documentElement).css("--currentBgSdGradColor", "rgb(255,255,255,.8)");
     $(document.documentElement).css("--currentUEFilter", "invert(0%)");
@@ -52,5 +57,4 @@ export class HeaderComponent{
     }, 800);
     return false;
   }
-
 }

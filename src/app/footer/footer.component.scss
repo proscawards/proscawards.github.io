@@ -86,79 +86,22 @@
     }  
 }
 
-.contactInput{
-    background: none;
-    width: 100%;
-    border: none;
-    border-bottom: 1px solid rgba(0,0,0,.3);
-    border-radius: 0px;
-    padding: 10px;
-    font-size: 20px;
-    outline: none;
-    color: #f1f3f4;
-    transition: .3s;
-
-    &:hover, &:focus{
-        background: rgba(1,1,1,.1);
-        border: none;
-        border-bottom: 1px dotted var(--currentFontCodeColor);
-        border-radius: 10px;
-    }
-}
-
-#contactTitle{
-    font-size: 40px;
-    transition: .3s;
-    @media screen and (max-width: 768px) {
-        font-size: 30px;
-        transition: .3s;
-    }
-}
-
-.contactLbl{
-    font-size: 20px;
-}
-
 #visitorDiv{
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    text-align: center;
     background: var(--currentBgCodeColor);
     border-radius: 30px;
     padding: 10px 5px;
     box-shadow: var(--defaultBoxShadow);
     margin: .2em;
-    width: 100%;
-}
-
-#contactDiv{
-    padding: 30px;
-    border-left: 1px dotted var(--currentFontCodeColor);
-    @media screen and (max-width: 768px) {
-        border-left: 0px dotted var(--currentFontCodeColor);
-    }
 }
 
 #footer{
     background: var(--currentBgSdColor);
     padding: 50px;
-}
-
-#contactSubmit{
-    outline: none;
-    border: none;
-    background: none;
-    border-radius: 100px;
-    font-size: 25px;
-    cursor: pointer;
-    width: 100%;
-    background: var(--currentBgCodeColor);
-    box-shadow: 5px 5px 5px rgb(0,0,0,0);
-    transition: .3s;
-
-    &:hover, &:focus{
-        box-shadow: var(--defaultBoxShadow);
-    }
 }
 
 #copyright{

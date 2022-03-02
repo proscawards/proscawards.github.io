@@ -6,7 +6,6 @@ import { WINDOW } from "../services/window.service";
 import { HttpClient } from '@angular/common/http';
 import { Certification } from '../model/data/Certification';
 import { CacheService } from '../services/cache.service';
-const cs = new CacheService();
 import { parse } from 'date-fns';
 
 @Component({
@@ -25,13 +24,14 @@ export class CertificationComponent implements OnInit {
   public pageSize: number = 6;
   public collectionSize: number = 0;
   readonly KEY_CERT = 'cache_cert';
+  private cacheService: CacheService;
 
   constructor(
     @Inject(WINDOW) private window: Window,
     @Inject(DOCUMENT) private document: Document,
     private httpClient: HttpClient
   ) {
-    
+    this.cacheService = new CacheService(httpClient);
   }
 
   ngOnInit(): void {
@@ -42,8 +42,8 @@ export class CertificationComponent implements OnInit {
 
   //Retrieve data from backend
   getCollection(){
-    if (cs.exist(this.KEY_CERT)){
-      this.original = this.infoArr = cs.get(this.KEY_CERT);
+    if (this.cacheService.exist(this.KEY_CERT)){
+      this.original = this.infoArr = this.cacheService.get(this.KEY_CERT);
     }
     else{
       this.httpClient.get<any>('https://proscawards-portfolio-backend.herokuapp.com/cert')
@@ -55,7 +55,7 @@ export class CertificationComponent implements OnInit {
           return da - db;
         });
         this.original = this.infoArr = data;
-        cs.set(this.KEY_CERT, data)
+        this.cacheService.set(this.KEY_CERT, data)
       });
     }
     $("#certLoading").fadeOut();

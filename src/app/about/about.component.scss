@@ -27,12 +27,6 @@
     }
 }
 
-#biography{
-    left: 0;
-    right: 0;
-    padding: 0;
-    margin: 0;
-}
 
 #potraitDiv{
     display: flex;
@@ -41,9 +35,9 @@
 }
 
 @keyframes glow{
-to {
-  box-shadow: 0px 0px 20px 10px var(--oppositeFontCodeColor);
-}
+    to {
+    box-shadow: 0px 0px 20px 10px var(--oppositeFontCodeColor);
+    }
 }
 
 #aboutMeDiv{
@@ -55,20 +49,8 @@ to {
     margin: .5em;
 }
 
-#bioReadMore{
-    text-decoration: underline;
-    display: none;
-    @media screen and (max-width: 768px) {
-        display: inline-block;
-    }
-}
-
-#bioReadLess{
-    text-decoration: underline;
-}
-
-#bioPt1, #bioPt2, #bioPt3{
-    @media screen and (max-width: 768px) {
-        display: none;       
-    }
+#biography{
+    text-align: center;
+    margin-left: 50px;
+    margin-right: 50px;
 }

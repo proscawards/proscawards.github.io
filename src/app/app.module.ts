@@ -21,6 +21,9 @@ import { RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { Social3dModule } from './social3d/social3d.module';
+import { ContactModule } from './contact/contact.module';
+import { ContactpageComponent } from './contactpage/contactpage.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +40,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     CertificationComponent,
     HomeComponent,
     NotfoundComponent,
+    ContactpageComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,11 +48,19 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     AppRoutingModule,
     HttpClientModule,
     WysiwygModule,
+    Social3dModule,
+    ContactModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent},
       { path: 'certifications', component: CertificationComponent},
-      { path: 'projects', component: ProjectOtherComponent},
-      { path: 'projects/:elem', component: ProjectOtherComponent},
+      { path: 'projects', component: ProjectComponent},
+      { path: 'project-all', component: ProjectOtherComponent},
+      { path: 'project-all/:elem', component: ProjectOtherComponent},
+      { path: 'skill', component: SkillComponent},
+      { path: 'education', component: EducationComponent},
+      { path: 'experience', component: ExperienceComponent},
+      { path: 'contactme', component: ContactpageComponent},
+      { path: 'aboutme', component: AboutComponent},
       { path: '404', component: NotfoundComponent},
       { path: '**', redirectTo: '404'}
     ],

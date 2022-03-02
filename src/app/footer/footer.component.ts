@@ -1,17 +1,11 @@
-import { NgModule } from '@angular/core';
 import { Component, OnInit, Inject } from '@angular/core';
 import * as $ from 'jquery';
 import Swal from 'sweetalert2';
-import Storage from '../model/Storage';
-const storage = new Storage();
-const cf = new ContactForm(0, false);
-import { ContactForm } from '../model/ContactForm';
 import { HttpClient } from '@angular/common/http';
 import { DOCUMENT } from '@angular/common';
 import { WINDOW } from "../services/window.service";
 import { Router } from '@angular/router';
 import { CacheService } from '../services/cache.service';
-const cs = new CacheService();
 
 @Component({
   selector: 'footer',
@@ -25,16 +19,21 @@ export class FooterComponent implements OnInit{
   public url: string = this.router.url;
   readonly KEY_COUNTRY = 'cache_vcountry';
   readonly KEY_COUNT = 'cache_vcount';
+  readonly KEY_FSTATE = 'cache_fstate';
+  private cacheService: CacheService;
 
   constructor(
     @Inject(DOCUMENT) private document: Document,
     @Inject(WINDOW) private window: Window,
     private httpClient: HttpClient,
     private router: Router
-  ){}
+  ){
+    this.cacheService = new CacheService(httpClient);
+  }
   
   ngOnInit(){
     this.onDOMLoaded();
+    this.logoBtnOnLoad();
   }
 
   //Click event to scroll to top
@@ -45,42 +44,61 @@ export class FooterComponent implements OnInit{
     return false;
   }
 
-  logoBtnOnClick(){
-    switch (storage.getState() ? storage.getState() : 0){
-      case 0:
-        $("#changeFontBtn").text("SC ONG");
-        $("#logoFooterBtn").text("SC ONG");
-        storage.setState(1);
-        break;
-      case 1:
-        $("#changeFontBtn").text("Ong Shuoh Chwen");
-        $("#logoFooterBtn").text("Ong Shuoh Chwen");
-        storage.setState(2);
-        break;
-      case 2:
-        $("#changeFontBtn").text("王烁錞");
-        $("#logoFooterBtn").text("王烁錞");
-        storage.setState(3);
-        break; 
-      case 3:
-        $("#changeFontBtn").text("왕삭순");
-        $("#logoFooterBtn").text("왕삭순");
-        storage.setState(4);
-        break;  
-      case 4:
-        $("#changeFontBtn").html(this.owlStr);
-        $("#logoFooterBtn").html(this.owlStr);
-        storage.setState(5);
-        break; 
-      case 5:
-        $("#changeFontBtn").text("proscawards");
+  logoBtnOnLoad(){
+    switch (this.cacheService.exist(this.KEY_FSTATE) ? this.cacheService.get(this.KEY_FSTATE) : '0'){
+      case '0':
         $("#logoFooterBtn").text("proscawards");
-        storage.setState(0);
+        break;
+      case '1':
+        $("#logoFooterBtn").text("SC Ong");
+        break;
+      case '2':
+        $("#logoFooterBtn").text("Ong Shuoh Chwen");
+        break; 
+      case '3':
+        $("#logoFooterBtn").text("王烁錞");
+        break; 
+      case '4':
+        $("#logoFooterBtn").text("왕삭순");
+        break;  
+      case '5':
+        $("#logoFooterBtn").html(this.owlStr);
         break; 
       default:
-        $("#changeFontBtn").text("proscawards");
         $("#logoFooterBtn").text("proscawards");
-        storage.setState(0);
+        break;   
+    }
+  }
+
+  logoBtnOnClick(){
+    switch (this.cacheService.exist(this.KEY_FSTATE) ? this.cacheService.get(this.KEY_FSTATE) : '0'){
+      case '0':
+        $("#logoFooterBtn").text("SC ONG");
+        this.cacheService.set(this.KEY_FSTATE, '1');
+        break;
+      case '1':
+        $("#logoFooterBtn").text("Ong Shuoh Chwen");
+        this.cacheService.set(this.KEY_FSTATE, '2');
+        break;
+      case '2':
+        $("#logoFooterBtn").text("王烁錞");
+        this.cacheService.set(this.KEY_FSTATE, '3');
+        break; 
+      case '3':
+        $("#logoFooterBtn").text("왕삭순");
+        this.cacheService.set(this.KEY_FSTATE, '4');
+        break;  
+      case '4':
+        $("#logoFooterBtn").html(this.owlStr);
+        this.cacheService.set(this.KEY_FSTATE, '5');
+        break; 
+      case '5':
+        $("#logoFooterBtn").text("proscawards");
+        this.cacheService.set(this.KEY_FSTATE, '0');
+        break; 
+      default:
+        $("#logoFooterBtn").text("proscawards");
+        this.cacheService.set(this.KEY_FSTATE, '0');
         break;   
     }
   }
@@ -113,168 +131,6 @@ export class FooterComponent implements OnInit{
     });
   }
 
-  //Contact name on change
-  nameOnChange(e: any){
-      e.preventDefault();
-      var regex = /^[a-zA-Z]+$/;
-      let name = $("#contactName").val() as string;
-      if (regex.test(name)) {
-        $("#contactName").css("border-bottom", "1px dotted var(--currentFontCodeColor)");
-        cf.resetError();
-      }
-      else{
-        $("#contactName").css("border-bottom", "1px dotted var(--currentCommentColor)");
-        cf.updateError();
-      }
-  }
-
-  //Contact email on change
-  emailOnChange(e: any){
-    e.preventDefault();
-    const emailValidator = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-    let email = $("#contactEmail").val() as string;
-    if (emailValidator.test(email)) {
-      $("#contactEmail").css("border-bottom", "1px dotted var(--currentFontCodeColor)");
-      cf.resetError();
-    }
-    else{
-      $("#contactEmail").css("border-bottom", "1px dotted var(--currentCommentColor)");
-      cf.updateError();
-    }
-  }
-
-  //Contact message on change
-  messageOnChange(e: any){
-    e.preventDefault();
-    let msg = $("#contactMsg").val() as string;
-    if (msg) {
-      $("#contactMsg").css("border-bottom", "1px dotted var(--currentFontCodeColor)");
-      cf.resetError();
-    }
-    else{
-      $("#contactMsg").css("border-bottom", "1px dotted var(--currentCommentColor)");
-      cf.updateError();
-    }
-  }
-
-  //Submit contact form
-  submitBtnOnClick(e: any){
-      e.preventDefault();
-      var name = $("#contactName").val();
-      var email = $("#contactEmail").val();
-      var msg = $("#contactMsg").val();
-
-      if ((cf.getError() == 0)){
-        if (!name && !email && !msg){
-          Swal.fire({
-            icon: "warning",
-            title: "Contact form is empty! Please verify again."
-          })
-        }
-        else if (!name && !email && msg){
-          Swal.fire({
-            icon: "warning",
-            title: "Full name & email are yet to fill in! Please verify again."
-          })
-        }
-        else if (!name && email && !msg){
-          Swal.fire({
-            icon: "warning",
-            title: "Full name & message are yet to fill in! Please verify again."
-          })
-        }
-        else if (name && !email && !msg){
-          Swal.fire({
-            icon: "warning",
-            title: "Email & message are yet to fill in! Please verify again."
-          })
-        }
-        else if (!name && email && msg){
-          Swal.fire({
-            icon: "warning",
-            title: "Full name is yet to fill in! Please verify again."
-          })
-        }
-        else if (name && !email && msg){
-          Swal.fire({
-            icon: "warning",
-            title: "Email is yet to fill in! Please verify again."
-          })
-        }
-        else if (name && email && !msg){
-          Swal.fire({
-            icon: "warning",
-            title: "Message is yet to fill in! Please verify again."
-          })
-        }
-        else{
-          var data = {
-            email : email,
-            name : name,
-            msg : msg
-          }
-          cf.disableOnSubmit();
-          let xhr = new XMLHttpRequest();
-          xhr.open("POST", "https://proscawards-portfolio-backend.herokuapp.com/cf");
-          xhr.setRequestHeader('content-type', 'application/json');
-          xhr.onload = function(){
-              if (xhr.responseText == "success"){
-                cf.resetContactForm();
-                const Toast = Swal.mixin({
-                  toast: true,
-                  position: 'top-end',
-                  showConfirmButton: false,
-                  timer: 3000,
-                  timerProgressBar: true,
-                  didOpen: (toast) => {
-                    toast.addEventListener('mouseenter', Swal.stopTimer)
-                    toast.addEventListener('mouseleave', Swal.resumeTimer)
-                  }
-                })
-                
-                Toast.fire({
-                  icon: 'success',
-                  title: 'Email sent!'
-                })
-              }
-              else{
-                cf.resetContactForm();
-                const Toast = Swal.mixin({
-                  toast: true,
-                  position: 'top-end',
-                  showConfirmButton: false,
-                  timer: 3000,
-                  timerProgressBar: true,
-                  didOpen: (toast) => {
-                    toast.addEventListener('mouseenter', Swal.stopTimer)
-                    toast.addEventListener('mouseleave', Swal.resumeTimer)
-                  }
-                })
-                
-                Toast.fire({
-                  icon: 'warning',
-                  title: 'Email failed to sent!'
-                })
-              }
-          }  
-
-          xhr.send(JSON.stringify(data));
-
-        }
-      }
-  }
-
-  //On initialization, when any of the element of contact form is FOCUSED for the first time
-  //focus click
-  onFocusClick(e: any){
-      e.preventDefault();
-      if (!cf.getIsFocused()){
-        cf.setIsFocused(true);  
-        $("#contactName, #contactEmail, #contactMsg").css("border-bottom", "1px dotted var(--currentCommentColor)");
-        $("#contactSubmit").addClass("disabled");
-      }
-  }
-
   //On document load
   onDOMLoaded(){
     this.getTopCountries();
@@ -283,14 +139,14 @@ export class FooterComponent implements OnInit{
 
   //Show top 3 countries' visitor
   getTopCountries(){
-    if (cs.exist(this.KEY_COUNTRY)){
-      this.setCountriesData(cs.get(this.KEY_COUNTRY));
+    if (this.cacheService.exist(this.KEY_COUNTRY)){
+      this.setCountriesData(this.cacheService.get(this.KEY_COUNTRY));
     }
     else{
       this.httpClient.get<any>('https://proscawards-portfolio-backend.herokuapp.com/').subscribe();
       this.httpClient.get<any>('https://proscawards-portfolio-backend.herokuapp.com/country')
       .subscribe(res => {
-        cs.set(this.KEY_COUNTRY, res);
+        this.cacheService.set(this.KEY_COUNTRY, res);
         this.setCountriesData(res);
       });
     }
@@ -308,13 +164,13 @@ export class FooterComponent implements OnInit{
 
   //Show total visitor
   getTotalVisitor(){
-    if (cs.exist(this.KEY_COUNT)){
-      $("#totalVisitor").text(cs.get(this.KEY_COUNT));
+    if (this.cacheService.exist(this.KEY_COUNT)){
+      $("#totalVisitor").text(this.cacheService.get(this.KEY_COUNT));
     }
     else{
       this.httpClient.get<any>('https://proscawards-portfolio-backend.herokuapp.com/count')
       .subscribe(res => {
-        cs.set(this.KEY_COUNT, res.count)
+        this.cacheService.set(this.KEY_COUNT, res.count)
         $("#totalVisitor").text(res.count);
       });
     }

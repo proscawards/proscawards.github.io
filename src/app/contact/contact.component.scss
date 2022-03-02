@@ -1,0 +1,54 @@
+.contactInput{
+    background: none;
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid rgba(0,0,0,.3);
+    border-radius: 0px;
+    padding: 10px;
+    font-size: 20px;
+    outline: none;
+    color: #f1f3f4;
+    transition: .3s;
+
+    &:hover, &:focus{
+        background: rgba(1,1,1,.1);
+        border: none;
+        border-bottom: 1px dotted var(--currentFontCodeColor);
+        border-radius: 10px;
+    }
+}
+
+#contactTitle{
+    font-size: 40px;
+    transition: .3s;
+    @media screen and (max-width: 768px) {
+        font-size: 30px;
+        transition: .3s;
+    }
+}
+
+.contactLbl{
+    font-size: 20px;
+}
+
+#contactDiv{
+    padding: 30px;
+}
+
+#contactSubmit{
+    outline: none;
+    border: none;
+    background: none;
+    border-radius: 100px;
+    font-size: 25px;
+    margin-top:1em;
+    cursor: pointer;
+    width: 100%;
+    background: var(--currentBgCodeColor);
+    box-shadow: 5px 5px 5px rgb(0,0,0,0);
+    transition: .3s;
+
+    &:hover, &:focus{
+        box-shadow: var(--defaultBoxShadow);
+    }
+}

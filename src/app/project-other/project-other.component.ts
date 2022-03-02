@@ -6,7 +6,6 @@ import { WINDOW } from "../services/window.service";
 import { HttpClient } from '@angular/common/http';
 import { Project } from '../model/data/Project';
 import { CacheService } from '../services/cache.service';
-const cs = new CacheService();
 
 @Component({
   selector: 'project-other',
@@ -17,12 +16,14 @@ export class ProjectOtherComponent implements OnInit {
 
   public infoArr: Project[] = [];
   readonly KEY_PROJECT = 'cache_project';
+  private cacheService: CacheService;
 
   constructor(
     private route: ActivatedRoute,
     @Inject(WINDOW) private window: Window,
     private httpClient: HttpClient,
   ){
+    this.cacheService = new CacheService(httpClient);
   }
 
   ngOnInit(){
@@ -34,8 +35,8 @@ export class ProjectOtherComponent implements OnInit {
 
   //Retrieve data from backend
   getCollection(){
-    if (cs.exist(this.KEY_PROJECT)){
-      this.infoArr = cs.get(this.KEY_PROJECT);
+    if (this.cacheService.exist(this.KEY_PROJECT)){
+      this.infoArr = this.cacheService.get(this.KEY_PROJECT);
     }
     else{
       this.httpClient.get<any>('https://proscawards-portfolio-backend.herokuapp.com/project')
@@ -43,7 +44,7 @@ export class ProjectOtherComponent implements OnInit {
         var data = res.slice(0);
         data.sort(function(a: any, b: any) {return a.id - b.id});
         this.infoArr = data;
-        cs.set(this.KEY_PROJECT, data);
+        this.cacheService.set(this.KEY_PROJECT, data);
       });
     }
     $("#projLoading").fadeOut();
@@ -58,7 +59,7 @@ export class ProjectOtherComponent implements OnInit {
     $(`#${elem}`).parent().addClass('hovered');
     setTimeout(() => {
       $(`#${elem}`).parent().removeClass('hovered');
-      this.window.history.replaceState('', '', '/projects');
+      this.window.history.replaceState('', '', '/project-all');
     }, 2000);
   }
 

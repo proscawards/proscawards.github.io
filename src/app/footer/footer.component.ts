@@ -19,7 +19,7 @@ export class FooterComponent implements OnInit{
   public url: string = this.router.url;
   readonly KEY_COUNTRY = 'cache_vcountry';
   readonly KEY_COUNT = 'cache_vcount';
-  readonly KEY_FSTATE = 'cache_fstate';
+  readonly KEY_STATE = 'cache_state';
   private cacheService: CacheService;
 
   constructor(
@@ -45,7 +45,7 @@ export class FooterComponent implements OnInit{
   }
 
   logoBtnOnLoad(){
-    switch (this.cacheService.exist(this.KEY_FSTATE) ? this.cacheService.get(this.KEY_FSTATE) : '0'){
+    switch (this.cacheService.exist(this.KEY_STATE) ? this.cacheService.get(this.KEY_STATE) : '0'){
       case '0':
         $("#logoFooterBtn").text("proscawards");
         break;
@@ -71,34 +71,34 @@ export class FooterComponent implements OnInit{
   }
 
   logoBtnOnClick(){
-    switch (this.cacheService.exist(this.KEY_FSTATE) ? this.cacheService.get(this.KEY_FSTATE) : '0'){
+    switch (this.cacheService.exist(this.KEY_STATE) ? this.cacheService.get(this.KEY_STATE) : '0'){
       case '0':
         $("#logoFooterBtn").text("SC ONG");
-        this.cacheService.set(this.KEY_FSTATE, '1');
+        this.cacheService.set(this.KEY_STATE, '1');
         break;
       case '1':
         $("#logoFooterBtn").text("Ong Shuoh Chwen");
-        this.cacheService.set(this.KEY_FSTATE, '2');
+        this.cacheService.set(this.KEY_STATE, '2');
         break;
       case '2':
         $("#logoFooterBtn").text("王烁錞");
-        this.cacheService.set(this.KEY_FSTATE, '3');
+        this.cacheService.set(this.KEY_STATE, '3');
         break; 
       case '3':
         $("#logoFooterBtn").text("왕삭순");
-        this.cacheService.set(this.KEY_FSTATE, '4');
+        this.cacheService.set(this.KEY_STATE, '4');
         break;  
       case '4':
         $("#logoFooterBtn").html(this.owlStr);
-        this.cacheService.set(this.KEY_FSTATE, '5');
+        this.cacheService.set(this.KEY_STATE, '5');
         break; 
       case '5':
         $("#logoFooterBtn").text("proscawards");
-        this.cacheService.set(this.KEY_FSTATE, '0');
+        this.cacheService.set(this.KEY_STATE, '0');
         break; 
       default:
         $("#logoFooterBtn").text("proscawards");
-        this.cacheService.set(this.KEY_FSTATE, '0');
+        this.cacheService.set(this.KEY_STATE, '0');
         break;   
     }
   }

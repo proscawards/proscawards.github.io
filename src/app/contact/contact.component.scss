@@ -7,7 +7,7 @@
     padding: 10px;
     font-size: 20px;
     outline: none;
-    color: #f1f3f4;
+    color: var(--oppositeBgCodeColor);
     transition: .3s;
 
     &:hover, &:focus{
@@ -44,11 +44,12 @@
     margin-top:1em;
     cursor: pointer;
     width: 100%;
-    background: var(--currentBgCodeColor);
+    background: var(--currentBgSdColor);
     box-shadow: 5px 5px 5px rgb(0,0,0,0);
     transition: .3s;
 
     &:hover, &:focus{
+        background: var(--currentBgCommentColor);
         box-shadow: var(--defaultBoxShadow);
     }
 }

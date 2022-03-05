@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { format, addSeconds, parse, differenceInSeconds } from "date-fns";
+import { format, parse, differenceInSeconds, addHours } from "date-fns";
 import { CryptoService } from "./crypto.service";
 const cs = new CryptoService();
 import { HttpClient } from '@angular/common/http';
@@ -27,7 +27,7 @@ export class CacheService {
   setExp(){
     if (!this.exist(this.KEY_EXPIRY)){
       this.reset();
-      let exp = format(addSeconds(new Date(), this.CACHE_EXPIRED_IN), 'yyyy,MM,dd,HH,mm,ss');
+      let exp = format(addHours(new Date(), this.CACHE_EXPIRED_IN), 'yyyy,MM,dd,HH,mm,ss');
       this.set(this.KEY_EXPIRY, exp);
     }
     else{

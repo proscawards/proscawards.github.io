@@ -40,7 +40,7 @@ import { ContactpageComponent } from './contactpage/contactpage.component';
     CertificationComponent,
     HomeComponent,
     NotfoundComponent,
-    ContactpageComponent,
+    ContactpageComponent
   ],
   imports: [
     BrowserModule,
@@ -65,7 +65,7 @@ import { ContactpageComponent } from './contactpage/contactpage.component';
       { path: '**', redirectTo: '404'}
     ],
     {scrollPositionRestoration: 'enabled'}),
-    NgbModule
+    NgbModule,
   ],
   providers: [WINDOW_PROVIDERS, {provide: APP_BASE_HREF, useValue : '/' }],
   bootstrap: [AppComponent]

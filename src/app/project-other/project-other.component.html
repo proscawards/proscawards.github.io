@@ -13,7 +13,12 @@
                     <div class="col-md-12" id="projectDiv{{info.id}}" (click)="projectDivOnClick($event,info.img,info.type,info.isWIP)">
                         <div *ngIf="info.isWIP" class="ribbon ribbon-top-right"><span><i class="fas fa-code-branch"></i>WIP</span></div>
                         <span class="projectTitleSpan">{{info.title}}</span>
-                        <div class="col-md-12 progImgDiv">
+                        <div class="col-md-auto mobileProgImgOuterDiv">
+                            <div class="col-md-12 progImgDiv">
+                                <img *ngFor="let prog of info.progImg" src={{prog.img}} title={{prog.name}} alt={{prog.name}}/>
+                            </div>
+                        </div>
+                        <div class="col-md-12 progImgDiv progImgOuterDiv">
                             <img *ngFor="let prog of info.progImg" src={{prog.img}} title={{prog.name}} alt={{prog.name}}/>
                         </div>
                     </div>

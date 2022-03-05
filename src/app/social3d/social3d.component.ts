@@ -1,10 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ɵdetectChanges as detectChanges, ɵmarkDirty as markDirty, ChangeDetectionStrategy, NgZone, ChangeDetectorRef } from '@angular/core';
 import * as $ from "jquery";
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { CacheService } from '../services/cache.service';
 import Selected3DName from '../services/name3dsel.service';
+import { AnimationItem } from 'lottie-web';
+import { AnimationOptions } from 'ngx-lottie';
 
 @Component({
   selector: 'social3d',
@@ -17,13 +19,47 @@ export class Social3dComponent implements OnInit {
   private selected3dName: Selected3DName;
   readonly KEY_STATE = 'cache_state';
   private owlStr = "<img class='owls' src='assets/images/owls/owls_owl.svg'/><img class='owls' src='assets/images/owls/owls_lufie.svg'/><img class='owls' src='assets/images/owls/owls_guin.svg'/><img class='owls' id='phoenix' src='assets/images/owls/owls_owlhuang.svg'/><img class='owls' src='assets/images/owls/owls_flowl.svg'/>";
+  public opBlockGap: AnimationOptions = {path: '/assets/files/social3d/social3d_blockgap.json'};
+  public opHexSingle: AnimationOptions = {path: '/assets/files/social3d/social3d_hex_single.json'};
+  public opHexTop: AnimationOptions = {path: '/assets/files/social3d/social3d_hex_top.json'};
+  public opHexBot: AnimationOptions = {path: '/assets/files/social3d/social3d_hex_bot.json'};
+  public opWheelTop: AnimationOptions = {path: '/assets/files/social3d/social3d_wheel_top_anim.json'};
+  public opWheelMid: AnimationOptions = {path: '/assets/files/social3d/social3d_wheel_mid_anim.json'};
+  public opWheelBot: AnimationOptions = {path: '/assets/files/social3d/social3d_wheel_bot_anim.json'};
+  private onLoopCompleteCalledTimes: number = 0;
+  private currentWheel: number = 0;
 
   constructor(
       private router: Router,
-      private httpClient: HttpClient
+      private httpClient: HttpClient,
+      private ngZone: NgZone, 
+      private ref: ChangeDetectorRef
   ){
       this.cacheService = new CacheService(httpClient);
       this.selected3dName = new Selected3DName();
+  }
+
+  onLoopComplete(): void {
+    // * first option via `NgZone.run()`
+    this.ngZone.run(() => {
+      this.onLoopCompleteCalledTimes++;
+    });
+
+    // * second option via `ChangeDetectorRef.detectChanges()`
+    this.onLoopCompleteCalledTimes++;
+    this.ref.detectChanges();
+    // Angular 9+
+    detectChanges(this);
+
+    // * third option via `ChangeDetectorRef.markForCheck()`
+    this.onLoopCompleteCalledTimes++;
+    this.ref.markForCheck();
+    // Angular 9+
+    markDirty(this);
+  }
+
+  animationCreated(animationItem: AnimationItem): void {
+    console.log(animationItem);
   }
 
   ngOnInit(): void {
@@ -107,5 +143,28 @@ export class Social3dComponent implements OnInit {
       this.selected3dName.setActive("name_owl", this.owlStr);
       this.cacheService.set(this.KEY_STATE, '0');
     });
+    setInterval(() => {
+      this.wheelAnim();
+    }, 100)
+  }
+
+  wheelAnim(){
+    switch (this.currentWheel){
+      case 0:
+        $("#wheel1_0, #wheel2_0, #wheel3_0").show();
+        $("#wheel1_1, #wheel2_1, #wheel3_1, #wheel1_2, #wheel2_2, #wheel3_2").hide();
+        this.currentWheel++;
+        break;
+      case 1:
+        $("#wheel1_1, #wheel2_1, #wheel3_1").show();
+        $("#wheel1_0, #wheel2_0, #wheel3_0, #wheel1_2, #wheel2_2, #wheel3_2").hide();
+        this.currentWheel++;
+        break;
+      case 2:
+        $("#wheel1_2, #wheel2_2, #wheel3_2").show();
+        $("#wheel1_0, #wheel2_0, #wheel3_0, #wheel1_1, #wheel2_1, #wheel3_1").hide();
+        this.currentWheel = 0;
+        break;
+    }
   }
 }

@@ -1,0 +1,224 @@
+.detailDiv{
+    position: relative;
+}
+
+.thumbnail{
+    width: 100%;
+    margin: 1em 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+    &>img{
+        max-width: 100%;
+        border-radius: 5px;
+        box-shadow: var(--defaultBoxShadow);
+    }
+
+    &>.projectSourceBtn{
+        position: absolute;
+        right: 10px;
+        bottom: 10px;
+        border: none;
+        background: var(--currentBgSdColor);
+        box-shadow: var(--defaultBoxShadow);
+        border-radius: 5px;
+        color: var(--currentFontColor);
+        padding: 15px;
+        transform: scale(1.0);
+        transition: .3s;
+
+        @media screen and (max-width: 768px) {
+            display: none;
+        }
+
+        &>.sourceSpan{
+            margin-left: .5em;
+            display: inline-block;
+            transition: .3s;
+            @media screen and (max-width: 768px) {
+                display: none;
+            }
+        }
+
+        &:hover{
+            font-weight: 300;
+            transform: scale(1.03);
+            color: var(--currentFontColor);
+            background: var(--currentBgCommentColor);
+            box-shadow: var(--defaultBoxShadow);
+        }
+    }
+}
+
+.fsDiv{
+    position: relative;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+
+    &>.fsThumbnail{
+        width: 100vw;
+        margin: 0; 
+        padding: 0;
+        position: relative;
+        @media screen and (max-width: 768px) {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+
+    &>button{
+        position: absolute;
+        right: 0;
+        top: 0;
+        outline: none;
+        padding: 0px 10px;
+        font-size: 20px;
+        background: none;
+        color: var(--oppositeBgCodeColor);
+        opacity: .2;
+        border: none;
+        transition: .3s;
+        transform: rotate(7deg);
+        z-index: 20;
+
+        &>i{
+            position: absolute;
+            top: 20px;
+            right: 15px;
+        }
+
+        &:hover{
+            opacity: .8;
+        }
+    }
+}
+
+
+.projectDetailTitle{
+    font-weight: 800;
+    font-size: 30px;
+    @media screen and (max-width: 768px) {
+        font-size: 18px;
+    }
+}
+
+.sourceURL{
+    color: inherit;
+}
+
+.description{
+    &>.descType{
+        font-weight: 500;
+        font-size: 18px;
+        @media screen and (max-width: 768px) {
+            font-size: 13px;
+        }
+    }
+
+    &>.descDate::before{
+        content: "[";
+    }
+
+    &>.descDate{
+        font-size: 15px;
+        color: var(--currentCommentColor);
+        @media screen and (max-width: 768px) {
+            font-size: 11px;
+        }
+    }
+
+    &>.descDate::after{
+        content: "]";
+    }
+
+    &>.descTitle{
+        font-weight: 200;
+        font-size: 20px;
+        @media screen and (max-width: 768px) {
+            font-size: 15px;
+        }
+    }
+    &>p{
+        font-size: 15px;
+        @media screen and (max-width: 768px) {
+            font-size: 11px;
+        }
+    }
+}
+
+.navigation{
+    display: flex;
+    justify-content:  space-between;
+    flex-wrap: wrap;
+
+    &>.projectNavBtnDiv{
+        width: fit-content;
+        &>.projectNavBtn{
+            display: flex;
+            flex-direction: column;
+            box-shadow: var(--defaultBoxShadow);
+            border-radius: 5px;
+            color: var(--currentFontColor);
+            padding: 20px;
+            background: var(--currentBgSdColor);
+            cursor: pointer;
+            margin-bottom: 1em;
+            width: fit-content;
+            transform: scale(1.0);
+            transition: .3s;
+    
+            &>span{
+                font-size: 10px;
+                display: inline-block;
+                @media screen and (max-width: 768px) {
+                    display: none;
+                }
+            }
+    
+            &>button{
+                border: none;
+                background: var(--currentBgSdColor);
+                color: var(--currentFontColor);
+                transition: .3s;
+
+                &>.navTitle{
+                    display: inline-block; 
+                    @media screen and (max-width: 768px) {
+                        display: none;
+                    }
+                }
+            }
+    
+            &:hover{
+                font-weight: 300;
+                transform: scale(1.05);
+                color: var(--currentFontColor);
+                background: var(--currentBgCommentColor);
+                box-shadow: var(--defaultBoxShadow);
+            }
+    
+            
+            &:hover button{
+                background: var(--currentBgCommentColor);
+            }
+    
+        }
+    
+        &>.projectNavPrevBtn{
+            align-items: flex-start;
+        }
+    
+        &>.projectNavNextBtn{
+            align-items: flex-end;
+        }
+    }
+
+    
+}

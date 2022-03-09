@@ -1,0 +1,41 @@
+<header></header>
+<div class="fsDiv" (click)="fsBtnOnClicked($event)"><button (click)="fsBtnOnClicked($event)"><i class="fas fa-slash"></i><i class="fas fa-slash fa-rotate-90"></i></button><img class="fsThumbnail" src="" /></div>
+<div class="row col-md-12 section" id="projDetailDiv">
+    <div class="col-md-12 wrapper">
+        <div class="col-md-12 scroll-bg">
+            <div class="col-md-12 detailDiv" *ngFor="let info of infoData">
+                <div class="col-md-12 thumbnail">
+                    <button *ngIf="info.source != '#'" class="projectSourceBtn" (click)="sourceBtnOnClicked($event,info.id)"><i class="fab fa-github sourceIcon"></i> <span class="sourceSpan">View On Github</span></button>
+                    <img class="thumbnailImg" (click)="fsThumbnailOnClicked(info.img)" src="{{info.img}}"/>
+                </div>
+                <span class="projectDetailTitle" *ngIf="info.source == '#'; else hasURL;">{{info.title}}</span>
+                <ng-template #hasURL>
+                    <span class="projectDetailTitle"><a class="sourceURL" href={{info.source}} target="_blank">{{info.title}}</a></span>
+                </ng-template>
+                <div class="col-md-12 description">
+                    <span class="descType" [innerHTML]="info.type"></span><br/>
+                    <span class="descDate" [innerHTML]="info.date"></span><br/><br/>
+                    <span class="descTitle">Written in: </span>
+                    <p [innerHTML]="info.lang"></p>
+                    <span class="descTitle">Functionality: </span>
+                    <p [innerHTML]="info.desc"></p>
+                </div>
+                <div class="row col-md-12 navigation">
+                    <div *ngIf="!invalidPrev" class="projectNavBtnDiv col-md-12">
+                        <div *ngFor="let prev of prevData" class="projectNavBtn projectNavPrevBtn col-md-12" (click)="navBtnOnClicked($event, prev.id)">
+                            <span>Previous Project</span>
+                            <button><i class="fas fa-angle-double-left"></i> <span class="navTitle">{{prev.title}}</span></button>
+                        </div>
+                    </div>
+                    <div *ngIf="!invalidNext" class="projectNavBtnDiv col-md-12">
+                        <div *ngFor="let next of nextData" class="projectNavBtn projectNavNextBtn col-md-12" (click)="navBtnOnClicked($event, next.id)">
+                            <span>Next Project</span>
+                            <button><span class="navTitle">{{next.title}}</span> <i class="fas fa-angle-double-right"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<footer></footer>

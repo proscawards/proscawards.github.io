@@ -8,24 +8,31 @@
                     <span class="sr-only"></span>
                 </div>
             </div>
-            <div class="col-md-12 otherProjDiv">
-                <div class="col-md-auto projectDiv" *ngFor="let info of infoArr">
-                    <div class="col-md-12" id="projectDiv{{info.id}}" (click)="projectDivOnClick($event,info.img,info.type,info.isWIP)">
-                        <div *ngIf="info.isWIP" class="ribbon ribbon-top-right"><span><i class="fas fa-code-branch"></i>WIP</span></div>
-                        <span class="projectTitleSpan">{{info.title}}</span>
-                        <div class="col-md-auto mobileProgImgOuterDiv">
-                            <div class="col-md-12 progImgDiv">
-                                <img *ngFor="let prog of info.progImg" src={{prog.img}} title={{prog.name}} alt={{prog.name}}/>
+            <cdk-virtual-scroll-viewport itemSize="3" class="vsDiv">
+                <div class="row col-md-12">
+                    <div class="col-md-4 projectDiv" *cdkVirtualFor="let info of infoArr">
+                        <div class="projectInnerDiv">
+                            <div class="col-md-12 projectInnerSubDiv" id="projectDiv{{info.id}}" (click)="projectDivOnClick($event,info.id)">
+                                <div class="projectThumbnail">
+                                    <div class="spinner-border projectThumbnailSpinner" role="status">
+                                    </div>
+                                    <img class="projectThumbnailSrc" src={{info.img}}/>
+                                </div>
+                                <div *ngIf="info.isWIP" class="ribbon ribbon-top-right"><span><i class="fas fa-code-branch"></i>WIP</span></div>
+                                <div class="projectInfos">
+                                    <span class="col-md-12">{{info.title}}</span>
+                                    <div class="col-md-auto">
+                                        <div class="col-md-12 progImgDiv">
+                                            <img *ngFor="let prog of info.progImg" src={{prog.img}} title={{prog.name}} alt={{prog.name}}/>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div class="col-md-12 progImgDiv progImgOuterDiv">
-                            <img *ngFor="let prog of info.progImg" src={{prog.img}} title={{prog.name}} alt={{prog.name}}/>
-                        </div>
                     </div>
-                    <button *ngIf="info.source != '#'" class="projectDivSourceBtn" (click)="sourceBtnOnClicked($event,info.id)"><i class="fab fa-github"></i></button>
-                    <button class="projectDivInfoBtn" (click)="infoBtnOnClicked($event,info.id)"><i class="fas fa-info-circle"></i></button>
                 </div>
+            </cdk-virtual-scroll-viewport>
         </div>
-    </div>
-</div> 
+    </div> 
+</div>
 <footer></footer>

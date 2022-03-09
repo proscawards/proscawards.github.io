@@ -55,14 +55,10 @@ export class AppComponent implements AfterViewInit{
     if (window.matchMedia('(max-width: 768px)').matches){
       $("#scrollTopBtn").hide();
       $("#mobileFooter").show();
-      $(".mobileProgImgOuterDiv").show();
-      $(".progImgOuterDiv").hide();
     }
     else{
       $("#scrollTopBtn").show();
       $("#mobileFooter").hide();
-      $(".mobileProgImgOuterDiv").hide();
-      $(".progImgOuterDiv").show();
     }
   }
 

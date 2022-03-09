@@ -9,17 +9,6 @@
     margin-right: .1em;
 }
 
-.otherProjDiv, .compProjDiv{
-    position: sticky;
-    z-index: 99;
-    background: var(--currentBgSdColor);
-    padding: 0;
-    margin: 0;
-    display: flex; 
-    flex-wrap: wrap;
-    flex: 1;
-}
-
 .switchProjDiv{
     text-align: center;
     padding: 10px;
@@ -87,16 +76,25 @@
 }
 
 .projectDiv{
-    @include center-component();
-    text-align: center;
+    display: flex; 
+}
+
+.projectInnerDiv{
+    flex: 1;
+    margin: .5em;
+    transition: .3s;
+}
+
+.projectInnerSubDiv{
+    text-align: left;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    align-items: left;
+    justify-content: left;
     background: var(--currentBgCommentColor);
-    padding: 20px;
     box-shadow: var(--defaultBoxShadow);
-    margin: 0;
-    border: 1px dotted var(--oppositeFontCodeColor);
+
+    // border: 1px dotted var(--oppositeFontCodeColor);
+    border-radius: 5px;
     transition: .3s;
     transform: scale(1.0);
     font-weight: normal;
@@ -105,71 +103,66 @@
     flex-wrap: wrap;
     flex: 1;
     width: fit-content;
+    min-height: 100%;
     cursor: pointer;
 
     &:hover, &:focus, &.hovered{
-        border: 1px dotted var(--currentFontCodeColor);
         background: var(--currentBgSdColor);
         font-weight: bold;
     }
-    
+
+    &:hover img{
+        transform: scale(1.03);
+    }
+}
+
+.projectInfos{
+    margin: 1em;
+}
+
+.progImgDiv{
+    display: block;
+    align-items: center;
+
     & img{
-        width: 50px;
-        margin: .3em;
+        width: 20px;
+        margin-right: .3em;
         transition: .3s;
 
         @media screen and (max-width: 768px) {
             width: 20px;
         } 
     }
-
-    &>div>.progImgDiv{
-        display: flex;
-        flex-direction: row; 
-        @include center-component();
-    }
 }
 
-.projectDiv-disabled{
+.projectThumbnail{
     @include center-component();
-    text-align: center;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background: var(--currentBgCommentColor);
-    padding: 20px;
-    box-shadow: var(--defaultBoxShadow);
-    margin: 0;
-    border: 1px dotted var(--oppositeFontCodeColor);
-    transition: .3s;
-    transform: scale(1.0);
+    display: block;
+    overflow: hidden;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    position: relative;
+    &>.projectThumbnailSpinner{
+        z-index: 0;
+        position: absolute;
+        left: 0; 
+        right: 0; 
+        top: 50%;
+        margin-left: auto; 
+        margin-right: auto; 
+    }
 
-    &span{
-        color: var(--oppositeFontCodeColor);
+    &>.projectThumbnailSrc{
+        z-index: 10;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        max-height:100%; max-width:100%;
+        transform: scale(1.0);
         transition: .3s;
-    }
-    
-    & img{
-        width: 50px;
-        margin: .3em;
-    }
-}
 
-.projectDivInfoBtn{
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    color: var(--oppositeFontCodeColor);
-    outline: none;
-    border: none;
-    background: none;
-    font-size: 20px;
-    opacity: .5;
-    z-index: 10;
-    transition: .3s;
-
-    &:hover{
-        opacity: 1;
+        &:hover{
+            transform: scale(1.03);
+        }
     }
 }
 
@@ -207,6 +200,14 @@
     height: 100vh;
 }
 
-.mobileProgImgOuterDiv{
-    display: none;
+.vsDiv{
+    width: 100%;
+    height: 100vh;
+    overflow: scroll;
+    overflow-x: hidden;
+
+    &::-webkit-scrollbar {
+        width: 0;
+        background: transparent;
+    }
 }

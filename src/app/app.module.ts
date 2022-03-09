@@ -24,6 +24,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { Social3dModule } from './social3d/social3d.module';
 import { ContactModule } from './contact/contact.module';
 import { ContactpageComponent } from './contactpage/contactpage.component';
+import { ProjectDetailComponent } from './project-detail/project-detail.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ScrollingModule } from '@angular/cdk/scrolling';
 
 @NgModule({
   declarations: [
@@ -40,7 +43,8 @@ import { ContactpageComponent } from './contactpage/contactpage.component';
     CertificationComponent,
     HomeComponent,
     NotfoundComponent,
-    ContactpageComponent
+    ContactpageComponent,
+    ProjectDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -56,6 +60,8 @@ import { ContactpageComponent } from './contactpage/contactpage.component';
       { path: 'projects', component: ProjectComponent},
       { path: 'project-all', component: ProjectOtherComponent},
       { path: 'project-all/:elem', component: ProjectOtherComponent},
+      { path: 'project', component: ProjectDetailComponent},
+      { path: 'project/:id', component: ProjectDetailComponent},
       { path: 'skill', component: SkillComponent},
       { path: 'education', component: EducationComponent},
       { path: 'experience', component: ExperienceComponent},
@@ -66,6 +72,8 @@ import { ContactpageComponent } from './contactpage/contactpage.component';
     ],
     {scrollPositionRestoration: 'enabled'}),
     NgbModule,
+    BrowserAnimationsModule,
+    ScrollingModule,
   ],
   providers: [WINDOW_PROVIDERS, {provide: APP_BASE_HREF, useValue : '/' }],
   bootstrap: [AppComponent]

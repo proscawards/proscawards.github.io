@@ -3,6 +3,8 @@ import { ContactForm } from '../model/ContactForm';
 const cf = new ContactForm(0, false);
 import * as $ from 'jquery';
 import Swal from 'sweetalert2';
+import { format } from 'date-fns';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'contact',
@@ -11,7 +13,9 @@ import Swal from 'sweetalert2';
 })
 export class ContactComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private httpClient: HttpClient
+  ) { }
 
   ngOnInit(): void {
   }
@@ -111,12 +115,19 @@ export class ContactComponent implements OnInit {
           })
         }
         else{
-          var data = {
+          let data = {
             email : email,
             name : name,
-            msg : msg
-          }
+            date: format(new Date(), 'dd LLLL yyyy HH:mm:ss'),
+            cont : msg
+          };
+          // const headers = { 'content-type': 'application/json'};  
           cf.disableOnSubmit();
+          // console.log(data);
+          // this.httpClient.post<any>('https://proscawards-portfolio-backend.herokuapp.com/cf', JSON.stringify(data), { 'headers': headers })
+          // .subscribe(res => {
+          //   console.log(res)
+          // });
           let xhr = new XMLHttpRequest();
           xhr.open("POST", "https://proscawards-portfolio-backend.herokuapp.com/cf");
           xhr.setRequestHeader('content-type', 'application/json');

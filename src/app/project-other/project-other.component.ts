@@ -6,6 +6,9 @@ import { WINDOW } from "../services/window.service";
 import { HttpClient } from '@angular/common/http';
 import { Project } from '../model/data/Project';
 import { CacheService } from '../services/cache.service';
+import { Router } from '@angular/router';
+import { ScrollingModule } from '@angular/cdk/scrolling';
+import { CdkVirtualScrollViewport } from "@angular/cdk/scrolling";
 
 @Component({
   selector: 'project-other',
@@ -22,6 +25,7 @@ export class ProjectOtherComponent implements OnInit {
     private route: ActivatedRoute,
     @Inject(WINDOW) private window: Window,
     private httpClient: HttpClient,
+    private router: Router
   ){
     this.cacheService = new CacheService(httpClient);
   }
@@ -57,50 +61,16 @@ export class ProjectOtherComponent implements OnInit {
     var pos: any = $(`#${elem}`)?.parent()?.offset()?.top;
     $('html, body').animate({scrollTop: pos-350},800);
     $(`#${elem}`).parent().addClass('hovered');
-    setTimeout(() => {
-      $(`#${elem}`).parent().removeClass('hovered');
-      this.window.history.replaceState('', '', '/project-all');
-    }, 2000);
+    // setTimeout(() => {
+    //   $(`#${elem}`).parent().removeClass('hovered');
+    //   this.window.history.replaceState('', '', '/project-all');
+    // }, 2000);
   }
 
   //Show Modal when ProjectDiv is clicked
-  projectDivOnClick(e: any, img: any, name: any, isDisabled: any){
+  projectDivOnClick(e: any, id: any){
     e.preventDefault();
-    if (!isDisabled){
-      Swal.fire({
-        heightAuto: false,
-        showCloseButton: true,
-        showConfirmButton:false,
-        imageUrl: img,
-        text: name
-      });
-    }
-  }
-
-  //Show Modal when ProjectDivInfoBtn is clicked
-  infoBtnOnClicked(e: any, id: any){
-    e.preventDefault();
-    Swal.fire({
-      showCloseButton: true,
-      showConfirmButton:false,
-      title: ""+this.infoArr[id].title,
-      html: 
-        "<span>"+this.infoArr[id].icon+"</span><br/>"+
-        "<span style='font-size: 15px;'>("+this.infoArr[id].date+")</span><br/>"+
-        "<div style='text-align: left;'><span style='font-size: 15px;'>"+
-        "<br/><span style='font-weight: bold; text-decoration: underline;'>Written in</span><br/>"+
-        this.infoArr[id].lang+
-        "<br/><span style='font-weight: bold; text-decoration: underline;'>Functionality</span><br/>"+
-        this.infoArr[id].desc+
-        "</span></div>"
-    });
-  }
-
-  //Open github source codes
-  sourceBtnOnClicked(e: any, id: any){
-    e.preventDefault();
-    let source: string = this.infoArr[id].source;
-    window.open(source, '_blank');
+    this.router.navigate([`project/${id}`]);
   }
 
 }

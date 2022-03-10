@@ -8,6 +8,7 @@ import { Project } from '../model/data/Project';
 import { CacheService } from '../services/cache.service';
 import { Router } from '@angular/router';
 import ColorThief from 'colorthief';
+import { KEY_PROJECT, KEY_PROJECT_ACTIVE } from '../api/CacheKeys';
 const colorThief = new ColorThief();
 
 @Component({
@@ -21,8 +22,6 @@ export class ProjectDetailComponent implements OnInit {
   public infoData: Project[] = [];
   public prevData: Project[] = [];
   public nextData: Project[] = [];
-  readonly KEY_PROJECT = 'cache_project';
-  readonly KEY_ACTIVE_PROJECT = 'cache_projectact';
   private cacheService: CacheService;
   public projId: any;
   public invalidPrev: boolean = false;
@@ -36,8 +35,8 @@ export class ProjectDetailComponent implements OnInit {
     private router: Router
   ){
     this.cacheService = new CacheService(httpClient);
-    this.cacheService.exist(this.KEY_ACTIVE_PROJECT) ? 
-      this.projId = this.cacheService.get(this.KEY_ACTIVE_PROJECT) : this.projId = 0;
+    this.cacheService.exist(KEY_PROJECT_ACTIVE) ? 
+      this.projId = this.cacheService.get(KEY_PROJECT_ACTIVE) : this.projId = 0;
   }
 
   ngOnInit(){
@@ -50,7 +49,7 @@ export class ProjectDetailComponent implements OnInit {
     let data: Project[] = this.infoArr;
     let id: number = parseInt(this.projId);
     this.infoData = data.filter(function (info: any) {return info.id == id});
-    this.cacheService.set(this.KEY_ACTIVE_PROJECT, id);
+    this.cacheService.set(KEY_PROJECT_ACTIVE, id);
     if (id-1 >= 0){
       this.prevData = data.filter(function (info: any) {return info.id == id-1});
       this.invalidPrev = false;
@@ -69,8 +68,8 @@ export class ProjectDetailComponent implements OnInit {
 
   //Retrieve data from backend
   getCollection(){
-    if (this.cacheService.exist(this.KEY_PROJECT)){
-      this.infoArr = this.cacheService.get(this.KEY_PROJECT);
+    if (this.cacheService.exist(KEY_PROJECT)){
+      this.infoArr = this.cacheService.get(KEY_PROJECT);
     }
     else{
       this.httpClient.get<any>('https://proscawards-portfolio-backend.herokuapp.com/project')
@@ -78,7 +77,7 @@ export class ProjectDetailComponent implements OnInit {
         var data = res.slice(0);
         data.sort(function(a: any, b: any) {return a.id - b.id});
         this.infoArr = data;
-        this.cacheService.set(this.KEY_PROJECT, data);
+        this.cacheService.set(KEY_PROJECT, data);
       });
     }
   }

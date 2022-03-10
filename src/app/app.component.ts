@@ -18,7 +18,7 @@ export class AppComponent implements AfterViewInit{
   constructor(
     @Inject(DOCUMENT) private document: Document,
     @Inject(WINDOW) private window: Window,
-    private router: Router
+    private router: Router,
   ) {
   }
 
@@ -83,6 +83,4 @@ export class AppComponent implements AfterViewInit{
     $('[data-aos]').parent().addClass('hideOverflowOnMobile');
     $(document.documentElement).css("--screen-width", this.windowWidth);
   }
-  
-
 }

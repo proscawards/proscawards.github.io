@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Education } from '../model/data/Education';
 import { HttpClient } from '@angular/common/http';
 import { CacheService } from '../services/cache.service';
+import { KEY_EDU } from '../api/CacheKeys';
 
 @Component({
   selector: 'education',
@@ -13,7 +14,6 @@ import { CacheService } from '../services/cache.service';
 export class EducationComponent implements OnInit {
 
   public infoArr: Education[] = [];
-  readonly KEY_PROJECT = 'cache_edu';
   private cacheService: CacheService;
 
   constructor(
@@ -29,8 +29,8 @@ export class EducationComponent implements OnInit {
 
   //Retrieve data from backend
   getCollection(){
-    if (this.cacheService.exist(this.KEY_PROJECT)){
-      this.infoArr = this.cacheService.get(this.KEY_PROJECT);
+    if (this.cacheService.exist(KEY_EDU)){
+      this.infoArr = this.cacheService.get(KEY_EDU);
     }
     else{
       this.httpClient.get<any>('https://proscawards-portfolio-backend.herokuapp.com/edu')
@@ -38,7 +38,7 @@ export class EducationComponent implements OnInit {
         var data = res.slice(0);
         data.sort(function(a: any, b: any) {return a.id - b.id});
         this.infoArr = data;
-        this.cacheService.set(this.KEY_PROJECT, data);
+        this.cacheService.set(KEY_EDU, data);
       });
     }
   }

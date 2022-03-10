@@ -1,9 +1,12 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Component, OnInit, HostListener, Inject } from '@angular/core';
 import { Router } from '@angular/router';
 import * as $ from 'jquery';
 import { CacheService } from '../services/cache.service';
 import ToSentenceCase from '../utils/ToSentenceCase';
 import { HttpClient } from '@angular/common/http';
+import { DOCUMENT } from '@angular/common';
+import { WINDOW } from "../services/window.service";
+import { KEY_BNB_ACTIVE, KEY_THEME_ACTIVE } from '../api/CacheKeys';
 
 @Component({
   selector: 'botnavbar',
@@ -13,27 +16,36 @@ import { HttpClient } from '@angular/common/http';
 export class BotnavbarComponent implements OnInit {
 
   private cacheService: CacheService;
-  readonly KEY_BNBACT = 'cache_bnbact';
 
   constructor(
     private router: Router,
     private httpClient: HttpClient,
+    @Inject(DOCUMENT) private document: Document,
+    @Inject(WINDOW) private window: Window,
   ) { 
     this.cacheService = new CacheService(httpClient);
   }
 
   ngOnInit(): void {
-    if (this.cacheService.exist(this.KEY_BNBACT)){
-      if (this.cacheService.get(this.KEY_BNBACT)){
+    if (this.cacheService.exist(KEY_BNB_ACTIVE)){
+      if (this.cacheService.get(KEY_BNB_ACTIVE)){
         $(`.botNavInnerBar`).show();
         $(`.navBarCaret`).addClass("activeNavBarCaret");
-        this.cacheService.set(this.KEY_BNBACT, true);
+        this.cacheService.set(KEY_BNB_ACTIVE, true);
         this.resetHover();
       }
       else{
         $(`.botNavInnerBar`).hide();
         $(`.navBarCaret`).removeClass("activeNavBarCaret");
-        this.cacheService.set(this.KEY_BNBACT, false);
+        this.cacheService.set(KEY_BNB_ACTIVE, false);
+      }
+    }
+    if (this.cacheService.exist(KEY_THEME_ACTIVE)){
+      if (this.cacheService.get(KEY_THEME_ACTIVE) == "isDark"){
+        this.darkThemeBtnOnClick();
+      }
+      else{
+        this.lightThemeBtnOnClick();
       }
     }
   }
@@ -63,12 +75,12 @@ export class BotnavbarComponent implements OnInit {
     if (!$(`.navBarCaret`).hasClass("activeNavBarCaret")){
       $(`.botNavInnerBar`).slideDown().fadeIn();
       $(`.navBarCaret`).addClass("activeNavBarCaret");
-      this.cacheService.set(this.KEY_BNBACT, true);
+      this.cacheService.set(KEY_BNB_ACTIVE, true);
     }
     else{
       $(`.botNavInnerBar`).slideUp().fadeOut();
       $(`.navBarCaret`).removeClass("activeNavBarCaret");
-      this.cacheService.set(this.KEY_BNBACT, false);
+      this.cacheService.set(KEY_BNB_ACTIVE, false);
     }
   }
 
@@ -76,6 +88,7 @@ export class BotnavbarComponent implements OnInit {
   lightThemeBtnOnClick(){
     $("#darkThemeBtn").show();
     $("#lightThemeBtn").hide();
+    this.cacheService.set(KEY_THEME_ACTIVE, "isLight");
     $(document.documentElement).css("--currentBgCodeColor", "#F7F7F7");
     $(document.documentElement).css("--currentFontCodeColor", "#5888AD");
     $(document.documentElement).css("--oppositeBgCodeColor", "#242C3C");
@@ -91,6 +104,7 @@ export class BotnavbarComponent implements OnInit {
   darkThemeBtnOnClick(){
     $("#lightThemeBtn").show();
     $("#darkThemeBtn").hide();
+    this.cacheService.set(KEY_THEME_ACTIVE, "isDark");
     $(document.documentElement).css("--currentBgCodeColor", "#242C3C");
     $(document.documentElement).css("--currentFontCodeColor", "#5888AD");
     $(document.documentElement).css("--oppositeBgCodeColor", "#F7F7F7");
@@ -110,5 +124,17 @@ export class BotnavbarComponent implements OnInit {
     }, 800);
     this.resetHover();
     return false;
+  }
+
+  @HostListener('document:click', ['$event'])
+  domOnClick(e: any){
+    // console.log(e.target.parentElement.className)
+    if (!e.target.className.includes("triggerBnb") && !e.target.parentElement.className.includes("triggerBnb") || e.target.className == ""){
+      if (this.cacheService.get(KEY_BNB_ACTIVE)){
+        $(`.botNavInnerBar`).slideUp().fadeOut();
+        $(`.navBarCaret`).removeClass("activeNavBarCaret");
+        this.cacheService.set(KEY_BNB_ACTIVE, false);
+      }
+    }
   }
 }

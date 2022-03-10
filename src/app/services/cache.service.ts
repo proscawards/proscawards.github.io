@@ -3,6 +3,7 @@ import { format, parse, differenceInSeconds, addHours } from "date-fns";
 import { CryptoService } from "./crypto.service";
 const cs = new CryptoService();
 import { HttpClient } from '@angular/common/http';
+import { KEY_CERT, KEY_EDU, KEY_EXP, KEY_EXPIRY, KEY_PROJECT, KEY_VCOUNT, KEY_VCOUNTRY } from '../api/CacheKeys';
 
 @Injectable({
   providedIn: 'root',
@@ -11,13 +12,6 @@ import { HttpClient } from '@angular/common/http';
 export class CacheService {
 
   readonly CACHE_EXPIRED_IN: number = 3600; //1 hour
-  readonly KEY_EXPIRY: string = 'cache_expiry'; 
-  readonly KEY_EXP: string = 'cache_exp';
-  readonly KEY_EDU: string = 'cache_edu';
-  readonly KEY_CERT: string = 'cache_cert';
-  readonly KEY_PROJ: string = 'cache_project';
-  readonly KEY_VCOUNT: string = 'cache_vcount';
-  readonly KEY_VCOUNTRY: string = 'cache_vcountry';
 
   constructor(
     private httpClient: HttpClient
@@ -25,18 +19,17 @@ export class CacheService {
 
   //set cache timeout and salt
   setExp(){
-    if (!this.exist(this.KEY_EXPIRY)){
+    if (!this.exist(KEY_EXPIRY)){
       this.reset();
       let exp = format(addHours(new Date(), this.CACHE_EXPIRED_IN), 'yyyy,MM,dd,HH,mm,ss');
-      this.set(this.KEY_EXPIRY, exp);
+      this.set(KEY_EXPIRY, exp);
     }
     else{
-      let val = this.get(this.KEY_EXPIRY);
+      let val = this.get(KEY_EXPIRY);
       let dt = parse(val, 'yyyy,MM,dd,HH,mm,ss', new Date())
       let now = new Date();
       if (differenceInSeconds(dt, now) <= 0){
         this.reset();
-        this.setExp();
       }
     }
     this.subscribe();
@@ -67,15 +60,15 @@ export class CacheService {
 
   //Subscribe to all endpoint to prepare for response caching
   subscribe(){
-    if (!this.exist(this.KEY_EXP)){
+    if (!this.exist(KEY_EXP)){
       this.httpClient.get<any>('https://proscawards-portfolio-backend.herokuapp.com/exp')
       .subscribe(res => {
         var data = res.slice(0);
         data.sort(function(a: any, b: any) {return a.id - b.id});
-        this.set(this.KEY_EXP, data);
+        this.set(KEY_EXP, data);
       });
     }
-    if (!this.exist(this.KEY_CERT)){
+    if (!this.exist(KEY_CERT)){
       this.httpClient.get<any>('https://proscawards-portfolio-backend.herokuapp.com/cert')
       .subscribe(res => {
         var data = res.slice(0);
@@ -84,36 +77,36 @@ export class CacheService {
           let db: any = parse(b.cert.date, "MMMM yyyy", new Date());
           return da - db;
         });
-        this.set(this.KEY_CERT, data);
+        this.set(KEY_CERT, data);
       });
     }
-    if (!this.exist(this.KEY_EDU)){
+    if (!this.exist(KEY_EDU)){
       this.httpClient.get<any>('https://proscawards-portfolio-backend.herokuapp.com/edu')
       .subscribe(res => {
         var data = res.slice(0);
         data.sort(function(a: any, b: any) {return a.id - b.id});
-        this.set(this.KEY_EDU, data);
+        this.set(KEY_EDU, data);
       });
     }
-    if (!this.exist(this.KEY_PROJ)){
+    if (!this.exist(KEY_PROJECT)){
       this.httpClient.get<any>('https://proscawards-portfolio-backend.herokuapp.com/project')
       .subscribe(res => {
         var data = res.slice(0);
         data.sort(function(a: any, b: any) {return a.id - b.id});
-        this.set(this.KEY_PROJ, data);
+        this.set(KEY_PROJECT, data);
       });
     }
-    if (!this.exist(this.KEY_VCOUNTRY)){
+    if (!this.exist(KEY_VCOUNTRY)){
       this.httpClient.get<any>('https://proscawards-portfolio-backend.herokuapp.com/').subscribe();
       this.httpClient.get<any>('https://proscawards-portfolio-backend.herokuapp.com/country')
       .subscribe(res => {
-        this.set(this.KEY_VCOUNTRY, res);
+        this.set(KEY_VCOUNTRY, res);
       });
     }
-    if (!this.exist(this.KEY_VCOUNT)){
+    if (!this.exist(KEY_VCOUNT)){
       this.httpClient.get<any>('https://proscawards-portfolio-backend.herokuapp.com/count')
       .subscribe(res => {
-        this.set(this.KEY_VCOUNT, res.count)
+        this.set(KEY_VCOUNT, res.count)
       });    
     }
   }

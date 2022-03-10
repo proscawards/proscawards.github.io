@@ -9,6 +9,7 @@ import { CacheService } from '../services/cache.service';
 import { Router } from '@angular/router';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { CdkVirtualScrollViewport } from "@angular/cdk/scrolling";
+import { KEY_PROJECT, KEY_PROJECT_ACTIVE } from '../api/CacheKeys';
 
 @Component({
   selector: 'project-other',
@@ -18,8 +19,6 @@ import { CdkVirtualScrollViewport } from "@angular/cdk/scrolling";
 export class ProjectOtherComponent implements OnInit {
 
   public infoArr: Project[] = [];
-  readonly KEY_PROJECT = 'cache_project';
-  readonly KEY_ACTIVE_PROJECT = 'cache_projectact';
   private cacheService: CacheService;
 
   constructor(
@@ -40,8 +39,8 @@ export class ProjectOtherComponent implements OnInit {
 
   //Retrieve data from backend
   getCollection(){
-    if (this.cacheService.exist(this.KEY_PROJECT)){
-      this.infoArr = this.cacheService.get(this.KEY_PROJECT);
+    if (this.cacheService.exist(KEY_PROJECT)){
+      this.infoArr = this.cacheService.get(KEY_PROJECT);
     }
     else{
       this.httpClient.get<any>('https://proscawards-portfolio-backend.herokuapp.com/project')
@@ -49,7 +48,7 @@ export class ProjectOtherComponent implements OnInit {
         var data = res.slice(0);
         data.sort(function(a: any, b: any) {return a.id - b.id});
         this.infoArr = data;
-        this.cacheService.set(this.KEY_PROJECT, data);
+        this.cacheService.set(KEY_PROJECT, data);
       });
     }
     $("#projLoading").fadeOut();
@@ -71,7 +70,7 @@ export class ProjectOtherComponent implements OnInit {
   //Show Modal when ProjectDiv is clicked
   projectDivOnClick(e: any, id: any){
     e.preventDefault();
-    this.cacheService.set(this.KEY_ACTIVE_PROJECT, id);
+    this.cacheService.set(KEY_PROJECT_ACTIVE, id);
     this.router.navigate([`project`]);
   }
 

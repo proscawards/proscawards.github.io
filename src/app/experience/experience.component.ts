@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Experience } from '../model/data/Experience';
 import { HttpClient } from '@angular/common/http';
 import { CacheService } from '../services/cache.service';
+import { KEY_EXP } from '../api/CacheKeys';
 
 @Component({
   selector: 'experience',
@@ -13,7 +14,6 @@ import { CacheService } from '../services/cache.service';
 export class ExperienceComponent implements OnInit {
 
   public infoArr: Experience[] = [];
-  readonly KEY_PROJECT = 'cache_exp';
   private cacheService: CacheService;
 
   constructor(
@@ -29,8 +29,8 @@ export class ExperienceComponent implements OnInit {
 
   //Retrieve data from backend
   getCollection(){
-    if (this.cacheService.exist(this.KEY_PROJECT)){
-      this.infoArr = this.cacheService.get(this.KEY_PROJECT);
+    if (this.cacheService.exist(KEY_EXP)){
+      this.infoArr = this.cacheService.get(KEY_EXP);
     }
     else{
       this.httpClient.get<any>('https://proscawards-portfolio-backend.herokuapp.com/exp')
@@ -38,7 +38,7 @@ export class ExperienceComponent implements OnInit {
         var data = res.slice(0);
         data.sort(function(a: any, b: any) {return a.id - b.id});
         this.infoArr = data;
-        this.cacheService.set(this.KEY_PROJECT, data);
+        this.cacheService.set(KEY_EXP, data);
       });
     }
   }

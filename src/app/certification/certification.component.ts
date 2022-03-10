@@ -7,6 +7,7 @@ import { HttpClient } from '@angular/common/http';
 import { Certification } from '../model/data/Certification';
 import { CacheService } from '../services/cache.service';
 import { parse } from 'date-fns';
+import { KEY_CERT } from '../api/CacheKeys';
 
 @Component({
   selector: 'certification',
@@ -23,7 +24,6 @@ export class CertificationComponent implements OnInit {
   public page: number = 1;
   public pageSize: number = 6;
   public collectionSize: number = 0;
-  readonly KEY_CERT = 'cache_cert';
   private cacheService: CacheService;
 
   constructor(
@@ -42,8 +42,8 @@ export class CertificationComponent implements OnInit {
 
   //Retrieve data from backend
   getCollection(){
-    if (this.cacheService.exist(this.KEY_CERT)){
-      this.original = this.infoArr = this.cacheService.get(this.KEY_CERT);
+    if (this.cacheService.exist(KEY_CERT)){
+      this.original = this.infoArr = this.cacheService.get(KEY_CERT);
     }
     else{
       this.httpClient.get<any>('https://proscawards-portfolio-backend.herokuapp.com/cert')
@@ -55,7 +55,7 @@ export class CertificationComponent implements OnInit {
           return da - db;
         });
         this.original = this.infoArr = data;
-        this.cacheService.set(this.KEY_CERT, data)
+        this.cacheService.set(KEY_CERT, data)
       });
     }
     $("#certLoading").fadeOut();

@@ -1,8 +1,8 @@
 import { AES, enc } from 'crypto-js';
+import { KEY_SALT } from '../api/CacheKeys';
 
 export class CryptoService {
 
-    readonly KEY_SALT: string = 'proscawards_portfolio'; 
     readonly ALPHANUMERIC: string = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ01234567890!@#$%^&*()_+-=~`:;[]{}<>,.?/|";
     readonly SALT_LEN: number = 10; 
 
@@ -23,10 +23,10 @@ export class CryptoService {
     // }
   
     encrypt(value : string): any{
-      return AES.encrypt(value, this.KEY_SALT.trim()).toString();
+      return AES.encrypt(value, KEY_SALT.trim()).toString();
     }
   
     decrypt(textToDecrypt : string): any{
-      return AES.decrypt(textToDecrypt, this.KEY_SALT.trim()).toString(enc.Utf8);
+      return AES.decrypt(textToDecrypt, KEY_SALT.trim()).toString(enc.Utf8);
     }
 }

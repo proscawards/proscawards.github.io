@@ -1,4 +1,4 @@
-import { Component, OnInit, ɵdetectChanges as detectChanges, ɵmarkDirty as markDirty, ChangeDetectionStrategy, NgZone, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, Inject, ɵdetectChanges as detectChanges, ɵmarkDirty as markDirty, ChangeDetectionStrategy, NgZone, ChangeDetectorRef } from '@angular/core';
 import * as $ from "jquery";
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
@@ -7,6 +7,9 @@ import { CacheService } from '../services/cache.service';
 import Selected3DName from '../services/name3dsel.service';
 import { AnimationItem } from 'lottie-web';
 import { AnimationOptions } from 'ngx-lottie';
+import { DOCUMENT } from '@angular/common';
+import { WINDOW } from '../services/window.service';
+import { KEY_STATE, KEY_THEME_ACTIVE } from '../api/CacheKeys';
 
 @Component({
   selector: 'social3d',
@@ -17,7 +20,6 @@ export class Social3dComponent implements OnInit {
 
   private cacheService: CacheService;
   private selected3dName: Selected3DName;
-  readonly KEY_STATE = 'cache_state';
   private owlStr = "<img class='owls' src='assets/images/owls/owls_owl.svg'/><img class='owls' src='assets/images/owls/owls_lufie.svg'/><img class='owls' src='assets/images/owls/owls_guin.svg'/><img class='owls' id='phoenix' src='assets/images/owls/owls_owlhuang.svg'/><img class='owls' src='assets/images/owls/owls_flowl.svg'/>";
   public opBlockGap: AnimationOptions = {path: '/assets/files/social3d/social3d_blockgap.json'};
   public opHexSingle: AnimationOptions = {path: '/assets/files/social3d/social3d_hex_single.json'};
@@ -33,7 +35,9 @@ export class Social3dComponent implements OnInit {
       private router: Router,
       private httpClient: HttpClient,
       private ngZone: NgZone, 
-      private ref: ChangeDetectorRef
+      private ref: ChangeDetectorRef,
+      @Inject(DOCUMENT) private document: Document,
+      @Inject(WINDOW) private window: Window,
   ){
       this.cacheService = new CacheService(httpClient);
       this.selected3dName = new Selected3DName();
@@ -120,60 +124,61 @@ export class Social3dComponent implements OnInit {
         return false;
     });
     $("#lighttheme").on('click', () => {
-      $("#darktheme").show();
-      $("#lighttheme").hide();
-      $(document.documentElement).css("--currentBgCodeColor", "#F7F7F7");
-      $(document.documentElement).css("--currentFontCodeColor", "#5888AD");
-      $(document.documentElement).css("--oppositeBgCodeColor", "#242C3C");
-      $(document.documentElement).css("--oppositeFontCodeColor", "#5888AD");
-      $(document.documentElement).css("--currentFontDescColor", "#3b78e7");
-      $(document.documentElement).css("--currentBgSdColor", "rgb(255,255,255,.8)");
-      $(document.documentElement).css("--currentBgSdGradColor", "rgb(255,255,255,.8)");
-      $(document.documentElement).css("--currentUEFilter", "invert(0%)");
-      $(document.documentElement).css("--oppositeUEFilter", "invert(100%)");
-      $(document.documentElement).css("--currentBgCommentColor", "rgba(255,255,255,1)");
+      this.lightThemeBtnOnClick();
     });
     $("#darktheme").on('click', () => {
-      $("#lighttheme").show();
-      $("#darktheme").hide();
-      $(document.documentElement).css("--currentBgCodeColor", "#242C3C");
-      $(document.documentElement).css("--currentFontCodeColor", "#5888AD");
-      $(document.documentElement).css("--oppositeBgCodeColor", "#F7F7F7");
-      $(document.documentElement).css("--oppositeFontCodeColor", "#5888AD");
-      $(document.documentElement).css("--currentFontDescColor", "#4dd0e1");
-      $(document.documentElement).css("--currentBgSdColor", "rgb(40,49,66,.8)");
-      $(document.documentElement).css("--currentBgSdGradColor", "linear-gradient(90deg, rgb(0,0,0,.3) 0%, rgb(0,0,0,.3) 40%, rgba(0,0,0,0) 100%)");  
-      $(document.documentElement).css("--currentUEFilter", "invert(100%)");
-      $(document.documentElement).css("--oppositeUEFilter", "invert(0%)");
-      $(document.documentElement).css("--currentBgCommentColor", "rgba(59,72,97,1)");
+      this.darkThemeBtnOnClick();
     });
     $("#name_en").on('click', () => {
       this.selected3dName.setActive("name_en", "proscawards");
-      this.cacheService.set(this.KEY_STATE, '1');
+      this.cacheService.set(KEY_STATE, '1');
     });
     $("#name_scong").on('click', () => {
       this.selected3dName.setActive("name_scong", "SC Ong");
-      this.cacheService.set(this.KEY_STATE, '2');
+      this.cacheService.set(KEY_STATE, '2');
     });
     $("#name_osc").on('click', () => {
       this.selected3dName.setActive("name_osc", "Ong Shuoh Chwen");
-      this.cacheService.set(this.KEY_STATE, '3');
+      this.cacheService.set(KEY_STATE, '3');
     });
     $("#name_cn").on('click', () => {
       this.selected3dName.setActive("name_cn", "王烁錞");
-      this.cacheService.set(this.KEY_STATE, '4');
+      this.cacheService.set(KEY_STATE, '4');
     });
     $("#name_kr").on('click', () => {
       this.selected3dName.setActive("name_kr", "왕삭순");
-      this.cacheService.set(this.KEY_STATE, '5');
+      this.cacheService.set(KEY_STATE, '5');
     });
     $("#name_owl").on('click', () => {
       this.selected3dName.setActive("name_owl", this.owlStr);
-      this.cacheService.set(this.KEY_STATE, '0');
+      this.cacheService.set(KEY_STATE, '0');
+    });
+    $("#spammer").on("click", () => {
+      $("#blockgap1").css("animation", "none");
+      $("#blockgap2").css("animation", "none");
+      $("#blockgap3").css("animation", "none");
+      $("#blockgap4").css("animation", "none");
+      $("#blockgap5").css("animation", "none");
+      setTimeout(() => {
+        $("#blockgap1").css("animation", "blockgap1 5s ease-in-out infinite");
+        $("#blockgap2").css("animation", "blockgap2 5s ease-in-out infinite");
+        $("#blockgap3").css("animation", "blockgap3 5s ease-in-out infinite");
+        $("#blockgap4").css("animation", "blockgap4 5s ease-in-out infinite");
+        $("#blockgap5").css("animation", "blockgap5 5s ease-in-out infinite");
+      }, 100);
     });
     setInterval(() => {
       this.wheelAnim();
     }, 100)
+
+    if (this.cacheService.exist(KEY_THEME_ACTIVE)){
+      if (this.cacheService.get(KEY_THEME_ACTIVE) == "isDark"){
+        this.darkThemeBtnOnClick();
+      }
+      else{
+        this.lightThemeBtnOnClick();
+      }
+    }
   }
 
   wheelAnim(){
@@ -194,5 +199,38 @@ export class Social3dComponent implements OnInit {
         this.currentWheel = 0;
         break;
     }
+  }
+
+  //Manipulating the theme and font color
+  lightThemeBtnOnClick(){
+    $("#darktheme").fadeIn();
+    $("#lighttheme").fadeOut(0);
+    this.cacheService.set(KEY_THEME_ACTIVE, "isLight");
+    $(document.documentElement).css("--currentBgCodeColor", "#F7F7F7");
+    $(document.documentElement).css("--currentFontCodeColor", "#5888AD");
+    $(document.documentElement).css("--oppositeBgCodeColor", "#242C3C");
+    $(document.documentElement).css("--oppositeFontCodeColor", "#5888AD");
+    $(document.documentElement).css("--currentFontDescColor", "#3b78e7");
+    $(document.documentElement).css("--currentBgSdColor", "rgb(255,255,255,.8)");
+    $(document.documentElement).css("--currentBgSdGradColor", "rgb(255,255,255,.8)");
+    $(document.documentElement).css("--currentUEFilter", "invert(0%)");
+    $(document.documentElement).css("--oppositeUEFilter", "invert(100%)");
+    $(document.documentElement).css("--currentBgCommentColor", "rgba(255,255,255,1)");
+  }
+  
+  darkThemeBtnOnClick(){
+    $("#lighttheme").fadeIn();
+    $("#darktheme").fadeOut(0);
+    this.cacheService.set(KEY_THEME_ACTIVE, "isDark");
+    $(document.documentElement).css("--currentBgCodeColor", "#242C3C");
+    $(document.documentElement).css("--currentFontCodeColor", "#5888AD");
+    $(document.documentElement).css("--oppositeBgCodeColor", "#F7F7F7");
+    $(document.documentElement).css("--oppositeFontCodeColor", "#5888AD");
+    $(document.documentElement).css("--currentFontDescColor", "#4dd0e1");
+    $(document.documentElement).css("--currentBgSdColor", "rgb(40,49,66,.8)");
+    $(document.documentElement).css("--currentBgSdGradColor", "linear-gradient(90deg, rgb(0,0,0,.3) 0%, rgb(0,0,0,.3) 40%, rgba(0,0,0,0) 100%)");  
+    $(document.documentElement).css("--currentUEFilter", "invert(100%)");
+    $(document.documentElement).css("--oppositeUEFilter", "invert(0%)");
+    $(document.documentElement).css("--currentBgCommentColor", "rgba(59,72,97,1)");
   }
 }

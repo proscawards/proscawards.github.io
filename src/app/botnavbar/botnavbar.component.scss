@@ -30,8 +30,11 @@
         width: 100vw;
 
         &>.botNavText{
+            margin-top: .5em;
             text-align: center;
+            font-family: 'Montserrat';
             font-size: 15px;
+            transition: .3s;
         }
 
         &>.botNavBtn{
@@ -60,6 +63,16 @@
         }
     }
 }
+
+@keyframes zoomText {
+    from{
+        font-size: 10px;
+    }
+    to{
+        font-size: 15px;
+    }
+}
+
 .activeNav{
     color: var(--oppositeBgCodeColor);
     background: var(--currentFontColor);

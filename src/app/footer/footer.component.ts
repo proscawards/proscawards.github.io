@@ -6,6 +6,7 @@ import { DOCUMENT } from '@angular/common';
 import { WINDOW } from "../services/window.service";
 import { Router } from '@angular/router';
 import { CacheService } from '../services/cache.service';
+import { KEY_STATE, KEY_VCOUNT, KEY_VCOUNTRY } from '../api/CacheKeys';
 
 @Component({
   selector: 'footer',
@@ -17,9 +18,6 @@ export class FooterComponent implements OnInit{
 
   private owlStr = "<img class='owls' src='assets/images/owls/owls_owl.svg'/><img class='owls' src='assets/images/owls/owls_lufie.svg'/><img class='owls' src='assets/images/owls/owls_guin.svg'/><img class='owls' id='phoenix' src='assets/images/owls/owls_owlhuang.svg'/><img class='owls' src='assets/images/owls/owls_flowl.svg'/>";
   public url: string = this.router.url;
-  readonly KEY_COUNTRY = 'cache_vcountry';
-  readonly KEY_COUNT = 'cache_vcount';
-  readonly KEY_STATE = 'cache_state';
   private cacheService: CacheService;
 
   constructor(
@@ -45,7 +43,7 @@ export class FooterComponent implements OnInit{
   }
 
   logoBtnOnLoad(){
-    switch (this.cacheService.exist(this.KEY_STATE) ? this.cacheService.get(this.KEY_STATE) : '0'){
+    switch (this.cacheService.exist(KEY_STATE) ? this.cacheService.get(KEY_STATE) : '0'){
       case '0':
         $("#logoFooterBtn").text("proscawards");
         break;
@@ -71,34 +69,34 @@ export class FooterComponent implements OnInit{
   }
 
   logoBtnOnClick(){
-    switch (this.cacheService.exist(this.KEY_STATE) ? this.cacheService.get(this.KEY_STATE) : '0'){
+    switch (this.cacheService.exist(KEY_STATE) ? this.cacheService.get(KEY_STATE) : '0'){
       case '0':
         $("#logoFooterBtn").text("SC ONG");
-        this.cacheService.set(this.KEY_STATE, '1');
+        this.cacheService.set(KEY_STATE, '1');
         break;
       case '1':
         $("#logoFooterBtn").text("Ong Shuoh Chwen");
-        this.cacheService.set(this.KEY_STATE, '2');
+        this.cacheService.set(KEY_STATE, '2');
         break;
       case '2':
         $("#logoFooterBtn").text("王烁錞");
-        this.cacheService.set(this.KEY_STATE, '3');
+        this.cacheService.set(KEY_STATE, '3');
         break; 
       case '3':
         $("#logoFooterBtn").text("왕삭순");
-        this.cacheService.set(this.KEY_STATE, '4');
+        this.cacheService.set(KEY_STATE, '4');
         break;  
       case '4':
         $("#logoFooterBtn").html(this.owlStr);
-        this.cacheService.set(this.KEY_STATE, '5');
+        this.cacheService.set(KEY_STATE, '5');
         break; 
       case '5':
         $("#logoFooterBtn").text("proscawards");
-        this.cacheService.set(this.KEY_STATE, '0');
+        this.cacheService.set(KEY_STATE, '0');
         break; 
       default:
         $("#logoFooterBtn").text("proscawards");
-        this.cacheService.set(this.KEY_STATE, '0');
+        this.cacheService.set(KEY_STATE, '0');
         break;   
     }
   }
@@ -139,14 +137,14 @@ export class FooterComponent implements OnInit{
 
   //Show top 3 countries' visitor
   getTopCountries(){
-    if (this.cacheService.exist(this.KEY_COUNTRY)){
-      this.setCountriesData(this.cacheService.get(this.KEY_COUNTRY));
+    if (this.cacheService.exist(KEY_VCOUNTRY)){
+      this.setCountriesData(this.cacheService.get(KEY_VCOUNTRY));
     }
     else{
       this.httpClient.get<any>('https://proscawards-portfolio-backend.herokuapp.com/').subscribe();
       this.httpClient.get<any>('https://proscawards-portfolio-backend.herokuapp.com/country')
       .subscribe(res => {
-        this.cacheService.set(this.KEY_COUNTRY, res);
+        this.cacheService.set(KEY_VCOUNTRY, res);
         this.setCountriesData(res);
       });
     }
@@ -164,13 +162,13 @@ export class FooterComponent implements OnInit{
 
   //Show total visitor
   getTotalVisitor(){
-    if (this.cacheService.exist(this.KEY_COUNT)){
-      $("#totalVisitor").text(this.cacheService.get(this.KEY_COUNT));
+    if (this.cacheService.exist(KEY_VCOUNT)){
+      $("#totalVisitor").text(this.cacheService.get(KEY_VCOUNT));
     }
     else{
       this.httpClient.get<any>('https://proscawards-portfolio-backend.herokuapp.com/count')
       .subscribe(res => {
-        this.cacheService.set(this.KEY_COUNT, res.count)
+        this.cacheService.set(KEY_VCOUNT, res.count)
         $("#totalVisitor").text(res.count);
       });
     }

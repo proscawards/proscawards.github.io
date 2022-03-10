@@ -27,6 +27,7 @@ import { ContactpageComponent } from './contactpage/contactpage.component';
 import { ProjectDetailComponent } from './project-detail/project-detail.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ScrollingModule } from '@angular/cdk/scrolling';
+import { BotnavbarModule } from './botnavbar/botnavbar.module';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,7 @@ import { ScrollingModule } from '@angular/cdk/scrolling';
     HomeComponent,
     NotfoundComponent,
     ContactpageComponent,
-    ProjectDetailComponent
+    ProjectDetailComponent,
   ],
   imports: [
     BrowserModule,
@@ -57,16 +58,16 @@ import { ScrollingModule } from '@angular/cdk/scrolling';
     RouterModule.forRoot([
       { path: '', component: HomeComponent},
       { path: 'certifications', component: CertificationComponent},
-      { path: 'projects', component: ProjectComponent},
-      { path: 'project-all', component: ProjectOtherComponent},
-      { path: 'project-all/:elem', component: ProjectOtherComponent},
+      { path: 'featured-projects', component: ProjectComponent},
+      { path: 'all-projects', component: ProjectOtherComponent},
+      { path: 'all-projects/:elem', component: ProjectOtherComponent},
       { path: 'project', component: ProjectDetailComponent},
       { path: 'project/:id', component: ProjectDetailComponent},
-      { path: 'skill', component: SkillComponent},
-      { path: 'education', component: EducationComponent},
-      { path: 'experience', component: ExperienceComponent},
-      { path: 'contactme', component: ContactpageComponent},
-      { path: 'aboutme', component: AboutComponent},
+      { path: 'skills', component: SkillComponent},
+      { path: 'educations', component: EducationComponent},
+      { path: 'experiences', component: ExperienceComponent},
+      { path: 'contact-me', component: ContactpageComponent},
+      { path: 'about-me', component: AboutComponent},
       { path: '404', component: NotfoundComponent},
       { path: '**', redirectTo: '404'}
     ],
@@ -74,6 +75,7 @@ import { ScrollingModule } from '@angular/cdk/scrolling';
     NgbModule,
     BrowserAnimationsModule,
     ScrollingModule,
+    BotnavbarModule,
   ],
   providers: [WINDOW_PROVIDERS, {provide: APP_BASE_HREF, useValue : '/' }],
   bootstrap: [AppComponent]

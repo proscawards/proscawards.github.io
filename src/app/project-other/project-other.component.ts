@@ -19,6 +19,7 @@ export class ProjectOtherComponent implements OnInit {
 
   public infoArr: Project[] = [];
   readonly KEY_PROJECT = 'cache_project';
+  readonly KEY_ACTIVE_PROJECT = 'cache_projectact';
   private cacheService: CacheService;
 
   constructor(
@@ -70,7 +71,8 @@ export class ProjectOtherComponent implements OnInit {
   //Show Modal when ProjectDiv is clicked
   projectDivOnClick(e: any, id: any){
     e.preventDefault();
-    this.router.navigate([`project/${id}`]);
+    this.cacheService.set(this.KEY_ACTIVE_PROJECT, id);
+    this.router.navigate([`project`]);
   }
 
 }

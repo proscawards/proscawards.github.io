@@ -34,6 +34,7 @@ export class AppComponent implements AfterViewInit{
       else{
         $("#title").css("width", "100vh");
         $("#title").css("top", "90%");
+        $("#scrollTopBtn").fadeIn("slow");
       }
       if (this.router.url == "/"){$(".themeBtn").fadeIn("slow");}
       else{$(".themeBtn").show();}

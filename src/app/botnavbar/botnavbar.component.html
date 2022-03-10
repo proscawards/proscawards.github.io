@@ -1,0 +1,17 @@
+<div class="col-md-12 botNavBar">
+    <div class="col-md-12 navBarCaretDiv" (click)="navBarOnClicked()"><i class="navBarCaret fas fa-angle-down"></i></div>
+    <div class="row col-md-12 botNavInnerBar" style="display:none;">
+        <div class="col-md-12 botNavText"></div>
+        <div class="botNavBtn" id="lightThemeBtn" (click)="lightThemeBtnOnClick()" (mouseover)="botNavBtnOnHover('Switch to Light Theme')" (mouseout)="resetHover()"><i class="fas fa-sun"></i></div>
+        <div class="botNavBtn" id="darkThemeBtn" style="display:none;" (click)="darkThemeBtnOnClick()" (mouseover)="botNavBtnOnHover('Switch to Dark Theme')" (mouseout)="resetHover()"><i class="fas fa-moon"></i></div>
+        <div class="botNavBtn" id="bnb_" (click)="botNavBtnOnClicked($event,'')" (mouseover)="botNavBtnOnHover('Home')" (mouseout)="resetHover()" ><i class="fas fa-home"></i></div>
+        <div class="botNavBtn" id="bnb_about-me" (click)="botNavBtnOnClicked($event,'about-me')" (mouseover)="botNavBtnOnHover('About Me')" (mouseout)="resetHover()"><i class="fas fa-id-card"></i></div>
+        <div class="botNavBtn" id="bnb_skills" (click)="botNavBtnOnClicked($event,'skills')" (mouseover)="botNavBtnOnHover('Skills')" (mouseout)="resetHover()"><i class="fas fa-brain"></i></div>
+        <div class="botNavBtn" id="bnb_featured-projects" (click)="botNavBtnOnClicked($event,'featured-projects')" (mouseover)="botNavBtnOnHover('Projects')" (mouseout)="resetHover()"><i class="fas fa-file-code"></i></div>
+        <div class="botNavBtn" id="bnb_educations" (click)="botNavBtnOnClicked($event,'educations')" (mouseover)="botNavBtnOnHover('Educations')" (mouseout)="resetHover()"><i class="fas fa-graduation-cap"></i></div>
+        <div class="botNavBtn" id="bnb_experiences" (click)="botNavBtnOnClicked($event,'experiences')" (mouseover)="botNavBtnOnHover('Experiences')" (mouseout)="resetHover()"><i class="fas fa-briefcase"></i></div>
+        <div class="botNavBtn" id="bnb_certifications" (click)="botNavBtnOnClicked($event,'certifications')" (mouseover)="botNavBtnOnHover('Certifications')" (mouseout)="resetHover()"><i class="fas fa-file"></i></div>
+        <div class="botNavBtn" id="bnb_contact-me" (click)="botNavBtnOnClicked($event,'contact-me')" (mouseover)="botNavBtnOnHover('Contact Me')" (mouseout)="resetHover()"><i class="fas fa-envelope"></i></div>
+        <div class="botNavBtn" id="scrollTopBtn" style="display:none;" (click)="scrollTopOnClick()" (mouseover)="botNavBtnOnHover('Scroll to Top')" (mouseout)="resetHover()"><i class="fas fa-angle-double-up"></i></div>
+    </div>
+</div>

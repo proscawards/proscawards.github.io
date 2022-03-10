@@ -27,8 +27,6 @@
     "@ng-bootstrap/ng-bootstrap": "10.0.0",
     "@types/aos": "^3.0.4",
     "@types/crypto-js": "^4.1.1",
-    "angular-froala": "^4.0.9",
-    "angular-froala-wysiwyg": "^4.0.9",
     "aos": "^2.3.4",
     "bootstrap": "^5.0.0-beta3",
     "chart.js": "^3.7.0",

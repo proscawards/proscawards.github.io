@@ -5,7 +5,6 @@ import * as $ from "jquery";
 import data from "./skill-chart.json";
 import Swal from 'sweetalert2';
 import Chart from 'chart.js/auto';
-import { newArray } from '@angular/compiler/src/util';
 
 interface Data{
   prefix: string,

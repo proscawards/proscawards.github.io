@@ -41,7 +41,6 @@ export class ProjectDetailComponent implements OnInit {
   }
 
   ngOnInit(){
-    this.validateParams();
     this.getCollection();
     this.preprocessData();
   }
@@ -82,12 +81,6 @@ export class ProjectDetailComponent implements OnInit {
         this.cacheService.set(this.KEY_PROJECT, data);
       });
     }
-  }
-
-  //Redirect from education or experience
-  validateParams(){
-    this.route.snapshot.paramMap.has('id') ? this.projId = this.route.snapshot.paramMap.get('id') : '';
-    this.window.history.replaceState('', '', `/project`);
   }
 
   //Open github source codes

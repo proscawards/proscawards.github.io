@@ -1,0 +1,105 @@
+.botNavBar{
+    position: fixed;
+    width: 100vw;
+    bottom: 0;
+    z-index: 20;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    height: fit-content;
+
+    &>.botNavInnerBar{
+        position: absolute;
+        bottom: 0;
+        box-shadow: var(--defaultBoxShadow);    
+        background: var(--currentBgSdColor);
+        padding: 5px;    
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        width: 100vw;
+
+        &>.botNavText{
+            text-align: center;
+            font-size: 15px;
+        }
+
+        &>.botNavBtn{
+            transform: scale(.8);
+            padding: 35px 25px;
+            width: fit-content;
+            height: 50px;
+            border-radius: 5px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            line-height: 20px;
+            cursor: pointer;
+            font-size: 30px;
+            transition: .3s;
+            @media screen and (max-width: 768px) {
+                padding: 15px 10px;
+                font-size: 20px;
+            }
+
+            &:hover, &:focus{
+                color: var(--currentFontColor);
+                background: var(--currentBgCodeColor);
+                transform: scale(.9);
+            }
+        }
+    }
+}
+
+.activeNav{
+    color: var(--oppositeBgCodeColor);
+    background: var(--currentFontColor);
+    box-shadow: (--defaultBoxShadow);
+    transform: scale(.9);
+}
+
+#lightThemeBtn, #darkThemeBtn{
+    transition: .3s;
+    @media screen and (max-width: 768px) {
+        height: fit-content; 
+    }
+    &:hover{
+        color: var(--oppositeBgCodeColor);
+        background: var(--oppositeBgCodeColor);
+    }
+}
+
+#scrollTopBtn{
+    transition: .3s;
+}
+
+.navBarCaretDiv{
+    z-index: 30;
+    width: fit-content;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    padding: 0 15px;
+    font-size: 15px;
+    background: var(--currentBgSdColor);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    box-shadow: var(--defaultBoxShadow);
+}
+
+.navBarCaret{
+    margin: 1em;
+    cursor: pointer;
+    transform: rotate(-180deg);
+    transition: transform .3s linear;
+}
+
+.activeNavBarCaret{
+    transform: rotate(0deg);
+    transition: transform .3s linear;
+}

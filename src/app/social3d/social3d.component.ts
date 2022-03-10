@@ -93,25 +93,25 @@ export class Social3dComponent implements OnInit {
       });
     });
     $("#aboutme").on('click', () => {
-      this.router.navigate(['/aboutme']);
+      this.router.navigate(['/about-me']);
     });
     $("#skill").on('click', () => {
-      this.router.navigate(['/skill']);
+      this.router.navigate(['/skills']);
     });
     $("#project").on('click', () => {
-      this.router.navigate(['/projects']);
+      this.router.navigate(['/featured-projects']);
     });
     $("#cert").on('click', () => {
       this.router.navigate(['/certifications']);
     });
     $("#edu").on('click', () => {
-      this.router.navigate(['/education']);
+      this.router.navigate(['/educations']);
     });
     $("#exp").on('click', () => {
-      this.router.navigate(['/experience']);
+      this.router.navigate(['/experiences']);
     });
     $("#contact").on('click', () => {
-      this.router.navigate(['/contactme']);
+      this.router.navigate(['/contact-me']);
     });
     $("#scrollTop3d").on('click', () => {
       $('html, body').animate({

@@ -1,7 +1,9 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { Router } from '@angular/router';
 import * as $ from 'jquery';
+import { CacheService } from '../services/cache.service';
 import ToSentenceCase from '../utils/ToSentenceCase';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'botnavbar',
@@ -10,12 +12,30 @@ import ToSentenceCase from '../utils/ToSentenceCase';
 })
 export class BotnavbarComponent implements OnInit {
 
+  private cacheService: CacheService;
+  readonly KEY_BNBACT = 'cache_bnbact';
+
   constructor(
-    private router: Router
+    private router: Router,
+    private httpClient: HttpClient,
   ) { 
+    this.cacheService = new CacheService(httpClient);
   }
 
   ngOnInit(): void {
+    if (this.cacheService.exist(this.KEY_BNBACT)){
+      if (this.cacheService.get(this.KEY_BNBACT)){
+        $(`.botNavInnerBar`).show();
+        $(`.navBarCaret`).addClass("activeNavBarCaret");
+        this.cacheService.set(this.KEY_BNBACT, true);
+        this.resetHover();
+      }
+      else{
+        $(`.botNavInnerBar`).hide();
+        $(`.navBarCaret`).removeClass("activeNavBarCaret");
+        this.cacheService.set(this.KEY_BNBACT, false);
+      }
+    }
   }
 
   ngAfterViewInit(){
@@ -43,10 +63,12 @@ export class BotnavbarComponent implements OnInit {
     if (!$(`.navBarCaret`).hasClass("activeNavBarCaret")){
       $(`.botNavInnerBar`).slideDown().fadeIn();
       $(`.navBarCaret`).addClass("activeNavBarCaret");
+      this.cacheService.set(this.KEY_BNBACT, true);
     }
     else{
       $(`.botNavInnerBar`).slideUp().fadeOut();
       $(`.navBarCaret`).removeClass("activeNavBarCaret");
+      this.cacheService.set(this.KEY_BNBACT, false);
     }
   }
 

@@ -94,8 +94,6 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
 
-angular-froala-wysiwyg
-
 aos
 MIT
 The MIT License (MIT)
@@ -213,15 +211,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
-
-froala-editor
-https://www.froala.com/wysiwyg-editor/pricing
-Froala WYSIWYG Editor
-================
-
-In order to use Froala Editor you have to purchase a license from: https://www.froala.com/wysiwyg-editor/pricing.
-For more informations regarding the license please read https://www.froala.com/wysiwyg-editor/terms.
 
 
 jquery

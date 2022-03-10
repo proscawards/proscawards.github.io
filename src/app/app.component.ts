@@ -34,7 +34,7 @@ export class AppComponent implements AfterViewInit{
       else{
         $("#title").css("width", "100vh");
         $("#title").css("top", "90%");
-        $("#scrollTopBtn").fadeIn("slow");
+        $("#scrollTopBtn").show();
       }
       if (this.router.url == "/"){$(".themeBtn").fadeIn("slow");}
       else{$(".themeBtn").show();}
@@ -47,7 +47,7 @@ export class AppComponent implements AfterViewInit{
       else{
         $("#title").css("width", "100vh");
         $("#title").css("top", "50%");
-        $("#scrollTopBtn").fadeOut("slow");
+        $("#scrollTopBtn").hide();
       }
       if (this.router.url == "/"){$(".themeBtn").fadeOut("slow");}
       else{$(".themeBtn").show();}
@@ -60,6 +60,16 @@ export class AppComponent implements AfterViewInit{
     else{
       $("#scrollTopBtn").show();
       $("#mobileFooter").hide();
+    }
+
+    let footerHeight: number | any = $("#footer").innerHeight();
+    let footerOffset: number | any = $("#footer").offset()?.top;
+    let footerPos: number | any = footerOffset - footerHeight;
+    if (topPos >= footerPos){
+      $(".botNavBar").css("position", "relative");
+    }
+    else{
+      $(".botNavBar").css("position", "fixed");
     }
   }
 

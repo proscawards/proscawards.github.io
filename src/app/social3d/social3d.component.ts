@@ -119,6 +119,34 @@ export class Social3dComponent implements OnInit {
         }, 800);
         return false;
     });
+    $("#lighttheme").on('click', () => {
+      $("#darktheme").show();
+      $("#lighttheme").hide();
+      $(document.documentElement).css("--currentBgCodeColor", "#F7F7F7");
+      $(document.documentElement).css("--currentFontCodeColor", "#5888AD");
+      $(document.documentElement).css("--oppositeBgCodeColor", "#242C3C");
+      $(document.documentElement).css("--oppositeFontCodeColor", "#5888AD");
+      $(document.documentElement).css("--currentFontDescColor", "#3b78e7");
+      $(document.documentElement).css("--currentBgSdColor", "rgb(255,255,255,.8)");
+      $(document.documentElement).css("--currentBgSdGradColor", "rgb(255,255,255,.8)");
+      $(document.documentElement).css("--currentUEFilter", "invert(0%)");
+      $(document.documentElement).css("--oppositeUEFilter", "invert(100%)");
+      $(document.documentElement).css("--currentBgCommentColor", "rgba(255,255,255,1)");
+    });
+    $("#darktheme").on('click', () => {
+      $("#lighttheme").show();
+      $("#darktheme").hide();
+      $(document.documentElement).css("--currentBgCodeColor", "#242C3C");
+      $(document.documentElement).css("--currentFontCodeColor", "#5888AD");
+      $(document.documentElement).css("--oppositeBgCodeColor", "#F7F7F7");
+      $(document.documentElement).css("--oppositeFontCodeColor", "#5888AD");
+      $(document.documentElement).css("--currentFontDescColor", "#4dd0e1");
+      $(document.documentElement).css("--currentBgSdColor", "rgb(40,49,66,.8)");
+      $(document.documentElement).css("--currentBgSdGradColor", "linear-gradient(90deg, rgb(0,0,0,.3) 0%, rgb(0,0,0,.3) 40%, rgba(0,0,0,0) 100%)");  
+      $(document.documentElement).css("--currentUEFilter", "invert(100%)");
+      $(document.documentElement).css("--oppositeUEFilter", "invert(0%)");
+      $(document.documentElement).css("--currentBgCommentColor", "rgba(59,72,97,1)");
+    });
     $("#name_en").on('click', () => {
       this.selected3dName.setActive("name_en", "proscawards");
       this.cacheService.set(this.KEY_STATE, '1');

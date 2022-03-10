@@ -9,12 +9,18 @@
     text-align: center;
     flex-direction: column;
     height: fit-content;
+    opacity: .8;
+    transition: .3s;
+
+    &:hover, &:focus{
+        opacity: 1;
+    }
 
     &>.botNavInnerBar{
-        position: absolute;
+        position: relative;
         bottom: 0;
         box-shadow: var(--defaultBoxShadow);    
-        background: var(--currentBgSdColor);
+        background: var(--oppositeBgCodeColor);
         padding: 5px;    
         display: flex;
         flex-direction: row;
@@ -38,7 +44,6 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            line-height: 20px;
             cursor: pointer;
             font-size: 30px;
             transition: .3s;
@@ -55,7 +60,6 @@
         }
     }
 }
-
 .activeNav{
     color: var(--oppositeBgCodeColor);
     background: var(--currentFontColor);
@@ -69,8 +73,8 @@
         height: fit-content; 
     }
     &:hover{
-        color: var(--oppositeBgCodeColor);
-        background: var(--oppositeBgCodeColor);
+        color: var(--currentFontColor);
+        background: var(--currentBgCodeColor);
     }
 }
 
@@ -81,15 +85,13 @@
 .navBarCaretDiv{
     z-index: 30;
     width: fit-content;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
     padding: 0 15px;
     font-size: 15px;
-    background: var(--currentBgSdColor);
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    box-shadow: var(--defaultBoxShadow);
+    background: var(--oppositeBgCodeColor);
+    position: relative;
+    cursor: pointer;
 }
 
 .navBarCaret{

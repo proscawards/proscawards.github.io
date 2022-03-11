@@ -30,6 +30,14 @@ export class Social3dComponent implements OnInit {
   public opWheelBot: AnimationOptions = {path: '/assets/files/social3d/social3d_wheel_bot_anim.json'};
   private onLoopCompleteCalledTimes: number = 0;
   private currentWheel: number = 0;
+  private glowColor: string[] = [
+    "#ED7372",
+    "#EDED72",
+    "#9FED72",
+    "#4dd0e1",
+    "#7276ED",
+    "#CF72ED"
+  ];
 
   constructor(
       private router: Router,
@@ -154,18 +162,8 @@ export class Social3dComponent implements OnInit {
       this.cacheService.set(KEY_STATE, '0');
     });
     $("#spammer").on("click", () => {
-      $("#blockgap1").css("animation", "none");
-      $("#blockgap2").css("animation", "none");
-      $("#blockgap3").css("animation", "none");
-      $("#blockgap4").css("animation", "none");
-      $("#blockgap5").css("animation", "none");
-      setTimeout(() => {
-        $("#blockgap1").css("animation", "blockgap1 5s ease-in-out infinite");
-        $("#blockgap2").css("animation", "blockgap2 5s ease-in-out infinite");
-        $("#blockgap3").css("animation", "blockgap3 5s ease-in-out infinite");
-        $("#blockgap4").css("animation", "blockgap4 5s ease-in-out infinite");
-        $("#blockgap5").css("animation", "blockgap5 5s ease-in-out infinite");
-      }, 100);
+      let rand: number = Math.floor(Math.random()*(this.glowColor.length));
+      $(document.documentElement).css("--blockgapGlowColor", this.glowColor[rand]);
     });
     setInterval(() => {
       this.wheelAnim();

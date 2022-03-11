@@ -3,6 +3,11 @@
     filter: drop-shadow(5px 5px 10px var(--hover3dColor));
 }
 
+@mixin blockgapGlowColor {
+    fill: var(--hover3dColor);
+    filter: drop-shadow(5px 5px 10px var(--blockgapGlowColor));
+}
+
 #social3d{
     width: 100vw;
     perspective: 4rem;
@@ -200,6 +205,7 @@
     }
     50%{
         transform: translateY(-20px);
+        @include blockgapGlowColor();
     }
     55%{
         transform: translateY(10px);
@@ -218,7 +224,7 @@
     }
     55%{
         transform: translateY(-20px);
-        @include glow3d();
+        @include blockgapGlowColor();
     }
 }
 
@@ -231,7 +237,7 @@
     }
     55%{
         transform: translateY(-30px);
-        @include glow3d();
+        @include blockgapGlowColor();
     }
 }
 
@@ -244,7 +250,7 @@
     }
     55%{
         transform: translateY(-40px);
-        @include glow3d();
+        @include blockgapGlowColor();
     }
 }
 
@@ -257,7 +263,7 @@
     }
     55%{
         transform: translateY(-50px);
-        @include glow3d();
+        @include blockgapGlowColor();
     }
 }
 

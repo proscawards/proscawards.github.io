@@ -35,10 +35,13 @@
                                 </div>
                             </ng-template>
                             <div class="col-md-9 certInfoDiv">
-                                <span class="cert_name">{{info.cert.name}}</span>
-                                <span class="org_name">{{info.org.name}}</span>
-                                <span class="cert_date">Issued on {{info.cert.date}}</span>
-                                <span class="cred_id">{{info.cred.id}}</span>
+                                <span class="col-md-12 cert_name">{{info.cert.name}}</span>
+                                <span *ngIf="!info.hasUni; else uniname" class="col-md-auto org_name">{{info.org.name}}</span>
+                                <ng-template #uniname>
+                                    <span class="col-md-auto org_name">{{info.uni.name}}</span>
+                                </ng-template>
+                                <span class="col-md-12 cert_date">Issued on {{info.cert.date}}</span>
+                                <span class="col-md-12 cred_id">{{info.cred.id}}</span>
                             </div>
                         </div>
                         <div class="col-md-12 certTagDiv">
@@ -49,15 +52,15 @@
                 </div>
             </div>
             <div class="col-md-12 ngPaginationDiv">
-                <ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [maxSize]="10" [rotate]="true" [ellipses]="false" [boundaryLinks]="true"></ngb-pagination>
+                <ngb-pagination id="pagination" [collectionSize]="collectionSize" [(page)]="page" [maxSize]="10" [rotate]="true" [ellipses]="false" [boundaryLinks]="true"></ngb-pagination>
                 <div ngbDropdown class="d-inline-block ngPaginationDropdownMobileDiv">
                     <button id="ngPaginationDropdown" ngbDropdownToggle>{{pageSize}} <i class="fas fa-pager"></i></button>
                     <div ngbDropdownMenu aria-labelledby="ngPaginationDropdown">
-                        <button ngbDropdownItem (click)="pageSizeOnChange(2)">2 per page</button>
-                        <button ngbDropdownItem (click)="pageSizeOnChange(4)">4 per page</button>
-                        <button ngbDropdownItem (click)="pageSizeOnChange(6)">6 per page</button>
-                        <button ngbDropdownItem (click)="pageSizeOnChange(8)">8 per page</button>
-                        <button ngbDropdownItem (click)="pageSizeOnChange(10)">10 per page</button>
+                        <button ngbDropdownItem class="paginationDropdownBtn" (click)="pageSizeOnChange(2)">2 per page</button>
+                        <button ngbDropdownItem class="paginationDropdownBtn" (click)="pageSizeOnChange(4)">4 per page</button>
+                        <button ngbDropdownItem class="paginationDropdownBtn" (click)="pageSizeOnChange(6)">6 per page</button>
+                        <button ngbDropdownItem class="paginationDropdownBtn" (click)="pageSizeOnChange(8)">8 per page</button>
+                        <button ngbDropdownItem class="paginationDropdownBtn" (click)="pageSizeOnChange(10)">10 per page</button>
                     </div>
                 </div>
             </div>

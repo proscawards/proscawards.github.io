@@ -69,6 +69,13 @@ export class CertificationComponent implements OnInit {
     this.isSearching();
     //Weird bug, need to reinitialize again
     this.isSearching();
+    if (e.target.className.includes("paginationDropdownBtn") || 
+        e.target.className.includes("page-link") ||
+        e.target.className.includes("page-item") ||
+        e.target.className.includes("certTagCode")
+    ){
+      window.scroll(0,0);
+    }
   }
 
   //Search is now active

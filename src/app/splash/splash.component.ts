@@ -10,8 +10,10 @@ import * as $ from "jquery";
 })
 export class SplashComponent implements OnInit {
 
-  public options: AnimationOptions = {path: '/assets/files/logo/logo_landscape.json'};
+  public options_landscape: AnimationOptions = {path: '/assets/files/logo/logo_landscape.json'};
   public options_potrait: AnimationOptions = {path: '/assets/files/logo/logo_potrait.json'};
+  public options_landscape_decor: AnimationOptions = {path: '/assets/files/logo/logo_landscape_decor.json'};
+  public options_potrait_decor: AnimationOptions = {path: '/assets/files/logo/logo_potrait_decor.json'};
   private onLoopCompleteCalledTimes: number = 0;
 
   constructor(    
@@ -20,13 +22,20 @@ export class SplashComponent implements OnInit {
   ){ }
 
   ngOnInit(): void {
-    if (window.outerWidth <= 768){
+    console.log(window.outerWidth)
+    if (window.outerWidth < 1024){
       $("#logoLandscape").hide();
-      $("#logoPotrait").show();
+      window.innerHeight <= 1920 ?
+        $("#logoPotrait, #logoPotraitDecor").show() : 
+        $("#logoPotrait").show();
     }
     else{
-      $("#logoLandscape").show();
       $("#logoPotrait").hide();
+      window.innerHeight >= 1080 ? 
+        window.innerHeight <= 1920 ? 
+          $("#logoPotrait, #logoPotraitDecor").show() : 
+          $("#logoLandscape, #logoLandscapeDecor").show() : 
+        $("#logoLandscape").show();
     }
   }
 

@@ -1,4 +1,18 @@
 <div class="col-md-12" id="logoSplash">
-    <ng-lottie id="logoLandscape" [options]="options"></ng-lottie>
-    <ng-lottie id="logoPotrait" [options]="options_potrait"></ng-lottie>
+    <ng-lottie class="logos" id="logoLandscape" 
+        [options]="options_landscape" 
+        (animationCreated)="animationCreated($event)">
+    </ng-lottie>
+    <ng-lottie class="logos" id="logoPotrait" 
+        [options]="options_potrait"
+        (animationCreated)="animationCreated($event)">
+    </ng-lottie>
+    <ng-lottie class="logos" id="logoLandscapeDecor" 
+        [options]="options_landscape_decor"
+        (animationCreated)="animationCreated($event)">
+    </ng-lottie>
+    <ng-lottie class="logos" id="logoPotraitDecor" 
+        [options]="options_potrait_decor"        
+        (animationCreated)="animationCreated($event)">
+    </ng-lottie>
 </div>

@@ -11,9 +11,11 @@ export class HomeComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    $("body").css("overflow-y", "hidden");
     setTimeout(() => {
-      $("#splash").fadeOut("slow");
+      $("#splash").fadeOut();
       $("#intro, #social3d").fadeIn();
-    }, 5000);
+      $("body").css("overflow-y", "scroll");
+    }, 5500);
   }
 }

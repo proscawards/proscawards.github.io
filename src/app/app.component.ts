@@ -28,7 +28,7 @@ export class AppComponent implements AfterViewInit{
     // if user scrolls down - show scroll to top button
     if (topPos > 50) {
       if (window.matchMedia('(max-width: 768px)').matches){
-        $("#title").css("width", "35vw");
+        $("#title").css("width", "50vw");
         $("#title").css("top", "90%");
       }
       else{
@@ -41,7 +41,7 @@ export class AppComponent implements AfterViewInit{
     } 
     else {
       if (window.matchMedia('(max-width: 768px)').matches){
-        $("#title").css("width", "35vw");
+        $("#title").css("width", "50vw");
         $("#title").css("top", "50%");
       }
       else{

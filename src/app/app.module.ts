@@ -28,6 +28,8 @@ import { ProjectDetailComponent } from './project-detail/project-detail.componen
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { BotnavbarModule } from './botnavbar/botnavbar.module';
+import { LottieModule } from 'ngx-lottie';
+import { SplashComponent } from './splash/splash.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +48,7 @@ import { BotnavbarModule } from './botnavbar/botnavbar.module';
     NotfoundComponent,
     ContactpageComponent,
     ProjectDetailComponent,
+    SplashComponent,
   ],
   imports: [
     BrowserModule,
@@ -76,6 +79,7 @@ import { BotnavbarModule } from './botnavbar/botnavbar.module';
     BrowserAnimationsModule,
     ScrollingModule,
     BotnavbarModule,
+    LottieModule,
   ],
   providers: [WINDOW_PROVIDERS, {provide: APP_BASE_HREF, useValue : '/' }],
   bootstrap: [AppComponent]

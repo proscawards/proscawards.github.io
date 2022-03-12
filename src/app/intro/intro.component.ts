@@ -12,16 +12,15 @@ import { KEY_STATE } from '../api/CacheKeys';
   templateUrl: './intro.component.html',
   styleUrls: ['./intro.component.scss']
 })
-export class IntroComponent extends TypeWriterComponent implements OnInit {
+export class IntroComponent implements OnInit {
 
   private owlStr = "<img class='owls' src='assets/images/owls/owls_owl.svg'/><img class='owls' src='assets/images/owls/owls_lufie.svg'/><img class='owls' src='assets/images/owls/owls_guin.svg'/><img class='owls' id='phoenix' src='assets/images/owls/owls_owlhuang.svg'/><img class='owls' src='assets/images/owls/owls_flowl.svg'/>";
   private cacheService: CacheService;
   private selected3dName: Selected3DName;
 
   constructor(
-    private httpClient: HttpClient
+    private httpClient: HttpClient,
   ){
-    super();
     this.cacheService = new CacheService(httpClient);
     this.selected3dName = new Selected3DName();
   }
@@ -87,24 +86,5 @@ export class IntroComponent extends TypeWriterComponent implements OnInit {
         this.selected3dName.setActive('name_en', "proscawards");
         break;   
     }
-  }
-
-  //Download Resume
-  downloadResume(e: any){
-    e.preventDefault();
-    Swal.fire({
-      text: `Do you want to download resume?`,
-      confirmButtonText: "Download",
-      showCancelButton: true
-    }).then(result => {
-      if (result.isConfirmed) {
-        var hiddenElement = document.createElement('a');
-        hiddenElement.href = "assets/files/proscawards_resume.pdf";
-        hiddenElement.target = '_blank';
-        hiddenElement.download = "proscawards_resume.pdf";
-        hiddenElement.click();
-        hiddenElement.remove();
-      }
-    });
   }
 }

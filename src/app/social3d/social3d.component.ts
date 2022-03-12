@@ -1,12 +1,10 @@
-import { Component, OnInit, Inject, ɵdetectChanges as detectChanges, ɵmarkDirty as markDirty, ChangeDetectionStrategy, NgZone, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import * as $ from "jquery";
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { CacheService } from '../services/cache.service';
 import Selected3DName from '../services/name3dsel.service';
-import { AnimationItem } from 'lottie-web';
-import { AnimationOptions } from 'ngx-lottie';
 import { DOCUMENT } from '@angular/common';
 import { WINDOW } from '../services/window.service';
 import { KEY_STATE, KEY_THEME_ACTIVE } from '../api/CacheKeys';
@@ -21,14 +19,6 @@ export class Social3dComponent implements OnInit {
   private cacheService: CacheService;
   private selected3dName: Selected3DName;
   private owlStr = "<img class='owls' src='assets/images/owls/owls_owl.svg'/><img class='owls' src='assets/images/owls/owls_lufie.svg'/><img class='owls' src='assets/images/owls/owls_guin.svg'/><img class='owls' id='phoenix' src='assets/images/owls/owls_owlhuang.svg'/><img class='owls' src='assets/images/owls/owls_flowl.svg'/>";
-  public opBlockGap: AnimationOptions = {path: '/assets/files/social3d/social3d_blockgap.json'};
-  public opHexSingle: AnimationOptions = {path: '/assets/files/social3d/social3d_hex_single.json'};
-  public opHexTop: AnimationOptions = {path: '/assets/files/social3d/social3d_hex_top.json'};
-  public opHexBot: AnimationOptions = {path: '/assets/files/social3d/social3d_hex_bot.json'};
-  public opWheelTop: AnimationOptions = {path: '/assets/files/social3d/social3d_wheel_top_anim.json'};
-  public opWheelMid: AnimationOptions = {path: '/assets/files/social3d/social3d_wheel_mid_anim.json'};
-  public opWheelBot: AnimationOptions = {path: '/assets/files/social3d/social3d_wheel_bot_anim.json'};
-  private onLoopCompleteCalledTimes: number = 0;
   private currentWheel: number = 0;
   private glowColor: string[] = [
     "#ED7372",
@@ -42,36 +32,11 @@ export class Social3dComponent implements OnInit {
   constructor(
       private router: Router,
       private httpClient: HttpClient,
-      private ngZone: NgZone, 
-      private ref: ChangeDetectorRef,
       @Inject(DOCUMENT) private document: Document,
       @Inject(WINDOW) private window: Window,
   ){
       this.cacheService = new CacheService(httpClient);
       this.selected3dName = new Selected3DName();
-  }
-
-  onLoopComplete(): void {
-    // * first option via `NgZone.run()`
-    this.ngZone.run(() => {
-      this.onLoopCompleteCalledTimes++;
-    });
-
-    // * second option via `ChangeDetectorRef.detectChanges()`
-    this.onLoopCompleteCalledTimes++;
-    this.ref.detectChanges();
-    // Angular 9+
-    detectChanges(this);
-
-    // * third option via `ChangeDetectorRef.markForCheck()`
-    this.onLoopCompleteCalledTimes++;
-    this.ref.markForCheck();
-    // Angular 9+
-    markDirty(this);
-  }
-
-  animationCreated(animationItem: AnimationItem): void {
-    console.log(animationItem);
   }
 
   ngOnInit(): void {

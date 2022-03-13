@@ -4,7 +4,8 @@
     align-items: center;
 }
 
-#proj1ReadMore, #proj2ReadMore, #proj1ReadLess, #proj2ReadLess{
+#proj1ReadMore, #proj2ReadMore, #proj3ReadMore, 
+#proj1ReadLess, #proj2ReadLess, #proj3ReadLess{
     text-decoration: underline;
     display: none;
     @media screen and (max-width: 768px) {
@@ -12,7 +13,7 @@
     }
 }
 
-#proj1Txt, #proj2Txt{
+#proj1Txt, #proj2Txt, #proj3Txt{
     @media screen and (max-width: 768px) {
         display: none;       
     }
@@ -23,7 +24,7 @@
     flex-direction: column;
     align-items: center;
     background: var(--currentBgSdColor);
-    border-radius: 30px;
+    border-radius: 5px;
     padding: 10px 5px;
     box-shadow: var(--defaultBoxShadow);
     margin: .2em;
@@ -55,7 +56,7 @@
     flex-direction: column;
     align-items: center;
     background: var(--currentBgSdColor);
-    border-radius: 30px;
+    border-radius: 5px;
     padding: 10px 5px;
     box-shadow: var(--defaultBoxShadow);
     margin: .2em;
@@ -126,7 +127,7 @@
         background: var(--currentBgSdColor);
         box-shadow: none;
         transition: .3s;
-        border-radius: 20px;
+        border-radius: 5px;
         transform: scale(1.0);
 
         &:hover{
@@ -138,4 +139,8 @@
         }
     }
 
+}
+
+.longdesc{
+    margin-top: 1em;
 }

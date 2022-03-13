@@ -17,16 +17,16 @@
                                     <div class="spinner-border projectThumbnailSpinner" role="status">
                                     </div>
                                     <img class="projectThumbnailSrc" src={{info.img}}/>
-                                </div>
-                                <div *ngIf="info.isWIP" class="ribbon ribbon-top-right"><span><i class="fas fa-code-branch"></i>WIP</span></div>
-                                <div class="projectInfos">
-                                    <span class="col-md-12">{{info.title}}</span>
-                                    <div class="col-md-auto">
-                                        <div class="col-md-12 progImgDiv">
-                                            <img *ngFor="let prog of info.progImg" src={{prog.img}} title={{prog.name}} alt={{prog.name}}/>
+                                    <div class="projectInfos">
+                                        <span class="col-md-12">{{info.title}}</span>
+                                        <div class="col-md-auto">
+                                            <div class="col-md-12 progImgDiv">
+                                                <img *ngFor="let prog of info.progImg" src={{prog.img}} title={{prog.name}} alt={{prog.name}}/>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
+                                <div *ngIf="info.isWIP" class="ribbon ribbon-top-right"><span><i class="fas fa-code-branch"></i>WIP</span></div>
                             </div>
                         </div>
                     </div>

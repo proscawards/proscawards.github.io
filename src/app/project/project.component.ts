@@ -32,20 +32,20 @@ export class ProjectComponent {
     $("#proj1ReadLess").show();
   }
 
-  //Project 2 Read More in Mobile
-  proj2ReadMore(e: any){
-    e.preventDefault();
-    $("#proj2ReadMore").hide();
-    $("#proj2Txt").show();
-    $("#proj2ReadLess").show();
-  }
-
   //Project 1 Read Less in Mobile
   proj1ReadLess(e: any){
     e.preventDefault();
     $("#proj1ReadLess").hide();
     $("#proj1Txt").hide();
     $("#proj1ReadMore").show();
+  }
+
+  //Project 2 Read More in Mobile
+  proj2ReadMore(e: any){
+    e.preventDefault();
+    $("#proj2ReadMore").hide();
+    $("#proj2Txt").show();
+    $("#proj2ReadLess").show();
   }
 
   //Project 2 Read Less in Mobile

@@ -7,6 +7,7 @@ import { HttpClient } from '@angular/common/http';
 import { DOCUMENT } from '@angular/common';
 import { WINDOW } from "../services/window.service";
 import { KEY_BNB_ACTIVE, KEY_THEME_ACTIVE } from '../api/CacheKeys';
+import { DarkTheme, LightTheme } from '../utils/Theme';
 
 @Component({
   selector: 'botnavbar',
@@ -48,6 +49,43 @@ export class BotnavbarComponent implements OnInit {
         this.lightThemeBtnOnClick();
       }
     }
+
+    this.document.addEventListener("keypress", (e: any) => {
+      console.log(e.key)
+      switch (e.key){
+        case '-':
+          this.lightThemeBtnOnClick();
+          break;
+        case '=':
+        case '+':
+          this.darkThemeBtnOnClick();
+          break;
+        case '1':
+          this.botNavBtnOnClicked(e, "");
+          break;
+        case '2':
+          this.botNavBtnOnClicked(e, "about-me");
+          break;
+        case '3':
+          this.botNavBtnOnClicked(e, "skills");
+          break;
+        case '4':
+          this.botNavBtnOnClicked(e, "featured-projects");
+          break;
+        case '5':
+          this.botNavBtnOnClicked(e, "educations");
+          break;
+        case '6':
+          this.botNavBtnOnClicked(e, "experiences");
+          break;
+        case '7':
+          this.botNavBtnOnClicked(e, "certifications");
+          break;
+        case '8':
+          this.botNavBtnOnClicked(e, "contact-me");
+          break;
+      }
+    });
   }
 
   ngAfterViewInit(){
@@ -86,35 +124,13 @@ export class BotnavbarComponent implements OnInit {
 
   //Manipulating the theme and font color
   lightThemeBtnOnClick(){
-    $("#darkThemeBtn").show();
-    $("#lightThemeBtn").hide();
     this.cacheService.set(KEY_THEME_ACTIVE, "isLight");
-    $(document.documentElement).css("--currentBgCodeColor", "#F7F7F7");
-    $(document.documentElement).css("--currentFontCodeColor", "#5888AD");
-    $(document.documentElement).css("--oppositeBgCodeColor", "#242C3C");
-    $(document.documentElement).css("--oppositeFontCodeColor", "#5888AD");
-    $(document.documentElement).css("--currentFontDescColor", "#3b78e7");
-    $(document.documentElement).css("--currentBgSdColor", "rgb(255,255,255,.8)");
-    $(document.documentElement).css("--currentBgSdGradColor", "rgb(255,255,255,.8)");
-    $(document.documentElement).css("--currentUEFilter", "invert(0%)");
-    $(document.documentElement).css("--oppositeUEFilter", "invert(100%)");
-    $(document.documentElement).css("--currentBgCommentColor", "rgba(255,255,255,1)");
+    LightTheme();
   }
   
   darkThemeBtnOnClick(){
-    $("#lightThemeBtn").show();
-    $("#darkThemeBtn").hide();
     this.cacheService.set(KEY_THEME_ACTIVE, "isDark");
-    $(document.documentElement).css("--currentBgCodeColor", "#242C3C");
-    $(document.documentElement).css("--currentFontCodeColor", "#5888AD");
-    $(document.documentElement).css("--oppositeBgCodeColor", "#F7F7F7");
-    $(document.documentElement).css("--oppositeFontCodeColor", "#5888AD");
-    $(document.documentElement).css("--currentFontDescColor", "#4dd0e1");
-    $(document.documentElement).css("--currentBgSdColor", "rgb(40,49,66,.8)");
-    $(document.documentElement).css("--currentBgSdGradColor", "linear-gradient(90deg, rgb(0,0,0,.3) 0%, rgb(0,0,0,.3) 40%, rgba(0,0,0,0) 100%)");  
-    $(document.documentElement).css("--currentUEFilter", "invert(100%)");
-    $(document.documentElement).css("--oppositeUEFilter", "invert(0%)");
-    $(document.documentElement).css("--currentBgCommentColor", "rgba(59,72,97,1)");
+    DarkTheme();
   }
 
   //Click event to scroll to top
@@ -136,5 +152,10 @@ export class BotnavbarComponent implements OnInit {
         this.cacheService.set(KEY_BNB_ACTIVE, false);
       }
     }
+  }
+
+  //Bind keyboard shortcuts
+  execShortcut(e: any){
+    console.log(e.key);
   }
 }

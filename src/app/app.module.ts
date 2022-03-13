@@ -30,6 +30,7 @@ import { ScrollingModule } from '@angular/cdk/scrolling';
 import { BotnavbarModule } from './botnavbar/botnavbar.module';
 import { LottieModule } from 'ngx-lottie';
 import { SplashComponent } from './splash/splash.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -80,6 +81,7 @@ import { SplashComponent } from './splash/splash.component';
     ScrollingModule,
     BotnavbarModule,
     LottieModule,
+    MatSnackBarModule,
   ],
   providers: [WINDOW_PROVIDERS, {provide: APP_BASE_HREF, useValue : '/' }],
   bootstrap: [AppComponent]

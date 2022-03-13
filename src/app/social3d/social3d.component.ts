@@ -8,6 +8,8 @@ import Selected3DName from '../services/name3dsel.service';
 import { DOCUMENT } from '@angular/common';
 import { WINDOW } from '../services/window.service';
 import { KEY_STATE, KEY_THEME_ACTIVE } from '../api/CacheKeys';
+import { DarkTheme, LightTheme } from '../utils/Theme';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'social3d',
@@ -34,26 +36,50 @@ export class Social3dComponent implements OnInit {
       private httpClient: HttpClient,
       @Inject(DOCUMENT) private document: Document,
       @Inject(WINDOW) private window: Window,
+      private snackbar: MatSnackBar,
   ){
       this.cacheService = new CacheService(httpClient);
       this.selected3dName = new Selected3DName();
   }
 
+  openSocialSnackBar(name: string, url: string) {
+    this.snackbar.open(`Visit ${name}?`, 'Sure!', {
+      duration: 5000
+    });
+    this.snackbar._openedSnackBarRef?.onAction().subscribe(() => {
+      this.window.open(url, "_blank");
+    });
+  }
+
+  openResumeSnackBar() {
+    this.snackbar.open(`Resume downloaded.`, '', {
+      duration: 3000
+    });
+  }
+
+  openRouterSnackBar(name: string, action: string, route: string) {
+    this.snackbar.open(name, action, {
+      duration: 3000
+    });
+    this.snackbar._openedSnackBarRef?.onAction().subscribe(() => {
+      this.router.navigate([route]);
+    });
+  }
+
   ngOnInit(): void {
-    $("#linkedin").on('click', function(){
-      window.open("https://www.linkedin.com/in/proscawards/","_blank");
+    $("#linkedin").on('click', () => {
+      this.openSocialSnackBar("LinkedIn", "https://www.linkedin.com/in/proscawards/");
     });
-    $("#github").on('click', function(){
-      window.open("https://github.com/proscawards/","_blank");
+    $("#github").on('click', () => {
+      this.openSocialSnackBar("GitHub", "https://github.com/proscawards/");
     });
-    $("#instagram").on('click', function(){
-      window.open("https://instagram.com/proscawards","_blank");
+    $("#instagram").on('click', () => {
+      this.openSocialSnackBar("Instagram", "https://instagram.com/proscawards");
     });
-    $("#discord").on('click', function(){
-      window.open("https://discord.com/users/346129656157831169/","_blank");
+    $("#discord").on('click', () => {
+      this.openSocialSnackBar("Discord", "https://discord.com/users/346129656157831169/");
     });
-    $("#resume").on('click', function(e: any){
-      e.preventDefault();
+    $("#resume").on('click', () => {
       Swal.fire({
         text: `Do you want to download resume?`,
         confirmButtonText: "Download",
@@ -66,29 +92,30 @@ export class Social3dComponent implements OnInit {
           hiddenElement.download = "proscawards_resume.pdf";
           hiddenElement.click();
           hiddenElement.remove();
+          this.openResumeSnackBar();
         }
       });
     });
     $("#aboutme").on('click', () => {
-      this.router.navigate(['/about-me']);
+      this.openRouterSnackBar("An ID card?", "About me", "/about-me");
     });
     $("#skill").on('click', () => {
-      this.router.navigate(['/skills']);
+      this.openRouterSnackBar("A haywired brain?", "Skills", "/skills");
     });
     $("#project").on('click', () => {
-      this.router.navigate(['/featured-projects']);
+      this.openRouterSnackBar("A self-closing tag paper?", "Projects", "/featured-projects");
     });
     $("#cert").on('click', () => {
-      this.router.navigate(['/certifications']);
+      this.openRouterSnackBar("A paper with medal?", "Certifications", "/certifications");
     });
     $("#edu").on('click', () => {
-      this.router.navigate(['/educations']);
+      this.openRouterSnackBar("A graduation cap?", "Educations", "/educations");
     });
     $("#exp").on('click', () => {
-      this.router.navigate(['/experiences']);
+      this.openRouterSnackBar("A suitcase?", "Experiences", "/experiences");
     });
     $("#contact").on('click', () => {
-      this.router.navigate(['/contact-me']);
+      this.openRouterSnackBar("An envelope?", "Contact me", "/contact-me");
     });
     $("#scrollTop3d").on('click', () => {
       $('html, body').animate({
@@ -166,34 +193,12 @@ export class Social3dComponent implements OnInit {
 
   //Manipulating the theme and font color
   lightThemeBtnOnClick(){
-    $("#darktheme").fadeIn();
-    $("#lighttheme").fadeOut(0);
     this.cacheService.set(KEY_THEME_ACTIVE, "isLight");
-    $(document.documentElement).css("--currentBgCodeColor", "#F7F7F7");
-    $(document.documentElement).css("--currentFontCodeColor", "#5888AD");
-    $(document.documentElement).css("--oppositeBgCodeColor", "#242C3C");
-    $(document.documentElement).css("--oppositeFontCodeColor", "#5888AD");
-    $(document.documentElement).css("--currentFontDescColor", "#3b78e7");
-    $(document.documentElement).css("--currentBgSdColor", "rgb(255,255,255,.8)");
-    $(document.documentElement).css("--currentBgSdGradColor", "rgb(255,255,255,.8)");
-    $(document.documentElement).css("--currentUEFilter", "invert(0%)");
-    $(document.documentElement).css("--oppositeUEFilter", "invert(100%)");
-    $(document.documentElement).css("--currentBgCommentColor", "rgba(255,255,255,1)");
+    LightTheme();
   }
   
   darkThemeBtnOnClick(){
-    $("#lighttheme").fadeIn();
-    $("#darktheme").fadeOut(0);
     this.cacheService.set(KEY_THEME_ACTIVE, "isDark");
-    $(document.documentElement).css("--currentBgCodeColor", "#242C3C");
-    $(document.documentElement).css("--currentFontCodeColor", "#5888AD");
-    $(document.documentElement).css("--oppositeBgCodeColor", "#F7F7F7");
-    $(document.documentElement).css("--oppositeFontCodeColor", "#5888AD");
-    $(document.documentElement).css("--currentFontDescColor", "#4dd0e1");
-    $(document.documentElement).css("--currentBgSdColor", "rgb(40,49,66,.8)");
-    $(document.documentElement).css("--currentBgSdGradColor", "linear-gradient(90deg, rgb(0,0,0,.3) 0%, rgb(0,0,0,.3) 40%, rgba(0,0,0,0) 100%)");  
-    $(document.documentElement).css("--currentUEFilter", "invert(100%)");
-    $(document.documentElement).css("--oppositeUEFilter", "invert(0%)");
-    $(document.documentElement).css("--currentBgCommentColor", "rgba(59,72,97,1)");
+    DarkTheme();
   }
 }

@@ -4,6 +4,7 @@ import * as AOS from 'aos';
 import { DOCUMENT } from '@angular/common';
 import { WINDOW } from "./services/window.service";
 import { Router } from "./services/router.service";
+import { Refresh } from './services/refresh.service';
 
 @Component({
   selector: 'root',
@@ -19,6 +20,7 @@ export class AppComponent implements OnInit, AfterViewInit{
     @Inject(DOCUMENT) private document: Document,
     @Inject(WINDOW) private window: Window,
     private router: Router,
+    private refresh: Refresh,
   ) {
   }
 
@@ -61,7 +63,7 @@ export class AppComponent implements OnInit, AfterViewInit{
   }
 
   ngOnInit(): void {
-      this.router.routeTo();
+    this.router.routeTo();
   }
 
   ngAfterViewInit() {

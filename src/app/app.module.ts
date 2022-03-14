@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
-import { APP_BASE_HREF, CommonModule } from '@angular/common';
+import { APP_BASE_HREF, CommonModule, LocationStrategy, HashLocationStrategy } from '@angular/common';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -61,6 +61,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     ContactModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent},
+      { path: 'home', component: HomeComponent},
       { path: 'certifications', component: CertificationComponent},
       { path: 'featured-projects', component: ProjectComponent},
       { path: 'all-projects', component: ProjectOtherComponent},
@@ -71,12 +72,11 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
       { path: 'contact-me', component: ContactpageComponent},
       { path: 'about-me', component: AboutComponent},
       { path: '404', component: NotfoundComponent},
-      { path: '**', redirectTo: '404'}
+      { path: '**', redirectTo: 'home'}
     ],
     {
       scrollPositionRestoration: 'enabled',
-      onSameUrlNavigation: 'reload',
-      
+      useHash: true,
     }),
     NgbModule,
     BrowserAnimationsModule,
@@ -85,7 +85,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     LottieModule,
     MatSnackBarModule,
   ],
-  providers: [WINDOW_PROVIDERS, {provide: APP_BASE_HREF, useValue : '/' }],
+  //providers: [WINDOW_PROVIDERS, {provide: APP_BASE_HREF, useValue : '/' }],
+  providers: [WINDOW_PROVIDERS, {provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

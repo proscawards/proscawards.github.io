@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Router as Route } from "@angular/router";
+import { Router as ngRouter, NavigationStart } from "@angular/router";
 import { Location } from "@angular/common";
 import { CacheService } from './cache.service';
 import { HttpClient } from '@angular/common/http';
@@ -12,7 +12,7 @@ import { KEY_PAGE } from '../api/CacheKeys';
 export class Router {
 
     constructor(
-        private router: Route,
+        private router: ngRouter,
         private location: Location,
         private cacheService: CacheService,
         private httpClient: HttpClient,
@@ -44,4 +44,16 @@ export class Router {
     routeURL(): string{
         return this.router.url.replace("/", "");
     }
+
+    // routeRefresh(): void{
+    //     this.router.events.subscribe(event => {
+    //         if (event instanceof NavigationStart) {
+    //           if (!!event.url && event.url.match(/^\/#/)) {
+    //               console.log("event.url")
+    //             this.router.navigate([event.url.replace('/#', '')]);
+    //             console.log(event.url.replace('/#', ''))
+    //           }
+    //         }
+    //     });
+    // }
 }

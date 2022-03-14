@@ -22,7 +22,6 @@ export class SplashComponent implements OnInit {
   ){ }
 
   ngOnInit(): void {
-    console.log(window.outerWidth)
     if (window.outerWidth < 1024){
       $("#logoLandscape").hide();
       window.innerHeight <= 1920 ?
@@ -59,6 +58,5 @@ export class SplashComponent implements OnInit {
   }
 
   animationCreated(animationItem: AnimationItem): void {
-    console.log(animationItem);
   }
 }

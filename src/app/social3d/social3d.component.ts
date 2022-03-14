@@ -1,7 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import * as $ from "jquery";
 import Swal from 'sweetalert2';
-import { Router } from '@angular/router';
+import { Router } from '../services/router.service';
 import { HttpClient } from '@angular/common/http';
 import { CacheService } from '../services/cache.service';
 import Selected3DName from '../services/name3dsel.service';
@@ -62,7 +62,7 @@ export class Social3dComponent implements OnInit {
       duration: 3000
     });
     this.snackbar._openedSnackBarRef?.onAction().subscribe(() => {
-      this.router.navigate([route]);
+      this.router.routeTo(route);
     });
   }
 
@@ -97,25 +97,25 @@ export class Social3dComponent implements OnInit {
       });
     });
     $("#aboutme").on('click', () => {
-      this.openRouterSnackBar("An ID card?", "About me", "/about-me");
+      this.openRouterSnackBar("An ID card?", "About me", "about-me");
     });
     $("#skill").on('click', () => {
-      this.openRouterSnackBar("A haywired brain?", "Skills", "/skills");
+      this.openRouterSnackBar("A haywired brain?", "Skills", "skills");
     });
     $("#project").on('click', () => {
-      this.openRouterSnackBar("A self-closing tag paper?", "Projects", "/featured-projects");
+      this.openRouterSnackBar("A self-closing tag paper?", "Projects", "featured-projects");
     });
     $("#cert").on('click', () => {
-      this.openRouterSnackBar("A paper with medal?", "Certifications", "/certifications");
+      this.openRouterSnackBar("A paper with medal?", "Certifications", "certifications");
     });
     $("#edu").on('click', () => {
-      this.openRouterSnackBar("A graduation cap?", "Educations", "/educations");
+      this.openRouterSnackBar("A graduation cap?", "Educations", "educations");
     });
     $("#exp").on('click', () => {
-      this.openRouterSnackBar("A suitcase?", "Experiences", "/experiences");
+      this.openRouterSnackBar("A suitcase?", "Experiences", "experiences");
     });
     $("#contact").on('click', () => {
-      this.openRouterSnackBar("An envelope?", "Contact me", "/contact-me");
+      this.openRouterSnackBar("An envelope?", "Contact me", "contact-me");
     });
     $("#scrollTop3d").on('click', () => {
       $('html, body').animate({

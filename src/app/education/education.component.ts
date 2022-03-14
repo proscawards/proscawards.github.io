@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import * as $ from "jquery";
-import { Router } from '@angular/router';
 import { Education } from '../model/data/Education';
 import { HttpClient } from '@angular/common/http';
 import { CacheService } from '../services/cache.service';
-import { KEY_EDU } from '../api/CacheKeys';
+import { KEY_EDU, KEY_PROJECT_ACTIVE } from '../api/CacheKeys';
+import { Router } from '../services/router.service';
 
 @Component({
   selector: 'education',
@@ -62,7 +62,8 @@ export class EducationComponent implements OnInit {
     $(`#eduBtn${id}`).removeClass("activeEdu");
   }
 
-  eduLinkOnClick(e: any, elem: any){
-    this.router.navigate([`/project-all/${elem}`], {replaceUrl: true});
+  eduLinkOnClick(e: any, id: any){
+    this.cacheService.set(KEY_PROJECT_ACTIVE, id);
+    this.router.routeTo("project");
   }
 }

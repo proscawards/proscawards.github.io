@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import * as $ from 'jquery';
 import info from "./project-clickable.json";
-import { Router } from '@angular/router';
+import { Router } from '../services/router.service';
 
 interface Info{
   id: number,
@@ -68,6 +68,6 @@ export class ProjectComponent {
   }
 
   route(e: any, url: any){
-    this.router.navigate([url]);
+    this.router.routeTo(url);
   }
 }

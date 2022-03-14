@@ -6,7 +6,7 @@ import { WINDOW } from "../services/window.service";
 import { HttpClient } from '@angular/common/http';
 import { Project } from '../model/data/Project';
 import { CacheService } from '../services/cache.service';
-import { Router } from '@angular/router';
+import { Router } from '../services/router.service';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { CdkVirtualScrollViewport } from "@angular/cdk/scrolling";
 import { KEY_PROJECT, KEY_PROJECT_ACTIVE } from '../api/CacheKeys';
@@ -71,7 +71,7 @@ export class ProjectOtherComponent implements OnInit {
   projectDivOnClick(e: any, id: any){
     e.preventDefault();
     this.cacheService.set(KEY_PROJECT_ACTIVE, id);
-    this.router.navigate([`project`]);
+    this.router.routeTo("project");
   }
 
 }

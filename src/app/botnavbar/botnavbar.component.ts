@@ -1,5 +1,4 @@
 import { Component, OnInit, HostListener, Inject } from '@angular/core';
-import { Router } from '@angular/router';
 import * as $ from 'jquery';
 import { CacheService } from '../services/cache.service';
 import ToSentenceCase from '../utils/ToSentenceCase';
@@ -8,6 +7,7 @@ import { DOCUMENT } from '@angular/common';
 import { WINDOW } from "../services/window.service";
 import { KEY_BNB_ACTIVE, KEY_THEME_ACTIVE } from '../api/CacheKeys';
 import { DarkTheme, LightTheme } from '../utils/Theme';
+import { Router } from '../services/router.service';
 
 @Component({
   selector: 'botnavbar',
@@ -29,7 +29,7 @@ export class BotnavbarComponent implements OnInit {
 
   ngOnInit(): void {
     if (this.cacheService.exist(KEY_BNB_ACTIVE)){
-      if (this.cacheService.get(KEY_BNB_ACTIVE)){
+      if (Boolean(this.cacheService.get(KEY_BNB_ACTIVE))){
         $(`.botNavInnerBar`).show();
         $(`.navBarCaret`).addClass("activeNavBarCaret");
         this.cacheService.set(KEY_BNB_ACTIVE, true);
@@ -51,7 +51,6 @@ export class BotnavbarComponent implements OnInit {
     }
 
     this.document.addEventListener("keypress", (e: any) => {
-      console.log(e.key)
       switch (e.key){
         case '-':
           this.lightThemeBtnOnClick();
@@ -99,14 +98,14 @@ export class BotnavbarComponent implements OnInit {
   }
 
   resetHover(){
-    let text: string = this.router.url.replace("/", "");
+    let text: string = this.router.routeURL();
     $(".botNavText").text(ToSentenceCase(text, "-"));
     $(`#bnb_${text}`).addClass("activeNav");
   }
 
   botNavBtnOnClicked(e: any, url: string){
-    this.router.navigate([url]);
-    $(`#bnb_${this.router.url.replace("/", "")}`).addClass("activeNav");
+    this.router.routeTo(url);
+    $(`#bnb_${this.router.routeURL()}`).addClass("activeNav");
   }
 
   navBarOnClicked(){
@@ -146,16 +145,11 @@ export class BotnavbarComponent implements OnInit {
   domOnClick(e: any){
     // console.log(e.target.parentElement.className)
     if (!e.target.className.includes("triggerBnb") && !e.target.parentElement.className.includes("triggerBnb") || e.target.className == ""){
-      if (this.cacheService.get(KEY_BNB_ACTIVE)){
+      if (Boolean(this.cacheService.get(KEY_BNB_ACTIVE))){
         $(`.botNavInnerBar`).slideUp().fadeOut();
         $(`.navBarCaret`).removeClass("activeNavBarCaret");
         this.cacheService.set(KEY_BNB_ACTIVE, false);
       }
     }
-  }
-
-  //Bind keyboard shortcuts
-  execShortcut(e: any){
-    console.log(e.key);
   }
 }

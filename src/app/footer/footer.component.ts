@@ -4,9 +4,9 @@ import Swal from 'sweetalert2';
 import { HttpClient } from '@angular/common/http';
 import { DOCUMENT } from '@angular/common';
 import { WINDOW } from "../services/window.service";
-import { Router } from '@angular/router';
 import { CacheService } from '../services/cache.service';
 import { KEY_STATE, KEY_VCOUNT, KEY_VCOUNTRY } from '../api/CacheKeys';
+import { Router } from '../services/router.service';
 
 @Component({
   selector: 'footer',
@@ -17,7 +17,7 @@ import { KEY_STATE, KEY_VCOUNT, KEY_VCOUNTRY } from '../api/CacheKeys';
 export class FooterComponent implements OnInit{
 
   private owlStr = "<img class='owls' src='assets/images/owls/owls_owl.svg'/><img class='owls' src='assets/images/owls/owls_lufie.svg'/><img class='owls' src='assets/images/owls/owls_guin.svg'/><img class='owls' id='phoenix' src='assets/images/owls/owls_owlhuang.svg'/><img class='owls' src='assets/images/owls/owls_flowl.svg'/>";
-  public url: string = this.router.url;
+  public url: string = this.router.routeURL();
   private cacheService: CacheService;
 
   constructor(
@@ -102,7 +102,7 @@ export class FooterComponent implements OnInit{
   }
 
   route(e: any, url: any){
-    this.router.navigate([url], { replaceUrl: true });
+    this.router.routeTo(url);
   }
 
   footerDivlinkOnClick(e: any, elem: any){

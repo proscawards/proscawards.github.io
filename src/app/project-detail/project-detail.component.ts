@@ -6,7 +6,6 @@ import { WINDOW } from "../services/window.service";
 import { HttpClient } from '@angular/common/http';
 import { Project } from '../model/data/Project';
 import { CacheService } from '../services/cache.service';
-import { Router } from '@angular/router';
 import ColorThief from 'colorthief';
 import { KEY_PROJECT, KEY_PROJECT_ACTIVE } from '../api/CacheKeys';
 const colorThief = new ColorThief();
@@ -32,7 +31,6 @@ export class ProjectDetailComponent implements OnInit {
     @Inject(DOCUMENT) private document: Document,
     @Inject(WINDOW) private window: Window,
     private httpClient: HttpClient,
-    private router: Router
   ){
     this.cacheService = new CacheService(httpClient);
     this.cacheService.exist(KEY_PROJECT_ACTIVE) ? 

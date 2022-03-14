@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import { format, parse, differenceInSeconds, addHours } from "date-fns";
+import { format, parse, addHours, differenceInHours } from "date-fns";
 import { CryptoService } from "./crypto.service";
 const cs = new CryptoService();
 import { HttpClient } from '@angular/common/http';
-import { KEY_CERT, KEY_EDU, KEY_EXP, KEY_EXPIRY, KEY_PROJECT, KEY_VCOUNT, KEY_VCOUNTRY } from '../api/CacheKeys';
+import { KEY_CERT, KEY_EDU, KEY_EXP, KEY_EXPIRY, KEY_PAGE, KEY_PROJECT, KEY_VCOUNT, KEY_VCOUNTRY } from '../api/CacheKeys';
 
 @Injectable({
   providedIn: 'root',
@@ -11,7 +11,7 @@ import { KEY_CERT, KEY_EDU, KEY_EXP, KEY_EXPIRY, KEY_PROJECT, KEY_VCOUNT, KEY_VC
 
 export class CacheService {
 
-  readonly CACHE_EXPIRED_IN: number = 3600; //1 hour
+  readonly CACHE_EXPIRED_IN: number = 3; //3 hours
 
   constructor(
     private httpClient: HttpClient
@@ -19,18 +19,20 @@ export class CacheService {
 
   //set cache timeout and salt
   setExp(){
-    if (!this.exist(KEY_EXPIRY)){
-      this.reset();
-      let exp = format(addHours(new Date(), this.CACHE_EXPIRED_IN), 'yyyy,MM,dd,HH,mm,ss');
-      this.set(KEY_EXPIRY, exp);
-    }
-    else{
+    if (this.exist(KEY_EXPIRY)){
       let val = this.get(KEY_EXPIRY);
       let dt = parse(val, 'yyyy,MM,dd,HH,mm,ss', new Date())
       let now = new Date();
-      if (differenceInSeconds(dt, now) <= 0){
+      if (differenceInHours(dt, now) <= 0){
         this.reset();
+        let exp = format(addHours(new Date(), this.CACHE_EXPIRED_IN), 'yyyy,MM,dd,HH,mm,ss');
+        this.set(KEY_EXPIRY, exp);
       }
+    }
+    else{
+      this.reset();
+      let exp = format(addHours(new Date(), this.CACHE_EXPIRED_IN), 'yyyy,MM,dd,HH,mm,ss');
+      this.set(KEY_EXPIRY, exp);
     }
     this.subscribe();
   }
@@ -56,6 +58,15 @@ export class CacheService {
   //Reset all cache
   reset() {
     localStorage.clear();
+  }
+
+  //Is two values of the key identical?
+  isEqual(key: any, new_val: any){
+    let old_val = this.get(key);
+    if (old_val == new_val){
+      return true;
+    }
+    return false;
   }
 
   //Subscribe to all endpoint to prepare for response caching
@@ -108,6 +119,9 @@ export class CacheService {
       .subscribe(res => {
         this.set(KEY_VCOUNT, res.count)
       });    
+    }
+    if (!this.exist(KEY_PAGE)){
+      this.set(KEY_PAGE, '');
     }
   }
 }

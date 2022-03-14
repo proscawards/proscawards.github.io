@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router } from '../services/router.service';
 
 @Component({
   selector: 'notfound',
@@ -16,7 +16,7 @@ export class NotfoundComponent implements OnInit {
   }
 
   route(){
-    this.router.navigate(['/'], {replaceUrl: true});
+    this.router.routeTo('');
   }
 
 }

@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import * as $ from "jquery";
-import { Router } from '@angular/router';
 import { Experience } from '../model/data/Experience';
 import { HttpClient } from '@angular/common/http';
 import { CacheService } from '../services/cache.service';
-import { KEY_EXP } from '../api/CacheKeys';
+import { KEY_EXP, KEY_PROJECT_ACTIVE } from '../api/CacheKeys';
 import { differenceInCalendarMonths, parse } from 'date-fns';
+import { Router } from '../services/router.service';
 
 @Component({
   selector: 'experience',
@@ -62,8 +62,9 @@ export class ExperienceComponent implements OnInit {
     $(`#expBtn${id}`).removeClass("activeExp");
   }
 
-  expLinkOnClick(e: any, elem: any){
-    this.router.navigate([`/project-all/${elem}`], {replaceUrl: true});
+  expLinkOnClick(e: any, id: any){
+    this.cacheService.set(KEY_PROJECT_ACTIVE, id);
+    this.router.routeTo("project");
   }
 
   expSamePageOnClick(e: any, elem: any){

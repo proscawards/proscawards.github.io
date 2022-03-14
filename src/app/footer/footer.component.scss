@@ -9,6 +9,9 @@
 #countryTable{
     text-align: center;
     font-size: 25px;
+    @media screen and (max-width: 768px) {
+        font-size: 15px;
+    } 
 }
 
 #socialFooterDiv{
@@ -25,7 +28,7 @@
     
     & div span{
         font-size: 30px;
-        @media screen and (max-width: 400px) {
+        @media screen and (max-width: 768px) {
             font-size: 15px;
         } 
     }
@@ -36,8 +39,8 @@
         color: var(--currentFontCodeColor); 
         transition: .3s;
         cursor: pointer;
-        @media screen and (max-width: 400px) {
-            font-size: 25px;
+        @media screen and (max-width: 768px) {
+            font-size: 20px;
         }  
     }
 }
@@ -50,6 +53,9 @@
         cursor: pointer;
         text-decoration: none;
         color: var(--currentFontCodeColor);
+        @media screen and (max-width: 768px) {
+            font-size: 18px;
+        }  
     }
     
     & span:hover{
@@ -70,6 +76,9 @@
 #totalVisitorDiv{
     text-align: center;
     font-size: 50px;
+    @media screen and (max-width: 768px) {
+        font-size: 25px;
+    }  
 }
 
 #logoFooterBtn{
@@ -81,7 +90,7 @@
     text-decoration: underline;
     text-align: left;
     transition: .3s;
-    @media screen and (max-width: 400px) {
+    @media screen and (max-width: 768px) {
         font-size: 25px;
     }  
 }
@@ -102,6 +111,7 @@
 #footer{
     background: var(--currentBgSdColor);
     padding: 50px;
+    height: 100vh;
 }
 
 #copyright{
@@ -131,9 +141,10 @@
 }
 
 #mobileFooter{
+    background: var(--currentBgSdColor);
     display: none;
     @media screen and (max-width: 768px) {
-        display: block;
+        display: inline-block;
     }
 }
 
@@ -150,6 +161,9 @@
 
 .countryFlag{
     width: 50px;
+    @media screen and (max-width: 768px) {
+        width: 25px;
+    } 
 }
 
 #scrollTopMobile{

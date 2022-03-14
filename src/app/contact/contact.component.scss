@@ -9,6 +9,9 @@
     outline: none;
     color: var(--oppositeBgCodeColor);
     transition: .3s;
+    @media screen and (max-width: 768px) {
+        font-size: 15px;
+    }
 
     &:hover, &:focus{
         background: rgba(1,1,1,.1);
@@ -29,6 +32,9 @@
 
 .contactLbl{
     font-size: 20px;
+    @media screen and (max-width: 768px) {
+        font-size: 15px;
+    }
 }
 
 #contactDiv{
@@ -48,6 +54,9 @@
     color: var(--currentFontColor);
     box-shadow: 5px 5px 5px rgb(0,0,0,0);
     transition: .3s;
+    @media screen and (max-width: 768px) {
+        font-size: 20px;
+    }
 
     &:hover, &:focus{
         color: var(--currentCommentColor);

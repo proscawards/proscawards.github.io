@@ -3,7 +3,7 @@ import { format, parse, addHours, differenceInHours } from "date-fns";
 import { CryptoService } from "./crypto.service";
 const cs = new CryptoService();
 import { HttpClient } from '@angular/common/http';
-import { KEY_CERT, KEY_EDU, KEY_EXP, KEY_EXPIRY, KEY_PAGE, KEY_PROJECT, KEY_VCOUNT, KEY_VCOUNTRY } from '../api/CacheKeys';
+import { KEY_CERT, KEY_EDU, KEY_EXP, KEY_EXPIRY, KEY_PAGE, KEY_PROJECT, KEY_VCOUNT, KEY_VCOUNTRY, KEY_BNB_ACTIVE, KEY_PROJECT_ACTIVE } from '../api/CacheKeys';
 
 @Injectable({
   providedIn: 'root',
@@ -35,6 +35,7 @@ export class CacheService {
       this.set(KEY_EXPIRY, exp);
     }
     this.subscribe();
+    this.cacheUtils();
   }
 
   //Check if key exist in localstorage
@@ -120,8 +121,18 @@ export class CacheService {
         this.set(KEY_VCOUNT, res.count)
       });    
     }
+  }
+
+  //Cache utilities first, to prevent error
+  cacheUtils(){
     if (!this.exist(KEY_PAGE)){
       this.set(KEY_PAGE, '');
+    }
+    if (!this.exist(KEY_BNB_ACTIVE)){
+      this.set(KEY_BNB_ACTIVE, false);
+    }
+    if (!this.exist(KEY_PROJECT_ACTIVE)){
+      this.set(KEY_PROJECT_ACTIVE, 0);
     }
   }
 }

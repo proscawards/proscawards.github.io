@@ -64,9 +64,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
       { path: 'certifications', component: CertificationComponent},
       { path: 'featured-projects', component: ProjectComponent},
       { path: 'all-projects', component: ProjectOtherComponent},
-      { path: 'all-projects/:elem', component: ProjectOtherComponent},
       { path: 'project', component: ProjectDetailComponent},
-      { path: 'project/:id', component: ProjectDetailComponent},
       { path: 'skills', component: SkillComponent},
       { path: 'educations', component: EducationComponent},
       { path: 'experiences', component: ExperienceComponent},
@@ -75,7 +73,11 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
       { path: '404', component: NotfoundComponent},
       { path: '**', redirectTo: '404'}
     ],
-    {scrollPositionRestoration: 'enabled'}),
+    {
+      scrollPositionRestoration: 'enabled',
+      onSameUrlNavigation: 'reload',
+      
+    }),
     NgbModule,
     BrowserAnimationsModule,
     ScrollingModule,

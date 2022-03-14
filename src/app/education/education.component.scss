@@ -8,9 +8,27 @@
     }
 }
 
-.jobType{
+.eduTitle{
+    font-size: 25px;
+    @media screen and (max-width: 768px) {
+        font-size: 20px;
+    }
+}
+
+.eduType{
     color: var(--currentCommentColor);
-    cursor: pointer;
+    font-size: 18px;
+    @media screen and (max-width: 768px) {
+        font-size: 13px;
+    }
+}
+
+.eduDuration{
+    font-style: italic;
+    font-size: 18px;
+    @media screen and (max-width: 768px) {
+        font-size: 14px;
+    }
 }
 
 .eduCont{
@@ -20,6 +38,9 @@
     color: var(--currentFontDescColor);
     &>a{
         color: inherit;
+    }
+    @media screen and (max-width: 768px) {
+        font-size: 12px;
     }
 }
 
@@ -38,12 +59,18 @@
     font-weight: 300;
     opacity: .8;
     font-size: 15px;
+    @media screen and (max-width: 768px) {
+        font-size: 12px;
+    }
 }
 
 .eduTableTitle{
     font-weight: bold;
     font-size: 18px;
     text-transform: uppercase;
+    @media screen and (max-width: 768px) {
+        font-size: 14px;
+    }
 }
 
 .eduTableBullet{

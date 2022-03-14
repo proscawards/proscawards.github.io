@@ -20,7 +20,12 @@ export class Router {
         this.cacheService = new CacheService(httpClient);
     }
 
-    routeTo(url: string): void{
+    routeTo(url?: string): void{
+        if (url == null){
+            this.cacheService.exist(KEY_PAGE) ?
+            url = this.cacheService.get(KEY_PAGE) : 
+            url = "";
+        }
         if (this.cacheService.exist(KEY_PAGE)){
             if (this.cacheService.isEqual(KEY_PAGE, url)){
                 this.router.navigate([`/${this.cacheService.get(KEY_PAGE)}`], { replaceUrl: true });

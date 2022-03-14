@@ -64,6 +64,7 @@ input:-webkit-autofill{
 .sectionHeader{
     background: var(--currentBgSdGradColor);
     font-size: 40px;
+    font-weight: 700;
     color: var(--currentFontCodeColor);
     width: 100vw;
     @media screen and (max-width: 768px) {
@@ -74,6 +75,7 @@ input:-webkit-autofill{
 .subsectionHeader{
     background: var(--currentBgSdGradColor);
     font-size: 30px;
+    font-weight: 700;
     color: var(--currentCommentColor);
     width: 100vw;
     @media screen and (max-width: 768px) {

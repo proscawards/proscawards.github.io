@@ -1,9 +1,9 @@
-import { Component, HostListener, AfterViewInit, Inject } from '@angular/core';
+import { Component, HostListener, OnInit, AfterViewInit, Inject } from '@angular/core';
 import * as $ from "jquery";
 import * as AOS from 'aos';
 import { DOCUMENT } from '@angular/common';
 import { WINDOW } from "./services/window.service";
-import { Router } from '@angular/router';
+import { Router } from "./services/router.service";
 
 @Component({
   selector: 'root',
@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./app.component.scss']
 })
 
-export class AppComponent implements AfterViewInit{
+export class AppComponent implements OnInit, AfterViewInit{
 
   windowWidth: any;
 
@@ -36,8 +36,6 @@ export class AppComponent implements AfterViewInit{
         $("#title").css("top", "90%");
         $("#scrollTopBtn").show();
       }
-      if (this.router.url == "/"){$(".themeBtn").fadeIn("slow");}
-      else{$(".themeBtn").show();}
     } 
     else {
       if (window.matchMedia('(max-width: 768px)').matches){
@@ -49,17 +47,6 @@ export class AppComponent implements AfterViewInit{
         $("#title").css("top", "50%");
         $("#scrollTopBtn").hide();
       }
-      if (this.router.url == "/"){$(".themeBtn").fadeOut("slow");}
-      else{$(".themeBtn").show();}
-    }
-
-    if (window.matchMedia('(max-width: 768px)').matches){
-      $("#scrollTopBtn").hide();
-      $("#mobileFooter").show();
-    }
-    else{
-      $("#scrollTopBtn").show();
-      $("#mobileFooter").hide();
     }
 
     let footerHeight: number | any = $("#footer").innerHeight();
@@ -71,6 +58,10 @@ export class AppComponent implements AfterViewInit{
     else{
       $(".botNavBar").css("position", "fixed");
     }
+  }
+
+  ngOnInit(): void {
+      this.router.routeTo();
   }
 
   ngAfterViewInit() {

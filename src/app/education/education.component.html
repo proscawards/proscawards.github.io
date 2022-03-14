@@ -4,9 +4,9 @@
     <div class="col-md-12 wrapper">
         <div class="col-md-12 scroll-bg">
             <div *ngFor="let infos of infoArr">
-                <h3 i18n data-aos="fade-left">{{infos.name}}</h3>
-                <span i18n style="font-style: italic;" data-aos="fade-up">{{infos.date}}</span><br/>
-                <span i18n class="jobType" data-aos="fade-up" (click)="eduBtnOnClick($event,infos.id)">{{infos.type}}&nbsp;<i class="eduBtn fas fa-angle-down" id="eduBtn{{infos.id}}"></i></span><br/>
+                <h3 class="eduTitle" i18n data-aos="fade-left">{{infos.name}}</h3>
+                <span class="eduDuration" i18n data-aos="fade-up">{{infos.date}}</span><br/>
+                <span i18n class="eduType" data-aos="fade-up" (click)="eduBtnOnClick($event,infos.id)">{{infos.type}}&nbsp;<i class="eduBtn fas fa-angle-down" id="eduBtn{{infos.id}}"></i></span><br/>
                 <div class="eduCont" id="eduCont{{infos.id}}" data-aos="slide-down" style="display:none;">
                     <button class="eduContCloseBtn" id="eduContCloseBtn{{infos.id}}" (click)="eduContCloseBtnOnClick($event,infos.id)"><i class="fas fa-slash"></i><i class="fas fa-slash fa-rotate-90"></i></button>
                     <div *ngFor="let info of infos.info">

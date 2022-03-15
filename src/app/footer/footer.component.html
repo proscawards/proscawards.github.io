@@ -26,19 +26,19 @@
                 </div>
             </div>
             <div class="col-md-5" id="visitorDiv">
-                <div class="col-md-12" id="totalVisitorDiv"><i class="fas fa-eye"></i><span id="totalVisitor"></span></div>
+                <div class="col-md-12" id="totalVisitorDiv"><i class="fas fa-eye"></i><span id="totalVisitor">{{totalCount}}</span></div>
                 <table id="countryTable">
                     <tr>
-                        <td><img class="countryFlag" id="top1CountryImg"></td>
-                        <td><span id="top1CountryCount"></span></td>
+                        <td><img class="countryFlag" id="top1CountryImg" src="{{top1Country.img}}"></td>
+                        <td><span id="top1CountryCount">{{top1Country.count}}</span></td>
                     </tr>
                     <tr>
-                        <td><img class="countryFlag" id="top2CountryImg"></td>
-                        <td><span id="top2CountryCount"></span></td>
+                        <td><img class="countryFlag" id="top2CountryImg" src="{{top2Country.img}}"></td>
+                        <td><span id="top2CountryCount">{{top2Country.count}}</span></td>
                     </tr>                            
                     <tr>
-                        <td><img class="countryFlag" id="top3CountryImg"></td>
-                        <td><span id="top3CountryCount"></span></td>
+                        <td><img class="countryFlag" id="top3CountryImg" src="{{top3Country.img}}"></td>
+                        <td><span id="top3CountryCount">{{top3Country.count}}</span></td>
                     </tr>
                 </table>
             </div>

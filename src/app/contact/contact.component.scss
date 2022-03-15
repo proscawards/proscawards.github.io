@@ -5,7 +5,7 @@
     border-bottom: 1px solid rgba(0,0,0,.3);
     border-radius: 0px;
     padding: 10px;
-    font-size: 20px;
+    font-size: 18px;
     outline: none;
     color: var(--oppositeBgCodeColor);
     transition: .3s;
@@ -31,9 +31,10 @@
 }
 
 .contactLbl{
-    font-size: 20px;
+    font-size: 25px;
+    font-family: SecularOne;
     @media screen and (max-width: 768px) {
-        font-size: 15px;
+        font-size: 20px;
     }
 }
 
@@ -56,6 +57,10 @@
     transition: .3s;
     @media screen and (max-width: 768px) {
         font-size: 20px;
+    }
+
+    &>#contactSubmitLbl{
+        font-family: SecularOne;
     }
 
     &:hover, &:focus{

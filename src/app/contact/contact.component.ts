@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { ContactForm } from '../model/ContactForm';
 const cf = new ContactForm(0, false);
 import * as $ from 'jquery';
-import Swal from 'sweetalert2';
 import { format } from 'date-fns';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Snackbar } from '../utils/Snackbar';
 
 @Component({
   selector: 'contact',
@@ -14,7 +14,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class ContactComponent implements OnInit {
 
   constructor(
-    private httpClient: HttpClient
+    private httpClient: HttpClient,
+    public snackbar: Snackbar,
   ) { }
 
   ngOnInit(): void {
@@ -73,46 +74,46 @@ export class ContactComponent implements OnInit {
 
       if ((cf.getError() == 0)){
         if (!name && !email && !msg){
-          Swal.fire({
-            icon: "warning",
-            title: "Contact form is empty! Please verify again."
-          })
+          this.snackbar
+          .setTitle("Contact form is empty! Please verify again.")
+          .setType({isDefault: true})
+          .execute();
         }
         else if (!name && !email && msg){
-          Swal.fire({
-            icon: "warning",
-            title: "Full name & email are yet to fill in! Please verify again."
-          })
+          this.snackbar
+          .setTitle("Full name & email are yet to fill in! Please verify again.")
+          .setType({isDefault: true})
+          .execute();
         }
         else if (!name && email && !msg){
-          Swal.fire({
-            icon: "warning",
-            title: "Full name & message are yet to fill in! Please verify again."
-          })
+          this.snackbar
+          .setTitle("Full name & message are yet to fill in! Please verify again.")
+          .setType({isDefault: true})
+          .execute();
         }
         else if (name && !email && !msg){
-          Swal.fire({
-            icon: "warning",
-            title: "Email & message are yet to fill in! Please verify again."
-          })
+          this.snackbar
+          .setTitle("Email & message are yet to fill in! Please verify again.")
+          .setType({isDefault: true})
+          .execute();
         }
         else if (!name && email && msg){
-          Swal.fire({
-            icon: "warning",
-            title: "Full name is yet to fill in! Please verify again."
-          })
+          this.snackbar
+          .setTitle("Full name is yet to fill in! Please verify again.")
+          .setType({isDefault: true})
+          .execute();
         }
         else if (name && !email && msg){
-          Swal.fire({
-            icon: "warning",
-            title: "Email is yet to fill in! Please verify again."
-          })
+          this.snackbar
+          .setTitle("Email is yet to fill in! Please verify again.")
+          .setType({isDefault: true})
+          .execute();
         }
         else if (name && email && !msg){
-          Swal.fire({
-            icon: "warning",
-            title: "Message is yet to fill in! Please verify again."
-          })
+          this.snackbar
+          .setTitle("Message is yet to fill in! Please verify again.")
+          .setType({isDefault: true})
+          .execute();
         }
         else{
           let data = {
@@ -131,45 +132,17 @@ export class ContactComponent implements OnInit {
           let xhr = new XMLHttpRequest();
           xhr.open("POST", "https://proscawards-portfolio-backend.herokuapp.com/cf");
           xhr.setRequestHeader('content-type', 'application/json');
-          xhr.onload = function(){
-              if (xhr.responseText == "success"){
-                cf.resetContactForm();
-                const Toast = Swal.mixin({
-                  toast: true,
-                  position: 'top-end',
-                  showConfirmButton: false,
-                  timer: 3000,
-                  timerProgressBar: true,
-                  didOpen: (toast) => {
-                    toast.addEventListener('mouseenter', Swal.stopTimer)
-                    toast.addEventListener('mouseleave', Swal.resumeTimer)
-                  }
-                })
-                
-                Toast.fire({
-                  icon: 'success',
-                  title: 'Email sent!'
-                })
-              }
-              else{
-                cf.resetContactForm();
-                const Toast = Swal.mixin({
-                  toast: true,
-                  position: 'top-end',
-                  showConfirmButton: false,
-                  timer: 3000,
-                  timerProgressBar: true,
-                  didOpen: (toast) => {
-                    toast.addEventListener('mouseenter', Swal.stopTimer)
-                    toast.addEventListener('mouseleave', Swal.resumeTimer)
-                  }
-                })
-                
-                Toast.fire({
-                  icon: 'warning',
-                  title: 'Email failed to sent!'
-                })
-              }
+          xhr.onload =  () => {
+              xhr.responseText == "success" ?
+              this.snackbar
+              .setTitle("Email sent successfully!")
+              .setType({isDefault: true})
+              .execute() :
+              this.snackbar
+              .setTitle("Email failed to send.")
+              .setType({isDefault: true})
+              .execute();
+            cf.resetContactForm();
           }  
 
           xhr.send(JSON.stringify(data));

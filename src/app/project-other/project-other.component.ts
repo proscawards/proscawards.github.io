@@ -1,5 +1,4 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import Swal from 'sweetalert2';
 import * as $ from 'jquery';
 import { ActivatedRoute } from '@angular/router';
 import { WINDOW } from "../services/window.service";

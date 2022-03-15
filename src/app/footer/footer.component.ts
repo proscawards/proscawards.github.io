@@ -1,12 +1,17 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import * as $ from 'jquery';
-import Swal from 'sweetalert2';
 import { HttpClient } from '@angular/common/http';
 import { DOCUMENT } from '@angular/common';
 import { WINDOW } from "../services/window.service";
 import { CacheService } from '../services/cache.service';
 import { KEY_STATE, KEY_VCOUNT, KEY_VCOUNTRY } from '../api/CacheKeys';
 import { Router } from '../services/router.service';
+import { Snackbar } from '../utils/Snackbar';
+
+interface TopCountry{
+  img?: string,
+  count?: number
+}
 
 @Component({
   selector: 'footer',
@@ -19,12 +24,18 @@ export class FooterComponent implements OnInit{
   private owlStr = "<img class='owls' src='assets/images/owls/owls_owl.svg'/><img class='owls' src='assets/images/owls/owls_lufie.svg'/><img class='owls' src='assets/images/owls/owls_guin.svg'/><img class='owls' id='phoenix' src='assets/images/owls/owls_owlhuang.svg'/><img class='owls' src='assets/images/owls/owls_flowl.svg'/>";
   public url: string = this.router.routeURL();
   private cacheService: CacheService;
+  public totalCount: number = 0;
+  public top1Country: TopCountry = {};
+  public top2Country: TopCountry = {};
+  public top3Country: TopCountry = {};
+
 
   constructor(
     @Inject(DOCUMENT) private document: Document,
     @Inject(WINDOW) private window: Window,
     private httpClient: HttpClient,
-    private router: Router
+    private router: Router,
+    private snackbar: Snackbar,
   ){
     this.cacheService = new CacheService(httpClient);
   }
@@ -113,20 +124,11 @@ export class FooterComponent implements OnInit{
   //Download Resume
   downloadResume(e: any){
     e.preventDefault();
-    Swal.fire({
-      text: `Do you want to download resume?`,
-      confirmButtonText: "Download",
-      showCancelButton: true
-    }).then(result => {
-      if (result.isConfirmed) {
-        var hiddenElement = document.createElement('a');
-        hiddenElement.href = "assets/files/proscawards_resume.pdf";
-        hiddenElement.target = '_blank';
-        hiddenElement.download = "proscawards_resume.pdf";
-        hiddenElement.click();
-        hiddenElement.remove();
-      }
-    });
+    this.snackbar
+    .setTitle("Are you sure you want to download resume?")
+    .setAction("Yeah~")
+    .setType({isResume: true})
+    .execute();
   }
 
   //On document load
@@ -152,24 +154,30 @@ export class FooterComponent implements OnInit{
 
   //Display data of top countries
   setCountriesData(data: any){
-    $("#top1CountryImg").attr("src", "https://flagpedia.net/data/flags/normal/"+data[0][0]+".png");
-    $("#top1CountryCount").text(data[0][1].count);
-    $("#top2CountryImg").attr("src", "https://flagpedia.net/data/flags/normal/"+data[1][0]+".png");
-    $("#top2CountryCount").text(data[1][1].count);
-    $("#top3CountryImg").attr("src", "https://flagpedia.net/data/flags/normal/"+data[2][0]+".png");
-    $("#top3CountryCount").text(data[2][1].count);
+    this.top1Country = {
+      img: `https://flagpedia.net/data/flags/normal/${data[0][0]}.png`,
+      count: data[0][1].count
+    };
+    this.top2Country = {
+      img: `https://flagpedia.net/data/flags/normal/${data[1][0]}.png`,
+      count: data[1][1].count
+    };
+    this.top3Country = {
+      img: `https://flagpedia.net/data/flags/normal/${data[2][0]}.png`,
+      count: data[2][1].count
+    };
   }
 
   //Show total visitor
   getTotalVisitor(){
     if (this.cacheService.exist(KEY_VCOUNT)){
-      $("#totalVisitor").text(this.cacheService.get(KEY_VCOUNT));
+      this.totalCount = this.cacheService.get(KEY_VCOUNT);
     }
     else{
       this.httpClient.get<any>('https://proscawards-portfolio-backend.herokuapp.com/count')
       .subscribe(res => {
         this.cacheService.set(KEY_VCOUNT, res.count)
-        $("#totalVisitor").text(res.count);
+        this.totalCount = res.count;
       });
     }
   }

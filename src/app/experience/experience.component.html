@@ -3,7 +3,7 @@
     <div i18n class="col-md-12 sectionHeader" data-aos="fade-right">//Experiences</div> 
     <div class="col-md-12 wrapper">
         <div class="col-md-12 scroll-bg">
-            <div *ngFor="let infos of infoArr">
+            <div class="expDiv" *ngFor="let infos of infoArr">
                 <h3 class="expTitle" data-aos="fade-left" *ngIf="infos.link != ''; else noLinkTitle"><a class="link" href="{{infos.link}}" target="_blank">{{infos.name}}</a></h3>
                 <ng-template #noLinkTitle>
                     <h3 class="expTitle" data-aos="fade-left">{{infos.name}}</h3>

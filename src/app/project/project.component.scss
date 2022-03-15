@@ -94,6 +94,7 @@
 
 .projectTitle{
     font-size: 25px;
+    font-family: SecularOne;
     @media screen and (max-width: 768px) {
         font-size: 20px;
     }
@@ -101,17 +102,19 @@
 
 .projectType{
     color: var(--currentCommentColor);
-    font-size: 18px;
+    font-size: 13px;
     @media screen and (max-width: 768px) {
-        font-size: 13px;
+        font-size: 10px;
     }
 }
 
 .projectDuration{
     font-style: italic;
     font-size: 18px;
+    font-family: SecularOne;
+    opacity: .8 !important;
     @media screen and (max-width: 768px) {
-        font-size: 14px;
+        font-size: 15px;
     }
 }
 
@@ -130,6 +133,11 @@
     bottom: 0;
     width: 100%;
     opacity: .9;
+    display: block;
+    transition: .3s;
+    @media screen and (max-width: 768px) {
+        display: none;
+    }
 }
 
 .progress-bar{
@@ -176,4 +184,8 @@
     @media screen and (max-width: 768px) {
         font-size: 13px;
     }
+}
+
+.projectLogo{
+    width: 50%;
 }

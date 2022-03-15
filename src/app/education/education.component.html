@@ -3,7 +3,7 @@
     <div i18n class="col-md-12 sectionHeader" data-aos="fade-right">//Educations</div> 
     <div class="col-md-12 wrapper">
         <div class="col-md-12 scroll-bg">
-            <div *ngFor="let infos of infoArr">
+            <div class="eduDiv" *ngFor="let infos of infoArr">
                 <h3 class="eduTitle" i18n data-aos="fade-left">{{infos.name}}</h3>
                 <span class="eduDuration" i18n data-aos="fade-up">{{infos.date}}</span><br/>
                 <span i18n class="eduType" data-aos="fade-up" (click)="eduBtnOnClick($event,infos.id)">{{infos.type}}&nbsp;<i class="eduBtn fas fa-angle-down" id="eduBtn{{infos.id}}"></i></span><br/>

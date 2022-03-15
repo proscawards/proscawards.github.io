@@ -1,7 +1,11 @@
+.expDiv{
+    padding-top: 10px;
+}
+
 .link{
     text-decoration: none;
     color: var(--currentFontCodeColor);
-
+    font-family: SecularOne;
     &:hover{
         text-decoration: underline;
         color: var(--currentFontCodeColor);
@@ -10,6 +14,7 @@
 
 .expTitle{
     font-size: 25px;
+    font-family: SecularOne;
     @media screen and (max-width: 768px) {
         font-size: 20px;
     }
@@ -17,17 +22,20 @@
 
 .expType{
     color: var(--currentCommentColor);
-    font-size: 18px;
+    font-size: 13px;
+    cursor: pointer;
     @media screen and (max-width: 768px) {
-        font-size: 13px;
+        font-size: 10px;
     }
 }
 
 .expDuration{
     font-style: italic;
     font-size: 18px;
+    font-family: SecularOne;
+    opacity: .8 !important;
     @media screen and (max-width: 768px) {
-        font-size: 14px;
+        font-size: 15px;
     }
 }
 

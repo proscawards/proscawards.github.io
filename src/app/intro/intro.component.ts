@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import * as $ from "jquery";
-import Swal from 'sweetalert2';
 import { TypeWriterComponent } from './intro.typewriter.component';
 import { CacheService } from '../services/cache.service';
 import { HttpClient } from '@angular/common/http';

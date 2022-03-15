@@ -81,9 +81,8 @@ export class ProjectDetailComponent implements OnInit {
   }
 
   //Open github source codes
-  sourceBtnOnClicked(e: any, id: any){
+  sourceBtnOnClicked(e: any, source: any){
     e.preventDefault();
-    let source: string = this.infoData[id].source;
     window.open(source, '_blank');
   }
 

@@ -1,6 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import * as $ from "jquery";
-import Swal from 'sweetalert2';
 import { Router } from '../services/router.service';
 import { HttpClient } from '@angular/common/http';
 import { CacheService } from '../services/cache.service';
@@ -9,7 +8,7 @@ import { DOCUMENT } from '@angular/common';
 import { WINDOW } from '../services/window.service';
 import { KEY_STATE, KEY_THEME_ACTIVE } from '../api/CacheKeys';
 import { DarkTheme, LightTheme } from '../utils/Theme';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import { Snackbar } from '../utils/Snackbar';
 
 @Component({
   selector: 'social3d',
@@ -36,86 +35,107 @@ export class Social3dComponent implements OnInit {
       private httpClient: HttpClient,
       @Inject(DOCUMENT) private document: Document,
       @Inject(WINDOW) private window: Window,
-      private snackbar: MatSnackBar,
+      private snackbar: Snackbar,
   ){
       this.cacheService = new CacheService(httpClient);
       this.selected3dName = new Selected3DName();
   }
 
-  openSocialSnackBar(name: string, url: string) {
-    this.snackbar.open(`Visit ${name}?`, 'Sure!', {
-      duration: 5000
-    });
-    this.snackbar._openedSnackBarRef?.onAction().subscribe(() => {
-      this.window.open(url, "_blank");
-    });
-  }
-
-  openResumeSnackBar() {
-    this.snackbar.open(`Resume downloaded.`, '', {
-      duration: 3000
-    });
-  }
-
-  openRouterSnackBar(name: string, action: string, route: string) {
-    this.snackbar.open(name, action, {
-      duration: 3000
-    });
-    this.snackbar._openedSnackBarRef?.onAction().subscribe(() => {
-      this.router.routeTo(route);
-    });
-  }
-
   ngOnInit(): void {
     $("#linkedin").on('click', () => {
-      this.openSocialSnackBar("LinkedIn", "https://www.linkedin.com/in/proscawards/");
+      this.snackbar
+      .setTitle("Visit my LinkedIn profile?")
+      .setAction("Sure!")
+      .setUrl("https://www.linkedin.com/in/proscawards/")
+      .setType({isSocial: true})
+      .execute();
     });
     $("#github").on('click', () => {
-      this.openSocialSnackBar("GitHub", "https://github.com/proscawards/");
+      this.snackbar
+      .setTitle("Visit my GitHub profile?")
+      .setAction("Sure!")
+      .setUrl("https://github.com/proscawards/")
+      .setType({isSocial: true})
+      .execute();
     });
     $("#instagram").on('click', () => {
-      this.openSocialSnackBar("Instagram", "https://instagram.com/proscawards");
+      this.snackbar
+      .setTitle("Visit my Instagram profile?")
+      .setAction("Sure!")
+      .setUrl("https://instagram.com/proscawards/")
+      .setType({isSocial: true})
+      .execute();
     });
     $("#discord").on('click', () => {
-      this.openSocialSnackBar("Discord", "https://discord.com/users/346129656157831169/");
+      this.snackbar
+      .setTitle("Visit my Discord profile?")
+      .setAction("Sure!")
+      .setUrl("https://discord.com/users/346129656157831169/")
+      .setType({isSocial: true})
+      .execute();
     });
     $("#resume").on('click', () => {
-      Swal.fire({
-        text: `Do you want to download resume?`,
-        confirmButtonText: "Download",
-        showCancelButton: true
-      }).then(result => {
-        if (result.isConfirmed) {
-          var hiddenElement = document.createElement('a');
-          hiddenElement.href = "assets/files/proscawards_resume.pdf";
-          hiddenElement.target = '_blank';
-          hiddenElement.download = "proscawards_resume.pdf";
-          hiddenElement.click();
-          hiddenElement.remove();
-          this.openResumeSnackBar();
-        }
-      });
+      this.snackbar
+      .setTitle("Are you sure you want to download resume?")
+      .setAction("Yeah~")
+      .setType({isResume: true})
+      .execute();
     });
     $("#aboutme").on('click', () => {
-      this.openRouterSnackBar("An ID card?", "About me", "about-me");
+      this.snackbar
+      .setTitle("An ID card?")
+      .setAction("About me")
+      .setUrl("about-me")
+      .setType({isRouter: true})
+      .execute();
     });
     $("#skill").on('click', () => {
-      this.openRouterSnackBar("A haywired brain?", "Skills", "skills");
+      this.snackbar
+      .setTitle("A haywired brain?")
+      .setAction("Skills")
+      .setUrl("skills")
+      .setType({isRouter: true})
+      .execute();
     });
     $("#project").on('click', () => {
-      this.openRouterSnackBar("A self-closing tag paper?", "Projects", "featured-projects");
+      this.snackbar
+      .setTitle("A self-closing tag paper?")
+      .setAction("Projects")
+      .setUrl("featured-projects")
+      .setType({isRouter: true})
+      .execute();
     });
     $("#cert").on('click', () => {
-      this.openRouterSnackBar("A paper with medal?", "Certifications", "certifications");
+      this.snackbar
+      .setTitle("A paper with medal?")
+      .setAction("Certifications")
+      .setUrl("certifications")
+      .setType({isRouter: true})
+      .execute();
     });
     $("#edu").on('click', () => {
-      this.openRouterSnackBar("A graduation cap?", "Educations", "educations");
+      this.snackbar
+      .setTitle("A graduation cap?")
+      .setAction("Educations")
+      .setUrl("educations")
+      .setType({isRouter: true})
+      .execute();
     });
     $("#exp").on('click', () => {
-      this.openRouterSnackBar("A suitcase?", "Experiences", "experiences");
+      this.snackbar
+      .setTitle("A suitcase?")
+      .setAction("Experiences")
+      .setUrl("experiences")
+      .setType({isRouter: true})
+      .execute();
     });
     $("#contact").on('click', () => {
-      this.openRouterSnackBar("An envelope?", "Contact me", "contact-me");
+      this.snackbar
+      .setTitle("An envelope?")
+      .setAction("Contact me")
+      .setUrl("contact-me")
+      .setType({isRouter: true})
+      .execute();
     });
     $("#scrollTop3d").on('click', () => {
       $('html, body').animate({

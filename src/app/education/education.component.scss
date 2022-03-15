@@ -1,5 +1,10 @@
+.eduDiv{
+    padding-top: 10px;
+}
+
 .link{
     text-decoration: none;
+    font-family: SecularOne;
     color: var(--currentFontCodeColor);
 
     &:hover{
@@ -10,6 +15,7 @@
 
 .eduTitle{
     font-size: 25px;
+    font-family: SecularOne;
     @media screen and (max-width: 768px) {
         font-size: 20px;
     }
@@ -17,17 +23,20 @@
 
 .eduType{
     color: var(--currentCommentColor);
-    font-size: 18px;
+    font-size: 13px;
+    cursor: pointer;
     @media screen and (max-width: 768px) {
-        font-size: 13px;
+        font-size: 10px;
     }
 }
 
 .eduDuration{
     font-style: italic;
     font-size: 18px;
+    font-family: SecularOne;
+    opacity: .8 !important;
     @media screen and (max-width: 768px) {
-        font-size: 14px;
+        font-size: 15px;
     }
 }
 

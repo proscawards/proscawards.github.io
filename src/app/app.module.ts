@@ -61,7 +61,6 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     ContactModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent},
-      { path: 'home', component: HomeComponent},
       { path: 'certifications', component: CertificationComponent},
       { path: 'featured-projects', component: ProjectComponent},
       { path: 'all-projects', component: ProjectOtherComponent},
@@ -72,7 +71,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
       { path: 'contact-me', component: ContactpageComponent},
       { path: 'about-me', component: AboutComponent},
       { path: '404', component: NotfoundComponent},
-      { path: '**', redirectTo: 'home'}
+      { path: '**', redirectTo: ''}
     ],
     {
       scrollPositionRestoration: 'enabled',

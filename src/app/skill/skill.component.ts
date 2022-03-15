@@ -3,7 +3,6 @@ import { DOCUMENT } from '@angular/common';
 import { WINDOW } from "../services/window.service";
 import * as $ from "jquery";
 import data from "./skill-chart.json";
-import Swal from 'sweetalert2';
 import Chart from 'chart.js/auto';
 
 interface Data{

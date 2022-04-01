@@ -11,5 +11,6 @@ export const KEY_VCOUNT = "cache_vcount"; //Visitor counts
 export const KEY_STATE = "cache_state"; //State of name buttons
 export const KEY_PROJECT_ACTIVE = "cache_projectact"; //Active Project
 export const KEY_PAGE = "cache_page"; //Current page
+export const KEY_SEARCH_ACTIVE = "cache_searchact"; //Any text input that is currently in use
 
 

@@ -70,55 +70,100 @@ export class CacheService {
     return false;
   }
 
+  //Restart backend
+  private restart(){
+    this.httpClient.get<any>('https://proscawards-portfolio-backend.herokuapp.com/rs', {observe : 'response'})
+    .subscribe(res => {
+      if (res.statusText == "success"){
+        this.subscribe();
+      }
+    });
+  }
+
   //Subscribe to all endpoint to prepare for response caching
   subscribe(){
     if (!this.exist(KEY_EXP)){
-      this.httpClient.get<any>('https://proscawards-portfolio-backend.herokuapp.com/exp')
+      this.httpClient.get<any>('https://proscawards-portfolio-backend.herokuapp.com/exp', {observe : 'response'})
       .subscribe(res => {
-        var data = res.slice(0);
-        data.sort(function(a: any, b: any) {return a.id - b.id});
-        this.set(KEY_EXP, data);
+        if (res.status != 200){
+          this.restart();
+        }
+        else{
+          var data = res.body.slice(0);
+          data.sort(function(a: any, b: any) {return a.id - b.id});
+          this.set(KEY_EXP, data);
+        }
       });
     }
     if (!this.exist(KEY_CERT)){
-      this.httpClient.get<any>('https://proscawards-portfolio-backend.herokuapp.com/cert')
+      this.httpClient.get<any>('https://proscawards-portfolio-backend.herokuapp.com/cert', {observe : 'response'})
       .subscribe(res => {
-        var data = res.slice(0);
-        data.sort(function(a: any, b: any) {
-          let da: any = parse(a.cert.date, "MMMM yyyy", new Date());
-          let db: any = parse(b.cert.date, "MMMM yyyy", new Date());
-          return da - db;
-        });
-        this.set(KEY_CERT, data);
+        if (res.status != 200){
+          this.restart();
+        }
+        else{
+          var data = res.body.slice(0);
+          data.sort(function(a: any, b: any) {
+            let da: any = parse(a.cert.date, "MMMM yyyy", new Date());
+            let db: any = parse(b.cert.date, "MMMM yyyy", new Date());
+            return da - db;
+          });
+          this.set(KEY_CERT, data);
+        }
       });
     }
     if (!this.exist(KEY_EDU)){
-      this.httpClient.get<any>('https://proscawards-portfolio-backend.herokuapp.com/edu')
+      this.httpClient.get<any>('https://proscawards-portfolio-backend.herokuapp.com/edu', {observe : 'response'})
       .subscribe(res => {
-        var data = res.slice(0);
-        data.sort(function(a: any, b: any) {return a.id - b.id});
-        this.set(KEY_EDU, data);
+        if (res.status != 200){
+          this.restart();
+        }
+        else{
+          var data = res.body.slice(0);
+          data.sort(function(a: any, b: any) {return a.id - b.id});
+          this.set(KEY_EDU, data);
+        }
       });
     }
     if (!this.exist(KEY_PROJECT)){
-      this.httpClient.get<any>('https://proscawards-portfolio-backend.herokuapp.com/project')
+      this.httpClient.get<any>('https://proscawards-portfolio-backend.herokuapp.com/project', {observe : 'response'})
       .subscribe(res => {
-        var data = res.slice(0);
-        data.sort(function(a: any, b: any) {return a.id - b.id});
-        this.set(KEY_PROJECT, data);
+        if (res.status != 200){
+          this.restart();
+        }
+        else{
+          var data = res.body.slice(0);
+          data.sort(function(a: any, b: any) {return a.id - b.id});
+          this.set(KEY_PROJECT, data);
+        }
       });
     }
     if (!this.exist(KEY_VCOUNTRY)){
-      this.httpClient.get<any>('https://proscawards-portfolio-backend.herokuapp.com/').subscribe();
-      this.httpClient.get<any>('https://proscawards-portfolio-backend.herokuapp.com/country')
+      this.httpClient.get<any>('https://proscawards-portfolio-backend.herokuapp.com/', {observe : 'response'})
       .subscribe(res => {
-        this.set(KEY_VCOUNTRY, res);
+        if (res.status != 200){
+          this.restart();
+        }
+      });
+      this.httpClient.get<any>('https://proscawards-portfolio-backend.herokuapp.com/country', {observe : 'response'})
+      .subscribe(res => {
+        if (res.status != 200){
+          this.restart();
+        }
+        else{
+          this.set(KEY_VCOUNTRY, res.body);
+        }
       });
     }
     if (!this.exist(KEY_VCOUNT)){
-      this.httpClient.get<any>('https://proscawards-portfolio-backend.herokuapp.com/count')
+      this.httpClient.get<any>('https://proscawards-portfolio-backend.herokuapp.com/count', {observe : 'response'})
       .subscribe(res => {
-        this.set(KEY_VCOUNT, res.count)
+        if (res.status != 200){
+          this.restart();
+        }
+        else{
+          this.set(KEY_VCOUNT, res.body.count)
+        }
       });    
     }
   }

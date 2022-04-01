@@ -28,15 +28,15 @@ export class Router {
         }
         if (this.cacheService.exist(KEY_PAGE)){
             if (this.cacheService.isEqual(KEY_PAGE, url)){
-                this.router.navigate([`/${this.cacheService.get(KEY_PAGE)}`], { replaceUrl: true });
+                this.router.navigate([`/${this.cacheService.get(KEY_PAGE)}`]);
             }
             else{
-                this.router.navigate([`/${url}`], { replaceUrl: true });
+                this.router.navigate([`/${url}`]);
                 this.cacheService.set(KEY_PAGE, url);
             }
         }
         else{
-            this.router.navigate([`/${url}`], { replaceUrl: true });
+            this.router.navigate([`/${url}`]);
             this.cacheService.set(KEY_PAGE, url);
         }
     }

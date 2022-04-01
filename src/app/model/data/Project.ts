@@ -10,7 +10,7 @@ export interface Project {
     lang: string,
     desc: string,
     date: string,
-    icon: string,
+    filter: string,
     source: string,
     img: string,
     isWIP: boolean,

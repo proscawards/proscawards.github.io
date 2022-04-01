@@ -5,9 +5,11 @@ import ToSentenceCase from '../utils/ToSentenceCase';
 import { HttpClient } from '@angular/common/http';
 import { DOCUMENT } from '@angular/common';
 import { WINDOW } from "../services/window.service";
-import { KEY_BNB_ACTIVE, KEY_THEME_ACTIVE } from '../api/CacheKeys';
+import { KEY_BNB_ACTIVE, KEY_THEME_ACTIVE, KEY_SEARCH_ACTIVE } from '../api/CacheKeys';
 import { DarkTheme, LightTheme } from '../utils/Theme';
 import { Router } from '../services/router.service';
+import { Snackbar } from '../utils/Snackbar';
+import ShortcutKeys from '../utils/ShortcutKeys';
 
 @Component({
   selector: 'botnavbar',
@@ -23,8 +25,11 @@ export class BotnavbarComponent implements OnInit {
     private httpClient: HttpClient,
     @Inject(DOCUMENT) private document: Document,
     @Inject(WINDOW) private window: Window,
+    private snackbar: Snackbar,
+    private shortcutKeys: ShortcutKeys,
   ) { 
     this.cacheService = new CacheService(httpClient);
+    this.shortcutKeys = new ShortcutKeys(document, router, httpClient, this.cacheService);
   }
 
   ngOnInit(): void {
@@ -50,41 +55,7 @@ export class BotnavbarComponent implements OnInit {
       }
     }
 
-    this.document.addEventListener("keypress", (e: any) => {
-      switch (e.key){
-        case '-':
-          this.lightThemeBtnOnClick();
-          break;
-        case '=':
-        case '+':
-          this.darkThemeBtnOnClick();
-          break;
-        case '1':
-          this.botNavBtnOnClicked(e, "");
-          break;
-        case '2':
-          this.botNavBtnOnClicked(e, "about-me");
-          break;
-        case '3':
-          this.botNavBtnOnClicked(e, "skills");
-          break;
-        case '4':
-          this.botNavBtnOnClicked(e, "featured-projects");
-          break;
-        case '5':
-          this.botNavBtnOnClicked(e, "educations");
-          break;
-        case '6':
-          this.botNavBtnOnClicked(e, "experiences");
-          break;
-        case '7':
-          this.botNavBtnOnClicked(e, "certifications");
-          break;
-        case '8':
-          this.botNavBtnOnClicked(e, "contact-me");
-          break;
-      }
-    });
+    // this.shortcutKeys.addListener();
   }
 
   ngAfterViewInit(){

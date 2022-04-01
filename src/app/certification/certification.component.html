@@ -17,11 +17,7 @@
                         <span class="sr-only"></span>
                     </div>
                 </div>
-                <div class="col-md-12 noResultDiv">
-                    <img class='owls' src='assets/images/owls/owls_owl.svg'/>
-                    <span>No result(s) found! Here's an owl for you >:D!</span>
-                    <span>Search term: <span class="prevQuery">{{prevQuery}}</span></span>
-                </div>
+                <noresult [prevQuery]="prevQuery"></noresult>
                 <div class="col-md-6 certDiv" *ngFor="let info of infoArr | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">
                     <div class="certInnerDiv">
                         <div class="col-md-12 certMainDiv">

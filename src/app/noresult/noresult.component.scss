@@ -1,0 +1,15 @@
+.noResultDiv{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    margin: 2em;
+    height: 100vh;
+}
+
+.prevQuery{
+    color: var(--currentCommentColor);
+    font-style: italic;
+    text-decoration: underline;
+}

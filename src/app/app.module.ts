@@ -31,6 +31,12 @@ import { BotnavbarModule } from './botnavbar/botnavbar.module';
 import { LottieModule } from 'ngx-lottie';
 import { SplashComponent } from './splash/splash.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { FormsModule } from '@angular/forms';
+import { NoResultModule } from './noresult/noresult.module';
 
 @NgModule({
   declarations: [
@@ -83,6 +89,12 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     BotnavbarModule,
     LottieModule,
     MatSnackBarModule,
+    MatButtonModule,
+    MatInputModule,
+    MatIconModule,
+    MatFormFieldModule,
+    FormsModule,
+    NoResultModule,
   ],
   //providers: [WINDOW_PROVIDERS, {provide: APP_BASE_HREF, useValue : '/' }],
   providers: [WINDOW_PROVIDERS, {provide: LocationStrategy, useClass: HashLocationStrategy}],

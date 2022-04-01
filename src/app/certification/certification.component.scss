@@ -37,6 +37,10 @@
                 border-radius: 5px;
                 border: 1px solid var(--currentBgSdColor);
                 box-shadow: var(--defaultBoxShadow);
+
+                @media screen and (max-width: 768px) {
+                    width: 0%;
+                }
             }
         }
         
@@ -153,6 +157,10 @@
             outline: none;
             opacity: .3;
             transition: .3s;
+            @media screen and (max-width: 768px) {
+                top: auto;
+                bottom: 0;
+            }
     
             &:hover{
                 opacity: .8;
@@ -210,7 +218,7 @@
     }
 }
 
-.noResultDiv, .loadingDiv{
+.loadingDiv{
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -218,12 +226,6 @@
     align-items: center;
     margin: 2em;
     height: 100vh;
-}
-
-.prevQuery{
-    color: var(--currentCommentColor);
-    font-style: italic;
-    text-decoration: underline;
 }
 
 .hideTitle{

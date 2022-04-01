@@ -77,6 +77,18 @@
 
 .projectDiv{
     display: flex; 
+    animation: cardFadeIn .5s ease-in-out alternate; 
+}
+
+@keyframes cardFadeIn {
+    0%{
+        opacity: 0.5;
+        transform: rotateY(90deg);
+    }
+    100%{
+        opacity: 1;
+        transform: rotateY(0deg);
+    }
 }
 
 .projectInnerDiv{
@@ -104,7 +116,7 @@
     flex: 1;
     width: fit-content;
     min-height: 100%;
-    cursor: url("../../assets/files/cursor/cursor_learn_more.png"), default;
+    cursor: url("../../assets/files/cursor/cursor_learn_more.svg"), auto;
 
     &:hover, &:focus, &.hovered{
         background: var(--currentBgSdColor);
@@ -130,6 +142,11 @@
     transform: translateY(100px);
     opacity: 0;
     transition: .3s;
+    height: fit-content;
+    font-size: 15px;
+    @media screen and (max-width: 768px) {
+        font-size: 12px;
+    } 
 }
 
 .progImgDiv{
@@ -142,7 +159,7 @@
         transition: .3s;
 
         @media screen and (max-width: 768px) {
-            width: 20px;
+            width: 10px;
         } 
     }
 }
@@ -221,4 +238,67 @@
         width: 0;
         background: transparent;
     }
+}
+
+.filterProjDiv{
+    margin: .5em;
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    &>button{
+        margin: .1em;
+    }
+}
+
+.filterProjSpan{
+    display: inline;
+    @media screen and (max-width: 768px) {
+        display: none;
+    } 
+}
+
+.filterToggleBtnDiv{
+    position: absolute;
+    top: 0;
+    right: 15px;
+    &>.filterToggleBtn{
+        outline: none;
+        border: none;
+        background: none;
+        color: var(--currentFontColor);
+        opacity: .5;
+        transition: .3s;
+
+        &:hover{
+            opacity: 1;
+        }
+    }
+}
+
+.searchProjInput{
+    background: none;
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid rgba(0,0,0,.3);
+    border-radius: 0px;
+    padding: 10px;
+    font-size: 18px;
+    outline: none;
+    color: var(--oppositeBgCodeColor);
+    transition: .3s;
+    @media screen and (max-width: 768px) {
+        font-size: 15px;
+    }
+
+    &:hover, &:focus{
+        background: rgba(1,1,1,.1);
+        border: none;
+        border-bottom: 1px dotted var(--currentFontCodeColor);
+        border-radius: 5px;
+    }
+}
+
+.mat-active{
+    background-color: var(--currentFontColor);
 }

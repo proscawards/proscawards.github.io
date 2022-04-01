@@ -1,6 +1,8 @@
 <header></header>
 <div class="row col-md-12 section">
-    <div i18n class="col-md-12 sectionHeader" data-aos="fade-right">//All Projects</div>
+    <div i18n class="col-md-12 sectionHeader" data-aos="fade-right">//All Projects
+        <div class="filterToggleBtnDiv"><button class="filterToggleBtn isFilterToggleActive" (click)="filterBtnOnToggle($event)" title="Toggle options for filtering project(s)"><i class="fas fa-filter"></i></button></div>
+    </div>
     <div class="col-md-12 wrapper">
         <div class="col-md-12 scroll-bg">
             <div class="col-md-12 loadingDiv" id="projLoading">
@@ -8,9 +10,22 @@
                     <span class="sr-only"></span>
                 </div>
             </div>
+            <div class="row-col-12 filterProjDiv">
+                <button class="ngMatBtn" id="ngMatBtn0" mat-raised-button color="active" (click)="filterBtnOnClick($event, 0)"><i class="fas fa-border-all"></i><span class="filterProjSpan"> All</span></button>
+                <button class="ngMatBtn" id="ngMatBtn1" mat-raised-button (click)="filterBtnOnClick($event, 1)"><i class="fas fa-desktop"></i><span class="filterProjSpan"> Desktop</span></button>
+                <button class="ngMatBtn" id="ngMatBtn2" mat-raised-button (click)="filterBtnOnClick($event, 2)"><i class="fas fa-mobile-alt"></i><span class="filterProjSpan"> Mobile</span></button>
+                <button class="ngMatBtn" id="ngMatBtn3" mat-raised-button (click)="filterBtnOnClick($event, 3)"><i class="fas fa-globe"></i><span class="filterProjSpan"> Web</span></button>
+                <button class="ngMatBtn" id="ngMatBtn4" mat-raised-button (click)="filterBtnOnClick($event, 4)"><i class="fas fa-code"></i><span class="filterProjSpan"> Software Engineering</span></button>
+                <button class="ngMatBtn" id="ngMatBtn5" mat-raised-button (click)="filterBtnOnClick($event, 5)"><i class="fas fa-chart-pie"></i><span class="filterProjSpan"> Data Science</span></button>
+                <button class="ngMatBtn" id="ngMatBtn6" mat-raised-button (click)="filterBtnOnClick($event, 6)"><i class="fas fa-gamepad"></i><span class="filterProjSpan"> Game Dev</span></button>
+                <button class="ngMatBtn" id="ngMatBtn7" mat-raised-button (click)="filterBtnOnClick($event, 7)"><i class="fas fa-shopping-cart"></i><span class="filterProjSpan"> E-Commerce</span></button>
+                <button class="ngMatBtn" id="ngMatBtn8" mat-raised-button (click)="filterBtnOnClick($event, 8)"><i class="fas fa-wrench"></i><span class="filterProjSpan"> Utility</span></button>
+                <input type="text" class="searchProjInput col-md-12" id="searchProjInput" (input)="searchOnChange($event)" placeholder="Search Project(s)..."/>
+            </div>
+            <noresult [prevQuery]="prevQuery"></noresult>
             <cdk-virtual-scroll-viewport itemSize="3" class="vsDiv">
                 <div class="row col-md-12">
-                    <div class="col-md-4 projectDiv" *cdkVirtualFor="let info of infoArr">
+                    <div class="col-md-4 projectDiv" *cdkVirtualFor="let info of filterArr">
                         <div class="projectInnerDiv">
                             <div class="col-md-12 projectInnerSubDiv" id="projectDiv{{info.id}}" (click)="projectDivOnClick($event,info.id)">
                                 <div class="projectThumbnail">

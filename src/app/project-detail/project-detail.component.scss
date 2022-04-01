@@ -9,7 +9,7 @@
     justify-content: center;
     align-items: center;
     position: relative;
-    cursor: url("../../assets/files/cursor/cursor_project_open.png"), default;
+    cursor: url("../../assets/files/cursor/cursor_project_open.svg"), auto;
 
     &>img{
         max-width: 100%;
@@ -60,7 +60,7 @@
     justify-content: center;
     align-items: center;
     display: none;
-    cursor: url("../../assets/files/cursor/cursor_project_close.png"), default;
+    cursor: url("../../assets/files/cursor/cursor_project_close.svg"), auto;
 
     &>.fsThumbnail{
         width: 100vw;

@@ -105,14 +105,14 @@ export class Social3dComponent implements OnInit {
       .setType({isRouter: true})
       .execute();
     });
-    $("#cert").on('click', () => {
-      this.snackbar
-      .setTitle("A paper with medal?")
-      .setAction("Certifications")
-      .setUrl("certifications")
-      .setType({isRouter: true})
-      .execute();
-    });
+    // $("#cert").on('click', () => {
+    //   this.snackbar
+    //   .setTitle("A paper with medal?")
+    //   .setAction("Certifications")
+    //   .setUrl("certifications")
+    //   .setType({isRouter: true})
+    //   .execute();
+    // });
     $("#edu").on('click', () => {
       this.snackbar
       .setTitle("A graduation cap?")

@@ -95,23 +95,23 @@ export class CacheService {
         }
       });
     }
-    if (!this.exist(KEY_CERT)){
-      this.httpClient.get<any>('https://proscawards-portfolio-backend.herokuapp.com/cert', {observe : 'response'})
-      .subscribe(res => {
-        if (res.status != 200){
-          this.restart();
-        }
-        else{
-          var data = res.body.slice(0);
-          data.sort(function(a: any, b: any) {
-            let da: any = parse(a.cert.date, "MMMM yyyy", new Date());
-            let db: any = parse(b.cert.date, "MMMM yyyy", new Date());
-            return da - db;
-          });
-          this.set(KEY_CERT, data);
-        }
-      });
-    }
+    // if (!this.exist(KEY_CERT)){
+    //   this.httpClient.get<any>('https://proscawards-portfolio-backend.herokuapp.com/cert', {observe : 'response'})
+    //   .subscribe(res => {
+    //     if (res.status != 200){
+    //       this.restart();
+    //     }
+    //     else{
+    //       var data = res.body.slice(0);
+    //       data.sort(function(a: any, b: any) {
+    //         let da: any = parse(a.cert.date, "MMMM yyyy", new Date());
+    //         let db: any = parse(b.cert.date, "MMMM yyyy", new Date());
+    //         return da - db;
+    //       });
+    //       this.set(KEY_CERT, data);
+    //     }
+    //   });
+    // }
     if (!this.exist(KEY_EDU)){
       this.httpClient.get<any>('https://proscawards-portfolio-backend.herokuapp.com/edu', {observe : 'response'})
       .subscribe(res => {

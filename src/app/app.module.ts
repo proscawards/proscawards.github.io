@@ -67,7 +67,7 @@ import { NoResultModule } from './noresult/noresult.module';
     ContactModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent},
-      { path: 'certifications', component: CertificationComponent},
+      // { path: 'certifications', component: CertificationComponent},
       { path: 'featured-projects', component: ProjectComponent},
       { path: 'all-projects', component: ProjectOtherComponent},
       { path: 'project', component: ProjectDetailComponent},

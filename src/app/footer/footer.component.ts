@@ -35,9 +35,9 @@ export class FooterComponent implements OnInit{
     @Inject(WINDOW) private window: Window,
     private httpClient: HttpClient,
     private router: Router,
-    private snackbar: Snackbar,
+    private snackbar: Snackbar
   ){
-    this.cacheService = new CacheService(httpClient);
+    this.cacheService = new CacheService(this.httpClient);
   }
   
   ngOnInit(){

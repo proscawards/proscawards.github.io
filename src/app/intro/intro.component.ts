@@ -18,9 +18,9 @@ export class IntroComponent implements OnInit {
   private selected3dName: Selected3DName;
 
   constructor(
-    private httpClient: HttpClient,
+    private httpClient: HttpClient
   ){
-    this.cacheService = new CacheService(httpClient);
+    this.cacheService = new CacheService(this.httpClient);
     this.selected3dName = new Selected3DName();
   }
 

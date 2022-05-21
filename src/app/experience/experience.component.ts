@@ -6,6 +6,9 @@ import { CacheService } from '../services/cache.service';
 import { KEY_EXP, KEY_PROJECT_ACTIVE } from '../api/CacheKeys';
 import { differenceInCalendarMonths, parse } from 'date-fns';
 import { Router } from '../services/router.service';
+import { GetExperience } from '../graphql/resolver/GetExperience.gql';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'experience',
@@ -14,34 +17,28 @@ import { Router } from '../services/router.service';
 })
 export class ExperienceComponent implements OnInit {
 
+  private dataObserver!: Observable<Experience[]>;
   public infoArr: Experience[] = [];
   private cacheService: CacheService;
 
   constructor(
     private router: Router,
-    private httpClient: HttpClient
+    private httpClient: HttpClient,
+    private getExperience: GetExperience
   ) {
-    this.cacheService = new CacheService(httpClient);
+    this.cacheService = new CacheService(this.httpClient);
   }
 
   ngOnInit(): void {
-    this.getCollection();
-  }
-
-  //Retrieve data from backend
-  getCollection(){
-    if (this.cacheService.exist(KEY_EXP)){
-      this.infoArr = this.cacheService.get(KEY_EXP);
-    }
-    else{
-      this.httpClient.get<any>('https://proscawards-portfolio-backend.herokuapp.com/exp')
-      .subscribe(res => {
-        var data = res.slice(0);
-        data.sort(function(a: any, b: any) {return a.id - b.id});
-        this.infoArr = data;
-        this.cacheService.set(KEY_EXP, data);
-      });
-    }
+    this.dataObserver = this.getExperience.watch()
+                    .valueChanges
+                    .pipe(
+                      map(result => result.data.getExpList)
+                    );
+    this.dataObserver.subscribe(data => {
+      var tempData = [...data];
+      this.infoArr = tempData.sort((a: any, b: any) => {return a.id - b.id});
+    }); 
   }
 
   //Caret on click
@@ -87,6 +84,9 @@ export class ExperienceComponent implements OnInit {
     let diff: number = differenceInCalendarMonths(end, start)+1;
     let year: number = Math.floor(Math.round(diff/12));
     let month: number = diff%12;
+    if (month >= 6 && diff <= 12) {
+      year = 0;
+    } 
     return `${year != 0 ? year : ''} ${year == 1 ? 'year' : year == 0 ? '' : 'years'} ${month != 0 ? month : ''} ${month == 1 ? 'month' : 'months'}`
   }
 }

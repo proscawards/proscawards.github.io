@@ -14,7 +14,7 @@ export class HeaderComponent{
   constructor(
     private httpClient: HttpClient
   ) { 
-    this.cacheService = new CacheService(httpClient);
+    this.cacheService = new CacheService(this.httpClient);
     this.cacheService.setExp();
   }
 }

@@ -5,6 +5,10 @@ import { HttpClient } from '@angular/common/http';
 import { CacheService } from '../services/cache.service';
 import { KEY_EDU, KEY_PROJECT_ACTIVE } from '../api/CacheKeys';
 import { Router } from '../services/router.service';
+import { Apollo } from 'apollo-angular';
+import { GetEducation } from '../graphql/resolver/GetEducation.gql';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'education',
@@ -13,34 +17,28 @@ import { Router } from '../services/router.service';
 })
 export class EducationComponent implements OnInit {
 
+  private dataObserver!: Observable<Education[]>;
   public infoArr: Education[] = [];
   private cacheService: CacheService;
 
   constructor(
     private router: Router,
-    private httpClient: HttpClient
+    private httpClient: HttpClient,
+    private getEducation: GetEducation
   ) {
-    this.cacheService = new CacheService(httpClient);
+    this.cacheService = new CacheService(this.httpClient);
   }
 
   ngOnInit(): void {
-    this.getCollection();
-  }
-
-  //Retrieve data from backend
-  getCollection(){
-    if (this.cacheService.exist(KEY_EDU)){
-      this.infoArr = this.cacheService.get(KEY_EDU);
-    }
-    else{
-      this.httpClient.get<any>('https://proscawards-portfolio-backend.herokuapp.com/edu')
-      .subscribe(res => {
-        var data = res.slice(0);
-        data.sort(function(a: any, b: any) {return a.id - b.id});
-        this.infoArr = data;
-        this.cacheService.set(KEY_EDU, data);
-      });
-    }
+    this.dataObserver = this.getEducation.watch()
+                    .valueChanges
+                    .pipe(
+                      map(result => result.data.getEduList)
+                    );
+    this.dataObserver.subscribe(data => {
+      var tempData = [...data];
+      this.infoArr = tempData.sort((a: any, b: any) => {return a.id - b.id});
+    }); 
   }
 
   //Caret on click

@@ -26,9 +26,9 @@ export class BotnavbarComponent implements OnInit {
     @Inject(DOCUMENT) private document: Document,
     @Inject(WINDOW) private window: Window,
     private snackbar: Snackbar,
-    private shortcutKeys: ShortcutKeys,
+    private shortcutKeys: ShortcutKeys
   ) { 
-    this.cacheService = new CacheService(httpClient);
+    this.cacheService = new CacheService(this.httpClient);
     this.shortcutKeys = new ShortcutKeys(document, router, httpClient, this.cacheService);
   }
 

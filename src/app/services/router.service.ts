@@ -15,9 +15,9 @@ export class Router {
         private router: ngRouter,
         private location: Location,
         private cacheService: CacheService,
-        private httpClient: HttpClient,
+        private httpClient: HttpClient
     ){
-        this.cacheService = new CacheService(httpClient);
+        this.cacheService = new CacheService(this.httpClient);
     }
 
     routeTo(url?: string): void{

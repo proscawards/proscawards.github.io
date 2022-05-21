@@ -37,6 +37,10 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
 import { NoResultModule } from './noresult/noresult.module';
+import { GraphQLModule } from './graphql.module';
+import { ApolloModule, APOLLO_OPTIONS} from 'apollo-angular';
+import {HttpLink} from 'apollo-angular/http';
+import {InMemoryCache} from '@apollo/client/core';
 
 @NgModule({
   declarations: [
@@ -95,9 +99,26 @@ import { NoResultModule } from './noresult/noresult.module';
     MatFormFieldModule,
     FormsModule,
     NoResultModule,
+    GraphQLModule,
+    ApolloModule
   ],
   //providers: [WINDOW_PROVIDERS, {provide: APP_BASE_HREF, useValue : '/' }],
-  providers: [WINDOW_PROVIDERS, {provide: LocationStrategy, useClass: HashLocationStrategy}],
+  providers: [    
+    {
+      provide: APOLLO_OPTIONS,
+      useFactory: (httpLink: HttpLink) => {
+        return {
+          cache: new InMemoryCache(),
+          link: httpLink.create({
+            uri: 'https://proscawards-portfolio-backend.herokuapp.com/graphql',
+          }),
+        };
+      },
+      deps: [HttpLink],
+    },
+    WINDOW_PROVIDERS, 
+    {provide: LocationStrategy, useClass: HashLocationStrategy}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -35,9 +35,9 @@ export class Social3dComponent implements OnInit {
       private httpClient: HttpClient,
       @Inject(DOCUMENT) private document: Document,
       @Inject(WINDOW) private window: Window,
-      private snackbar: Snackbar,
+      private snackbar: Snackbar
   ){
-      this.cacheService = new CacheService(httpClient);
+      this.cacheService = new CacheService(this.httpClient);
       this.selected3dName = new Selected3DName();
   }
 

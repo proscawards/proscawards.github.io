@@ -8,6 +8,9 @@ import { CacheService } from '../services/cache.service';
 import { Router } from '../services/router.service';
 import { CdkVirtualScrollViewport } from "@angular/cdk/scrolling";
 import { KEY_PROJECT, KEY_PROJECT_ACTIVE } from '../api/CacheKeys';
+import { Observable } from 'rxjs';
+import { GetProject } from '../graphql/resolver/GetProject.gql';
+import { map } from 'rxjs/operators';
 
 interface ActiveButtons {
   isDesktopActive: Boolean,
@@ -28,6 +31,7 @@ interface ActiveButtons {
 
 export class ProjectOtherComponent implements OnInit {
 
+  private dataObserver!: Observable<Project[]>;
   public infoArr: Project[] = [];
   public filterArr: Project[] = [];
   private cacheService: CacheService;
@@ -48,35 +52,28 @@ export class ProjectOtherComponent implements OnInit {
     private route: ActivatedRoute,
     @Inject(WINDOW) private window: Window,
     private httpClient: HttpClient,
-    private router: Router
+    private router: Router,
+    private getProject: GetProject
   ){
-    this.cacheService = new CacheService(httpClient);
+    this.cacheService = new CacheService(this.httpClient);
   }
 
   ngOnInit(){
     $(".otherProjDiv").show();
     $(".compProjDiv, .noResultDiv").hide();
     this.validateParams();
-    this.getCollection();
-  }
-
-  //Retrieve data from backend
-  getCollection(){
-    if (this.cacheService.exist(KEY_PROJECT)){
-      this.infoArr = this.cacheService.get(KEY_PROJECT);
-    }
-    else{
-      this.httpClient.get<any>('https://proscawards-portfolio-backend.herokuapp.com/project')
-      .subscribe(res => {
-        var data = res.slice(0);
-        data.sort(function(a: any, b: any) {return a.id - b.id});
-        this.infoArr = data;
-        this.cacheService.set(KEY_PROJECT, data);
-      });
-    }
-    $("#projLoading").fadeOut();
-    $(".otherProjDiv").fadeIn();
-    this.filterArr = this.infoArr;
+    this.dataObserver = this.getProject.watch()
+                          .valueChanges
+                          .pipe(
+                            map(result => result.data.getProjectList)
+                          );
+    this.dataObserver.subscribe(data => {
+      var tempData = [...data];
+      this.infoArr = tempData.sort((a: any, b: any) => {return a.id - b.id});
+      $("#projLoading").fadeOut();
+      $(".otherProjDiv").fadeIn();
+      this.filterArr = this.infoArr;
+    });
   }
 
   //Redirect from education or experience

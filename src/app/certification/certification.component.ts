@@ -31,9 +31,9 @@ export class CertificationComponent implements OnInit {
     @Inject(WINDOW) private window: Window,
     @Inject(DOCUMENT) private document: Document,
     private httpClient: HttpClient,
-    private router: Router,
+    private router: Router
   ) {
-    this.cacheService = new CacheService(httpClient);
+    this.cacheService = new CacheService(this.httpClient);
   }
 
   ngOnInit(): void {

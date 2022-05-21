@@ -8,7 +8,9 @@ import * as $ from "jquery";
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+  ) { 
+  }
 
   ngOnInit(): void {
     $("body").css("overflow-y", "hidden");

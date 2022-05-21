@@ -30,9 +30,9 @@ export class ProjectDetailComponent implements OnInit {
     private route: ActivatedRoute,
     @Inject(DOCUMENT) private document: Document,
     @Inject(WINDOW) private window: Window,
-    private httpClient: HttpClient,
+    private httpClient: HttpClient
   ){
-    this.cacheService = new CacheService(httpClient);
+    this.cacheService = new CacheService(this.httpClient);
     this.cacheService.exist(KEY_PROJECT_ACTIVE) ? 
       this.projId = this.cacheService.get(KEY_PROJECT_ACTIVE) : this.projId = 0;
   }

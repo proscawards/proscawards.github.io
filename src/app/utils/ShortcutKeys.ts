@@ -16,9 +16,9 @@ export default class ShortcutKeys {
         @Inject(DOCUMENT) private document: Document,
         private router: Router,
         private httpClient: HttpClient,
-        private cacheService: CacheService,
+        private cacheService: CacheService
     ){
-        this.cacheService = new CacheService(httpClient);
+        this.cacheService = new CacheService(this.httpClient);
     }
 
     addListener(){

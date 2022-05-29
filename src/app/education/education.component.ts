@@ -6,9 +6,10 @@ import { CacheService } from '../services/cache.service';
 import { KEY_EDU, KEY_PROJECT_ACTIVE } from '../api/CacheKeys';
 import { Router } from '../services/router.service';
 import { Apollo } from 'apollo-angular';
-import { GetEducation } from '../graphql/resolver/GetEducation.gql';
+import { GetEducationList } from '../graphql/resolver/GetEducationList.gql';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import Duration from '../utils/Duration';
 
 @Component({
   selector: 'education',
@@ -24,7 +25,7 @@ export class EducationComponent implements OnInit {
   constructor(
     private router: Router,
     private httpClient: HttpClient,
-    private getEducation: GetEducation
+    private getEducation: GetEducationList
   ) {
     this.cacheService = new CacheService(this.httpClient);
   }
@@ -36,6 +37,8 @@ export class EducationComponent implements OnInit {
                       map(result => result.data.getEduList)
                     );
     this.dataObserver.subscribe(data => {
+      console.log(data);
+      console.log("before sort")
       var tempData = [...data];
       this.infoArr = tempData.sort((a: any, b: any) => {return a.id - b.id});
     }); 
@@ -63,5 +66,9 @@ export class EducationComponent implements OnInit {
   eduLinkOnClick(e: any, id: any){
     this.cacheService.set(KEY_PROJECT_ACTIVE, id);
     this.router.routeTo("project");
+  }
+
+  durationEdu(dateArr: string){
+    return Duration(dateArr);
   }
 }

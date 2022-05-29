@@ -48,7 +48,7 @@ export class CertificationComponent implements OnInit {
       this.original = this.infoArr = this.cacheService.get(KEY_CERT);
     }
     else{
-      this.httpClient.get<any>('https://proscawards-portfolio-backend.herokuapp.com/cert')
+      this.httpClient.get<any>('https://portfolio-backend-proscawards.vercel.app/cert')
       .subscribe(res => {
         var data = res.slice(0);
         data.sort(function(a: any, b: any) {

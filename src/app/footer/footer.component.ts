@@ -143,8 +143,8 @@ export class FooterComponent implements OnInit{
       this.setCountriesData(this.cacheService.get(KEY_VCOUNTRY));
     }
     else{
-      this.httpClient.get<any>('https://proscawards-portfolio-backend.herokuapp.com/').subscribe();
-      this.httpClient.get<any>('https://proscawards-portfolio-backend.herokuapp.com/country')
+      this.httpClient.get<any>('https://portfolio-backend-proscawards.vercel.app/').subscribe();
+      this.httpClient.get<any>('https://portfolio-backend-proscawards.vercel.app/country')
       .subscribe(res => {
         this.cacheService.set(KEY_VCOUNTRY, res);
         this.setCountriesData(res);
@@ -174,7 +174,7 @@ export class FooterComponent implements OnInit{
       this.totalCount = this.cacheService.get(KEY_VCOUNT);
     }
     else{
-      this.httpClient.get<any>('https://proscawards-portfolio-backend.herokuapp.com/count')
+      this.httpClient.get<any>('https://portfolio-backend-proscawards.vercel.app/count')
       .subscribe(res => {
         this.cacheService.set(KEY_VCOUNT, res.count)
         this.totalCount = res.count;

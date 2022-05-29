@@ -128,20 +128,12 @@
         }
     }
 
-    &>.descDate::before{
-        content: "[";
-    }
-
     &>.descDate{
         font-size: 15px;
         color: var(--currentCommentColor);
         @media screen and (max-width: 768px) {
             font-size: 11px;
         }
-    }
-
-    &>.descDate::after{
-        content: "]";
     }
 
     &>.descTitle{
@@ -228,4 +220,18 @@
     }
 
     
+}
+
+.projectDuration{
+    font-style: italic;
+    font-size: 18px;
+    font-family: SecularOne;
+    opacity: .8 !important;
+    @media screen and (max-width: 768px) {
+        font-size: 15px;
+    }
+}
+
+.date{
+    font-style: italic;
 }

@@ -5,7 +5,7 @@
         <div class="col-md-12 scroll-bg">
             <div class="eduDiv" *ngFor="let infos of infoArr">
                 <h3 class="eduTitle" i18n data-aos="fade-left">{{infos.name}}</h3>
-                <span class="eduDuration" i18n data-aos="fade-up">{{infos.date}}</span><br/>
+                <span class="eduDuration" i18n data-aos="fade-up">[{{infos.date}}]</span> • <span class="eduDuration date duration" [innerHTML]="durationEdu(infos.date)"></span><br/>
                 <span i18n class="eduType" data-aos="fade-up" (click)="eduBtnOnClick($event,infos.id)">{{infos.type}}&nbsp;<i class="eduBtn fas fa-angle-down" id="eduBtn{{infos.id}}"></i></span><br/>
                 <div class="eduCont" id="eduCont{{infos.id}}" data-aos="slide-down" style="display:none;">
                     <button class="eduContCloseBtn" id="eduContCloseBtn{{infos.id}}" (click)="eduContCloseBtnOnClick($event,infos.id)"><i class="fas fa-slash"></i><i class="fas fa-slash fa-rotate-90"></i></button>

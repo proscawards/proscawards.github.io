@@ -9,7 +9,7 @@ import { Router } from '../services/router.service';
 import { CdkVirtualScrollViewport } from "@angular/cdk/scrolling";
 import { KEY_PROJECT, KEY_PROJECT_ACTIVE } from '../api/CacheKeys';
 import { Observable } from 'rxjs';
-import { GetProject } from '../graphql/resolver/GetProject.gql';
+import { GetProjectList } from '../graphql/resolver/GetProjectList.gql';
 import { map } from 'rxjs/operators';
 
 interface ActiveButtons {
@@ -53,14 +53,14 @@ export class ProjectOtherComponent implements OnInit {
     @Inject(WINDOW) private window: Window,
     private httpClient: HttpClient,
     private router: Router,
-    private getProject: GetProject
+    private getProject: GetProjectList
   ){
     this.cacheService = new CacheService(this.httpClient);
   }
 
   ngOnInit(){
     $(".otherProjDiv").show();
-    $(".compProjDiv, .noResultDiv").hide();
+    $(".compProjDiv, .noResultDiv, .filterProjDiv").hide();
     this.validateParams();
     this.dataObserver = this.getProject.watch()
                           .valueChanges
@@ -71,7 +71,7 @@ export class ProjectOtherComponent implements OnInit {
       var tempData = [...data];
       this.infoArr = tempData.sort((a: any, b: any) => {return a.id - b.id});
       $("#projLoading").fadeOut();
-      $(".otherProjDiv").fadeIn();
+      $(".otherProjDiv, .filterProjDiv").fadeIn();
       this.filterArr = this.infoArr;
     });
   }

@@ -8,7 +8,7 @@
                 <ng-template #noLinkTitle>
                     <h3 class="expTitle" data-aos="fade-left">{{infos.name}}</h3>
                 </ng-template>
-                <span i18n class="expDuration date" data-aos="fade-up">{{infos.date}}</span> • <span class="expDuration date duration" [innerHTML]="durationExp(infos.date)"></span><br/>
+                <span i18n class="expDuration date" data-aos="fade-up">[{{infos.date}}]</span> • <span class="expDuration date duration" [innerHTML]="durationExp(infos.date)"></span><br/>
                 <span i18n class="expType" data-aos="fade-up" (click)="expBtnOnClick($event,infos.id)">{{infos.type}}&nbsp;<i class="expBtn fas fa-angle-down" id="expBtn{{infos.id}}"></i></span><br/>
                 <div class="expCont" id="expCont{{infos.id}}" data-aos="slide-down" style="display:none;">
                     <button class="expContCloseBtn" id="expContCloseBtn{{infos.id}}" (click)="expContCloseBtnOnClick($event,infos.id)"><i class="fas fa-slash"></i><i class="fas fa-slash fa-rotate-90"></i></button>

@@ -10,10 +10,11 @@ export interface Response {
     providedIn: 'root',
 })
 
-export class GetProject extends Query<Response> {
+export class GetProjectList extends Query<Response> {
     document = gql`{
         getProjectList {
             id
+            title
             type
             lang
             desc

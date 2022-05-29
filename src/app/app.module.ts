@@ -41,6 +41,8 @@ import { GraphQLModule } from './graphql.module';
 import { ApolloModule, APOLLO_OPTIONS} from 'apollo-angular';
 import {HttpLink} from 'apollo-angular/http';
 import {InMemoryCache} from '@apollo/client/core';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -100,7 +102,13 @@ import {InMemoryCache} from '@apollo/client/core';
     FormsModule,
     NoResultModule,
     GraphQLModule,
-    ApolloModule
+    ApolloModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+      // Register the ServiceWorker as soon as the application is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    })
   ],
   //providers: [WINDOW_PROVIDERS, {provide: APP_BASE_HREF, useValue : '/' }],
   providers: [    
@@ -110,7 +118,7 @@ import {InMemoryCache} from '@apollo/client/core';
         return {
           cache: new InMemoryCache(),
           link: httpLink.create({
-            uri: 'https://proscawards-portfolio-backend.herokuapp.com/graphql',
+            uri: 'https://portfolio-backend-proscawards.vercel.app/graphql',
           }),
         };
       },

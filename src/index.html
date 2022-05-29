@@ -2,10 +2,15 @@
 <html lang="en" (resize)="onResize($event)">
 <head>
   <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&amp;display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta NAME="viewport" CONTENT="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=3, viewport-fit=cover">
+  <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+  <meta name="theme-color" content="#000000">
 </head>
 <body (scroll)="onWindowScroll($event)">
   <root></root>
+  <noscript>Please enable JavaScript to continue using this application.</noscript>
 </body>
 </html>

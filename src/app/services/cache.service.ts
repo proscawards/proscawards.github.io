@@ -74,7 +74,7 @@ export class CacheService {
   //Subscribe to all endpoint to prepare for response caching
   subscribe(){
     // if (!this.exist(KEY_CERT)){
-    //   this.httpClient.get<any>('https://proscawards-portfolio-backend.herokuapp.com/cert', {observe : 'response'})
+    //   this.httpClient.get<any>('https://portfolio-backend-proscawards.vercel.app/cert', {observe : 'response'})
     //   .subscribe(res => {
     //     if (res.status != 200){
     //       this.restart();
@@ -92,16 +92,16 @@ export class CacheService {
     // }
 
     if (!this.exist(KEY_VCOUNTRY)){
-      this.httpClient.get<any>('https://proscawards-portfolio-backend.herokuapp.com/', {observe : 'response'})
+      this.httpClient.get<any>('https://portfolio-backend-proscawards.vercel.app/', {observe : 'response'})
       .subscribe(res => {
       });
-      this.httpClient.get<any>('https://proscawards-portfolio-backend.herokuapp.com/country', {observe : 'response'})
+      this.httpClient.get<any>('https://portfolio-backend-proscawards.vercel.app/country', {observe : 'response'})
       .subscribe(res => {
           this.set(KEY_VCOUNTRY, res.body);
       });
     }
     if (!this.exist(KEY_VCOUNT)){
-      this.httpClient.get<any>('https://proscawards-portfolio-backend.herokuapp.com/count', {observe : 'response'})
+      this.httpClient.get<any>('https://portfolio-backend-proscawards.vercel.app/count', {observe : 'response'})
       .subscribe(res => {
           this.set(KEY_VCOUNT, res.body.count)
       });    

@@ -14,7 +14,7 @@
                 </ng-template>
                 <div class="col-md-12 description">
                     <span class="descType" [innerHTML]="info.type"></span><br/>
-                    <span class="descDate" [innerHTML]="info.date"></span><br/><br/>
+                    <span class="descDate">[{{info.date}}]</span> • <span class="projectDuration date duration" [innerHTML]="durationProject(info.date)"></span><br/><br/>
                     <span class="descTitle">Written in: </span>
                     <p [innerHTML]="info.lang"></p>
                     <span class="descTitle">Functionality: </span>

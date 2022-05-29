@@ -3,12 +3,16 @@ import * as $ from 'jquery';
 import { ActivatedRoute } from '@angular/router';
 import { DOCUMENT } from '@angular/common';
 import { WINDOW } from "../services/window.service";
-import { HttpClient } from '@angular/common/http';
 import { Project } from '../model/data/Project';
-import { CacheService } from '../services/cache.service';
 import ColorThief from 'colorthief';
-import { KEY_PROJECT, KEY_PROJECT_ACTIVE } from '../api/CacheKeys';
 const colorThief = new ColorThief();
+import { Observable } from 'rxjs';
+import { GetProjectList } from '../graphql/resolver/GetProjectList.gql';
+import { map } from 'rxjs/operators';
+import { CacheService } from '../services/cache.service';
+import { HttpClient } from '@angular/common/http';
+import { KEY_PROJECT_ACTIVE } from '../api/CacheKeys';
+import Duration from '../utils/Duration';
 
 @Component({
   selector: 'project-detail',
@@ -17,11 +21,11 @@ const colorThief = new ColorThief();
 })
 export class ProjectDetailComponent implements OnInit {
 
+  private dataObserver!: Observable<Project[]>;
   public infoArr: Project[] = [];
   public infoData: Project[] = [];
   public prevData: Project[] = [];
   public nextData: Project[] = [];
-  private cacheService: CacheService;
   public projId: any;
   public invalidPrev: boolean = false;
   public invalidNext: boolean = false;
@@ -30,7 +34,9 @@ export class ProjectDetailComponent implements OnInit {
     private route: ActivatedRoute,
     @Inject(DOCUMENT) private document: Document,
     @Inject(WINDOW) private window: Window,
-    private httpClient: HttpClient
+    private cacheService: CacheService,
+    private httpClient: HttpClient,
+    private getProject: GetProjectList
   ){
     this.cacheService = new CacheService(this.httpClient);
     this.cacheService.exist(KEY_PROJECT_ACTIVE) ? 
@@ -38,46 +44,38 @@ export class ProjectDetailComponent implements OnInit {
   }
 
   ngOnInit(){
-    this.getCollection();
     this.preprocessData();
   }
 
   //Preprocess Data
   preprocessData(){
-    let data: Project[] = this.infoArr;
-    let id: number = parseInt(this.projId);
-    this.infoData = data.filter(function (info: any) {return info.id == id});
-    this.cacheService.set(KEY_PROJECT_ACTIVE, id);
-    if (id-1 >= 0){
-      this.prevData = data.filter(function (info: any) {return info.id == id-1});
-      this.invalidPrev = false;
-    }
-    else{
-      this.invalidPrev = true;
-    }
-    if (id+1 <= data.length){
-      this.nextData = data.filter(function (info: any) {return info.id == id+1});
-      this.invalidNext = false;
-    }
-    else{
-      this.invalidNext = true;
-    }
-  }
-
-  //Retrieve data from backend
-  getCollection(){
-    if (this.cacheService.exist(KEY_PROJECT)){
-      this.infoArr = this.cacheService.get(KEY_PROJECT);
-    }
-    else{
-      this.httpClient.get<any>('https://proscawards-portfolio-backend.herokuapp.com/project')
-      .subscribe(res => {
-        var data = res.slice(0);
-        data.sort(function(a: any, b: any) {return a.id - b.id});
-        this.infoArr = data;
-        this.cacheService.set(KEY_PROJECT, data);
-      });
-    }
+    this.dataObserver = this.getProject.watch()
+    .valueChanges
+    .pipe(
+      map(result => result.data.getProjectList)
+    );
+    this.dataObserver.subscribe(data => {
+      var tempData = [...data];
+      this.infoArr = tempData.sort((a: any, b: any) => {return a.id - b.id});
+      let result: Project[] = this.infoArr;
+      let id: number = parseInt(this.projId);
+      this.cacheService.set(KEY_PROJECT_ACTIVE, id);
+      this.infoData = result.filter(function (info: any) {return info.id == id});
+      if (id-1 >= 0){
+        this.prevData = result.filter(function (info: any) {return info.id == id-1});
+        this.invalidPrev = false;
+      }
+      else{
+        this.invalidPrev = true;
+      }
+      if (id+1 <= result.length){
+        this.nextData = result.filter(function (info: any) {return info.id == id+1});
+        this.invalidNext = false;
+      }
+      else{
+        this.invalidNext = true;
+      }
+    });
   }
 
   //Open github source codes
@@ -116,5 +114,10 @@ export class ProjectDetailComponent implements OnInit {
     $(".fsDiv").fadeOut();
     $("#projDetailDiv, footer").fadeIn();
     this.document.exitFullscreen();
+  }
+
+  //Calculate the duration of current project
+  durationProject(dateArr: string) {
+    return Duration(dateArr);
   }
 }

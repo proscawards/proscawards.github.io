@@ -125,12 +125,12 @@ export class ContactComponent implements OnInit {
           // const headers = { 'content-type': 'application/json'};  
           cf.disableOnSubmit();
           // console.log(data);
-          // this.httpClient.post<any>('https://proscawards-portfolio-backend.herokuapp.com/cf', JSON.stringify(data), { 'headers': headers })
+          // this.httpClient.post<any>('https://portfolio-backend-proscawards.vercel.app/cf', JSON.stringify(data), { 'headers': headers })
           // .subscribe(res => {
           //   console.log(res)
           // });
           let xhr = new XMLHttpRequest();
-          xhr.open("POST", "https://proscawards-portfolio-backend.herokuapp.com/cf");
+          xhr.open("POST", "https://portfolio-backend-proscawards.vercel.app/cf");
           xhr.setRequestHeader('content-type', 'application/json');
           xhr.onload =  () => {
               xhr.responseText == "success" ?

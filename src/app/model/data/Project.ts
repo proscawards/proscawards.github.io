@@ -4,6 +4,7 @@ interface progImg{
 }
 
 export interface Project {
+    _id: string,
     id: number,
     title: string,
     type: string,

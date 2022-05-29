@@ -1,30 +1,26 @@
 import { gql, Query } from 'apollo-angular';
-import { Education } from 'src/app/model/data/Education';
+import { Experience } from 'src/app/model/data/Experience';
 import { Injectable } from '@angular/core';
 
 export interface Response {
-    getEduList: Education[]
+    getExpList: Experience[]
 }
 
 @Injectable({
     providedIn: 'root',
 })
 
-export class GetEducation extends Query<Response> {
+export class GetExperienceList extends Query<Response> {
     document = gql`{
-        getEduList {
+        getExpList{
             id
             name
             link
             date
             type
             info {
-                id
                 title
-                desc {
-                    date
-                    title
-                }
+                desc
             }
             hasRelatedProject
             relatedProject {

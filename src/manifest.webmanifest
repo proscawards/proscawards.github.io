@@ -1,7 +1,7 @@
 {
-  "name": "app",
-  "short_name": "app",
-  "theme_color": "#1976d2",
+  "name": "Portfolio - PROSCAWARDS",
+  "short_name": "Portfolio - PROSCAWARDS",
+  "theme_color": "#5888AD",
   "background_color": "#fafafa",
   "display": "standalone",
   "scope": "./",

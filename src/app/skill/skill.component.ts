@@ -4,6 +4,9 @@ import { WINDOW } from "../services/window.service";
 import * as $ from "jquery";
 import data from "./skill-chart.json";
 import Chart from 'chart.js/auto';
+import { CacheService } from '../services/cache.service';
+import { HttpClient } from '@angular/common/http';
+import { KEY_TITLE } from '../api/CacheKeys';
 
 interface Data{
   prefix: string,
@@ -22,16 +25,23 @@ interface Data{
 export class SkillComponent implements OnInit {
 
   Data: Data[] = data;
-
+  public title: string;
   windowWidth: any;
 
   constructor(
     @Inject(DOCUMENT) private document: Document,
-    @Inject(WINDOW) private window: Window
-  ) { }
+    @Inject(WINDOW) private window: Window,
+    private cacheService: CacheService,
+    private httpClient: HttpClient
+  ) { 
+    this.cacheService = new CacheService(this.httpClient);
+    this.title = "Portfolio - Skills";
+  }
 
   ngOnInit(){
-    this.loadCharts()
+    this.title = "Portfolio - Skills";
+    this.cacheService.set(KEY_TITLE, this.title);
+    this.loadCharts();
   }
 
   @HostListener('window:resize', ['$event'])

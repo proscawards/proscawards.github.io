@@ -63,7 +63,7 @@ export class AppComponent implements OnInit, AfterViewInit{
   }
 
   ngOnInit(): void {
-    this.router.routeTo();
+    this.router.routeTo("");
   }
 
   ngAfterViewInit() {

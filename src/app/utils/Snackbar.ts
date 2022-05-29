@@ -25,6 +25,7 @@ export class Snackbar {
     private SB_DURATION: number = 3000;
     private SB_TITLE: string = "";
     private SB_URL: string = "";
+    private SB_WINDOW_TITLE: string = "";
     private SB_ACTION: string = "";
     private SB_TYPE: number = 0;
     private SB_DATA: SB_ADDITIONAL = {};
@@ -44,6 +45,9 @@ export class Snackbar {
     
     //URL when action of the snackbar is clicked
     setUrl(url: string): Snackbar{this.SB_URL = url; return this;}
+
+    //Window browser title
+    setBrowserTitle(title: string): Snackbar{this.SB_WINDOW_TITLE = title; return this;}
     
     //Action button of the snackbar
     setAction(action: string): Snackbar{this.SB_ACTION = action; return this;}
@@ -108,7 +112,7 @@ export class Snackbar {
 
     private isRouter(){
         this.snackbar._openedSnackBarRef?.onAction().subscribe(() => {
-            this.router.routeTo(this.SB_URL);
+            this.router.routeTo(this.SB_URL, this.SB_WINDOW_TITLE!);
         });
     }
 }

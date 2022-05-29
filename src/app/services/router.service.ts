@@ -3,7 +3,8 @@ import { Router as ngRouter, NavigationStart } from "@angular/router";
 import { Location } from "@angular/common";
 import { CacheService } from './cache.service';
 import { HttpClient } from '@angular/common/http';
-import { KEY_PAGE } from '../api/CacheKeys';
+import { KEY_PAGE, KEY_TITLE } from '../api/CacheKeys';
+import { Title } from '@angular/platform-browser';
 
 @Injectable({
     providedIn: 'root',
@@ -15,13 +16,14 @@ export class Router {
         private router: ngRouter,
         private location: Location,
         private cacheService: CacheService,
-        private httpClient: HttpClient
+        private httpClient: HttpClient,
+        private titleService: Title
     ){
         this.cacheService = new CacheService(this.httpClient);
     }
 
-    routeTo(url?: string): void{
-        if (url == null){
+    routeTo(url: string, title?: string): void{
+        if (url == "") {
             this.cacheService.exist(KEY_PAGE) ?
             url = this.cacheService.get(KEY_PAGE) : 
             url = "";
@@ -39,21 +41,10 @@ export class Router {
             this.router.navigate([`/${url}`]);
             this.cacheService.set(KEY_PAGE, url);
         }
+        this.titleService.setTitle(title!);        
     }
 
     routeURL(): string{
         return this.router.url.replace("/", "");
     }
-
-    // routeRefresh(): void{
-    //     this.router.events.subscribe(event => {
-    //         if (event instanceof NavigationStart) {
-    //           if (!!event.url && event.url.match(/^\/#/)) {
-    //               console.log("event.url")
-    //             this.router.navigate([event.url.replace('/#', '')]);
-    //             console.log(event.url.replace('/#', ''))
-    //           }
-    //         }
-    //     });
-    // }
 }

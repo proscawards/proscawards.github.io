@@ -18,13 +18,15 @@ export class GetEducationList extends Query<Response> {
             link
             date
             type
-            info {
-                id
+            hasPosition
+            position {
+                date
                 title
-                desc {
-                    date
-                    title
-                }
+            }
+            hasAward
+            award {
+                date
+                title
             }
             hasRelatedProject
             relatedProject {

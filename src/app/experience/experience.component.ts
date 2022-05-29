@@ -3,7 +3,7 @@ import * as $ from "jquery";
 import { Experience } from '../model/data/Experience';
 import { HttpClient } from '@angular/common/http';
 import { CacheService } from '../services/cache.service';
-import { KEY_EXP, KEY_PROJECT_ACTIVE } from '../api/CacheKeys';
+import { KEY_EXP, KEY_PROJECT_ACTIVE, KEY_TITLE } from '../api/CacheKeys';
 import { Router } from '../services/router.service';
 import { GetExperienceList } from '../graphql/resolver/GetExperienceList.gql';
 import { Observable } from 'rxjs';
@@ -20,6 +20,8 @@ export class ExperienceComponent implements OnInit {
   private dataObserver!: Observable<Experience[]>;
   public infoArr: Experience[] = [];
   private cacheService: CacheService;
+  public isCompleted: boolean = false;
+  public title: string;
 
   constructor(
     private router: Router,
@@ -27,9 +29,12 @@ export class ExperienceComponent implements OnInit {
     private getExperience: GetExperienceList
   ) {
     this.cacheService = new CacheService(this.httpClient);
+    this.title = "Portfolio - Experiences";
   }
 
   ngOnInit(): void {
+    this.title = "Portfolio - Experiences";
+    this.cacheService.set(KEY_TITLE, this.title);
     this.dataObserver = this.getExperience.watch()
                     .valueChanges
                     .pipe(
@@ -38,6 +43,7 @@ export class ExperienceComponent implements OnInit {
     this.dataObserver.subscribe(data => {
       var tempData = [...data];
       this.infoArr = tempData.sort((a: any, b: any) => {return a.id - b.id});
+      this.isCompleted = true;
     }); 
   }
 

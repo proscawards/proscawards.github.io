@@ -43,6 +43,8 @@ import {HttpLink} from 'apollo-angular/http';
 import {InMemoryCache} from '@apollo/client/core';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { SpinnerModule } from './spinner/spinner.module';
+import { TitleModule } from './title/title.module';
 
 @NgModule({
   declarations: [
@@ -71,6 +73,8 @@ import { environment } from '../environments/environment';
     WysiwygModule,
     Social3dModule,
     ContactModule,
+    SpinnerModule,
+    TitleModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent},
       // { path: 'certifications', component: CertificationComponent},

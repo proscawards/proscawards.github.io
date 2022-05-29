@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { CacheService } from '../services/cache.service';
+import { HttpClient } from '@angular/common/http';
+import { KEY_TITLE } from '../api/CacheKeys';
 
 @Component({
   selector: 'contactpage',
@@ -7,9 +10,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactpageComponent implements OnInit {
 
-  constructor() { }
+  public title: string = "";
+
+  constructor(
+    private cacheService: CacheService,
+    private httpClient: HttpClient
+  ) { 
+    this.cacheService = new CacheService(this.httpClient);
+  }
 
   ngOnInit(): void {
+    this.title = "Portfolio - Contact Me";
+    this.cacheService.set(KEY_TITLE, this.title);
   }
 
 }

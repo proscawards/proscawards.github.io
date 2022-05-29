@@ -1,24 +1,36 @@
 <header></header>
+<title [title]="title"></title>
 <div class="row col-md-12 section" id="education">
     <div i18n class="col-md-12 sectionHeader" data-aos="fade-right">//Educations</div> 
     <div class="col-md-12 wrapper">
         <div class="col-md-12 scroll-bg">
+            <spinner [isCompleted]="isCompleted"></spinner>
             <div class="eduDiv" *ngFor="let infos of infoArr">
                 <h3 class="eduTitle" i18n data-aos="fade-left">{{infos.name}}</h3>
                 <span class="eduDuration" i18n data-aos="fade-up">[{{infos.date}}]</span> • <span class="eduDuration date duration" [innerHTML]="durationEdu(infos.date)"></span><br/>
                 <span i18n class="eduType" data-aos="fade-up" (click)="eduBtnOnClick($event,infos.id)">{{infos.type}}&nbsp;<i class="eduBtn fas fa-angle-down" id="eduBtn{{infos.id}}"></i></span><br/>
                 <div class="eduCont" id="eduCont{{infos.id}}" data-aos="slide-down" style="display:none;">
                     <button class="eduContCloseBtn" id="eduContCloseBtn{{infos.id}}" (click)="eduContCloseBtnOnClick($event,infos.id)"><i class="fas fa-slash"></i><i class="fas fa-slash fa-rotate-90"></i></button>
-                    <div *ngFor="let info of infos.info">
-                        <span i18n class="eduTableTitle">{{info.title}}</span><br/>
-                        <div class="col-md-12">
-                            <div class="row col-md-12" *ngFor="let desc of info.desc">
-                                <span class="eduTableDate col-md-2" [innerHTML]="desc.date"></span>
-                                <span i18n class="col-md-10" [innerHTML]="desc.title"></span>
+                    <div *ngIf="infos.hasPosition">
+                        <span i18n class="eduTableTitle">Positions</span><br/>
+                        <div *ngFor="let info of infos.position">
+                            <div class="row col-md-12">
+                                <span class="eduTableDate col-md-2" [innerHTML]="info.date"></span>
+                                <span i18n class="col-md-10" [innerHTML]="info.title"></span>
                             </div>
                         </div>
-                        <br/>
                     </div>
+                    <br/>
+                    <div *ngIf="infos.hasAward">
+                        <span i18n class="eduTableTitle">Achievements & Awards</span><br/>
+                        <div *ngFor="let info of infos.award">
+                            <div class="row col-md-12">
+                                <span class="eduTableDate col-md-2" [innerHTML]="info.date"></span>
+                                <span i18n class="col-md-10" [innerHTML]="info.title"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <br/>
                     <div *ngIf="infos.hasRelatedProject">
                         <span i18n class="eduTableTitle">Related Projects</span><br/>
                         <ol class="col-md-12" type="1">

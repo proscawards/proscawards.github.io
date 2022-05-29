@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
 import { Certification } from '../model/data/Certification';
 import { CacheService } from '../services/cache.service';
 import { parse } from 'date-fns';
-import { KEY_CERT, KEY_SEARCH_ACTIVE } from '../api/CacheKeys';
+import { KEY_CERT, KEY_SEARCH_ACTIVE, KEY_TITLE } from '../api/CacheKeys';
 import { Router } from '../services/router.service';
 
 @Component({
@@ -26,6 +26,7 @@ export class CertificationComponent implements OnInit {
   public pageSize: number = 6;
   public collectionSize: number = 0;
   private cacheService: CacheService;
+  public title: string;
 
   constructor(
     @Inject(WINDOW) private window: Window,
@@ -34,12 +35,15 @@ export class CertificationComponent implements OnInit {
     private router: Router
   ) {
     this.cacheService = new CacheService(this.httpClient);
+    this.title = "Portfolio - Certifications";
   }
 
   ngOnInit(): void {
     $(".noResultDiv, .ngPaginationDiv").hide();
     $(".searchCertBtn").attr('disabled', 'true');
     this.getCollection();
+    this.title = "Portfolio - Certifications";
+    this.cacheService.set(KEY_TITLE, this.title);
   }
 
   //Retrieve data from backend

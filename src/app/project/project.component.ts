@@ -1,7 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import * as $ from 'jquery';
 import info from "./project-clickable.json";
 import { Router } from '../services/router.service';
+import { CacheService } from '../services/cache.service';
+import { HttpClient } from '@angular/common/http';
+import { KEY_TITLE } from '../api/CacheKeys';
 
 interface Info{
   id: number,
@@ -16,13 +19,23 @@ interface Info{
   templateUrl: './project.component.html',
   styleUrls: ['./project.component.scss']
 })
-export class ProjectComponent {
+export class ProjectComponent implements OnInit{
 
   Info: Info[] = info;
+  public title: string;
 
   constructor(
-    private router: Router
-  ) { }
+    private router: Router,
+    private cacheService: CacheService,
+    private httpClient: HttpClient
+  ) {
+    this.cacheService = new CacheService(this.httpClient);
+    this.title = "Portfolio - Featured Projects";
+   }
+  ngOnInit(): void {
+    this.title = "Portfolio - Featured Projects";
+    this.cacheService.set(KEY_TITLE, this.title);
+  }
 
   //Project 1 Read More in Mobile
   proj1ReadMore(e: any){

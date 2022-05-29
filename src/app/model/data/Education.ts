@@ -1,9 +1,3 @@
-interface infos{
-    id: number,
-    title: string,
-    desc: desc[]
-}
-
 interface desc {
     date: string,
     title: string
@@ -20,7 +14,10 @@ export interface Education {
     link: string,
     date: string,
     type: string,
-    info: infos[],
+    hasPosition: Boolean,
+    position: desc[],
+    hasAward: Boolean,
+    award: desc[],
     hasRelatedProject: Boolean,
     relatedProject: links[]
 }

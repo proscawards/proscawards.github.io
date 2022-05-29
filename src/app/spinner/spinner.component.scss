@@ -1,0 +1,12 @@
+.spinnerWrapperDiv {
+    height: 100vh;
+    &>.thumbnailSpinner{
+        z-index: 0;
+        position: absolute;
+        left: 0; 
+        right: 0; 
+        top: 50%;
+        margin-left: auto; 
+        margin-right: auto;
+    }
+}

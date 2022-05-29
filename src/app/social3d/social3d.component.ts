@@ -86,6 +86,7 @@ export class Social3dComponent implements OnInit {
       .setTitle("An ID card?")
       .setAction("About me")
       .setUrl("about-me")
+      .setBrowserTitle("Portfolio - About Me")
       .setType({isRouter: true})
       .execute();
     });
@@ -94,6 +95,7 @@ export class Social3dComponent implements OnInit {
       .setTitle("A haywired brain?")
       .setAction("Skills")
       .setUrl("skills")
+      .setBrowserTitle("Portfolio - Skills")
       .setType({isRouter: true})
       .execute();
     });
@@ -102,6 +104,7 @@ export class Social3dComponent implements OnInit {
       .setTitle("A self-closing tag paper?")
       .setAction("Projects")
       .setUrl("featured-projects")
+      .setBrowserTitle("Portfolio - Featured Projects")
       .setType({isRouter: true})
       .execute();
     });
@@ -118,6 +121,7 @@ export class Social3dComponent implements OnInit {
       .setTitle("A graduation cap?")
       .setAction("Educations")
       .setUrl("educations")
+      .setBrowserTitle("Portfolio - Educations")
       .setType({isRouter: true})
       .execute();
     });
@@ -126,6 +130,7 @@ export class Social3dComponent implements OnInit {
       .setTitle("A suitcase?")
       .setAction("Experiences")
       .setUrl("experiences")
+      .setBrowserTitle("Portfolio - Experiences")
       .setType({isRouter: true})
       .execute();
     });
@@ -134,6 +139,7 @@ export class Social3dComponent implements OnInit {
       .setTitle("An envelope?")
       .setAction("Contact me")
       .setUrl("contact-me")
+      .setBrowserTitle("Portfolio - Contact Me")
       .setType({isRouter: true})
       .execute();
     });

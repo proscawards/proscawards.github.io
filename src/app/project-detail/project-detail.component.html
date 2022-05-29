@@ -1,8 +1,10 @@
 <header></header>
+<title [title]="title"></title>
 <div class="fsDiv" (click)="fsBtnOnClicked($event)"><button (click)="fsBtnOnClicked($event)"><i class="fas fa-slash"></i><i class="fas fa-slash fa-rotate-90"></i></button><img class="fsThumbnail" src="" /></div>
 <div class="row col-md-12 section" id="projDetailDiv">
     <div class="col-md-12 wrapper">
         <div class="col-md-12 scroll-bg">
+            <spinner [isCompleted]="isCompleted"></spinner>
             <div class="col-md-12 detailDiv" *ngFor="let info of infoData">
                 <div class="col-md-12 thumbnail">
                     <button *ngIf="info.source != '#'" class="projectSourceBtn" (click)="sourceBtnOnClicked($event,info.source)"><i class="fab fa-github sourceIcon"></i> <span class="sourceSpan">View On Github</span></button>

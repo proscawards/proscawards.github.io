@@ -1,8 +1,10 @@
 <header></header>
+<title [title]="title"></title>
 <div class="row col-md-12 section" id="experiences">
     <div i18n class="col-md-12 sectionHeader" data-aos="fade-right">//Experiences</div> 
     <div class="col-md-12 wrapper">
         <div class="col-md-12 scroll-bg">
+            <spinner [isCompleted]="isCompleted"></spinner>
             <div class="expDiv" *ngFor="let infos of infoArr">
                 <h3 class="expTitle" data-aos="fade-left" *ngIf="infos.link != ''; else noLinkTitle"><a class="link" href="{{infos.link}}" target="_blank">{{infos.name}}</a></h3>
                 <ng-template #noLinkTitle>

@@ -1,4 +1,5 @@
 <header></header>
+<title [title]="title"></title>
 <div class="row col-md-12 section">
     <div i18n class="col-md-12 sectionHeader" data-aos="fade-right">//All Projects
         <div class="filterToggleBtnDiv"><button class="filterToggleBtn isFilterToggleActive" (click)="filterBtnOnToggle($event)" title="Toggle options for filtering project(s)"><i class="fas fa-filter"></i></button></div>
@@ -23,14 +24,13 @@
                 <input type="text" class="searchProjInput col-md-12" id="searchProjInput" (input)="searchOnChange($event)" placeholder="Search Project(s)..."/>
             </div>
             <noresult [prevQuery]="prevQuery"></noresult>
+            <spinner [isCompleted]="isCompleted"></spinner>
             <cdk-virtual-scroll-viewport itemSize="3" class="vsDiv">
                 <div class="row col-md-12">
                     <div class="col-md-4 projectDiv" *cdkVirtualFor="let info of filterArr">
                         <div class="projectInnerDiv">
                             <div class="col-md-12 projectInnerSubDiv" id="projectDiv{{info.id}}" (click)="projectDivOnClick($event,info.id)">
                                 <div class="projectThumbnail">
-                                    <div class="spinner-border projectThumbnailSpinner" role="status">
-                                    </div>
                                     <img class="projectThumbnailSrc" src={{info.img}}/>
                                     <div class="projectInfos">
                                         <span class="col-md-12">{{info.title}}</span>

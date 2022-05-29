@@ -74,8 +74,8 @@ export class BotnavbarComponent implements OnInit {
     $(`#bnb_${text}`).addClass("activeNav");
   }
 
-  botNavBtnOnClicked(e: any, url: string){
-    this.router.routeTo(url);
+  botNavBtnOnClicked(e: any, url: string, title?: string){
+    this.router.routeTo(url, title);
     $(`#bnb_${this.router.routeURL()}`).addClass("activeNav");
   }
 

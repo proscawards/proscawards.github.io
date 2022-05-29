@@ -7,7 +7,7 @@ import { Project } from '../model/data/Project';
 import { CacheService } from '../services/cache.service';
 import { Router } from '../services/router.service';
 import { CdkVirtualScrollViewport } from "@angular/cdk/scrolling";
-import { KEY_PROJECT, KEY_PROJECT_ACTIVE } from '../api/CacheKeys';
+import { KEY_PROJECT, KEY_PROJECT_ACTIVE, KEY_TITLE } from '../api/CacheKeys';
 import { Observable } from 'rxjs';
 import { GetProjectList } from '../graphql/resolver/GetProjectList.gql';
 import { map } from 'rxjs/operators';
@@ -47,6 +47,8 @@ export class ProjectOtherComponent implements OnInit {
   };
   public value: any = "Force Awaken";
   public prevQuery: string = "";
+  public isCompleted: boolean = false;
+  public title: string;
 
   constructor(
     private route: ActivatedRoute,
@@ -56,6 +58,7 @@ export class ProjectOtherComponent implements OnInit {
     private getProject: GetProjectList
   ){
     this.cacheService = new CacheService(this.httpClient);
+    this.title = "Portfolio - All Projects";
   }
 
   ngOnInit(){
@@ -73,6 +76,9 @@ export class ProjectOtherComponent implements OnInit {
       $("#projLoading").fadeOut();
       $(".otherProjDiv, .filterProjDiv").fadeIn();
       this.filterArr = this.infoArr;
+      this.isCompleted = true;
+      this.title = "Portfolio - All Projects";
+      this.cacheService.set(KEY_TITLE, this.title);
     });
   }
 

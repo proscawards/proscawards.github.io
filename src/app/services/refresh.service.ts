@@ -17,7 +17,7 @@ export class Refresh{
         .pipe(filter((rs): rs is NavigationEnd => rs instanceof NavigationEnd))
         .subscribe(event => {
           if (event.id === 1 && event.url === event.urlAfterRedirects){
-           this.router.routeTo();
+           this.router.routeTo("");
           }
         })
     }

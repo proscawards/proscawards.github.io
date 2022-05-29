@@ -112,8 +112,8 @@ export class FooterComponent implements OnInit{
     }
   }
 
-  route(e: any, url: any){
-    this.router.routeTo(url);
+  route(e: any, url: any, title?: string){
+    this.router.routeTo(url, title);
   }
 
   footerDivlinkOnClick(e: any, elem: any){
@@ -143,7 +143,7 @@ export class FooterComponent implements OnInit{
       this.setCountriesData(this.cacheService.get(KEY_VCOUNTRY));
     }
     else{
-      this.httpClient.get<any>('https://portfolio-backend-proscawards.vercel.app/').subscribe();
+      this.httpClient.get<any>('https://portfolio-backend-proscawards.vercel.app/update').subscribe();
       this.httpClient.get<any>('https://portfolio-backend-proscawards.vercel.app/country')
       .subscribe(res => {
         this.cacheService.set(KEY_VCOUNTRY, res);

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { format, parse, addHours, differenceInHours } from "date-fns";
 import { CryptoService } from "./crypto.service";
 const cs = new CryptoService();
-import { KEY_EXPIRY, KEY_PAGE, KEY_VCOUNT, KEY_VCOUNTRY, KEY_BNB_ACTIVE, KEY_PROJECT_ACTIVE } from '../api/CacheKeys';
+import { KEY_EXPIRY, KEY_PAGE, KEY_VCOUNT, KEY_VCOUNTRY, KEY_BNB_ACTIVE, KEY_PROJECT_ACTIVE, KEY_SPLASH } from '../api/CacheKeys';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
@@ -118,6 +118,9 @@ export class CacheService {
     }
     if (!this.exist(KEY_PROJECT_ACTIVE)){
       this.set(KEY_PROJECT_ACTIVE, 0);
+    }
+    if (!this.exist(KEY_SPLASH)){
+      this.set(KEY_SPLASH, false);
     }
   }
 }

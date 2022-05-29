@@ -11,7 +11,7 @@ import { GetProjectList } from '../graphql/resolver/GetProjectList.gql';
 import { map } from 'rxjs/operators';
 import { CacheService } from '../services/cache.service';
 import { HttpClient } from '@angular/common/http';
-import { KEY_PROJECT_ACTIVE } from '../api/CacheKeys';
+import { KEY_PROJECT_ACTIVE, KEY_TITLE } from '../api/CacheKeys';
 import Duration from '../utils/Duration';
 
 @Component({
@@ -29,6 +29,8 @@ export class ProjectDetailComponent implements OnInit {
   public projId: any;
   public invalidPrev: boolean = false;
   public invalidNext: boolean = false;
+  public isCompleted: boolean = false;
+  public title: string;
 
   constructor(
     private route: ActivatedRoute,
@@ -41,6 +43,7 @@ export class ProjectDetailComponent implements OnInit {
     this.cacheService = new CacheService(this.httpClient);
     this.cacheService.exist(KEY_PROJECT_ACTIVE) ? 
       this.projId = this.cacheService.get(KEY_PROJECT_ACTIVE) : this.projId = 0;
+    this.title = "Portfolio - ";
   }
 
   ngOnInit(){
@@ -75,6 +78,9 @@ export class ProjectDetailComponent implements OnInit {
       else{
         this.invalidNext = true;
       }
+      this.isCompleted = true;
+      this.title = `Portfolio - ${this.infoData.filter(function (info: any) {return info.id == id}).map(val => val.title)}`;
+      this.cacheService.set(KEY_TITLE, this.title);
     });
   }
 

@@ -3,7 +3,7 @@ import * as $ from "jquery";
 import { Education } from '../model/data/Education';
 import { HttpClient } from '@angular/common/http';
 import { CacheService } from '../services/cache.service';
-import { KEY_EDU, KEY_PROJECT_ACTIVE } from '../api/CacheKeys';
+import { KEY_EDU, KEY_PROJECT_ACTIVE, KEY_TITLE } from '../api/CacheKeys';
 import { Router } from '../services/router.service';
 import { Apollo } from 'apollo-angular';
 import { GetEducationList } from '../graphql/resolver/GetEducationList.gql';
@@ -21,6 +21,8 @@ export class EducationComponent implements OnInit {
   private dataObserver!: Observable<Education[]>;
   public infoArr: Education[] = [];
   private cacheService: CacheService;
+  public isCompleted: boolean = false;
+  public title: string;
 
   constructor(
     private router: Router,
@@ -28,19 +30,21 @@ export class EducationComponent implements OnInit {
     private getEducation: GetEducationList
   ) {
     this.cacheService = new CacheService(this.httpClient);
+    this.title = "Portfolio - Educations";
   }
 
   ngOnInit(): void {
+    this.title = "Portfolio - Educations";
+    this.cacheService.set(KEY_TITLE, this.title);
     this.dataObserver = this.getEducation.watch()
                     .valueChanges
                     .pipe(
                       map(result => result.data.getEduList)
                     );
     this.dataObserver.subscribe(data => {
-      console.log(data);
-      console.log("before sort")
       var tempData = [...data];
       this.infoArr = tempData.sort((a: any, b: any) => {return a.id - b.id});
+      this.isCompleted = true;
     }); 
   }
 

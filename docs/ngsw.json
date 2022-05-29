@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1653808572123,
+  "timestamp": 1653831451293,
   "index": "/index.html",
   "assetGroups": [
     {
@@ -13,11 +13,11 @@
       "urls": [
         "/favicon.ico",
         "/index.html",
-        "/main.2f31f305ea587357027d.js",
+        "/main.8e47395ec022c28fbc90.js",
         "/manifest.webmanifest",
         "/polyfills.31d8a8f4ab98c4b92e55.js",
         "/runtime.026a4953ed0f605c7860.js",
-        "/styles.c4926d652ccf4ba467ef.css"
+        "/styles.eb181094eba12634a3de.css"
       ],
       "patterns": []
     },
@@ -98,6 +98,7 @@
         "/assets/icons/icon-512x512.png",
         "/assets/icons/icon-72x72.png",
         "/assets/icons/icon-96x96.png",
+        "/assets/icons/icon-original.png",
         "/assets/images/aldeberan.png",
         "/assets/images/aldeberan_showcase.png",
         "/assets/images/antvsbug.png",
@@ -335,13 +336,14 @@
     "/assets/fonts/icomoon.svg": "520861a7037ddb46afc06d97597ac47c7deadd5e",
     "/assets/fonts/icomoon.ttf": "da6ac377a93c365908399fe766985f2022313f40",
     "/assets/fonts/icomoon.woff": "8e78d60828cacf0d4488f6997adc88d7bb775721",
-    "/assets/icons/icon-144x144.png": "b962a481d8efd3bb55755e240022a39089b49561",
-    "/assets/icons/icon-152x152.png": "ead5fba9ee8f553b75a311771aee9d2dc8cc6ae4",
-    "/assets/icons/icon-192x192.png": "98d4814bcf8592fe36a0fca01e0d7640aa0b1347",
-    "/assets/icons/icon-384x384.png": "c3c1968bacbd9fe36521edf3a151bb1ea9328f7e",
-    "/assets/icons/icon-512x512.png": "be3c9b338417c962f9a91b017d029a1ac628ac28",
-    "/assets/icons/icon-72x72.png": "6d71fb704b3c4e663046a4e6619ed24eca7ca441",
-    "/assets/icons/icon-96x96.png": "fdbd1e5f313654aebec8eab48eb6b88243a1a36f",
+    "/assets/icons/icon-144x144.png": "feb69fdacd29d7e29691e0a56cda077761ac9bd4",
+    "/assets/icons/icon-152x152.png": "4154dab9f04ee4e5cbd04c60375546dbd2a92120",
+    "/assets/icons/icon-192x192.png": "e99c0bec1e920e507f0c968f62f7d9085493b4ae",
+    "/assets/icons/icon-384x384.png": "5485fe172282a9e0389f8085596bc3b8b71a9daa",
+    "/assets/icons/icon-512x512.png": "49c6484f95015a523ce7a67953d3795c44fca7d8",
+    "/assets/icons/icon-72x72.png": "187b248e7978e587e6746ba3a09addd06fc36808",
+    "/assets/icons/icon-96x96.png": "ca8e680f592a2df4f10e41e43926a210fb9095e8",
+    "/assets/icons/icon-original.png": "93eb759649b5897b8149179702d6a27353202bd2",
     "/assets/images/aldeberan.png": "d91a775ab84a19e7a75920512344a163f139bd4b",
     "/assets/images/aldeberan_showcase.png": "cda33fa3f42fffd1f5ca7f09d5fcb91d3134fca5",
     "/assets/images/antvsbug.png": "d290d77a5f5a1a9e48da46d0e6d8b651b841c01e",
@@ -511,13 +513,13 @@
     "/cursor_project_close.c179928d741ae5db67d1.svg": "def29b7876a5fc2ab9269354d723d42afe6a8c36",
     "/cursor_project_open.be9fe74efa4885c992f8.svg": "fcfd9b4eb32c401f392b9163ea117fd633d5ed65",
     "/favicon.ico": "f13e3ef6472af16c53b9ecbd522543f1556d084a",
-    "/index.html": "cf391dd9d9d72d18e3507d2c4840c31ebf17442a",
-    "/main.2f31f305ea587357027d.js": "6d1b4845ffc364d35bf133b34426a7dfb0fe8997",
-    "/manifest.webmanifest": "f5aadc28d74103c40adfea61d486a48459a7f9ea",
+    "/index.html": "496b5b3c25c15a3d3289bd9191deeaf75de1bf7a",
+    "/main.8e47395ec022c28fbc90.js": "bc3987d5c6127da7fa5c331a2a72e0fa12fddcf6",
+    "/manifest.webmanifest": "c79daaa26f479393cb9986b9b6a34f2aedb8e21d",
     "/myonlinestore.f777c9babe968cf61117.png": "8a5bfbf77d2588a098e0f3972d6b69baad8eed0b",
     "/polyfills.31d8a8f4ab98c4b92e55.js": "2ae8e310e939edcc111c123bfb7b034c2bfdb97d",
     "/runtime.026a4953ed0f605c7860.js": "10260af564ec5649cd91ac7494fcfa05e9e66f36",
-    "/styles.c4926d652ccf4ba467ef.css": "1b1f58af0441b60b1e35f14b975a6df62266a526"
+    "/styles.eb181094eba12634a3de.css": "02ba87eac78e377e2881002f757b55f3f158edd2"
   },
   "navigationUrls": [
     {

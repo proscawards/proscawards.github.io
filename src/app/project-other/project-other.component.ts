@@ -64,6 +64,7 @@ export class ProjectOtherComponent implements OnInit {
   ngOnInit(){
     $(".otherProjDiv").show();
     $(".compProjDiv, .noResultDiv, .filterProjDiv").hide();
+    $(".filterToggleBtn").prop('disabled', true);
     this.validateParams();
     this.dataObserver = this.getProject.watch()
                           .valueChanges
@@ -75,6 +76,7 @@ export class ProjectOtherComponent implements OnInit {
       this.infoArr = tempData.sort((a: any, b: any) => {return a.id - b.id});
       $("#projLoading").fadeOut();
       $(".otherProjDiv, .filterProjDiv").fadeIn();
+      $(".filterToggleBtn").prop('disabled', false);
       this.filterArr = this.infoArr;
       this.isCompleted = true;
       this.title = "Portfolio - All Projects";

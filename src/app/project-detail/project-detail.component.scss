@@ -219,6 +219,40 @@
         }
     }
 
+    &>.projectNavEmptyBtnDiv{
+        width: fit-content;
+        &>.projectNavBtn{
+            display: flex;
+            flex-direction: column;
+            box-shadow: transparent;
+            border-radius: 5px;
+            color: transparent;
+            padding: 20px;
+            background: transparent;
+            cursor: pointer;
+            margin-bottom: 1em;
+            width: fit-content;
+            transform: scale(1.0);
+            transition: .3s;
+    
+            &>span{
+                font-size: 10px;
+                display: inline-block;
+                @media screen and (max-width: 768px) {
+                    display: none;
+                }
+            }
+    
+            &>button{
+                border: none;
+                background: transparent;
+                color: transparent;
+                transition: .3s;
+            }
+
+        }
+    }
+
     
 }
 

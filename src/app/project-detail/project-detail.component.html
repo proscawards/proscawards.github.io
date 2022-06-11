@@ -29,10 +29,22 @@
                             <button><i class="fas fa-angle-double-left"></i> <span class="navTitle">{{prev.title}}</span></button>
                         </div>
                     </div>
+                    <div *ngIf="invalidPrev" class="projectNavEmptyBtnDiv col-md-12">
+                        <div class="projectNavBtn projectNavPrevBtn col-md-12">
+                            <span class="projNav"></span>
+                            <button><i class="fas fa-angle-double-left"></i> <span class="navTitle"></span></button>
+                        </div>
+                    </div>
                     <div *ngIf="!invalidNext" class="projectNavBtnDiv col-md-12">
                         <div *ngFor="let next of nextData" class="projectNavBtn projectNavNextBtn col-md-12" (click)="navBtnOnClicked($event, next.id)">
                             <span class="projNav">Next Project</span>
                             <button><span class="navTitle">{{next.title}}</span> <i class="fas fa-angle-double-right"></i></button>
+                        </div>
+                    </div>
+                    <div *ngIf="invalidNext" class="projectNavEmptyBtnDiv col-md-12">
+                        <div class="projectNavBtn projectNavNextBtn col-md-12">
+                            <span class="projNav"></span>
+                            <button><i class="fas fa-angle-double-right"></i> <span class="navTitle"></span></button>
                         </div>
                     </div>
                 </div>

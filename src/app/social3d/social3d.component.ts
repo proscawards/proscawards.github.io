@@ -9,6 +9,7 @@ import { WINDOW } from '../services/window.service';
 import { KEY_STATE, KEY_THEME_ACTIVE } from '../api/CacheKeys';
 import { DarkTheme, LightTheme } from '../utils/Theme';
 import { Snackbar } from '../utils/Snackbar';
+import { SOCIAL_ACTION_DISCORD, SOCIAL_ACTION_DISCORD_CONT, SOCIAL_ACTION_GITHUB, SOCIAL_ACTION_GITHUB_CONT, SOCIAL_ACTION_INSTAGRAM, SOCIAL_ACTION_INSTAGRAM_CONT, SOCIAL_ACTION_LINKEDIN, SOCIAL_ACTION_LINKEDIN_CONT, SOCIAL_ACTION_RESUME, SOCIAL_ACTION_RESUME_CONT, SOCIAL_URL_DISCORD, SOCIAL_URL_GITHUB, SOCIAL_URL_INSTAGRAM, SOCIAL_URL_LINKEDIN, WINDOW_TITLE_ABOUT, WINDOW_TITLE_PROJECT, WINDOW_TITLE_SKILL } from '../api/ConstantInterface';
 
 @Component({
   selector: 'social3d',
@@ -44,40 +45,40 @@ export class Social3dComponent implements OnInit {
   ngOnInit(): void {
     $("#linkedin").on('click', () => {
       this.snackbar
-      .setTitle("Visit my LinkedIn profile?")
-      .setAction("Sure!")
-      .setUrl("https://www.linkedin.com/in/proscawards/")
+      .setTitle(SOCIAL_ACTION_LINKEDIN)
+      .setAction(SOCIAL_ACTION_LINKEDIN_CONT)
+      .setUrl(SOCIAL_URL_LINKEDIN)
       .setType({isSocial: true})
       .execute();
     });
     $("#github").on('click', () => {
       this.snackbar
-      .setTitle("Visit my GitHub profile?")
-      .setAction("Sure!")
-      .setUrl("https://github.com/proscawards/")
+      .setTitle(SOCIAL_ACTION_GITHUB)
+      .setAction(SOCIAL_ACTION_GITHUB_CONT)
+      .setUrl(SOCIAL_URL_GITHUB)
       .setType({isSocial: true})
       .execute();
     });
     $("#instagram").on('click', () => {
       this.snackbar
-      .setTitle("Visit my Instagram profile?")
-      .setAction("Sure!")
-      .setUrl("https://instagram.com/proscawards/")
+      .setTitle(SOCIAL_ACTION_INSTAGRAM)
+      .setAction(SOCIAL_ACTION_INSTAGRAM_CONT)
+      .setUrl(SOCIAL_URL_INSTAGRAM)
       .setType({isSocial: true})
       .execute();
     });
     $("#discord").on('click', () => {
       this.snackbar
-      .setTitle("Visit my Discord profile?")
-      .setAction("Sure!")
-      .setUrl("https://discord.com/users/346129656157831169/")
+      .setTitle(SOCIAL_ACTION_DISCORD)
+      .setAction(SOCIAL_ACTION_DISCORD_CONT)
+      .setUrl(SOCIAL_URL_DISCORD)
       .setType({isSocial: true})
       .execute();
     });
     $("#resume").on('click', () => {
       this.snackbar
-      .setTitle("Are you sure you want to download resume?")
-      .setAction("Yeah~")
+      .setTitle(SOCIAL_ACTION_RESUME)
+      .setAction(SOCIAL_ACTION_RESUME_CONT)
       .setType({isResume: true})
       .execute();
     });
@@ -86,7 +87,7 @@ export class Social3dComponent implements OnInit {
       .setTitle("An ID card?")
       .setAction("About me")
       .setUrl("about-me")
-      .setBrowserTitle("Portfolio - About Me")
+      .setBrowserTitle(WINDOW_TITLE_ABOUT)
       .setType({isRouter: true})
       .execute();
     });
@@ -95,7 +96,7 @@ export class Social3dComponent implements OnInit {
       .setTitle("A haywired brain?")
       .setAction("Skills")
       .setUrl("skills")
-      .setBrowserTitle("Portfolio - Skills")
+      .setBrowserTitle(WINDOW_TITLE_SKILL)
       .setType({isRouter: true})
       .execute();
     });
@@ -104,7 +105,7 @@ export class Social3dComponent implements OnInit {
       .setTitle("A self-closing tag paper?")
       .setAction("Projects")
       .setUrl("featured-projects")
-      .setBrowserTitle("Portfolio - Featured Projects")
+      .setBrowserTitle(WINDOW_TITLE_PROJECT)
       .setType({isRouter: true})
       .execute();
     });

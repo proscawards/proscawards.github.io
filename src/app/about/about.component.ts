@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import * as $ from 'jquery';
 import { KEY_TITLE } from '../api/CacheKeys';
+import { WINDOW_TITLE_ABOUT } from '../api/ConstantInterface';
 import { CacheService } from '../services/cache.service';
 
 @Component({
@@ -18,11 +19,11 @@ export class AboutComponent implements OnInit{
     private httpClient: HttpClient
   ) {
     this.cacheService = new CacheService(this.httpClient);
-    this.title = "Portfolio - About Me";
+    this.title = WINDOW_TITLE_ABOUT;
    }
 
   ngOnInit(): void {
-   this.title = "Portfolio - About Me";
+   this.title = WINDOW_TITLE_ABOUT;
    this.cacheService.set(KEY_TITLE, this.title);
   }
 

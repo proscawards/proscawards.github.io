@@ -9,6 +9,7 @@ import { GetExperienceList } from '../graphql/resolver/GetExperienceList.gql';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import Duration from '../utils/Duration';
+import { WINDOW_TITLE_EXPERIENCE } from '../api/ConstantInterface';
 
 @Component({
   selector: 'experience',
@@ -29,11 +30,11 @@ export class ExperienceComponent implements OnInit {
     private getExperience: GetExperienceList
   ) {
     this.cacheService = new CacheService(this.httpClient);
-    this.title = "Portfolio - Experiences";
+    this.title = WINDOW_TITLE_EXPERIENCE;
   }
 
   ngOnInit(): void {
-    this.title = "Portfolio - Experiences";
+    this.title = WINDOW_TITLE_EXPERIENCE;
     this.cacheService.set(KEY_TITLE, this.title);
     this.dataObserver = this.getExperience.watch()
                     .valueChanges

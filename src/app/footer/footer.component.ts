@@ -7,6 +7,7 @@ import { CacheService } from '../services/cache.service';
 import { KEY_STATE, KEY_VCOUNT, KEY_VCOUNTRY } from '../api/CacheKeys';
 import { Router } from '../services/router.service';
 import { Snackbar } from '../utils/Snackbar';
+import { COUNTRY_FLAG_URL, ENDPOINT_COUNT, ENDPOINT_COUNTRY, ENDPOINT_UPDATE, SOCIAL_ACTION_DISCORD, SOCIAL_ACTION_DISCORD_CONT, SOCIAL_ACTION_GITHUB, SOCIAL_ACTION_GITHUB_CONT, SOCIAL_ACTION_INSTAGRAM, SOCIAL_ACTION_INSTAGRAM_CONT, SOCIAL_ACTION_LINKEDIN, SOCIAL_ACTION_LINKEDIN_CONT, SOCIAL_ACTION_RESUME, SOCIAL_ACTION_RESUME_CONT, SOCIAL_URL_DISCORD, SOCIAL_URL_GITHUB, SOCIAL_URL_INSTAGRAM, SOCIAL_URL_LINKEDIN } from '../api/ConstantInterface';
 
 interface TopCountry{
   img?: string,
@@ -43,6 +44,39 @@ export class FooterComponent implements OnInit{
   ngOnInit(){
     this.onDOMLoaded();
     this.logoBtnOnLoad();
+
+    $("#linkedinFooter").on('click', () => {
+      this.snackbar
+      .setTitle(SOCIAL_ACTION_LINKEDIN)
+      .setAction(SOCIAL_ACTION_LINKEDIN_CONT)
+      .setUrl(SOCIAL_URL_LINKEDIN)
+      .setType({isSocial: true})
+      .execute();
+    });
+    $("#githubFooter").on('click', () => {
+      this.snackbar
+      .setTitle(SOCIAL_ACTION_GITHUB)
+      .setAction(SOCIAL_ACTION_GITHUB_CONT)
+      .setUrl(SOCIAL_URL_GITHUB)
+      .setType({isSocial: true})
+      .execute();
+    });
+    $("#instagramFooter").on('click', () => {
+      this.snackbar
+      .setTitle(SOCIAL_ACTION_INSTAGRAM)
+      .setAction(SOCIAL_ACTION_INSTAGRAM_CONT)
+      .setUrl(SOCIAL_URL_INSTAGRAM)
+      .setType({isSocial: true})
+      .execute();
+    });
+    $("#discordFooter").on('click', () => {
+      this.snackbar
+      .setTitle(SOCIAL_ACTION_DISCORD)
+      .setAction(SOCIAL_ACTION_DISCORD_CONT)
+      .setUrl(SOCIAL_URL_DISCORD)
+      .setType({isSocial: true})
+      .execute();
+    });
   }
 
   //Click event to scroll to top
@@ -125,8 +159,8 @@ export class FooterComponent implements OnInit{
   downloadResume(e: any){
     e.preventDefault();
     this.snackbar
-    .setTitle("Are you sure you want to download resume?")
-    .setAction("Yeah~")
+    .setTitle(SOCIAL_ACTION_RESUME)
+    .setAction(SOCIAL_ACTION_RESUME_CONT)
     .setType({isResume: true})
     .execute();
   }
@@ -143,8 +177,8 @@ export class FooterComponent implements OnInit{
       this.setCountriesData(this.cacheService.get(KEY_VCOUNTRY));
     }
     else{
-      this.httpClient.get<any>('https://portfolio-backend-proscawards.vercel.app/update').subscribe();
-      this.httpClient.get<any>('https://portfolio-backend-proscawards.vercel.app/country')
+      this.httpClient.get<any>(ENDPOINT_UPDATE).subscribe();
+      this.httpClient.get<any>(ENDPOINT_COUNTRY)
       .subscribe(res => {
         this.cacheService.set(KEY_VCOUNTRY, res);
         this.setCountriesData(res);
@@ -155,15 +189,15 @@ export class FooterComponent implements OnInit{
   //Display data of top countries
   setCountriesData(data: any){
     this.top1Country = {
-      img: `https://flagpedia.net/data/flags/normal/${data[0][0]}.png`,
+      img: `${COUNTRY_FLAG_URL}${data[0][0]}.png`,
       count: data[0][1].count
     };
     this.top2Country = {
-      img: `https://flagpedia.net/data/flags/normal/${data[1][0]}.png`,
+      img: `${COUNTRY_FLAG_URL}${data[1][0]}.png`,
       count: data[1][1].count
     };
     this.top3Country = {
-      img: `https://flagpedia.net/data/flags/normal/${data[2][0]}.png`,
+      img: `${COUNTRY_FLAG_URL}${data[2][0]}.png`,
       count: data[2][1].count
     };
   }
@@ -174,7 +208,7 @@ export class FooterComponent implements OnInit{
       this.totalCount = this.cacheService.get(KEY_VCOUNT);
     }
     else{
-      this.httpClient.get<any>('https://portfolio-backend-proscawards.vercel.app/count')
+      this.httpClient.get<any>(ENDPOINT_COUNT)
       .subscribe(res => {
         this.cacheService.set(KEY_VCOUNT, res.count)
         this.totalCount = res.count;

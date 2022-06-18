@@ -10,6 +10,7 @@ import { GetEducationList } from '../graphql/resolver/GetEducationList.gql';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import Duration from '../utils/Duration';
+import { WINDOW_TITLE_EDUCATION } from '../api/ConstantInterface';
 
 @Component({
   selector: 'education',
@@ -30,11 +31,11 @@ export class EducationComponent implements OnInit {
     private getEducation: GetEducationList
   ) {
     this.cacheService = new CacheService(this.httpClient);
-    this.title = "Portfolio - Educations";
+    this.title = WINDOW_TITLE_EDUCATION;
   }
 
   ngOnInit(): void {
-    this.title = "Portfolio - Educations";
+    this.title = WINDOW_TITLE_EDUCATION;
     this.cacheService.set(KEY_TITLE, this.title);
     this.dataObserver = this.getEducation.watch()
                     .valueChanges

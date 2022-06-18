@@ -4,6 +4,7 @@ import { CryptoService } from "./crypto.service";
 const cs = new CryptoService();
 import { KEY_EXPIRY, KEY_PAGE, KEY_VCOUNT, KEY_VCOUNTRY, KEY_BNB_ACTIVE, KEY_PROJECT_ACTIVE, KEY_SPLASH } from '../api/CacheKeys';
 import { HttpClient } from '@angular/common/http';
+import { ENDPOINT_COUNT, ENDPOINT_COUNTRY, ENDPOINT_UPDATE } from '../api/ConstantInterface';
 
 @Injectable({
   providedIn: 'root',
@@ -92,16 +93,16 @@ export class CacheService {
     // }
 
     if (!this.exist(KEY_VCOUNTRY)){
-      this.httpClient.get<any>('https://portfolio-backend-proscawards.vercel.app/', {observe : 'response'})
+      this.httpClient.get<any>(ENDPOINT_UPDATE, {observe : 'response'})
       .subscribe(res => {
       });
-      this.httpClient.get<any>('https://portfolio-backend-proscawards.vercel.app/country', {observe : 'response'})
+      this.httpClient.get<any>(ENDPOINT_COUNTRY, {observe : 'response'})
       .subscribe(res => {
           this.set(KEY_VCOUNTRY, res.body);
       });
     }
     if (!this.exist(KEY_VCOUNT)){
-      this.httpClient.get<any>('https://portfolio-backend-proscawards.vercel.app/count', {observe : 'response'})
+      this.httpClient.get<any>(ENDPOINT_COUNT, {observe : 'response'})
       .subscribe(res => {
           this.set(KEY_VCOUNT, res.body.count)
       });    

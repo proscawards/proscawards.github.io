@@ -11,6 +11,7 @@ import { KEY_PROJECT, KEY_PROJECT_ACTIVE, KEY_TITLE } from '../api/CacheKeys';
 import { Observable } from 'rxjs';
 import { GetProjectList } from '../graphql/resolver/GetProjectList.gql';
 import { map } from 'rxjs/operators';
+import { WINDOW_TITLE_PROJECT_ALL } from '../api/ConstantInterface';
 
 interface ActiveButtons {
   isDesktopActive: Boolean,
@@ -58,7 +59,7 @@ export class ProjectOtherComponent implements OnInit {
     private getProject: GetProjectList
   ){
     this.cacheService = new CacheService(this.httpClient);
-    this.title = "Portfolio - All Projects";
+    this.title = WINDOW_TITLE_PROJECT_ALL;
   }
 
   ngOnInit(){
@@ -79,7 +80,7 @@ export class ProjectOtherComponent implements OnInit {
       $(".filterToggleBtn").prop('disabled', false);
       this.filterArr = this.infoArr;
       this.isCompleted = true;
-      this.title = "Portfolio - All Projects";
+      this.title = WINDOW_TITLE_PROJECT_ALL;
       this.cacheService.set(KEY_TITLE, this.title);
     });
   }

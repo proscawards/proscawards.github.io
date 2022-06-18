@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CacheService } from '../services/cache.service';
 import { HttpClient } from '@angular/common/http';
 import { KEY_TITLE } from '../api/CacheKeys';
+import { WINDOW_TITLE_CONTACT } from '../api/ConstantInterface';
 
 @Component({
   selector: 'contactpage',
@@ -20,7 +21,7 @@ export class ContactpageComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.title = "Portfolio - Contact Me";
+    this.title = WINDOW_TITLE_CONTACT;
     this.cacheService.set(KEY_TITLE, this.title);
   }
 

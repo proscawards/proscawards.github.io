@@ -9,6 +9,7 @@ import { CacheService } from '../services/cache.service';
 import { parse } from 'date-fns';
 import { KEY_CERT, KEY_SEARCH_ACTIVE, KEY_TITLE } from '../api/CacheKeys';
 import { Router } from '../services/router.service';
+import { WINDOW_TITLE_CERT } from '../api/ConstantInterface';
 
 @Component({
   selector: 'certification',
@@ -35,14 +36,14 @@ export class CertificationComponent implements OnInit {
     private router: Router
   ) {
     this.cacheService = new CacheService(this.httpClient);
-    this.title = "Portfolio - Certifications";
+    this.title = WINDOW_TITLE_CERT;
   }
 
   ngOnInit(): void {
     $(".noResultDiv, .ngPaginationDiv").hide();
     $(".searchCertBtn").attr('disabled', 'true');
     this.getCollection();
-    this.title = "Portfolio - Certifications";
+    this.title = WINDOW_TITLE_CERT;
     this.cacheService.set(KEY_TITLE, this.title);
   }
 

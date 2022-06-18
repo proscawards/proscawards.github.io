@@ -13,6 +13,7 @@ import { CacheService } from '../services/cache.service';
 import { HttpClient } from '@angular/common/http';
 import { KEY_PROJECT_ACTIVE, KEY_TITLE } from '../api/CacheKeys';
 import Duration from '../utils/Duration';
+import { WINDOW_TITLE_DEFAULT, WINDOW_TITLE_PREFIX } from '../api/ConstantInterface';
 
 @Component({
   selector: 'project-detail',
@@ -43,7 +44,7 @@ export class ProjectDetailComponent implements OnInit {
     this.cacheService = new CacheService(this.httpClient);
     this.cacheService.exist(KEY_PROJECT_ACTIVE) ? 
       this.projId = this.cacheService.get(KEY_PROJECT_ACTIVE) : this.projId = 0;
-    this.title = "Portfolio - ";
+    this.title = WINDOW_TITLE_DEFAULT;
   }
 
   ngOnInit(){
@@ -79,7 +80,7 @@ export class ProjectDetailComponent implements OnInit {
         this.invalidNext = true;
       }
       this.isCompleted = true;
-      this.title = `Portfolio - ${this.infoData.filter(function (info: any) {return info.id == id}).map(val => val.title)}`;
+      this.title = `${WINDOW_TITLE_PREFIX}${this.infoData.filter(function (info: any) {return info.id == id}).map(val => val.title)}`;
       this.cacheService.set(KEY_TITLE, this.title);
     });
   }

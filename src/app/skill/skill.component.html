@@ -4,6 +4,7 @@
     <div i18n class="col-md-12 sectionHeader" data-aos="fade-right">//Skills</div>
     <div class="col-md-12 wrapper">
         <div class="col-md-12 scroll-bg" data-aos="zoom-in-right">
+            <spinner [isCompleted]="isCompleted"></spinner>
             <div class="row col-md-12">
                 <div i18n class="col-md-4 skillCard"><span (click)="skillBtnOnClick($event,0)"><i class="fas fa-code"></i> Programming Languages<i class="skillBtn activeSkill fas fa-angle-down" id="skillBtn0"></i></span>
                     <div class="skillChart" id="skillCont0"><canvas id="programmingChart"></canvas></div>

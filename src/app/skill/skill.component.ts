@@ -7,14 +7,11 @@ import Chart from 'chart.js/auto';
 import { CacheService } from '../services/cache.service';
 import { HttpClient } from '@angular/common/http';
 import { KEY_TITLE } from '../api/CacheKeys';
-
-interface Data{
-  prefix: string,
-  labels: string[],
-  data: number[],
-  color: string[],
-  type: string
-}
+import { Skill } from '../model/data/Skill';
+import { Observable } from 'rxjs';
+import { GetSkillList } from '../graphql/resolver/GetSkillList.gql';
+import { map } from 'rxjs/operators';
+import { WINDOW_TITLE_SKILL } from '../api/ConstantInterface';
 
 @Component({
   selector: 'skill',
@@ -24,24 +21,39 @@ interface Data{
 
 export class SkillComponent implements OnInit {
 
-  Data: Data[] = data;
+  private dataObserver!: Observable<Skill[]>;
+  private infoArr: Skill[] = [];
   public title: string;
   windowWidth: any;
+  public isCompleted: boolean = false;
 
   constructor(
     @Inject(DOCUMENT) private document: Document,
     @Inject(WINDOW) private window: Window,
     private cacheService: CacheService,
-    private httpClient: HttpClient
+    private httpClient: HttpClient,
+    private getSkill: GetSkillList
   ) { 
     this.cacheService = new CacheService(this.httpClient);
-    this.title = "Portfolio - Skills";
+    this.title = WINDOW_TITLE_SKILL;
   }
 
   ngOnInit(){
-    this.title = "Portfolio - Skills";
-    this.cacheService.set(KEY_TITLE, this.title);
-    this.loadCharts();
+    $(".skillCard").hide();
+    this.dataObserver = this.getSkill.watch()
+                        .valueChanges
+                        .pipe(
+                          map(result => result.data.getSkillList)
+                        );
+    this.dataObserver.subscribe(data => {
+      var tempData = [...data];
+      this.infoArr = tempData.sort((a: any, b: any) => {return a.id - b.id});
+      this.title = WINDOW_TITLE_SKILL;
+      this.cacheService.set(KEY_TITLE, this.title);
+      this.loadCharts();
+      $(".skillCard").fadeIn();
+      this.isCompleted = true;
+    });
   }
 
   @HostListener('window:resize', ['$event'])
@@ -51,14 +63,14 @@ export class SkillComponent implements OnInit {
 
   loadCharts(){
     let i: number = 0;
-    for (i; i<this.Data.length;i++){
-      let id: string = this.Data[i].prefix;
+    for (i; i<this.infoArr.length;i++){
+      let id: string = this.infoArr[i].prefix;
       const data: any = {
-        labels: this.Data[i].labels,
+        labels: this.infoArr[i].labels,
         datasets: [{
-          data: this.Data[i].data,
-          backgroundColor: this.colorArrBuilder(this.Data[i].color, .8),
-          borderColor: this.colorArrBuilder(this.Data[i].color, 1),
+          data: this.infoArr[i].data,
+          backgroundColor: this.colorArrBuilder(this.infoArr[i].color, .8),
+          borderColor: this.colorArrBuilder(this.infoArr[i].color, 1),
         }]
       };
       const config: any = {

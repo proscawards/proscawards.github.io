@@ -45,6 +45,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { SpinnerModule } from './spinner/spinner.module';
 import { TitleModule } from './title/title.module';
+import { ENDPOINT_GQL } from './api/ConstantInterface';
 
 @NgModule({
   declarations: [
@@ -122,7 +123,7 @@ import { TitleModule } from './title/title.module';
         return {
           cache: new InMemoryCache(),
           link: httpLink.create({
-            uri: 'https://portfolio-backend-proscawards.vercel.app/graphql',
+            uri: ENDPOINT_GQL,
           }),
         };
       },

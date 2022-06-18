@@ -5,6 +5,7 @@ import { Router } from '../services/router.service';
 import { CacheService } from '../services/cache.service';
 import { HttpClient } from '@angular/common/http';
 import { KEY_TITLE } from '../api/CacheKeys';
+import { WINDOW_TITLE_PROJECT } from '../api/ConstantInterface';
 
 interface Info{
   id: number,
@@ -30,10 +31,10 @@ export class ProjectComponent implements OnInit{
     private httpClient: HttpClient
   ) {
     this.cacheService = new CacheService(this.httpClient);
-    this.title = "Portfolio - Featured Projects";
+    this.title = WINDOW_TITLE_PROJECT;
    }
   ngOnInit(): void {
-    this.title = "Portfolio - Featured Projects";
+    this.title = WINDOW_TITLE_PROJECT;
     this.cacheService.set(KEY_TITLE, this.title);
   }
 

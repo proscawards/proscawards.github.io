@@ -92,7 +92,7 @@ import { ENDPOINT_GQL } from './api/ConstantInterface';
     ],
     {
       scrollPositionRestoration: 'enabled',
-      useHash: true,
+      useHash: false,
     }),
     NgbModule,
     BrowserAnimationsModule,

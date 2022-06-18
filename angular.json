@@ -41,7 +41,8 @@
               "src/googlebfeec6d2c07c3bc9.html",
               "src/CNAME",
               "src/404.html",
-              "src/manifest.webmanifest"
+              "src/manifest.webmanifest",
+              "src/.htaccess"
             ],
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/pink-bluegrey.css",
